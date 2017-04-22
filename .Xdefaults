@@ -1,0 +1,46 @@
+Xft.dpi:       96
+Xft.antialias: true
+Xft.rgba:      none
+Xft.hinting:   true
+Xft.hintstyle: hintfull
+
+
+URxvt.font:           xft:DejaVu Sans Mono for Powerline:style=Book:size=12, \
+                      xft:Noto Color Emoji:style=Regular::antialias=true, \
+    				  xft:Hiragino Kaku Gothic ProN,ヒラギノ角ゴ ProN,Hiragino Kaku Gothic ProN W3,ヒラギノ角ゴ ProN W3:style=W3,Regular:size=10:antialias=true
+URxvt.imFont:         xft:Hiragino Kaku Gothic ProN,ヒラギノ角ゴ ProN,Hiragino Kaku Gothic ProN W3,ヒラギノ角ゴ ProN W3:style=W3,Regular:size=10:antialias=true
+URxvt.boldFont:       xft:DejaVu Sans Mono for Powerline:style=Bold:size=12:antialias=true
+URxvt.italicFont:     xft:DejaVu Sans Mono for Powerline:style=Oblique:size=12:antialias=true
+URxvt.boldItalicFont: xft:DejaVu Sans Mono for Powerline:style=Bold Oblique:size=12:antialias=true
+URxvt.letterSpace:    0
+
+URxvt.scrollStyle: rxvt
+URxvt.scrollBar:   false
+
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
+URxvt.url-launcher:    google-chrome-stable
+URxvt.matcher.button:  1
+URxvt.inputMethod:     ibus
+
+URxvt.utf8: true
+URxvt.imLocale: ja_JP.UTF-8
+URxvt.preeditType: OnTheSpot,None
+
+*background: #1C1C1C
+*foreground: #FFFFFF
+*color0:  #2E3436
+*color1:  #a40000
+*color2:  #4E9A06
+*color3:  #C4A000
+*color4:  #3465A4
+*color5:  #75507B
+*color6:  #ce5c00
+*color7:  #babdb9
+*color8:  #555753
+*color9:  #EF2929
+*color10: #8AE234
+*color11: #FCE94F
+*color12: #729FCF
+*color13: #AD7FA8
+*color14: #fcaf3e
+*color15: #EEEEEC

@@ -1,0 +1,27 @@
+[[plugins]]
+repo = 'Shougo/vimshell'
+rev = '3787e5'
+
+[[plugins]]
+repo = 'jason0x43/vim-js-indent'
+on_ft = ['javascript', 'typescript', 'html']
+
+[[plugins]]
+repo = 'clausreinke/typescript-tools.vim'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'artur-shaik/vim-javacomplete2'
+on_ft = ['java']
+
+[[plugins]]
+repo = 'eagletmt/neco-ghc'
+on_ft = ['haskell']

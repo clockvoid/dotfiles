@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/clock/.vim/userautoload'
+let g:netrw_dirhist_2='/home/clock/.vim'
+let g:netrw_dirhist_3='/home/clock/.vim/userautoload'
+let g:netrw_dirhist_4='/home/clock/.xmonad'
+let g:netrw_dirhist_5='/home/clock/tex/2ndGradeExperiment'
+let g:netrw_dirhist_6='/home/clock/tex/2ndGradeExperiment/Statistics'
+let g:netrw_dirhist_7='/home/clock/tex/2ndGradeExperiment'
+let g:netrw_dirhist_8='/home/clock/tex/2ndGradeExperiment/ProofOfFormulas'
+let g:netrw_dirhist_9='/home/clock/tex/2ndGradeExperiment/English4'
