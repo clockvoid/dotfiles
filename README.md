@@ -2,7 +2,7 @@
 my using dotfiles including vimrc and xmonad.hs
 
 ## Description
-僕が使ってるdotfilesです．vimrcとxmonad.hsもここで管理してしまおうと考えています．
+僕が使ってるdotfilesです．`.vimrc`と`xmonad.hs`もここで管理してしまおうと考えています．
 
 ## Installation
 適当な場所に`git clone`してコピーしてください．
