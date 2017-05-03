@@ -21,9 +21,10 @@ my using dotfiles including vimrc and xmonad.hs
 * iBus(`.xprofile`)
 
 ## Environment
-僕はこのdotfilesを以下の構成で使っています．`.xinitrc`や`.xprofile`などはこの環境に強く依存しているので，
+僕はこのdotfilesを以下の構成で使っています．`.xinitrc`や`.xprofile`，更には`.vimrc`などはこの環境に強く依存しているので，
 他の環境で使う場合には修正が必要な可能性があります．
 * Virtual Box
 * Arch Linux
 * LightDM
 * XMonad
+* Vim + Dein.vim
