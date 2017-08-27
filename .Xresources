@@ -1,0 +1,113 @@
+! xft fonts 
+!------------------------------------------------------------------
+Xft.dpi:       96
+Xft.antialias: true
+Xft.rgba:      none
+Xft.hinting:   true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+
+! xterm 
+!----------------------------------------------------------------------
+
+XTerm*faceName: xft:DejaVu Sans Mono for Powerline:size=13:antialias=true
+XTerm*saveLines: 1000
+XTerm*termName: xterm-256color
+XTerm*utf8: 1
+XTerm*locale: true
+XTerm*selectToClipboard: true
+XTerm*metaSendsEscape: true
+XTerm*autoWrap: true
+XTerm*VT100*cjk_width: true
+XTerm*VT100*faceNameDoublesize: xft:Hiragino\ Kaku\ Gothic\ ProN,ヒラギノ角ゴ\ ProN,Hiragino\ Kaku\ Gothic\ ProN\ W3,ヒラギノ角ゴ\ ProN\ W3:style=W3,Regular:size=10:antialias=true
+XTerm*ximFont: xft:Hiragino Kaku Gothic ProN,ヒラギノ角ゴ ProN,Hiragino Kaku Gothic ProN W3,ヒラギノ角ゴ ProN W3:style=W3,Regular:size=10:antialias=true
+
+
+
+! urxvt 
+!---------------------------------------------------------------------
+URxvt.font:           xft:DejaVu\ Sans\ Mono\ for\ Powerline:book:size=13:antialias=true,xft:Noto\ Color\ Emoji:style=Regular:antialias=true,xft:Hiragino\ Kaku\ Gothic\ ProN,ヒラギノ角ゴ\ ProN,Hiragino\ Kaku\ Gothic\ ProN\ W3,ヒラギノ角ゴ\ ProN\ W3:style=W3,Regular:size=10:antialias=true
+URxvt.imFont:         xft:Hiragino Kaku Gothic ProN,ヒラギノ角ゴ ProN,Hiragino Kaku Gothic ProN W3,ヒラギノ角ゴ ProN W3:style=W3,Regular:size=10:antialias=true
+URxvt.boldFont:       xft:DejaVu Sans Mono for Powerline:style=Bold:size=13:antialias=true
+URxvt.italicFont:     xft:DejaVu Sans Mono for Powerline:style=Oblique:size=13:antialias=true
+URxvt.boldItalicFont: xft:DejaVu Sans Mono for Powerline:style=Bold Oblique:size=13:antialias=true
+URxvt.letterSpace:    1
+
+URxvt.scrollStyle: rxvt
+URxvt.scrollBar:   false
+
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,xim-onthespot
+URxvt.url-launcher:    google-chrome-stable
+URxvt.matcher.button:  1
+URxvt.inputMethod:     ibus
+URxvt.preeditType:     OnTheSpot
+
+URxvt.utf8: true
+URxvt.imLocale: ja_JP.UTF-8
+URxvt*termName: rxvt-unicode-256color
+
+! color for both terminal emulator
+!---------------------------------------------------------------------
+
+!*background: #1C1C1C
+!*foreground: #FFFFFF
+!*color0:  #2E3436
+!*color1:  #a40000
+!*color2:  #4E9A06
+!*color3:  #C4A000
+!*color4:  #3465A4
+!*color5:  #75507B
+!*color6:  #ce5c00
+!*color7:  #babdb9
+!*color8:  #555753
+!*color9:  #EF2929
+!*color10: #8AE234
+!*color11: #FCE94F
+!*color12: #729FCF
+!*color13: #AD7FA8
+!*color14: #fcaf3e
+!*color15: #EEEEEC
+
+# hybrid
+#define t_background        #1d1f21
+#define t_foreground        #c5c8c6
+
+#define t_normal_black      #282a2e
+#define t_normal_red        #a54242
+#define t_normal_green      #8c9440
+#define t_normal_yellow     #de935f
+#define t_normal_blue       #5f819d
+#define t_normal_magenta    #85678f
+#define t_normal_cyan       #5e8d87
+#define t_normal_white      #707880
+
+#define t_bright_black      #373b41
+#define t_bright_red        #cc6666
+#define t_bright_green      #b5bd68
+#define t_bright_yellow     #f0c674
+#define t_bright_blue       #81a2be
+#define t_bright_magenta    #b294bb
+#define t_bright_cyan       #8abeb7
+#define t_bright_white      #c5c8c6
+
+*background:   t_background
+*foreground:   t_foreground
+
+! black
+*color0:       t_normal_black
+*color1:       t_normal_red
+*color2:       t_normal_green
+*color3:       t_normal_yellow
+*color4:       t_normal_blue
+*color5:       t_normal_magenta
+*color6:       t_normal_cyan
+*color7:       t_normal_white
+
+*color8:       t_bright_black
+*color9:       t_bright_red
+*color10:      t_bright_green
+*color11:      t_bright_yellow
+*color12:      t_bright_blue
+*color13:      t_bright_magenta
+*color14:      t_bright_cyan
+*color15:      t_bright_white

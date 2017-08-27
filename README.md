@@ -15,7 +15,10 @@ my using dotfiles including vimrc and xmonad.hs
 * maim(`.xmonad`)
 * xdotool(`.xmonad`, maim)
 * Xmobar(`.xmobarrc`)
-* urxvt(`.Xdefaults`)
+* urxvt(`.Xresources`)
+* xterm(`.Xresources`)
+* tmux(`.tmux.conf`)
+* zsh(`.zshrc`)
 * trayer(`.xprofile`) <- icon tray
 * Feh(`.xprofile`) <- for wallpaper
 * iBus(`.xprofile`)

@@ -1,0 +1,14 @@
+{
+	"groups": {
+		"active_window_status": { "fg": "hybrid:blue",   "bg": "hybrid:base02", "attrs": [] },
+		"window_status":        { "fg": "hybrid:base1",  "bg": "hybrid:base02", "attrs": [] },
+		"activity_status":      { "fg": "hybrid:yellow", "bg": "hybrid:base02", "attrs": [] },
+		"bell_status":          { "fg": "hybrid:red",    "bg": "hybrid:base02", "attrs": [] },
+		"window":               { "fg": "hybrid:base1",  "bg": "hybrid:base02", "attrs": [] },
+		"window:divider":       { "fg": "hybrid:base01", "bg": "hybrid:base02", "attrs": [] },
+		"window:current":       { "fg": "hybrid:base3",  "bg": "hybrid:base01", "attrs": [] },
+		"window_name":          { "fg": "hybrid:base3",  "bg": "hybrid:base01", "attrs": ["bold"] },
+		"session":              { "fg": "hybrid:base3",  "bg": "hybrid:base01", "attrs": [] },
+		"session:prefix":       { "fg": "hybrid:base01", "bg": "hybrid:base3",  "attrs": [] }
+	}
+}
