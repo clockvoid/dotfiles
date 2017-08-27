@@ -19,6 +19,7 @@ my using dotfiles including vimrc and xmonad.hs
 * xterm(`.Xresources`)
 * tmux(`.tmux.conf`)
 * zsh(`.zshrc`)
+* Powerline(`.config/powerline/`)
 * trayer(`.xprofile`) <- icon tray
 * Feh(`.xprofile`) <- for wallpaper
 * iBus(`.xprofile`)

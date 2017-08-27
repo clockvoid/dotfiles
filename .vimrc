@@ -1,20 +1,10 @@
-" START: define filetypes ------------------------------------------------
-augroup DefineFileTypes
-	autocmd!
-	autocmd BufRead,BufNewFile .xmobarrc setfiletype haskell
-	autocmd BufRead,BufNewFile *.hs setlocal filetype=haskell
-	autocmd BufRead,BufNewFile *.rb setlocal filetype=ruby
-	autocmd BufRead,BufNewFile *.py setlocal filetype=python
-	autocmd BufRead,BufNewFile *.ts setlocal filetype=typescript
-augroup END
-" END: define filetypes --------------------------------------------------
 
 if &compatible
   set nocompatible
 endif
 
-let s:dein_dir = expand('~/.vim/dein')
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+let s:dein_dir = expand('~/.cache/dein')
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)

@@ -21,6 +21,11 @@ set background=dark
 colorscheme hybrid
 " END: basic settings ----------------------------------------------------
 
+" START: command completion ----------------------------------------------
+set wildmenu
+set wildmode=full
+" END: commnd completion -------------------------------------------------
+
 " START: settings for filetypes ------------------------------------------
 augroup SetFileTypes
 	autocmd!

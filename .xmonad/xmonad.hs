@@ -21,25 +21,36 @@ myManageHook = composeAll
     [ className =? "Gimp" --> doFloat
     , className =? "Vncviewer" --> doFloat
     , className =? "Caja" --> doCenterFloat
+    , className =? "Pcmanfm" --> doCenterFloat
+    , className =? "Engrampa" --> doCenterFloat
     , className =? "Eom" --> doCenterFloat
     , className =? "Vidalia" --> doCenterFloat
     , className =? "Mikutter.rb" <&&> title =? "Preferences" --> doCenterFloat
     , appName =? "crx_nckgahadagoaajjgafhacjanaoiihapd" --> doCenterFloat
+    , className =? "Gnome-system-monitor" --> doCenterFloat
     , isFullscreen --> doFloat
     , isDialog --> doCenterFloat
+    , title =? "Nice Window" --> doCenterFloat
     ]
 
 -- settings for new shortcut keys
-myKeys = [ ("M-p", spawn "dmenu_run -fn 'Monospace:pixelsize=15'")
+myKeys = [ ("M-p", spawn "dmenu_run -fn 'Monospace-11'")
          , ("<Print>", spawn "screenshot.sh")
          , ("M-<Print>", spawn "screenshot_focused_window.sh")
          , ("C-<Print>", spawn "screenshot_select.sh")
-         , ("M-e", spawn "caja")
+         , ("M-e", spawn "pcmanfm")
          , ("M-m", spawn "mikutter")
+         , ("M-n", spawn "nvim-wrapper")
+         , ("M-g", spawn "gvim")
+         , ("M-c", spawn "google-chrome-stable")
+         , ("C-S-<Esc>", spawn "gnome-system-monitor")
          ] 
 
 -- settings for default terminal emulator
-myTerminal = "urxvt"
+myTerminal = "xterm -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\"" --"gnome-terminal -e tmux" --"xterm"--"urxvt -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\""
+
+-- settings for mod key
+myModMask = mod4Mask
 
 -- settings for border
 myBorderWidth = 1
@@ -68,6 +79,7 @@ main = do
         , normalBorderColor = myNomalBorderColor
         , manageHook = manageDocks <+> myManageShift <+> myManageHook <+> manageHook baseConfig
         , layoutHook = avoidStruts $ layoutHook baseConfig
+        --, modMask = myModMask
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50
