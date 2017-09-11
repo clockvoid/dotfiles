@@ -1,6 +1,8 @@
-gtk-font-name="Hiragino Kaku Gothic ProN W3 10"
-
 style "gvimfix" {
 	bg[NORMAL] = "#1C1C1C" #for dark hybrid theme
 }
 widget "vim-main-window.*GtkForm" style "gvimfix"
+
+gtk-icon-theme-name = "Adwaita"
+gtk-theme-name = "Flat-Plat"
+gtk-font-name="Sans 13"
