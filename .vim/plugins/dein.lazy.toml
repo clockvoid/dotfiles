@@ -25,3 +25,23 @@ on_ft = ['java']
 [[plugins]]
 repo = 'eagletmt/neco-ghc'
 on_ft = ['haskell']
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'udalov/kotlin-vim'
+on_ft = ['kotlin']
+
+[[plugins]]
+repo = 'vim-latex/vim-latex'
+on_ft = ['tex']
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+on_ft = ['tex']
+
+[[plugins]]
+repo= 'rust-lang/rust.vim'
+on_ft = ['rust']

@@ -4,9 +4,10 @@ set encoding=utf-8
 " START: basic settings --------------------------------------------------
 " about edit files
 set tabstop=4
-set noexpandtab
+set expandtab
 set autoindent
 set smartindent
+set smarttab
 set shiftwidth=4
 set showmatch
 syntax on
