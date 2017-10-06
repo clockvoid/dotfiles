@@ -1,0 +1,5 @@
+#!/usr/bin/zsh
+
+tmux split-window -d -p 15
+tmux split-window -h -p 85
+vim .
