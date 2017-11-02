@@ -37,3 +37,6 @@ build = 'make'
 
 [[plugins]]
 repo = 'fuenor/im_control.vim'
+
+[[plugins]]
+repo = 'tpope/vim-obsession'
