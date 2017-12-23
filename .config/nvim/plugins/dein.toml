@@ -2,14 +2,14 @@
 #repo = 'Shougo/neocomplete.vim'
 
 [[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_i = 1
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
-on_i = 1
-on_ft = ['snippet']
-depends = ['neosnippet-snippets', 'vim-snippets']
+#depends = ['neosnippet-snippets', 'vim-snippets']
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -50,3 +50,9 @@ build = 'make'
 
 [[plugins]]
 repo = 'fuenor/im_control.vim'
+
+[[plugins]]
+repo = 'tpope/vim-obsession'
+
+#[[plugins]]
+#repo='autozimu/LanguageClient-neovim'

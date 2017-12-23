@@ -1,11 +1,10 @@
-runtime! filetype.vim
 
 if &compatible
     set nocompatible
 endif
 
-let s:dein_dir = expand('~/.config/nvim/dein')
-set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+let s:dein_dir = expand('~/.cache/dein')
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
@@ -26,4 +25,4 @@ endif
 
 filetype plugin indent on
 runtime! userautoload/*.vim
-runtime! userautoload/*.nvim
+"runtime! userautoload/*.nvim
