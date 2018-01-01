@@ -10,7 +10,7 @@ export ZSH_ROOT=$HOME/.zsh
 export ZSH_TMUX_AUTOSTART=true
 
 # settings for path
-export PATH=$PATH:/home/clock/.gem/ruby/2.4.0/bin:/home/clock/.local/bin
+export PATH=$PATH:/home/clock/.gem/ruby/2.4.0/bin:/home/clock/.local/bin:/home/clock/.cargo/bin
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -37,10 +37,18 @@ source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 # make keybindings be like vim
 bindkey -v
 
+# aliases
 alias ls='ls --color=auto'
 # alias urxvt='urxvt -e zsh -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 # PROMPT="[%n@%m %~]$ "
 alias vim='nvim'
+alias v='nvim'
+alias g='git'
+alias t='tmux'
+alias y='yaourt'
+alias c='clear'
+alias e='exit'
+alias l='ls --color=auto'
 
 # for completion
 autoload -Uz compinit
