@@ -32,3 +32,14 @@ my using dotfiles including vimrc and xmonad.hs
 * LightDM
 * XMonad
 * Vim + Dein.vim
+
+## Dependencies
+NeovimでLanguageServerを使うための設定をしているので，そのための依存関係を一応記しておきます．（完全に自分のため）
+* `typescript-language-server`
+* `javascript-typescript-lanserver`
+* `rls`（for rust）
+* `Haskell-ide-Engine`
+* `php-language-server`
+* `clangd`
+
+基本的にはAURに存在するか，`npm`でインストールすれば使えますが，`rls`などは少しだけ特殊です．詳しくは書くソフトウェアのGitHubをみて設定します．
