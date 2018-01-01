@@ -12,3 +12,15 @@ augroup DefineFileTypes
 augroup END
 " END: define filetypes --------------------------------------------------
 
+" START: settings for filetypes ------------------------------------------
+augroup SetFileTypes
+    autocmd!
+    autocmd filetype cpp setlocal makeprg=g++\ %\ -o\ %<\ -std=c++11
+    autocmd filetype c setlocal makeprg=gcc\ %\ -o\ %<
+    autocmd filetype java setlocal makeprg=javac\ %
+    autocmd filetype haskell let g:haskellmode_completion_ghc = 0
+    autocmd filetype haskell setlocal makeprg=ghc\ %\
+    autocmd filetype typescript let g:js_indent_typescript = 1
+augroup END
+" END: settings for filetypes --------------------------------------------
+

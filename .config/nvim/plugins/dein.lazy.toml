@@ -43,5 +43,9 @@ repo = 'ujihisa/neco-look'
 on_ft = ['tex']
 
 [[plugins]]
-repo= 'rust-lang/rust.vim'
+repo = 'rust-lang/rust.vim'
 on_ft = ['rust']
+
+[[plugins]]
+repo = 'othree/csscomplete.vim'
+on_ft = ['css']
