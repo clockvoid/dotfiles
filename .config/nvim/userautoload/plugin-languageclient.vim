@@ -3,11 +3,12 @@ set hidden
 
 " language server settings
 let g:LanguageClient_serverCommands = {
-            \ 'typescript': ['typescript-language-server', '--stdio'],
-            \ 'javascript': ['node', '~/javascript/javascript-typescript-langserver/lib/langserver.js', '--stdio'],
+            \ 'typescript': ['node', '~/javascript/javascript-typescript-langserver/lib/language-server-stdio.js'],
+            \ 'javascript': ['node', '~/javascript/javascript-typescript-langserver/lib/language-server.js'],
             \ 'rust': ['rustup', 'run', 'stable', 'rls'],
             \ 'haskell': ['hie', '--lsp'],
             \ 'php': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
+            \ 'phpunit': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
             \ 'c': ['clangd'],
             \ 'cpp': ['clangd'],
             \}

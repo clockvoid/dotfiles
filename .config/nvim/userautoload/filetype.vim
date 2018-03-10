@@ -9,6 +9,7 @@ augroup DefineFileTypes
     autocmd BufRead,BufNewFile *.nvim setlocal filetype=vim
     autocmd BufRead,BufNewFile *.kt setlocal filetype=kotlin
     autocmd BufRead,BufNewFile *.(md, mdwn, mkd, mkdn, mark*) setlocal filetype=markdown
+    autocmd BufRead,BufNewFile *Test.php setlocal filetype=phpunit syntax=php
 augroup END
 " END: define filetypes --------------------------------------------------
 

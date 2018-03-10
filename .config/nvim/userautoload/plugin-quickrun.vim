@@ -19,7 +19,14 @@ let g:quickrun_config['html'] = {
 \}
 
 let g:quickrun_config['c'] = {
-			\	'command': 'gcc',
-			\	'cmdopt': '-lm'
-			\}
+\	'command': 'gcc',
+\	'cmdopt': '-lm'
+\}
+
+let g:quickrun_config['phpunit'] = {
+\   'outputter/buffer/split' : 'vertical 35',
+\   'command' : 'phpunit',
+\   'cmdopt' : '--colors=auto',
+\   'exec' : '%c %o %s'
+\}
 " END: settings for QuickRun
