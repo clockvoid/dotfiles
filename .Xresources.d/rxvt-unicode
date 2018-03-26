@@ -1,0 +1,65 @@
+! urxvt 
+!---------------------------------------------------------------------
+URxvt.font:           xft:DejaVu Sans Mono for Powerline:book:size=13:antialias=true, \
+                      xft:ヒラギノ角ゴ ProN W3:style=W3:size=13:antialias=true, \
+                      xft:Symbola:style=Regular:size=13:minspace=false
+URxvt.ximFont:        xft:ヒラギノ角ゴ ProN W3:style=W3:size=13:antialias=true, \
+                      xft:Noto Color Emoji:style=Regular:size=13:minspace=false
+URxvt.boldFont:       xft:DejaVu Sans Mono for Powerline:style=Bold:size=13:antialias=true
+URxvt.italicFont:     xft:DejaVu Sans Mono for Powerline:style=Oblique:size=13:antialias=true
+URxvt.boldItalicFont: xft:DejaVu Sans Mono for Powerline:style=Bold Oblique:size=13:antialias=true
+URxvt.letterSpace:    0
+
+URxvt.scrollStyle: rxvt
+URxvt.scrollBar:   false
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,xim-onthespot
+URxvt.url-launcher:    google-chrome-stable
+URxvt.matcher.button:  1
+URxvt.inputMethod:     ibus
+URxvt.preeditType:     OnTheSpot
+
+URxvt.utf8: true
+URxvt.imLocale: ja_JP.UTF-8
+URxvt.termName: rxvt-unicode-256color
+
+! hybrid color for URxvt
+#define u_background        rgb:1d/1f/21
+#define u_foreground        rgb:c5/c8/c6
+#define u_normal_black      rgb:28/2a/2e
+#define u_normal_red        rgb:a5/42/42
+#define u_normal_green      rgb:8c/94/40
+#define u_normal_yellow     rgb:de/93/5f
+#define u_normal_blue       rgb:5f/81/9d
+#define u_normal_magenta    rgb:85/67/8f
+#define u_normal_cyan       rgb:5e/8d/87
+#define u_normal_white      rgb:70/78/80
+#define u_bright_black      rgb:37/3b/41
+#define u_bright_red        rgb:cc/66/66
+#define u_bright_green      rgb:b5/bd/68
+#define u_bright_yellow     rgb:f0/c6/74
+#define u_bright_blue       rgb:81/a2/be
+#define u_bright_magenta    rgb:b2/94/bb
+#define u_bright_cyan       rgb:8a/be/b7
+#define u_bright_white      rgb:c5/c8/c6
+URxvt.depth: 32
+URxvt.background:   u_background
+URxvt.foreground:   u_foreground
+URxvt.color0:       u_normal_black
+URxvt.color1:       u_normal_red
+URxvt.color2:       u_normal_green
+URxvt.color3:       u_normal_yellow
+URxvt.color4:       u_normal_blue
+URxvt.color5:       u_normal_magenta
+URxvt.color6:       u_normal_cyan
+URxvt.color7:       u_normal_white
+URxvt.color8:       u_bright_black
+URxvt.color9:       u_bright_red
+URxvt.color10:      u_bright_green
+URxvt.color11:      u_bright_yellow
+URxvt.color12:      u_bright_blue
+URxvt.color13:      u_bright_magenta
+URxvt.color14:      u_bright_cyan
+URxvt.color15:      u_bright_white

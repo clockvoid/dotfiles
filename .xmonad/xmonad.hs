@@ -27,6 +27,7 @@ myManageHook = composeAll
   , className =? "Vidalia" --> doCenterFloat
   , className =? "Mikutter.rb" <&&> title =? "Preferences" --> doCenterFloat
   , appName =? "crx_nckgahadagoaajjgafhacjanaoiihapd" --> doCenterFloat
+  , appName =? "OpenGL Sample" --> doCenterFloat
   , className =? "Gnome-system-monitor" --> doCenterFloat
   , isFullscreen --> doFloat
   , isDialog --> doCenterFloat
@@ -46,10 +47,11 @@ myKeys = [ ("M-p", spawn "dmenu_run -fn 'Monospace-11'")
          , ("M-g", spawn "gvim")
          , ("M-c", spawn "google-chrome-stable")
          , ("C-S-<Esc>", spawn "gnome-system-monitor")
+         , ("M-x", spawn "xterm")
          ] 
 
 -- settings for default terminal emulator
-myTerminal = "xterm -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\"" --"gnome-terminal -e tmux" --"xterm"--"urxvt -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\""
+myTerminal = "urxvt -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\"" --"gnome-terminal -e tmux" --"xterm"--"urxvt -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\""
 
 -- settings for mod key
 myModMask = mod4Mask
