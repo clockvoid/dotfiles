@@ -1,6 +1,8 @@
 " START: define filetypes ------------------------------------------------
 augroup DefineFileTypes
     autocmd!
+    " if pattern include '/', search for full path
+    autocmd BufRead,BufNewFile *.Xresources.d/* setlocal filetype=xdefaults
     autocmd BufRead,BufNewFile .xmobarrc setfiletype haskell
     autocmd BufRead,BufNewFile *.hs setlocal filetype=haskell
     autocmd BufRead,BufNewFile *.rb setlocal filetype=ruby

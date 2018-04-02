@@ -10,6 +10,8 @@ set autoindent
 set smartindent
 set shiftwidth=4
 set showmatch
+set ignorecase
+set smartcase
 syntax on
 
 " about monitor settings
@@ -39,6 +41,5 @@ tnoremap <silent> <ESC> <C-\><C-n>
 if has('conceal')
     set conceallevel=2 concealcursor=niv
     let g:tex_conceal='' " disable tex conceal
-    let g:md_conceal=''
 endif
 " END: settings for conceal ----------------------------------------------

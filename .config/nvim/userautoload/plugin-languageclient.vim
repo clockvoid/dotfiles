@@ -1,16 +1,16 @@
 
-set hidden
+"set hidden
 
 " language server settings
 let g:LanguageClient_serverCommands = {
             \ 'typescript': ['node', '~/javascript/javascript-typescript-langserver/lib/language-server-stdio.js'],
             \ 'javascript': ['node', '~/javascript/javascript-typescript-langserver/lib/language-server.js'],
             \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-            \ 'haskell': ['hie', '--lsp'],
             \ 'php': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
             \ 'phpunit': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
             \ 'c': ['clangd'],
             \ 'cpp': ['clangd'],
+            \ 'haskell': ['hie', '--lsp']
             \}
 
 let g:LanugageClient_autoStart = 1
@@ -19,13 +19,13 @@ let g:LanguageClient_diagnosticsDisplay = {
             \ 1: {
             \     'name': 'Error',
             \     'texthl': 'ALEError',
-            \     'signText': '✖',
+            \     'signText': 'e',
             \     'signTexthl': 'ALEErrorSign',
             \ },
             \ 2: {
             \     'name': 'Warning',
             \     'texthl': 'ALEWarning',
-            \     'signText': '⚠',
+            \     'signText': 'w',
             \     'signTexthl': 'ALEWarningSign',
             \ },
             \ 3: {
@@ -37,7 +37,7 @@ let g:LanguageClient_diagnosticsDisplay = {
             \ 4: {
             \     'name': 'Hint',
             \     'texthl': 'ALEInfo',
-            \     'signText': '➤',
+            \     'signText': 'h',
             \     'signTexthl': 'ALEInfoSign',
             \ },
             \}
