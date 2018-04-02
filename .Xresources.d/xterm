@@ -1,7 +1,7 @@
 ! xterm 
 !----------------------------------------------------------------------
 
-XTerm*faceName: xft:DejaVu Sans Mono for Powerline:size=13:antialias=true
+XTerm*faceName: xft:Source Code Pro:style=Regular:size=13:antialias=true
 XTerm*cjk_width: true
 XTerm*faceNameDoublesize: xft:ヒラギノ角ゴ ProN W3:style=W3:size=13:antialias=true,xft
 XTerm*fontWarnings: 1

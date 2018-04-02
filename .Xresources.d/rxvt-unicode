@@ -1,12 +1,12 @@
 ! urxvt 
 !---------------------------------------------------------------------
-URxvt.font:           xft:DejaVu Sans Mono for Powerline:book:size=13:antialias=true, \
+URxvt.font:           xft:Source Code Pro:style=Regular:size=13:antialias=true, \
                       xft:ヒラギノ角ゴ ProN W3:style=W3:size=13:antialias=true, \
                       xft:Symbola:style=Regular:size=13:minspace=false
 URxvt.ximFont:        xft:ヒラギノ角ゴ ProN W3:style=W3:size=13:antialias=true, \
-                      xft:Noto Color Emoji:style=Regular:size=13:minspace=false
-URxvt.boldFont:       xft:DejaVu Sans Mono for Powerline:style=Bold:size=13:antialias=true
-URxvt.italicFont:     xft:DejaVu Sans Mono for Powerline:style=Oblique:size=13:antialias=true
+                      xft:Symbola:style=Regular:size=13:minspace=false
+URxvt.boldFont:       xft:Source Code Pro:style=Bold:size=13:antialias=true
+URxvt.italicFont:     xft:Source Code Pro:style=Italic:size=13:antialias=true
 URxvt.boldItalicFont: xft:DejaVu Sans Mono for Powerline:style=Bold Oblique:size=13:antialias=true
 URxvt.letterSpace:    0
 
@@ -14,6 +14,8 @@ URxvt.scrollStyle: rxvt
 URxvt.scrollBar:   false
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
+!URxvt.visualBell: true
+Urxvt.pointerBlank: true
 
 URxvt.perl-ext-common: default,matcher,selection-to-clipboard,xim-onthespot
 URxvt.url-launcher:    google-chrome-stable
