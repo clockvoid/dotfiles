@@ -59,8 +59,13 @@ repo = 'tpope/vim-obsession'
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
-rev = 'binary-*-x86_64-unknown-linux-musl'
-build = 'install.sh'
+rev = 'next'
+#rev = 'binary-*-x86_64-unknown-linux-musl'
+build = 'bash install.sh'
 
 [[plugins]]
 repo = 'junegunn/fzf'
+
+#[[plugins]]
+#repo = 'roxma/nvim-completion-manager'
+

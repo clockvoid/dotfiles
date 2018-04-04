@@ -39,13 +39,21 @@ repo = 'vim-latex/vim-latex'
 on_ft = ['tex']
 
 [[plugins]]
-repo = 'ujihisa/neco-look'
-on_ft = ['tex']
-
-[[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = ['rust']
 
 [[plugins]]
 repo = 'othree/csscomplete.vim'
 on_ft = ['css']
+
+[[plugins]]
+repo = 'nsf/gocode'
+on_ft = ['go']
+
+[[plugins]]
+repo = 'Shougo/neco-vim'
+on_ft = ['vim']
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+on_ft = ['md', 'tex']
