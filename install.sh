@@ -4,21 +4,6 @@
 # There are possibilities to break your environment because this script is under beta.
 # If your environment breaks, you have to delete dotfiles and something by hand. Sorry!
 
-if [ $# -gt 0 ]; then
-    home_dir=$1
-    if [ ! -d $home_dir ]; then
-        mkdir $home_dir
-    fi
-else
-    home_dir=~/
-fi
-
-echo Install those files to $home_dir/...
-
-if [ ! -d $home_dir/.config ]; then
-    mkdir $home_dir/.config
-fi
-
 powerline ()
 {
     cp -r ./.config/powerline $home_dir/.config/
@@ -128,7 +113,58 @@ neovim ()
     echo Neovim: Done
 }
 
-if [ $# -le 1 ]; then
+print_help ()
+{
+cat << EOF
+Usage: sh install.sh [OPTION]...
+Install dotfiles to your environment.
+
+With no OPTION, it will install all of the config to ~/
+
+  -c, --config [CONFIGURATION_NAME]  specify installing dotfiles
+  -d, --directory [DIRECTORY]        specify directory install to
+  -h, --help                         print this help and exit
+
+Dotfiles installing script by clockvoid
+for information about configuration, read <https://github.com/clockvoid/dotfiles/blob/master/README.md>
+EOF
+}
+
+mode=""
+home_dir="~/"
+config=""
+
+for i in $@
+do
+    if [[ $mode = "directory" ]]; then
+        mode=""
+        home_dir=$i
+    fi
+    if [ $i = "-d" -o $i = "--directory" ]; then
+        mode="directory"
+        continue
+    fi
+    if [[ $mode = "config" ]]; then
+        mode=""
+        config=$i
+    fi
+    if [ $i = "-c" -o $i = "--config" ]; then
+        mode="config"
+        continue
+    fi
+    if [ $1 = "-h" -o $i = "--help" ]; then
+        print_help
+        exit 0
+    fi
+done
+
+echo Install to $home_dir/..
+if [ ! -d $home_dir/.config ]; then
+    mkdir $home_dir/.config
+fi
+
+if [[ $config = "" ]]; then
+    echo Installing all...
     tmux
     vim
     lightdm
@@ -139,12 +175,19 @@ if [ $# -le 1 ]; then
     git_template
     neovim
 else
-    if [ $2 = "vim" ]; then
+    echo Installing $config...
+    if [ $config = "vim" ]; then
         vim
-    elif [ $2 = "neovim" ]; then
+    elif [ $config = "neovim" ]; then
         neovim
-    elif [ $2 = "zsh" ]; then
+    elif [ $config = "zsh" ]; then
         zsh
+    elif [ $config = "tmux" ]; then
+        tmux
+    elif [ $config = "xresources" ]; then
+        xresources
+    elif [ $config = "xmonad" ]; then
+        xmonad
     fi
 fi
 
