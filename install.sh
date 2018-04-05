@@ -4,113 +4,148 @@
 # There are possibilities to break your environment because this script is under beta.
 # If your environment breaks, you have to delete dotfiles and something by hand. Sorry!
 
+if [ $# -gt 0 ]; then
+    home_dir=$1
+    if [ ! -d $home_dir ]; then
+        mkdir $home_dir
+    fi
+else
+    home_dir=~/
+fi
+
+echo Install those files to $home_dir/...
+
+if [ ! -d $home_dir/.config ]; then
+    mkdir $home_dir/.config
+fi
+
 powerline ()
 {
-    cp -r ./.config/powerline ~/.config/
+    cp -r ./.config/powerline $home_dir/.config/
+    echo PowerLine: Done
 }
 
 install_dein()
 {
-    if [ ! -e ~/.cache ]; then
-        mkdir ~/.cache
+    if [ ! -d $home_dir/.cache ]; then
+        mkdir $home_dir/.cache
     fi
-    if [ ! -e ~/.cache/dein ]; then
-        mkdir ~/.cache/dein
+    if [ ! -d $home_dir/.cache/dein ]; then
+        mkdir $home_dir/.cache/dein
         curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-        sh ./installer.sh ~/.cache/deina/
+        sh ./installer.sh $home_dir/.cache/dein/ >/dev/null
     fi
 }
 
 vim ()
 {
-    cp -r ./.*vim* ~/
+    cp -r ./.*vim* $home_dir/
     install_dein
+    echo Vim: Done
 }
 
 tmux ()
 {
-    if [ ! -e ~/.local ]; then
-        mkdir ~/.local/bin
+    # TODO: separate installing shell/* to function shell_tools
+    if [ ! -d $home_dir/.local ]; then
+        mkdir $home_dir/.local
     fi
-    if [ ! -e ~/.local/bin ]; then
-        mkdir ~/.local/bin
+    if [ ! -d $home_dir/.local/bin ]; then
+        mkdir $home_dir/.local/bin
     fi
-    cp -r ./shell ~/.local/bin
-    cp ./.tmux.conf ~/
-    if [ ! -e ~/.tmux ];  then
-        mkdir ~/.tmux
+    cp ./shell/* $home_dir/.local/bin/
+    cp ./.tmux.conf $home_dir/
+    if [ ! -d $home_dir/.tmux ]; then
+        mkdir $home_dir/.tmux
     fi
-    if [ ! -e ~/.tmux/plugins ]; then
-        mkdir ~/.tmux/plugins
+    if [ ! -d $home_dir/.tmux/plugins ]; then
+        mkdir $home_dir/.tmux/plugins
     fi
-    if [! -e ~/.tmux/plugins/tmp ]; then
-        mkdir ~/.tmux/plugins/tpm
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    if [ ! -d $home_dir/.tmux/plugins/tpm ]; then
+        mkdir $home_dir/.tmux/plugins/tpm
+        # check git command
+        type git || {
+          echo 'Please install git or update your path to include the git executable!'
+          exit 1
+        }
+        git clone https://github.com/tmux-plugins/tpm $home_dir/.tmux/plugins/tpm
     fi
     powerline
+    echo Tmux: Done
 }
 
 gtk ()
 {
-    cp ./.gtkrc-2.0 ~/
-    cp ./.config/gtk-* ~/.config/
+    cp ./.gtkrc-2.0 $home_dir/
+    cp -r ./.config/gtk-* $home_dir/.config/
+    echo GTK: Done
 }
 
 lightdm ()
 {
     gtk
-    cp ./lightdm ~/
+    cp -r ./lightdm $home_dir/
+    echo LightDM: Done: Please copy files in $home_dir/lightdm/ to /etc/lightdm/!
 }
 
 xmonad ()
 {
-    cp -r ./.xmo* ~/
-    cp ./.xinitrc ~/
-    cp ./.xprofile ~/
+    cp -r ./.xmo* $home_dir/
+    cp ./.xinitrc $home_dir/
+    cp ./.xprofile $home_dir/
+    echo Xmonad: Done
 }
 
 xresources ()
 {
-    cp -r ./.Xresources* ~/
+    cp -r ./.Xresources* $home_dir/
+    echo Xresources: Done
 }
 
 zsh ()
 {
-    cp ./.zshrc ~/
+    cp ./.zshrc $home_dir/
     powerline
+    echo Zsh: Done
 }
 
 feh ()
 {
-    cp ./.fehbg ~/
+    cp ./.fehbg $home_dir/
+    echo Feh: Done
 }
 
-git ()
+git_template ()
 {
-    cp -r ./.git_template ~/
+    cp -r ./.git_template $home_dir/
+    echo Git: Done
 }
 
 neovim ()
 {
-    cp -r ./.config/nvim/ ~/.config/
+    cp -r ./.config/nvim/ $home_dir/.config/
     install_dein
+    echo Neovim: Done
 }
 
-if [ "$#" -eq 0 ]; then
-    powerline
-    vim
+if [ $# -le 1 ]; then
     tmux
+    vim
     lightdm
     xmonad
     xresources
     zsh
     feh
-    git
+    git_template
     neovim
-else if [ "$1" -eq "vim" ]; then
-    vim
-else if [ "$1" -eq "neovim" ]; then
-    neovim
-else if [ "$1" -eq "zsh" ]; then
-    zsh
+else
+    if [ $2 = "vim" ]; then
+        vim
+    elif [ $2 = "neovim" ]; then
+        neovim
+    elif [ $2 = "zsh" ]; then
+        zsh
+    fi
 fi
+
+echo Install done!
