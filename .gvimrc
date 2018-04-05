@@ -24,7 +24,7 @@ set background=dark
 colorscheme hybrid
 
 " setting for font
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 13
 
 " setting for cursor
 set guicursor+=i-ci:block-Cursor/lCursor
