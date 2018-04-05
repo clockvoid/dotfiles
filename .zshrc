@@ -7,7 +7,7 @@
 # Set the zsh root directoy
 export ZSH_ROOT=$HOME/.zsh
 # auto start tmux
-export ZSH_TMUX_AUTOSTART=true
+#export ZSH_TMUX_AUTOSTART=true
 
 # settings for path
 export PATH=$PATH:/home/clock/.gem/ruby/2.4.0/bin:/home/clock/.local/bin:/home/clock/.cargo/bin
@@ -42,13 +42,16 @@ alias ls='ls --color=auto'
 # alias urxvt='urxvt -e zsh -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 # PROMPT="[%n@%m %~]$ "
 alias vim='nvim'
+alias vimf='nvim -c FZF'
 alias v='nvim'
+alias vf='nvim -c FZF'
 alias g='git'
 alias t='tmux'
 alias y='yaourt'
 alias c='clear'
 alias e='exit'
 alias l='ls --color=auto'
+alias f='fzf'
 
 # for completion
 autoload -Uz compinit
