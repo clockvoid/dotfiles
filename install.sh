@@ -29,7 +29,13 @@ vim ()
 
 tmux ()
 {
-    cp -r ./shell ~/
+    if [ ! -e ~/.local ]; then
+        mkdir ~/.local/bin
+    fi
+    if [ ! -e ~/.local/bin ]; then
+        mkdir ~/.local/bin
+    fi
+    cp -r ./shell ~/.local/bin
     cp ./.tmux.conf ~/
     if [ ! -e ~/.tmux ];  then
         mkdir ~/.tmux
