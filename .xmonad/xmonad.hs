@@ -34,13 +34,14 @@ myManageHook = composeAll
   , title =? "Nice Window" --> doCenterFloat
   , title =? "Cell Automaton" --> doCenterFloat
   , className =? "feh" --> doCenterFloat
+  , appName =? "Emoji Choice" --> doCenterFloat
   ]
 
 -- settings for new shortcut keys
 myKeys = [ ("M-p", spawn "dmenu_run -fn 'Monospace-11'")
-         , ("<Print>", spawn "screenshot.sh")
-         , ("M-<Print>", spawn "screenshot_focused_window.sh")
-         , ("C-<Print>", spawn "screenshot_select.sh")
+         , ("<Print>", spawn "~/.xmonad/screenshot.sh")
+         , ("M-<Print>", spawn "~/.xmonad/screenshot_focused_window.sh")
+         , ("C-<Print>", spawn "~/.xmonad/screenshot_select.sh")
          , ("M-e", spawn "pcmanfm")
          , ("M-m", spawn "mikutter")
          , ("M-n", spawn "nvim-wrapper")
@@ -94,4 +95,3 @@ main = do
     }
     
     `additionalKeysP` myKeys
-    
