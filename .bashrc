@@ -2,6 +2,9 @@
 # ~/.bashrc
 #
 
+# settings for path
+export PATH=$PATH:/home/clock/.gem/ruby/2.4.0/bin
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -20,3 +23,6 @@ export VISUAL="vim"
 
 # for default editor setting
 export EDITOR="vim"
+
+# added by travis gem
+[ -f /home/clock/.travis/travis.sh ] && source /home/clock/.travis/travis.sh
