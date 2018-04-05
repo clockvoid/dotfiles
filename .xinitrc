@@ -50,7 +50,7 @@ fi
 
 ##settings for Xmonad
 #set the cursor
-xsetroot -cusor_name left_ptr
+#xsetroot -cusor_name left_ptr
 #set Japanese Keyboart layout
 setxkbmap -layout jp
 #start xmonad
