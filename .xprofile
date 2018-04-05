@@ -3,14 +3,21 @@
 setxkbmap -layout jp
 
 export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export DefaltIMModule=ibus
 ibus-daemon -drx
 
-sh ~/.fehbg &
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 
-trayer --edge top --align right --widthtype percent --heighttype pixel --SetDockType true --SetPartialStrut true --expand true --width 5 --height 20 --transparent true --alpha 0 --tint 0x000000 &
+[[ -f ~/.fehbg ]] && sh ~/.fehbg &
 
-vidalia &
+trayer --edge top --align right --widthtype percent --heighttype pixel --SetDockType true --SetPartialStrut false --expand false --width 5 --height 20 --transparent true --alpha 0 --tint 0x000000 &
 
-google-chrome-stable --no-startup-window &
+#vidalia &
+
+#google-chrome-stable --no-startup-window &
+
+VBoxClient-all &
+
+nm-applet &
