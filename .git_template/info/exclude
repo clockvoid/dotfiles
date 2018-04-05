@@ -58,6 +58,7 @@ fabric.properties
 
 # Vim/Nvim
 *.swp
+Session.vim
 
 # includes
 !.gitignore
