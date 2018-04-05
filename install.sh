@@ -4,6 +4,10 @@
 # There are possibilities to break your environment because this script is under beta.
 # If your environment breaks, you have to delete dotfiles and something by hand. Sorry!
 
+mode=""
+home_dir=~/
+config=""
+
 powerline ()
 {
     cp -r ./.config/powerline $home_dir/.config/
@@ -130,10 +134,6 @@ for information about configuration, read <https://github.com/clockvoid/dotfiles
 EOF
 }
 
-mode=""
-home_dir="~/"
-config=""
-
 for i in $@
 do
     if [[ $mode = "directory" ]]; then
@@ -158,6 +158,7 @@ do
     fi
 done
 
+#home_dir=$(echo $home_dir | sed -e 's/\/$//g')
 echo Install to $home_dir/..
 if [ ! -d $home_dir/.config ]; then
     mkdir $home_dir/.config

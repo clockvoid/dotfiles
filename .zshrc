@@ -52,6 +52,7 @@ alias c='clear'
 alias e='exit'
 alias l='ls --color=auto'
 alias f='fzf'
+alias rm='rm -v'
 
 # for completion
 autoload -Uz compinit
