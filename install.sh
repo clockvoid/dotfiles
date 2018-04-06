@@ -8,6 +8,12 @@ mode=""
 home_dir=~/
 config=""
 
+fontconfig ()
+{
+    cp -r ./.config/fontconfig $home_dir/.config/
+    echo Fontconfig: Done
+}
+
 powerline ()
 {
     cp -r ./.config/powerline $home_dir/.config/
@@ -189,6 +195,8 @@ else
         xresources
     elif [ $config = "xmonad" ]; then
         xmonad
+    elif [ $config = "fontconfig" ]; then
+        fontconfig
     fi
 fi
 
