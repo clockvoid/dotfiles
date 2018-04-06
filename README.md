@@ -5,7 +5,32 @@ my using dotfiles including vimrc and xmonad.hs
 僕が使ってるdotfilesです．`.vimrc`と`xmonad.hs`もここで管理してしまおうと考えています．
 
 ## Installation
-適当な場所に`git clone`してコピーしてください．
+`install.sh`を作りました👏
+
+このスクリプトを使用するには，次のようにします．
+
+```bash
+sh install.sh
+```
+
+何も指定しなければ，ホームディレクトリにすべての`dotfiles`をインストールします．（これは潜在的に危険です！あなたの`dotfiles`を上書きしてしまう可能性があります．もしこのスクリプトを使うのであれば，注意して取り扱ってください．
+
+また，このスクリプトでは，`-c`オプションのあとにインストールする`dotfiles`の種類を指定することで，依存するファイルも含めてインストールする機能があります．今の所，
+* vim
+* neovim
+* zsh
+* tmux
+* xresources
+* xmonad
+* fontconfig
+
+に対応しています．
+
+詳しくは，以下のようにしてヘルプをご覧ください．
+
+```bash
+sh install.sh --help
+```
 
 ## Settings For
 以下にこのdotfilesで設定しているソフトウェアを示します．

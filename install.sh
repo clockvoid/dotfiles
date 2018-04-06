@@ -4,9 +4,9 @@
 # There are possibilities to break your environment because this script is under beta.
 # If your environment breaks, you have to delete dotfiles and something by hand. Sorry!
 
-mode=""
+mode="normal"
 home_dir=~/
-config=""
+config="all"
 
 fontconfig ()
 {
@@ -125,44 +125,65 @@ neovim ()
 
 print_help ()
 {
-cat << EOF
+cat << EOS
 Usage: sh install.sh [OPTION]...
 Install dotfiles to your environment.
 
-With no OPTION, it will install all of the config to ~/
+With no OPTION, it will install all of the configs to ~/
 
   -c, --config [CONFIGURATION_NAME]  specify installing dotfiles
   -d, --directory [DIRECTORY]        specify directory install to
   -h, --help                         print this help and exit
 
 Dotfiles installing script by clockvoid
-for information about configuration, read <https://github.com/clockvoid/dotfiles/blob/master/README.md>
-EOF
+For more information about these dotfiles, read <https://github.com/clockvoid/dotfiles/blob/master/README.md>
+EOS
+exit 0
+}
+
+print_error ()
+{
+    echo Invalid option: $1
+    echo See sh install.sh --help
+    exit 0
+}
+
+check_mode ()
+{
+    if [ $1 = "-d" -o $1 = "--directory" ]; then
+        echo "directory"
+    elif [ $1 = "-c" -o $1 = "--config" ]; then
+        echo "config"
+    elif [ $1 = "-h" -o $1 = "--help" ]; then
+        echo "help"
+    else
+        echo "error"
+    fi
 }
 
 for i in $@
 do
-    if [[ $mode = "directory" ]]; then
-        mode=""
+    if [[ $mode = "normal" ]]; then
+        if expr $i : "^-.*$" > /dev/null; then
+            mode=$(check_mode $i)
+            continue
+        else
+            print_error $i
+        fi
+    elif [[ $mode = "directory" ]]; then
+        mode="normal"
         home_dir=$i
-    fi
-    if [ $i = "-d" -o $i = "--directory" ]; then
-        mode="directory"
-        continue
-    fi
-    if [[ $mode = "config" ]]; then
-        mode=""
+    elif [[ $mode = "config" ]]; then
+        mode="normal"
         config=$i
-    fi
-    if [ $i = "-c" -o $i = "--config" ]; then
-        mode="config"
-        continue
-    fi
-    if [ $1 = "-h" -o $i = "--help" ]; then
-        print_help
-        exit 0
+    else
+        print_error $i
     fi
 done
+
+if [[ $mode = "help" ]]; then
+    print_help
+fi
 
 #home_dir=$(echo $home_dir | sed -e 's/\/$//g')
 echo Install to $home_dir/..
@@ -170,8 +191,8 @@ if [ ! -d $home_dir/.config ]; then
     mkdir $home_dir/.config
 fi
 
-if [[ $config = "" ]]; then
-    echo Installing all...
+echo Installing $config...
+if [[ $config = "all" ]]; then
     tmux
     vim
     lightdm
@@ -181,23 +202,22 @@ if [[ $config = "" ]]; then
     feh
     git_template
     neovim
+elif [ $config = "vim" ]; then
+    vim
+elif [ $config = "neovim" ]; then
+    neovim
+elif [ $config = "zsh" ]; then
+    zsh
+elif [ $config = "tmux" ]; then
+    tmux
+elif [ $config = "xresources" ]; then
+    xresources
+elif [ $config = "xmonad" ]; then
+    xmonad
+elif [ $config = "fontconfig" ]; then
+    fontconfig
 else
-    echo Installing $config...
-    if [ $config = "vim" ]; then
-        vim
-    elif [ $config = "neovim" ]; then
-        neovim
-    elif [ $config = "zsh" ]; then
-        zsh
-    elif [ $config = "tmux" ]; then
-        tmux
-    elif [ $config = "xresources" ]; then
-        xresources
-    elif [ $config = "xmonad" ]; then
-        xmonad
-    elif [ $config = "fontconfig" ]; then
-        fontconfig
-    fi
+    echo Config set $config not found.
 fi
 
 echo Install done!
