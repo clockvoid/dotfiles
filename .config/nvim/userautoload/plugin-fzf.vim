@@ -1,3 +1,6 @@
+" change find command
+let $FZF_DEFAULT_COMMAND="find . -path ./dist -prune -o -path ./.git -prune -o -type f -print -o -type l -print 2> /dev/null | sed s/^..//"
+
 " This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -9,9 +12,9 @@ let g:fzf_action = {
 let g:fzf_layout = { 'left': '~20%' }
 
 " In Neovim, you can set up fzf window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-let g:fzf_layout = { 'window': '10split enew' }
+"let g:fzf_layout = { 'window': 'enew' }
+"let g:fzf_layout = { 'window': '-tabnew' }
+"let g:fzf_layout = { 'window': '10split enew' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
