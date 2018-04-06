@@ -119,3 +119,6 @@ man() {
     LESS_TERMCAP_us=$'\e[01;32m' \
     command man "$@"
 }
+
+# for fzf searching hidden files
+export FZF_DEFAULT_COMMAND="find . -path ./dist -prune -o -type f -print -o -type l -print 2> /dev/null | sed s/^..//"
