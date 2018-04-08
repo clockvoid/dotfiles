@@ -76,7 +76,7 @@ main = do
    - additionalKeysP takes XConfig and touple list and output edited XConfig.
    - additionalKeysP can add some key bindings.
    -}
-  xmproc <- spawnPipe "/usr/bin/xmobar"
+  xmproc <- spawnPipe "~/.local/bin/xmobar"
   xmonad $ fullscreenSupport $ baseConfig
     { terminal  = myTerminal
     , borderWidth = myBorderWidth
