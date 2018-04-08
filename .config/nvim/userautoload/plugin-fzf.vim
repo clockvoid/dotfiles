@@ -1,5 +1,15 @@
 " change find command
-let $FZF_DEFAULT_COMMAND="find . -path ./dist -prune -o -path ./.git -prune -o -type f -print -o -type l -print 2> /dev/null | sed s/^..//"
+" Vim script can use the '.' concatation operator for long string like this:
+let $FZF_DEFAULT_COMMAND="find . " .
+            \ "-path ./vendor -prune -o " .
+            \ "-path ./.stack-work -prune -o " .
+            \ "-path ./node_modules -prune -o " .
+            \ "-path ./bower_components -prune -o " .
+            \ "-path ./dist -prune -o " .
+            \ "-path ./.git -prune -o " .
+            \ "-type f -print -o " .
+            \ "-type l -print 2> /dev/null" .
+            \ " | sed s/^..//"
 
 " This is the default extra key bindings
 let g:fzf_action = {
