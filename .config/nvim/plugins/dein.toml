@@ -69,3 +69,9 @@ repo = 'junegunn/fzf'
 #[[plugins]]
 #repo = 'roxma/nvim-completion-manager'
 
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'simeji/winresizer'
+
