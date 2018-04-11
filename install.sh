@@ -49,6 +49,13 @@ tmux ()
         mkdir $home_dir/.local/bin
     fi
     cp ./shell/* $home_dir/.local/bin/
+    if [ ! -d $home_dir/.config/systemd ]; then
+        mkdir $home_dir/.config/systemd
+    fi
+    if [ ! -d $home_dir/.config/systemd/user ]; then
+        mkdir $home_dir/.config/systemd/user
+    fi
+    cp ./.config/systemd/user/* $home_dir/.config/systemd/user/
     cp ./.tmux.conf $home_dir/
     if [ ! -d $home_dir/.tmux ]; then
         mkdir $home_dir/.tmux
