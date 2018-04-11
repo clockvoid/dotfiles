@@ -37,11 +37,14 @@ myManageHook = composeAll
   , appName =? "Emoji Choice" --> doCenterFloat
   ]
 
+screenshotPath :: String
+screenshotPath = " /media/sf_D_DRIVE/screenshot"
+
 -- settings for new shortcut keys
-myKeys = [ ("M-p", spawn "dmenu_run -fn 'Monospace-11'")
-         , ("<Print>", spawn "~/.xmonad/screenshot.sh")
-         , ("M-<Print>", spawn "~/.xmonad/screenshot_focused_window.sh")
-         , ("C-<Print>", spawn "~/.xmonad/screenshot_select.sh")
+myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
+         , ("<Print>", spawn ("~/.xmonad/screenshot.sh" ++ screenshotPath))
+         , ("M-<Print>", spawn ("~/.xmonad/screenshot_focused_window.sh" ++ screenshotPath))
+         , ("C-<Print>", spawn ("~/.xmonad/screenshot_select.sh ~/Pictures" ++ screenshotPath))
          , ("M-e", spawn "pcmanfm")
          , ("M-m", spawn "mikutter")
          , ("M-n", spawn "nvim-wrapper")
@@ -52,7 +55,7 @@ myKeys = [ ("M-p", spawn "dmenu_run -fn 'Monospace-11'")
          ] 
 
 -- settings for default terminal emulator
-myTerminal = "urxvt -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\"" --"gnome-terminal -e tmux" --"xterm"--"urxvt -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\""
+myTerminal = "urxvt -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\""
 
 -- settings for mod key
 myModMask = mod4Mask
