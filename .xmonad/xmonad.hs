@@ -44,7 +44,7 @@ screenshotPath = " /media/sf_D_DRIVE/screenshot"
 myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
          , ("<Print>", spawn ("~/.xmonad/screenshot.sh" ++ screenshotPath))
          , ("M-<Print>", spawn ("~/.xmonad/screenshot_focused_window.sh" ++ screenshotPath))
-         , ("C-<Print>", spawn ("~/.xmonad/screenshot_select.sh ~/Pictures" ++ screenshotPath))
+         , ("C-<Print>", spawn ("~/.xmonad/screenshot_select.sh" ++ screenshotPath))
          , ("M-e", spawn "pcmanfm")
          , ("M-m", spawn "mikutter")
          , ("M-n", spawn "nvim-wrapper")
