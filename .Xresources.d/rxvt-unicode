@@ -2,14 +2,18 @@
 !---------------------------------------------------------------------
 URxvt.font:           xft:Source Code Pro:style=Regular:size=13:antialias=true, \
                       xft:ヒラギノ角ゴ ProN W3:style=W3:size=13:antialias=true, \
-                      xft:ヒラギノ角ゴ ProN W6:style=W6:size=13:antialias=true, \
-                      xft:ヒラギノ角ゴ StdN W8:style=W8:size=13:antialias=true, \
                       xft:Symbola:style=Regular:size=13:minspace=false
 URxvt.ximFont:        xft:ヒラギノ角ゴ ProN W3:style=W3:size=13:antialias=true, \
                       xft:Symbola:style=Regular:size=13:minspace=false
-URxvt.boldFont:       xft:Source Code Pro:style=Bold:size=13:antialias=true
-URxvt.italicFont:     xft:Source Code Pro:style=Italic:size=13:antialias=true
-URxvt.boldItalicFont: xft:DejaVu Sans Mono for Powerline:style=Bold Oblique:size=13:antialias=true
+URxvt.boldFont:       xft:Source Code Pro:style=Bold:size=13:antialias=true, \
+                      xft:ヒラギノ角ゴ ProN W6:style=W6:size=13:antialias=true, \
+                      xft:Symbola:style=Regular:size=13:minspace=false
+URxvt.italicFont:     xft:Source Code Pro:style=Italic:size=13:antialias=true, \
+                      xft:ヒラギノ角ゴ ProN W3:style=W3:size=13:antialias=true, \
+                      xft:Symbola:style=Regular:size=13:minspace=false
+URxvt.boldItalicFont: xft:Source Code Pro Semibold:style=Semibold Italic,Italic:size=13:antialias=true, \
+                      xft:ヒラギノ角ゴ ProN W6:style=W6:size=13:antialias=true, \
+                      xft:Symbola:style=Regular:size=13:minspace=false
 URxvt.letterSpace:    0
 
 URxvt.scrollStyle: rxvt
