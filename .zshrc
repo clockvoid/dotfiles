@@ -10,7 +10,8 @@ export ZSH_ROOT=$HOME/.zsh
 #export ZSH_TMUX_AUTOSTART=true
 
 # settings for path
-export PATH=$PATH:/home/clock/.gem/ruby/2.4.0/bin:/home/clock/.local/bin:/home/clock/.cargo/bin
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/versions/anaconda3-5.1.0/bin:$PATH:/home/clock/.gem/ruby/2.4.0/bin:/home/clock/.local/bin:/home/clock/.cargo/bin:$PYENV_ROOT/bin
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

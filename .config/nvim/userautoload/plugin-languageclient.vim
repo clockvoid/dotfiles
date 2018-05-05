@@ -10,7 +10,8 @@ let g:LanguageClient_serverCommands = {
             \ 'phpunit': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
             \ 'c': ['clangd'],
             \ 'cpp': ['clangd'],
-            \ 'haskell': ['hie', '--lsp']
+            \ 'haskell': ['hie', '--lsp'],
+            \ 'python': ['pyls']
             \}
 
 let g:LanugageClient_autoStart = 1
