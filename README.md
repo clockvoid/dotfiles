@@ -2,20 +2,21 @@
 my using dotfiles including vimrc and xmonad.hs
 
 ## Description
-僕が使ってるdotfilesです．`.vimrc`と`xmonad.hs`もここで管理してしまおうと考えています．
+This is dotfiles I am using. I manage `.vimrc`, `xmonad.hs`, and so on.
 
 ## Installation
-`install.sh`を作りました👏
+I make `install.sh`!
 
-このスクリプトを使用するには，次のようにします．
+To use this script, you can type:
 
 ```bash
 sh install.sh
 ```
 
-何も指定しなければ，ホームディレクトリにすべての`dotfiles`をインストールします．（これは潜在的に危険です！あなたの`dotfiles`を上書きしてしまう可能性があります．もしこのスクリプトを使うのであれば，注意して取り扱ってください．）
+If you run this script with no options, it will install all of these `dotfiles` to home directory. (This is potentially dangerous becauses your own `dotfiles` will be overwritten with these `dotfiles`. When use this script, you have to be careful!)
 
-また，このスクリプトでは，`-c`オプションのあとにインストールする`dotfiles`の種類を指定することで，依存するファイルも含めてインストールする機能があります．今の所，
+Additionaly, this script supprts `-c` option to specify installing `dotfiles`.
+Now, it supports these applicatons:
 * vim
 * neovim
 * zsh
@@ -24,16 +25,15 @@ sh install.sh
 * xmonad
 * fontconfig
 
-に対応しています．
 
-詳しくは，以下のようにしてヘルプをご覧ください．
+For more ditailes, you can see help as follows:
 
 ```bash
 sh install.sh --help
 ```
 
 ## Settings For
-以下にこのdotfilesで設定しているソフトウェアを示します．
+This script supports these applicatos:
 * GVim(`.vim`, `.vimrc`, `.gvimrc`)
 * dein.vim(`.vim/plugins`)
 * XMonad(`.xmonad`)
@@ -45,13 +45,13 @@ sh install.sh --help
 * tmux(`.tmux.conf`)
 * zsh(`.zshrc`)
 * Powerline(`.config/powerline/`)
-* trayer(`.xprofile`) <- icon tray
-* Feh(`.xprofile`) <- for wallpaper
+* trayer(`.xprofile`) ← icon tray
+* Feh(`.xprofile`) ← for wallpaper
 * iBus(`.xprofile`)
 
 ## Environment
-僕はこのdotfilesを以下の構成で使っています．`.xinitrc`や`.xprofile`，更には`.vimrc`などはこの環境に強く依存しているので，
-他の環境で使う場合には修正が必要な可能性があります．
+I use these `dotfiles` in the environment as follows.
+If you use these `dotfiles` in different environment, you have to change detailes.
 * Virtual Box
 * Arch Linux
 * LightDM
@@ -59,12 +59,13 @@ sh install.sh --help
 * Vim + Dein.vim
 
 ## Dependencies
-NeovimでLanguageServerを使うための設定をしているので，そのための依存関係を一応記しておきます．（完全に自分のため）
-* `typescript-language-server`
+These `dotfiles` contain LanguageServer settings in Neovim. There are some dependencies for these settings.
 * `javascript-typescript-lanserver`
 * `rls`（for rust）
 * `Haskell-ide-Engine`
 * `php-language-server`
 * `clangd`
+* `pyls`
 
-基本的にはAURに存在するか，`npm`でインストールすれば使えますが，`rls`などは少しだけ特殊です．詳しくは書くソフトウェアのGitHubをみて設定します．
+You can get almost all of these applicatons in AUR, but some one is not.
+Finally, you have to see GitHub README on each softwares.
