@@ -43,7 +43,6 @@ let g:LanguageClient_diagnosticsDisplay = {
             \ },
             \}
 
-
 " completion settings
 "set completefunc=LanguageClient#complete
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
@@ -52,5 +51,5 @@ nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 set completefunc=LanguageClient#complete
-let g:LanugageClient_trace = "message"
-let g:LanugageClient_windowLogMessageLevel = "Log"
+let g:LanugageClient_trace = "verbose"
+let g:LanugageClient_windowLogMessageLevel = "Warning"
