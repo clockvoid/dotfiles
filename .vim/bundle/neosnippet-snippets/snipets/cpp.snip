@@ -45,8 +45,7 @@ options	 head
 			q->val = x;
 			q->lch = q->rch = NULL;
 			return q;
-		}
-		else {
+		} else {
 			if (x < p->val) p->lch = insert(p->lch, x);
 			else p->rch = insert(p->rch, x);
 			return p;
@@ -68,14 +67,12 @@ options	 head
 			node *q = p->rch;
 			delete p;
 			return q;
-		}
-		else if (p->lch->rch == NULL) {
+		} else if (p->lch->rch == NULL) {
 			node *q = p->lch;
 			q->rch = p->rch;
 			delete p;
 			return q;
-		}
-		else {
+		} else {
 			node *q;
 			for (q = p->lch; q->rch->rch != NULL; q = q->rch);
 			node *r = q->rch;
