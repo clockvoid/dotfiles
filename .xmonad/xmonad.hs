@@ -49,7 +49,6 @@ myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
          , ("M-m", spawn "mikutter")
          , ("M-n", spawn "nvim-wrapper")
          , ("M-g", spawn "gvim")
-         , ("M-c", spawn "google-chrome-stable")
          , ("C-S-<Esc>", spawn "gnome-system-monitor")
          , ("M-x", spawn "xterm")
          ] 
