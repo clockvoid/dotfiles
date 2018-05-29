@@ -22,9 +22,9 @@ on_ft = ['javascript', 'typescript']
 repo = 'artur-shaik/vim-javacomplete2'
 on_ft = ['java']
 
-[[plugins]]
-repo = 'eagletmt/neco-ghc'
-on_ft = ['haskell']
+# [[plugins]]
+# repo = 'eagletmt/neco-ghc'
+# on_ft = ['haskell']
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
