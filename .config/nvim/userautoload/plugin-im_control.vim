@@ -11,9 +11,10 @@ if executable('ibus')
 	" IBus 1.5以降
 	function! IMCtrl(cmd)
 	  let cmd = a:cmd
-	  if cmd == 'On'
+      let type = &filetype
+      if cmd == 'On' && (type == 'tex' || type == 'md')
 	    let res = system('ibus engine "mozc-jp" &')
-	  elseif cmd == 'Off'
+      elseif cmd == 'Off'
 	    let res = system('ibus engine "xkb:jp::jpn" &')
 	  endif
 	  return ''
@@ -21,7 +22,7 @@ if executable('ibus')
 
 	augroup LeaveVim
 		autocmd!
-		autocmd VimLeave * call system('ibus engine "mozc-jp" &') 
+		autocmd VimLeave * call system('ibus engine "xkb:jp::jpn" &') 
 	augroup END
 
 endif
