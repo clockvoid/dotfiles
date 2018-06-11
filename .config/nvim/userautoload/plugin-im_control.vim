@@ -12,7 +12,7 @@ if executable('ibus')
 	function! IMCtrl(cmd)
 	  let cmd = a:cmd
       let type = &filetype
-      if cmd == 'On' && (type == 'tex' || type == 'md')
+      if cmd == 'On' && (type == 'tex' || type == 'markdown')
 	    let res = system('ibus engine "mozc-jp" &')
       elseif cmd == 'Off'
 	    let res = system('ibus engine "xkb:jp::jpn" &')
