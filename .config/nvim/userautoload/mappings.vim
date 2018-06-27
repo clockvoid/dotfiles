@@ -15,11 +15,24 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
-" For Move Window
-nnoremap sH <C-w>H
-nnoremap sJ <C-w>J
-nnoremap sK <C-w>K
-nnoremap sL <C-w>L
+" For changing Window separation
+nnoremap <Leader>H <C-w>H
+nnoremap <Leader>J <C-w>J
+nnoremap <Leader>K <C-w>K
+nnoremap <Leader>L <C-w>L
+
+" moving window
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+
+" splitting window
+nnoremap <Leader>v :vsplit<CR>
+nnoremap <Leader>s :split<CR>
+
+" run quickrun
+nnoremap <Leader>q :Q<CR>
 
 " For moving tabs
 nnoremap K gt
