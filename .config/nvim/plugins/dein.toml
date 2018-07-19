@@ -5,7 +5,25 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+on_ft = ['haskell', 'javascript', 'typescript', 'rust', 'php', 'phpunit', 'python']
+#rev = 'binary-*-x86_64-unknown-linux-musl'
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
+
+#[[plugins]]
+#repo = 'roxma/nvim-yarp'
+#
+#[[plugins]]
+#repo = 'ncm2/ncm2'
+#depends = 'nvim-yarp'
+#
+#[[plugins]]
+#repo = 'ncm2/ncm2-snipmate'
+#depends = 'ncm2'
 
 #[[plugins]]
 #repo = 'Shougo/denite.nvim'
@@ -56,12 +74,6 @@ repo = 'fuenor/im_control.vim'
 
 [[plugins]]
 repo = 'tpope/vim-obsession'
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-#rev = 'binary-*-x86_64-unknown-linux-musl'
-build = 'bash install.sh'
 
 [[plugins]]
 repo = 'junegunn/fzf'

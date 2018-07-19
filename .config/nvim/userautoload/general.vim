@@ -16,7 +16,7 @@ syntax on
 
 " about monitor settings
 set number
-set laststatus=2
+"set laststatus=2
 set cmdheight=2
 set showcmd
 set title

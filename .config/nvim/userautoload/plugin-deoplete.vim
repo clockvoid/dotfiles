@@ -17,7 +17,7 @@ inoremap <expr> <S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 "	\ neosnippet#expandable_or_jumpable() ?
 "    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 
-let g:deoplete#sources = {}
-let g:deoplete#sources.python = ['LanguageClient']
-let g:deoplete#sources.python3 = ['LanguageClient']
-let g:deoplete#sources.hs = ['LanguageClient']
+"let g:deoplete#sources = {}
+"let g:deoplete#sources.python = ['LanguageClient']
+"let g:deoplete#sources.python3 = ['LanguageClient']
+"let g:deoplete#sources.hs = ['LanguageClient']

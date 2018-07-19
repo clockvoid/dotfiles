@@ -2,51 +2,52 @@
 " Custom Key Binding
 
 " make leader to be space
-let mapleader = "\<Space>"
+"let mapleader = "\<C-f>"
 
 " Saving file without input enter
-nnoremap <Leader>w :w<CR>
+nnoremap <C-f>w :w<CR>
 
 " Copy/pasting without input "
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+vmap <C-f>y "+y
+vmap <C-f>d "+d
+nmap <C-f>p "+p
+nmap <C-f>P "+P
+vmap <C-f>p "+p
+vmap <C-f>P "+P
 
 " For changing Window separation
-nnoremap <Leader>H <C-w>H
-nnoremap <Leader>J <C-w>J
-nnoremap <Leader>K <C-w>K
-nnoremap <Leader>L <C-w>L
+nnoremap <C-f>H <C-w>H
+nnoremap <C-f>J <C-w>J
+nnoremap <C-f>K <C-w>K
+nnoremap <C-f>L <C-w>L
 
 " moving window
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
+nnoremap <C-f>h <C-w>h
+nnoremap <C-f>j <C-w>j
+nnoremap <C-f>k <C-w>k
+nnoremap <C-f>l <C-w>l
 
 " splitting window
-nnoremap <Leader>v :vsplit<CR>
-nnoremap <Leader>s :split<CR>
+nnoremap <C-f>v :vsplit<CR>
+nnoremap <C-f>s :split<CR>
 
 " run quickrun
-nnoremap <Leader>q :Q<CR>
+nnoremap <C-f>q :Q<CR>
 
 " For moving tabs
 nnoremap K gt
 nnoremap J gT
 
 " For surrounding a word
-nnoremap <Leader>s" ciw""<Esc>P
-nnoremap <Leader>s' ciw''<Esc>P
-nnoremap <Leader>s` ciw``<Esc>P
-nnoremap <Leader>s( ciw()<Esc>P
-nnoremap <Leader>s{ ciw{}<Esc>P
-nnoremap <Leader>s[ ciw[]<Esc>P
+nnoremap <C-f>s" ciw""<Esc>P
+nnoremap <C-f>s' ciw''<Esc>P
+nnoremap <C-f>s` ciw``<Esc>P
+nnoremap <C-f>s( ciw()<Esc>P
+nnoremap <C-f>s{ ciw{}<Esc>P
+nnoremap <C-f>s[ ciw[]<Esc>P
 
 " For ESC without leaving home position
+" This function is exist in normal vim mapping by <C-c>
 inoremap <C-f> <Esc>
 
 " END: settings for Custom key Bindings

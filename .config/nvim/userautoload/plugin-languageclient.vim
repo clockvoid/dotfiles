@@ -1,5 +1,5 @@
 
-"set hidden
+set hidden
 
 " language server settings
 let g:LanguageClient_serverCommands = {
@@ -14,7 +14,7 @@ let g:LanguageClient_serverCommands = {
             \ 'python': ['pyls']
             \}
 
-let g:LanugageClient_autoStart = 1
+"let g:LanugageClient_autoStart = 1
 
 let g:LanguageClient_diagnosticsDisplay = {
             \ 1: {
@@ -45,11 +45,12 @@ let g:LanguageClient_diagnosticsDisplay = {
 
 " completion settings
 "set completefunc=LanguageClient#complete
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> L :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
-set completefunc=LanguageClient#complete
-let g:LanugageClient_trace = "verbose"
-let g:LanugageClient_windowLogMessageLevel = "Warning"
+"set completefunc=LanguageClient#complete
+"let g:LanugageClient_trace = "verbose"
+"let g:LanugageClient_windowLogMessageLevel = "Warning"

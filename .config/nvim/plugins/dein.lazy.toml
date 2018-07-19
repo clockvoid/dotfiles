@@ -56,4 +56,5 @@ on_ft = ['vim']
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
-on_ft = ['md', 'tex']
+on_ft = ['markdown', 'tex']
+
