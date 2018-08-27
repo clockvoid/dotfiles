@@ -7,6 +7,7 @@ let $FZF_DEFAULT_COMMAND="find . " .
             \ "-path ./bower_components -prune -o " .
             \ "-path ./dist -prune -o " .
             \ "-path ./.git -prune -o " .
+            \ "-path ./.python-version -prune -o " .
             \ "-type f -print -o " .
             \ "-type l -print 2> /dev/null" .
             \ " | sed s/^..//"
