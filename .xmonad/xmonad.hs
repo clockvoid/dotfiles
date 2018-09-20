@@ -79,7 +79,7 @@ main = do
    - additionalKeysP can add some key bindings.
    -}
   xmproc <- spawnPipe "~/.local/bin/xmobar"
-  xmonad $ fullscreenSupport $ baseConfig
+  xmonad $ baseConfig
     { terminal  = myTerminal
     , borderWidth = myBorderWidth
     , focusedBorderColor = myForcusedBorderColor
@@ -93,7 +93,6 @@ main = do
                     , ppLayout = \s -> "<" ++ s ++ ">"
                     , ppSep = " | "
                     }
-    
     }
     
     `additionalKeysP` myKeys
