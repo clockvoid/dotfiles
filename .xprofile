@@ -6,7 +6,7 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 export DefaltIMModule=ibus
-ibus-daemon -drx
+ibus-daemon -drx &
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 
@@ -19,5 +19,7 @@ trayer --edge top --align right --widthtype percent --heighttype pixel --SetDock
 #google-chrome-stable --no-startup-window &
 
 VBoxClient-all &
+
+xcmpmgr -c &
 
 nm-applet &
