@@ -4,6 +4,8 @@
 XTerm*faceName: xft:Source Code Pro:style=Regular:size=13:antialias=true
 XTerm*cjk_width: true
 XTerm*faceNameDoublesize: xft:ヒラギノ角ゴ ProN W3:style=W3:size=13:antialias=true
+XTerm*ximFont: xft:ヒラギノ角ゴ ProN W3:style=W3:size=13:antialias=true
+XTerm*fontDoubleSize: true
 XTerm*fontWarnings: 1
 XTerm*saveLines: 1000
 XTerm*termName: xterm-256color
