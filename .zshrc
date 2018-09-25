@@ -4,6 +4,25 @@
 # ~/.zshrc copyed by ~/.bashrc
 #
 
+# zplug settings
+source /usr/share/zsh/scripts/zplug/init.zsh
+
+# Load theme file
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
 # Set the zsh root directoy
 export ZSH_ROOT=$HOME/.zsh
 # auto start tmux
@@ -36,7 +55,7 @@ colors
 #source $ZSH_ROOT/functions/tmux.zsh
 
 # powerline
-source /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#source /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # make keybindings be like vim
 bindkey -v
