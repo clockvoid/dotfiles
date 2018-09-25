@@ -56,10 +56,20 @@ tmux ()
         mkdir $home_dir/.config/systemd/user
     fi
     cp ./.config/systemd/user/* $home_dir/.config/systemd/user/
+    cp ./.tmux-powerlinerc $home_dir/
     cp ./.tmux.conf $home_dir/
     if [ ! -d $home_dir/.tmux ]; then
         mkdir $home_dir/.tmux
     fi
+    if [ ! -d $home_dir/.tmux/tmux-powerline ]; then
+        mkdir $home_dir./tmux/tmux-powerline
+        type git || {
+          echo 'Please install git or update your path to include the git executable!'
+          exit 1
+        }
+        git clone https://github.com/erikw/tmux-powerline $home_dir/.tmux/tmux-powerline
+    fi
+    cp ./tmux-poweline-themes/* $home_dir/.tmux/tmux-powerline/themes/
     if [ ! -d $home_dir/.tmux/plugins ]; then
         mkdir $home_dir/.tmux/plugins
     fi
@@ -72,7 +82,6 @@ tmux ()
         }
         git clone https://github.com/tmux-plugins/tpm $home_dir/.tmux/plugins/tpm
     fi
-    powerline
     echo Tmux: Done
 }
 
@@ -107,7 +116,6 @@ xresources ()
 zsh ()
 {
     cp ./.zshrc $home_dir/
-    powerline
     echo Zsh: Done
 }
 
