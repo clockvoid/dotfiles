@@ -14,12 +14,6 @@ fontconfig ()
     echo Fontconfig: Done
 }
 
-powerline ()
-{
-    cp -r ./.config/powerline $home_dir/.config/
-    echo PowerLine: Done
-}
-
 install_dein()
 {
     if [ ! -d $home_dir/.cache ]; then
