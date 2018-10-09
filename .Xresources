@@ -1,3 +1,4 @@
 #include ".Xresources.d/xterm"
 #include ".Xresources.d/rxvt-unicode"
 #include ".Xresources.d/fonts"
+#include ".Xresources.d/linux-console"
