@@ -1,0 +1,39 @@
+
+! hybrid Colors for XTerm
+#define t_background        #1d1f21
+#define t_foreground        #c5c8c6
+#define t_normal_black      #282a2e
+#define t_normal_red        #a54242
+#define t_normal_green      #8c9440
+#define t_normal_yellow     #de935f
+#define t_normal_blue       #5f819d
+#define t_normal_magenta    #85678f
+#define t_normal_cyan       #5e8d87
+#define t_normal_white      #707880
+#define t_bright_black      #373b41
+#define t_bright_red        #cc6666
+#define t_bright_green      #b5bd68
+#define t_bright_yellow     #f0c674
+#define t_bright_blue       #81a2be
+#define t_bright_magenta    #b294bb
+#define t_bright_cyan       #8abeb7
+#define t_bright_white      #c5c8c6
+*depth: 32
+*background:   t_background
+*foreground:   t_foreground
+*color0:       t_normal_black
+*color1:       t_normal_red
+*color2:       t_normal_green
+*color3:       t_normal_yellow
+*color4:       t_normal_blue
+*color5:       t_normal_magenta
+*color6:       t_normal_cyan
+*color7:       t_normal_white
+*color8:       t_bright_black
+*color9:       t_bright_red
+*color10:      t_bright_green
+*color11:      t_bright_yellow
+*color12:      t_bright_blue
+*color13:      t_bright_magenta
+*color14:      t_bright_cyan
+*color15:      t_bright_white
