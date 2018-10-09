@@ -132,6 +132,12 @@ neovim ()
     echo Neovim: Done
 }
 
+terminator ()
+{
+    cp -r ./.config/terminator/ $home_dir/.config/
+    echo Terminator: Done
+}
+
 print_help ()
 {
 cat << EOS

@@ -1,0 +1,32 @@
+[global_config]
+  enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, MavenPluginURLHandler, LaunchpadBugURLHandler
+  title_font = Monospace 12
+  title_hide_sizetext = True
+  title_use_system_font = False
+  window_state = hidden
+[keybindings]
+  layout_launcher = <Shift><Alt>l
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#1d1f21"
+    copy_on_selection = True
+    cursor_blink = False
+    cursor_color = "#ffffff"
+    font = Monospace 13
+    foreground_color = "#c5c8c6"
+    icon_bell = False
+    palette = "#282a2e:#a54242:#8c9440:#de935f:#5f819d:#85678f:#5e8d87:#707880:#373b41:#cc6666:#b5bd68:#f0c674:#81a2be:#b294bb:#8abeb7:#c5c8c6"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
