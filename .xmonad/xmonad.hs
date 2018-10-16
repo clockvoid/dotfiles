@@ -50,7 +50,7 @@ myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
          , ("M-n", spawn "nvim-wrapper")
          , ("M-g", spawn "gvim")
          , ("C-S-<Esc>", spawn "gnome-system-monitor")
-         , ("M-x", spawn "terminator")
+         , ("M-x", spawn "terminator -e zsh")
          ] 
 
 -- settings for default terminal emulator
