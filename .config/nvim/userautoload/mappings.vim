@@ -50,4 +50,10 @@ nnoremap <C-f>s[ ciw[]<Esc>P
 " This function is exist in normal vim mapping by <C-c>
 inoremap <C-f> <Esc>
 
+" press gj anytime
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
 " END: settings for Custom key Bindings
