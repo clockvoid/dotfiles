@@ -63,3 +63,6 @@ Session.vim
 # includes
 !.gitignore
 !.gitkeep
+
+# pyenv
+.python-version
