@@ -107,6 +107,12 @@ xresources ()
     echo Xresources: Done
 }
 
+alacritty ()
+{
+    cp -r ./.config/alacritty/ $home_dir/.config/
+    echo Alacritty: Done
+}
+
 zsh ()
 {
     cp ./.zshrc $home_dir/
@@ -217,6 +223,7 @@ if [[ $config = "all" ]]; then
     feh
     git_template
     neovim
+    alacritty
 elif [ $config = "vim" ]; then
     vim
 elif [ $config = "neovim" ]; then
@@ -231,6 +238,8 @@ elif [ $config = "xmonad" ]; then
     xmonad
 elif [ $config = "fontconfig" ]; then
     fontconfig
+elif [ $config = "alacritty" ]; then
+    alacritty
 else
     echo Config set $config not found.
 fi
