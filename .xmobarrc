@@ -1,5 +1,6 @@
-Config { font = "xft:xos4 Terminess Powerline:style=Bold:antialias=true"
-  additionalFonts = [ "xft:xos4 Terminess Powerline:style=Bold:antialias=true, Hiragino Kaku Gothic ProN W6:antialias=true, Noto Emoji:antialias=true"
+Config {
+  font = "xft:xos4 Terminess Powerline:style=Bold:antialias=true"
+  , additionalFonts = [ "xft:xos4 Terminess Powerline:style=Bold:antialias=true, Hiragino Kaku Gothic ProN W6:antialias=true, Noto Emoji:antialias=true"
     , "xft:Sans:antialias=true"
   ]
   , bgColor = "black"
@@ -41,7 +42,7 @@ Config { font = "xft:xos4 Terminess Powerline:style=Bold:antialias=true"
   , "-h", "red"
   ] 10
 
-  , Run Com "/usr/bin/ibus" ["engine"
+  , Run Com "/usr/bin/ibus" [ "engine"
   ] "MyIME" 10
 
   , Run Date "%a %b %_d %l:%M" "date" 10
@@ -50,5 +51,5 @@ Config { font = "xft:xos4 Terminess Powerline:style=Bold:antialias=true"
   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "<fn=1>%StdinReader%</fn> }{ %cpu% | %memory% | %battery% | %enp0s3% | <fc=#ee9a00>%date%</fc> | %MyIME% | %RJTT% |"
+  , template = "<fn=1>%StdinReader%</fn> }{ %cpu% | %memory% | %battery% | %enp0s3% | <fc=#ee9a00>%date%</fc> | %MyIME% |" -- %RJTT% |"
 }
