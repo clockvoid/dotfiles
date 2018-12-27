@@ -145,3 +145,6 @@ man() {
 
 # for fzf searching hidden files
 export FZF_DEFAULT_COMMAND="find . -path ./dist -prune -o -path ./.git -prune -o -type f -print -o -type l -print 2> /dev/null | sed s/^..//"
+
+# alacritty DPI scaling setting
+export WINIT_HIDPI_FACTOR="1.0 alacritty"
