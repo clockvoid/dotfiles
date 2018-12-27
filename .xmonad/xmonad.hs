@@ -53,6 +53,10 @@ myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
          , ("M-x", spawn "alacritty -e zsh")
          ] 
 
+-- settings for key disablation
+disabledKeys = [ "M-<Space>"
+              ]
+
 -- settings for default terminal emulator
 -- myTerminal = "xterm -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\""
 -- myTerminal = "terminator -x zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\""
@@ -98,3 +102,4 @@ main = do
     }
     
     `additionalKeysP` myKeys
+    `removeKeysP` disabledKeys
