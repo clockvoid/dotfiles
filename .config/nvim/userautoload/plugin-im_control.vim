@@ -1,6 +1,6 @@
 if executable('ibus')
 
-	call system('ibus engine "xkb:jp::jpn" &')
+	call system('xdotool key Muhenkan &')
 
 	" 「日本語入力固定モード」の動作モード
 	let IM_CtrlMode = 1
@@ -13,16 +13,16 @@ if executable('ibus')
 	  let cmd = a:cmd
       let type = &filetype
       if cmd == 'On' && (type == 'tex' || type == 'markdown')
-	    let res = system('ibus engine "mozc-jp" &')
+	    let res = system('xdotool key Henkan &')
       elseif cmd == 'Off'
-	    let res = system('ibus engine "xkb:jp::jpn" &')
+	    let res = system('xdotool key Muhenkan &')
 	  endif
 	  return ''
 	endfunction
 
 	augroup LeaveVim
 		autocmd!
-		autocmd VimLeave * call system('ibus engine "xkb:jp::jpn" &') 
+		autocmd VimLeave * call system('xdotool key Muhenkan &') 
 	augroup END
 
 endif
