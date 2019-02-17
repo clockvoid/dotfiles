@@ -8,6 +8,8 @@ export QT_IM_MODULE=ibus
 export DefaltIMModule=ibus
 ibus-daemon -drx &
 
+xvkbd -text "\[Henkan]" > /dev/null 2>&1
+
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 
 [[ -f ~/.fehbg ]] && sh ~/.fehbg &
