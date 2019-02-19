@@ -148,3 +148,6 @@ export FZF_DEFAULT_COMMAND="find . -path ./dist -prune -o -path ./.git -prune -o
 
 # alacritty DPI scaling setting
 export WINIT_HIDPI_FACTOR="1.0 alacritty"
+
+# Key stroke settings
+KEYTIMEOUT=1

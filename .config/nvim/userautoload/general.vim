@@ -22,6 +22,9 @@ set showcmd
 set title
 "set background=dark
 
+" key stroke settings
+set ttimeoutlen=10
+
 let g:python3_host_prog='/usr/bin/python3'
 let g:python_host_prog='/usr/bin/python2'
 " END: basic settings ----------------------------------------------------
