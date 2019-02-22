@@ -58,3 +58,6 @@ on_ft = ['vim']
 repo = 'ujihisa/neco-look'
 on_ft = ['markdown', 'tex']
 
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
