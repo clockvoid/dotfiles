@@ -5,6 +5,7 @@ set hidden
 let g:LanguageClient_serverCommands = {
             \ 'typescript': ['node', '~/javascript/javascript-typescript-langserver/lib/language-server-stdio.js'],
             \ 'javascript': ['node', '~/javascript/javascript-typescript-langserver/lib/language-server.js'],
+            \ 'vue': ['vls'],
             \ 'rust': ['rustup', 'run', 'stable', 'rls'],
             \ 'php': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
             \ 'phpunit': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
