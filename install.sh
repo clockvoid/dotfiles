@@ -10,7 +10,7 @@ config="all"
 
 fontconfig ()
 {
-    cp -r ./.config/fontconfig $home_dir/.config/
+    ln -s $(pwd)/.config/fontconfig $home_dir/.config/
     echo Fontconfig: Done
 }
 
@@ -21,14 +21,14 @@ install_dein()
     fi
     if [ ! -d $home_dir/.cache/dein ]; then
         mkdir $home_dir/.cache/dein
-        curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-        sh ./installer.sh $home_dir/.cache/dein/ >/dev/null
+        curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > dein_installer.sh
+        sh $(pwd)/dein_installer.sh $home_dir/.cache/dein/ >/dev/null
     fi
 }
 
 vim ()
 {
-    cp -r ./.*vim* $home_dir/
+    ln -s $(pwd)/.*vim* $home_dir/
     install_dein
     echo Vim: Done
 }
@@ -42,28 +42,28 @@ tmux ()
     if [ ! -d $home_dir/.local/bin ]; then
         mkdir $home_dir/.local/bin
     fi
-    cp ./shell/* $home_dir/.local/bin/
+    ln -s $(pwd)/shell/* $home_dir/.local/bin/
     if [ ! -d $home_dir/.config/systemd ]; then
         mkdir $home_dir/.config/systemd
     fi
     if [ ! -d $home_dir/.config/systemd/user ]; then
         mkdir $home_dir/.config/systemd/user
     fi
-    cp ./.config/systemd/user/* $home_dir/.config/systemd/user/
-    cp ./.tmux-powerlinerc $home_dir/
-    cp ./.tmux.conf $home_dir/
+    ln -s $(pwd)/.config/systemd/user/* $home_dir/.config/systemd/user/
+    ln -s $(pwd)/.tmux-powerlinerc $home_dir/
+    ln -s $(pwd)/.tmux.conf $home_dir/
     if [ ! -d $home_dir/.tmux ]; then
         mkdir $home_dir/.tmux
     fi
     if [ ! -d $home_dir/.tmux/tmux-powerline ]; then
-        mkdir $home_dir./tmux/tmux-powerline
+        mkdir $home_dir$(pwd)/tmux/tmux-powerline
         type git || {
           echo 'Please install git or update your path to include the git executable!'
           exit 1
         }
         git clone https://github.com/erikw/tmux-powerline $home_dir/.tmux/tmux-powerline
     fi
-    cp ./tmux-poweline-themes/* $home_dir/.tmux/tmux-powerline/themes/
+    ln -s $(pwd)/tmux-poweline-themes/* $home_dir/.tmux/tmux-powerline/themes/
     if [ ! -d $home_dir/.tmux/plugins ]; then
         mkdir $home_dir/.tmux/plugins
     fi
@@ -81,66 +81,66 @@ tmux ()
 
 gtk ()
 {
-    cp ./.gtkrc-2.0 $home_dir/
-    cp -r ./.config/gtk-* $home_dir/.config/
+    ln -s $(pwd)/.gtkrc-2.0 $home_dir/
+    ln -s $(pwd)/.config/gtk-* $home_dir/.config/
     echo GTK: Done
 }
 
 lightdm ()
 {
     gtk
-    cp -r ./lightdm $home_dir/
+    ln -s $(pwd)/lightdm $home_dir/
     echo LightDM: Done: Please copy files in $home_dir/lightdm/ to /etc/lightdm/!
 }
 
 xmonad ()
 {
-    cp -r ./.xmo* $home_dir/
-    cp ./.xinitrc $home_dir/
-    cp ./.xprofile $home_dir/
+    ln -s $(pwd)/.xmo* $home_dir/
+    ln -s $(pwd)/.xinitrc $home_dir/
+    ln -s $(pwd)/.xprofile $home_dir/
     echo Xmonad: Done
 }
 
 xresources ()
 {
-    cp -r ./.Xresources* $home_dir/
+    ln -s $(pwd)/.Xresources* $home_dir/
     echo Xresources: Done
 }
 
 alacritty ()
 {
-    cp -r ./.config/alacritty/ $home_dir/.config/
+    ln -s $(pwd)/.config/alacritty/ $home_dir/.config/
     echo Alacritty: Done
 }
 
 zsh ()
 {
-    cp ./.zshrc $home_dir/
+    ln -s $(pwd)/.zshrc $home_dir/
     echo Zsh: Done
 }
 
 feh ()
 {
-    cp ./.fehbg $home_dir/
+    ln -s $(pwd)/.fehbg $home_dir/
     echo Feh: Done
 }
 
 git_template ()
 {
-    cp -r ./.git_template $home_dir/
+    ln -s $(pwd)/.git_template $home_dir/
     echo Git: Done
 }
 
 neovim ()
 {
-    cp -r ./.config/nvim/ $home_dir/.config/
+    ln -s $(pwd)/.config/nvim/ $home_dir/.config/
     install_dein
     echo Neovim: Done
 }
 
 terminator ()
 {
-    cp -r ./.config/terminator/ $home_dir/.config/
+    ln -s $(pwd)/.config/terminator/ $home_dir/.config/
     echo Terminator: Done
 }
 
