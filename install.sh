@@ -8,6 +8,21 @@ mode="normal"
 home_dir=~/
 config="all"
 
+install_anyenv() {
+    if [ ! -d $home_dir/.anyenv ]; then
+        type git || {
+            echo 'Please install git or update your path to include the git executable!'
+            exit 1
+        }
+        git clone https://github.com/anyenv/anyenv $home_dir/.anyenv
+    fi
+    export PATH="$home_dir/.anyenv/bin:$PATH"
+    eval "$(anyenv init -)" 
+    if [ ! -d $home_dir/.config/anyenv/anyenv-install ]; then
+        anyenv install --init
+    fi
+}
+
 fontconfig ()
 {
     ln -s $(pwd)/.config/fontconfig $home_dir/.config/
@@ -133,6 +148,25 @@ git_template ()
 
 neovim ()
 {
+    if [ ! -d $home_dir/.anyenv/envs/rbenv ]; then
+        anyenv install rbenv
+        eval "$(anyenv init -)" 
+    fi
+    if [ ! -d $home_dir/.anyenv/envs/pyenv ]; then
+        anyenv install pyenv
+        eval "$(anyenv init -)" 
+    fi
+    if [ ! -d $home_dir/.anyenv/envs/nodenv ]; then
+        anyenv install nodenv
+        eval "$(anyenv init -)" 
+    fi
+    if ! echo "$(pyenv versions)" | grep -q "3.6.5"; then
+        type make || {
+            echo 'Please install make or update your path to include the make executable!'
+            exit 1
+        }
+        pyenv install 3.6.5
+    fi
     ln -s $(pwd)/.config/nvim/ $home_dir/.config/
     install_dein
     echo Neovim: Done
@@ -214,6 +248,7 @@ fi
 
 echo Installing $config...
 if [[ $config = "all" ]]; then
+    install_anyenv
     tmux
     vim
     lightdm
@@ -225,21 +260,31 @@ if [[ $config = "all" ]]; then
     neovim
     alacritty
 elif [ $config = "vim" ]; then
+    install_anyenv
     vim
 elif [ $config = "neovim" ]; then
+    install_anyenv
     neovim
 elif [ $config = "zsh" ]; then
+    install_anyenv
     zsh
 elif [ $config = "tmux" ]; then
+    install_anyenv
     tmux
 elif [ $config = "xresources" ]; then
+    install_anyenv
     xresources
 elif [ $config = "xmonad" ]; then
+    install_anyenv
     xmonad
 elif [ $config = "fontconfig" ]; then
+    install_anyenv
     fontconfig
 elif [ $config = "alacritty" ]; then
+    install_anyenv
     alacritty
+elif [ $config = "anyenv" ]; then
+    install_anyenv
 else
     echo Config set $config not found.
 fi
