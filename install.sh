@@ -174,6 +174,13 @@ neovim ()
         }
         rbenv install 2.7.0
     fi
+    if ! echo "$(nodenv versions)" | grep -q "13.8.0"; then
+        type make || {
+            echo 'Please install make or update your path to include the make executable!'
+            exit 1
+        }
+        nodenv install 13.8.0
+    fi
     ln -s $(pwd)/.config/nvim/ $home_dir/.config/
     install_dein
     echo Neovim: Done
