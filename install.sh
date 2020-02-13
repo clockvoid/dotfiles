@@ -167,6 +167,13 @@ neovim ()
         }
         pyenv install 3.6.5
     fi
+    if ! echo "$(rbenv versions)" | grep -q "2.7.0"; then
+        type make || {
+            echo 'Please install make or update your path to include the make executable!'
+            exit 1
+        }
+        rbenv install 2.7.0
+    fi
     ln -s $(pwd)/.config/nvim/ $home_dir/.config/
     install_dein
     echo Neovim: Done
