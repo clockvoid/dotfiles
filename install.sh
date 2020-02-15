@@ -48,6 +48,28 @@ install_dein()
     fi
 }
 
+install_local_bin() {
+    if [ ! -d $home_dir/.local ]; then
+        mkdir $home_dir/.local
+    fi
+    if [ ! -d $home_dir/.local/bin ]; then
+        mkdir $home_dir/.local/bin
+    fi
+    ln -s $(pwd)/Common/shell/* $home_dir/.local/bin/
+}
+
+install_systemd_mods() {
+    if [ $environment == "Linux" ]; then
+        if [ ! -d $home_dir/.config/systemd ]; then
+            mkdir $home_dir/.config/systemd
+        fi
+        if [ ! -d $home_dir/.config/systemd/user ]; then
+            mkdir $home_dir/.config/systemd/user
+        fi
+        ln -s $(pwd)/Linux/.config/systemd/user/* $home_dir/.config/systemd/user/
+    fi
+}
+
 fontconfig ()
 {
     if [ $environment == "Linux" ]; then
@@ -67,25 +89,8 @@ vim ()
 
 tmux ()
 {
-    # TODO: separate installing shell/* to function shell_tools
-    if [ ! -d $home_dir/.local ]; then
-        mkdir $home_dir/.local
-    fi
-    if [ ! -d $home_dir/.local/bin ]; then
-        mkdir $home_dir/.local/bin
-    fi
-    ln -s $(pwd)/Common/shell/* $home_dir/.local/bin/
-    if [ $environment == "Linux" ]; then
-        if [ ! -d $home_dir/.config/systemd ]; then
-            mkdir $home_dir/.config/systemd
-        fi
-        if [ ! -d $home_dir/.config/systemd/user ]; then
-            mkdir $home_dir/.config/systemd/user
-        fi
-        ln -s $(pwd)/Linux/.config/systemd/user/* $home_dir/.config/systemd/user/
-    fi
-    ln -s $(pwd)/Common/.tmux-powerlinerc $home_dir/
-    ln -s $(pwd)/Common/.tmux.conf $home_dir/
+    install_local_bin
+    install_systemd_mods
     if [ ! -d $home_dir/.tmux ]; then
         mkdir $home_dir/.tmux
     fi
@@ -96,7 +101,6 @@ tmux ()
         }
         git clone https://github.com/erikw/tmux-powerline $home_dir/.tmux/tmux-powerline
     fi
-    ln -s $(pwd)/Common/tmux-poweline-themes/* $home_dir/.tmux/tmux-powerline/themes/
     if [ ! -d $home_dir/.tmux/plugins ]; then
         mkdir $home_dir/.tmux/plugins
     fi
@@ -107,6 +111,11 @@ tmux ()
         }
         git clone https://github.com/tmux-plugins/tpm $home_dir/.tmux/plugins/tpm
     fi
+    ln -s $(pwd)/Common/tmux-poweline-themes/* $home_dir/.tmux/tmux-powerline/themes/
+    ln -s $(pwd)/Common/.tmux-powerlinerc $home_dir/
+    ln -s $(pwd)/Common/.tmux.conf $home_dir/
+    ln -s $(pwd)/$environment/.config/tmux/tmux.*.conf $(pwd)/Common/.config/tmux/
+    ln -s $(pwd)/Common/.config/tmux $home_dir/.config/
     echo Tmux: Done
 }
 
