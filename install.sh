@@ -9,7 +9,8 @@ home_dir=~/
 config="all"
 environment=$(uname)
 
-install_anyenv() {
+install_anyenv()
+{
     if [ ! -d $home_dir/.anyenv ]; then
         type git || {
             echo 'Please install git or update your path to include the git executable!'
@@ -48,7 +49,8 @@ install_dein()
     fi
 }
 
-install_local_bin() {
+install_local_bin()
+{
     if [ ! -d $home_dir/.local ]; then
         mkdir $home_dir/.local
     fi
@@ -58,7 +60,8 @@ install_local_bin() {
     ln -s $(pwd)/Common/shell/* $home_dir/.local/bin/
 }
 
-install_systemd_mods() {
+install_systemd_mods()
+{
     if [ $environment == "Linux" ]; then
         if [ ! -d $home_dir/.config/systemd ]; then
             mkdir $home_dir/.config/systemd
@@ -178,11 +181,9 @@ zsh ()
         }
         git clone https://github.com/zplug/zplug $home_dir/.zplug
     fi
-    ln -s $(pwd)/$environment/.zshrc $home_dir/
-    if [ ! -d $home_dir/.config/zsh ]; then
-        mkdir $home_dir/.config/zsh
-    fi
-    ln -s $(pwd)/$environment/.config/zsh/* $home_dir/.config/zsh/
+    ln -s $(pwd)/$environment/.config/zsh/env $(pwd)/Common/.config/zsh/
+    ln -s $(pwd)/Common/.config/zsh $home_dir/.config/
+    ln -s $(pwd)/Common/.zshrc $home_dir/
     echo Zsh: Done
 }
 

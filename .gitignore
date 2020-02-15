@@ -1,3 +1,4 @@
 dist
 dein_installer.sh
+Common/**/env
 .python-version
