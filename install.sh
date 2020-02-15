@@ -7,6 +7,7 @@
 mode="normal"
 home_dir=~/
 config="all"
+environment=$(uname)
 
 install_anyenv() {
     if [ ! -d $home_dir/.anyenv ]; then
@@ -35,12 +36,6 @@ install_anyenv() {
     fi
 }
 
-fontconfig ()
-{
-    ln -s $(pwd)/.config/fontconfig $home_dir/.config/
-    echo Fontconfig: Done
-}
-
 install_dein()
 {
     if [ ! -d $home_dir/.cache ]; then
@@ -53,9 +48,19 @@ install_dein()
     fi
 }
 
+fontconfig ()
+{
+    if [ $environment == "Linux" ]; then
+        ln -s $(pwd)/Linux/.config/fontconfig $home_dir/.config/
+    else
+        echo This system do not need this configuration.
+    fi
+    echo Fontconfig: Done
+}
+
 vim ()
 {
-    ln -s $(pwd)/.*vim* $home_dir/
+    ln -s $(pwd)/Common/.*vim* $home_dir/
     install_dein
     echo Vim: Done
 }
@@ -69,34 +74,33 @@ tmux ()
     if [ ! -d $home_dir/.local/bin ]; then
         mkdir $home_dir/.local/bin
     fi
-    ln -s $(pwd)/shell/* $home_dir/.local/bin/
-    if [ ! -d $home_dir/.config/systemd ]; then
-        mkdir $home_dir/.config/systemd
+    ln -s $(pwd)/Common/shell/* $home_dir/.local/bin/
+    if [ $environment == "Linux" ]; then
+        if [ ! -d $home_dir/.config/systemd ]; then
+            mkdir $home_dir/.config/systemd
+        fi
+        if [ ! -d $home_dir/.config/systemd/user ]; then
+            mkdir $home_dir/.config/systemd/user
+        fi
+        ln -s $(pwd)/Linux/.config/systemd/user/* $home_dir/.config/systemd/user/
     fi
-    if [ ! -d $home_dir/.config/systemd/user ]; then
-        mkdir $home_dir/.config/systemd/user
-    fi
-    ln -s $(pwd)/.config/systemd/user/* $home_dir/.config/systemd/user/
-    ln -s $(pwd)/.tmux-powerlinerc $home_dir/
-    ln -s $(pwd)/.tmux.conf $home_dir/
+    ln -s $(pwd)/Common/.tmux-powerlinerc $home_dir/
+    ln -s $(pwd)/Common/.tmux.conf $home_dir/
     if [ ! -d $home_dir/.tmux ]; then
         mkdir $home_dir/.tmux
     fi
     if [ ! -d $home_dir/.tmux/tmux-powerline ]; then
-        mkdir $home_dir$(pwd)/tmux/tmux-powerline
         type git || {
           echo 'Please install git or update your path to include the git executable!'
           exit 1
         }
         git clone https://github.com/erikw/tmux-powerline $home_dir/.tmux/tmux-powerline
     fi
-    ln -s $(pwd)/tmux-poweline-themes/* $home_dir/.tmux/tmux-powerline/themes/
+    ln -s $(pwd)/Common/tmux-poweline-themes/* $home_dir/.tmux/tmux-powerline/themes/
     if [ ! -d $home_dir/.tmux/plugins ]; then
         mkdir $home_dir/.tmux/plugins
     fi
     if [ ! -d $home_dir/.tmux/plugins/tpm ]; then
-        mkdir $home_dir/.tmux/plugins/tpm
-        # check git command
         type git || {
           echo 'Please install git or update your path to include the git executable!'
           exit 1
@@ -108,35 +112,51 @@ tmux ()
 
 gtk ()
 {
-    ln -s $(pwd)/.gtkrc-2.0 $home_dir/
-    ln -s $(pwd)/.config/gtk-* $home_dir/.config/
+    if [ $environment == "Linux" ]; then
+        ln -s $(pwd)/Linux/.gtkrc-2.0 $home_dir/
+        ln -s $(pwd)/Linux/.config/gtk-* $home_dir/.config/
+    else
+        echo This system do not need this configuration.
+    fi
     echo GTK: Done
 }
 
 lightdm ()
 {
-    gtk
-    ln -s $(pwd)/lightdm $home_dir/
+    if [ $environment == "Linux" ]; then
+        gtk
+        ln -s $(pwd)/Linux/lightdm $home_dir/
+    else
+        echo This system do not need this configuration.
+    fi
     echo LightDM: Done: Please copy files in $home_dir/lightdm/ to /etc/lightdm/!
 }
 
 xmonad ()
 {
-    ln -s $(pwd)/.xmo* $home_dir/
-    ln -s $(pwd)/.xinitrc $home_dir/
-    ln -s $(pwd)/.xprofile $home_dir/
+    if [ $environment == "Linux" ]; then
+        ln -s $(pwd)/Linux/.xmo* $home_dir/
+        ln -s $(pwd)/Linux/.xinitrc $home_dir/
+        ln -s $(pwd)/Linux/.xprofile $home_dir/
+    else
+        echo This system do not need this configuration.
+    fi
     echo Xmonad: Done
 }
 
 xresources ()
 {
-    ln -s $(pwd)/.Xresources* $home_dir/
+    if [ $environment == "Linux" ]; then
+        ln -s $(pwd)/Linux/.Xresources* $home_dir/
+    else
+        echo This system do not need this configuration.
+    fi
     echo Xresources: Done
 }
 
 alacritty ()
 {
-    ln -s $(pwd)/.config/alacritty/ $home_dir/.config/
+    ln -s $(pwd)/Common/.config/alacritty/ $home_dir/.config/
     echo Alacritty: Done
 }
 
@@ -149,19 +169,23 @@ zsh ()
         }
         git clone https://github.com/zplug/zplug $home_dir/.zplug
     fi
-    ln -s $(pwd)/.zshrc $home_dir/
+    ln -s $(pwd)/Common/.zshrc $home_dir/
     echo Zsh: Done
 }
 
 feh ()
 {
-    ln -s $(pwd)/.fehbg $home_dir/
+    if [ $environment == "Linux" ]; then
+        ln -s $(pwd)/Linux/.fehbg $home_dir/
+    else
+        echo This system do not need this configuration.
+    fi
     echo Feh: Done
 }
 
 git_template ()
 {
-    ln -s $(pwd)/.git_template $home_dir/
+    ln -s $(pwd)/Common/.git_template $home_dir/
     echo Git: Done
 }
 
@@ -188,14 +212,14 @@ neovim ()
         }
         nodenv install 13.8.0
     fi
-    ln -s $(pwd)/.config/nvim/ $home_dir/.config/
+    ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
     install_dein
     echo Neovim: Done
 }
 
 terminator ()
 {
-    ln -s $(pwd)/.config/terminator/ $home_dir/.config/
+    ln -s $(pwd)/Common/.config/terminator/ $home_dir/.config/
     echo Terminator: Done
 }
 
