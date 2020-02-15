@@ -205,6 +205,8 @@ git_template ()
 
 neovim ()
 {
+    install_anyenv
+    install_dein
     if ! echo "$(pyenv versions)" | grep -q "3.7.6"; then
         type make || {
             echo 'Please install make or update your path to include the make executable!'
@@ -225,8 +227,23 @@ neovim ()
         pip install pynvim
         pyenv local --unset
     fi
+    if ! echo "$(rbenv versions)" | grep -q "2.4.0"; then
+        type make || {
+            echo 'Please install make or update your path to include the make executable!'
+            exit 1
+        }
+        rbenv install 2.4.0
+        rbenv local 2.4.0
+        gem install neovim
+        rbenv local --unset
+    fi
+    if ! echo "$(nodenv versions)" | grep -q "13.5.0"; then
+        nodenv install 13.5.0
+        nodenv local 13.5.0
+        nodenv exec npm install -g neovim
+        nodenv local --unset
+    fi
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
-    install_dein
     echo Neovim: Done
 }
 
@@ -306,7 +323,6 @@ fi
 
 echo Installing $config...
 if [[ $config = "all" ]]; then
-    install_anyenv
     tmux
     vim
     lightdm
@@ -318,28 +334,20 @@ if [[ $config = "all" ]]; then
     neovim
     alacritty
 elif [ $config = "vim" ]; then
-    install_anyenv
     vim
 elif [ $config = "neovim" ]; then
-    install_anyenv
     neovim
 elif [ $config = "zsh" ]; then
-    install_anyenv
     zsh
 elif [ $config = "tmux" ]; then
-    install_anyenv
     tmux
 elif [ $config = "xresources" ]; then
-    install_anyenv
     xresources
 elif [ $config = "xmonad" ]; then
-    install_anyenv
     xmonad
 elif [ $config = "fontconfig" ]; then
-    install_anyenv
     fontconfig
 elif [ $config = "alacritty" ]; then
-    install_anyenv
     alacritty
 elif [ $config = "anyenv" ]; then
     install_anyenv

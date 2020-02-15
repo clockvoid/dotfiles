@@ -29,6 +29,8 @@ set ttimeoutlen=10
 
 let g:python3_host_prog=expand('~/.anyenv/envs/pyenv/versions/3.7.6/bin/python')
 let g:python_host_prog=expand('~/.anyenv/envs/pyenv/versions/2.7.17/bin/python')
+let g:ruby_host_prog=expand('~/.anyenv/envs/rbenv/versions/2.4.0/bin/neovim-ruby-host')
+let g:node_host_prog=expand('~/.anyenv/envs/nodenv/versions/13.5.0/bin/neovim-node-host')
 " END: basic settings ----------------------------------------------------
 
 " START: command completion ----------------------------------------------
