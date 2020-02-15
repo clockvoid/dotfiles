@@ -205,26 +205,19 @@ git_template ()
 
 neovim ()
 {
-    if ! echo "$(pyenv versions)" | grep -q "3.6.5"; then
+    if ! echo "$(pyenv versions)" | grep -q "3.7.6"; then
         type make || {
             echo 'Please install make or update your path to include the make executable!'
             exit 1
         }
-        pyenv install 3.6.5
+        pyenv install 3.7.6
     fi
-    if ! echo "$(rbenv versions)" | grep -q "2.7.0"; then
+    if ! echo "$(pyenv versions)" | grep -q "2.7.17"; then
         type make || {
             echo 'Please install make or update your path to include the make executable!'
             exit 1
         }
-        rbenv install 2.7.0
-    fi
-    if ! echo "$(nodenv versions)" | grep -q "13.8.0"; then
-        type make || {
-            echo 'Please install make or update your path to include the make executable!'
-            exit 1
-        }
-        nodenv install 13.8.0
+        pyenv install 2.7.17
     fi
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
     install_dein
