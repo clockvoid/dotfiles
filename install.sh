@@ -21,6 +21,18 @@ install_anyenv() {
     if [ ! -d $home_dir/.config/anyenv/anyenv-install ]; then
         anyenv install --init
     fi
+    if [ ! -d $home_dir/.anyenv/envs/rbenv ]; then
+        anyenv install rbenv
+        eval "$(anyenv init -)" 
+    fi
+    if [ ! -d $home_dir/.anyenv/envs/pyenv ]; then
+        anyenv install pyenv
+        eval "$(anyenv init -)" 
+    fi
+    if [ ! -d $home_dir/.anyenv/envs/nodenv ]; then
+        anyenv install nodenv
+        eval "$(anyenv init -)" 
+    fi
 }
 
 fontconfig ()
@@ -148,18 +160,6 @@ git_template ()
 
 neovim ()
 {
-    if [ ! -d $home_dir/.anyenv/envs/rbenv ]; then
-        anyenv install rbenv
-        eval "$(anyenv init -)" 
-    fi
-    if [ ! -d $home_dir/.anyenv/envs/pyenv ]; then
-        anyenv install pyenv
-        eval "$(anyenv init -)" 
-    fi
-    if [ ! -d $home_dir/.anyenv/envs/nodenv ]; then
-        anyenv install nodenv
-        eval "$(anyenv init -)" 
-    fi
     if ! echo "$(pyenv versions)" | grep -q "3.6.5"; then
         type make || {
             echo 'Please install make or update your path to include the make executable!'
