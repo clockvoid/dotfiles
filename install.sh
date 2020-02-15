@@ -83,11 +83,10 @@ fontconfig ()
     echo Fontconfig: Done
 }
 
-vim ()
+ideavim ()
 {
-    ln -s $(pwd)/Common/.*vim* $home_dir/
-    install_dein
-    echo Vim: Done
+    ln -s $(pwd)/Common/.ideavimrc $home_dir/
+    echo IdeaVim: Done
 }
 
 tmux ()
@@ -324,7 +323,7 @@ fi
 echo Installing $config...
 if [[ $config = "all" ]]; then
     tmux
-    vim
+    ideavim
     lightdm
     xmonad
     xresources
@@ -333,8 +332,8 @@ if [[ $config = "all" ]]; then
     git_template
     neovim
     alacritty
-elif [ $config = "vim" ]; then
-    vim
+elif [ $config = "ideavim" ]; then
+    ideavim
 elif [ $config = "neovim" ]; then
     neovim
 elif [ $config = "zsh" ]; then
