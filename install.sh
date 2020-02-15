@@ -211,6 +211,9 @@ neovim ()
             exit 1
         }
         pyenv install 3.7.6
+        pyenv local 3.7.6
+        pip install pynvim
+        pyenv local --unset
     fi
     if ! echo "$(pyenv versions)" | grep -q "2.7.17"; then
         type make || {
@@ -218,6 +221,9 @@ neovim ()
             exit 1
         }
         pyenv install 2.7.17
+        pyenv local 2.7.17
+        pip install pynvim
+        pyenv local --unset
     fi
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
     install_dein

@@ -27,8 +27,8 @@ set title
 " key stroke settings
 set ttimeoutlen=10
 
-let g:python3_host_prog='/usr/local/bin/python3.7'
-let g:python_host_prog='/usr/local/bin/python2.7'
+let g:python3_host_prog=expand('~/.anyenv/envs/pyenv/versions/3.7.6/bin/python')
+let g:python_host_prog=expand('~/.anyenv/envs/pyenv/versions/2.7.17/bin/python')
 " END: basic settings ----------------------------------------------------
 
 " START: command completion ----------------------------------------------
