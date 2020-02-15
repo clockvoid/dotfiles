@@ -169,7 +169,11 @@ zsh ()
         }
         git clone https://github.com/zplug/zplug $home_dir/.zplug
     fi
-    ln -s $(pwd)/Common/.zshrc $home_dir/
+    ln -s $(pwd)/$environment/.zshrc $home_dir/
+    if [ ! -d $home_dir/.config/zsh ]; then
+        mkdir $home_dir/.config/zsh
+    fi
+    ln -s $(pwd)/$environment/.config/zsh/* $home_dir/.config/zsh/
     echo Zsh: Done
 }
 
