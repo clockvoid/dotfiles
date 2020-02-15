@@ -142,6 +142,13 @@ alacritty ()
 
 zsh ()
 {
+    if [ ! -d $home_dir/.zplug ]; then
+        type git || {
+            echo 'Please install git or update your path to include the git executable!'
+            exit 1
+        }
+        git clone https://github.com/zplug/zplug $home_dir/.zplug
+    fi
     ln -s $(pwd)/.zshrc $home_dir/
     echo Zsh: Done
 }
