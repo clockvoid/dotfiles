@@ -57,7 +57,7 @@ install_local_bin()
     if [ ! -d $home_dir/.local/bin ]; then
         mkdir $home_dir/.local/bin
     fi
-    ln -s $(pwd)/Common/shell/* $home_dir/.local/bin/
+    ln -s $(pwd)/$environment/shell/* $home_dir/.local/bin/
 }
 
 install_systemd_mods()

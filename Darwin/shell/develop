@@ -1,0 +1,6 @@
+#!/usr/local/bin/zsh
+
+tmux split-window -d -p 17
+#tmux split-window -dh -p 85
+
+nvim -c FZF
