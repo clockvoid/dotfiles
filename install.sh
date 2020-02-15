@@ -117,7 +117,7 @@ tmux ()
     ln -s $(pwd)/Common/tmux-poweline-themes/* $home_dir/.tmux/tmux-powerline/themes/
     ln -s $(pwd)/Common/.tmux-powerlinerc $home_dir/
     ln -s $(pwd)/Common/.tmux.conf $home_dir/
-    ln -s $(pwd)/$environment/.config/tmux/tmux.*.conf $(pwd)/Common/.config/tmux/
+    ln -s $(pwd)/$environment/.config/tmux/env $(pwd)/Common/.config/tmux/
     ln -s $(pwd)/Common/.config/tmux $home_dir/.config/
     echo Tmux: Done
 }
