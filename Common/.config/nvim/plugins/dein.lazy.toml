@@ -19,12 +19,20 @@ repo = 'othree/javascript-libraries-syntax.vim'
 on_ft = ['javascript', 'typescript']
 
 [[plugins]]
+repo = 'ianks/vim-tsx'
+on_ft = ['typescript.tsx']
+
+[[plugins]]
 repo = 'artur-shaik/vim-javacomplete2'
 on_ft = ['java']
 
-# [[plugins]]
-# repo = 'eagletmt/neco-ghc'
-# on_ft = ['haskell']
+#[[plugins]]
+#repo = 'eagletmt/neco-ghc'
+#on_ft = ['haskell']
+
+[[plugins]]
+repo = 'neovimhaskell/haskell-vim'
+on_ft = 'haskell'
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
@@ -54,10 +62,22 @@ on_ft = ['go']
 repo = 'Shougo/neco-vim'
 on_ft = ['vim']
 
-[[plugins]]
-repo = 'ujihisa/neco-look'
-on_ft = ['markdown', 'tex']
+#[[plugins]]
+#repo = 'ujihisa/neco-look'
+#on_ft = ['markdown', 'tex']
 
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+on_ft = ['swift']
+
+[[plugins]]
+repo = 'kballard/vim-swift'
+on_ft = ['swift']
+
+[[plugins]]
+repo = 'keith/swift.vim'
+on_ft = ['swift']

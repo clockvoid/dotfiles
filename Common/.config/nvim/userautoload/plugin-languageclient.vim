@@ -1,19 +1,29 @@
 
 set hidden
 
+let g:LanguageClient_settingsPath = "~/.config/nvim/userautoload/settings.json"
+
 " language server settings
 let g:LanguageClient_serverCommands = {
-            \ 'typescript': ['node', '~/javascript/javascript-typescript-langserver/lib/language-server-stdio.js'],
-            \ 'javascript': ['node', '~/javascript/javascript-typescript-langserver/lib/language-server.js'],
+            \ 'typescript': ['javascript-typescript-stdio'],
+            \ 'javascript': ['typescript-language-server', '--stdio'],
+            \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
+            \ 'typescript.tsx': ['javascript-typescript-stdio'],
             \ 'vue': ['vls'],
             \ 'rust': ['rustup', 'run', 'stable', 'rls'],
             \ 'php': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
             \ 'phpunit': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
             \ 'c': ['clangd'],
             \ 'cpp': ['clangd'],
-            \ 'haskell': ['hie', '--lsp'],
+            \ 'haskell': ['hie-wrapper', '--lsp'],
             \ 'python': ['pyls']
             \}
+
+let g:LanguageClient_rootMarkers = {
+    \ 'javascript': ['jsconfig.json'],
+    \ 'typescript': ['tsconfig.json'],
+    \ 'haskell': ['*.cabal', 'stack.yaml']
+    \ }
 
 "let g:LanugageClient_autoStart = 1
 
@@ -45,12 +55,13 @@ let g:LanguageClient_diagnosticsDisplay = {
             \}
 
 " completion settings
-"set completefunc=LanguageClient#complete
+set completefunc=LanguageClient#complete
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> L :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F6> :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> cl :sign unplace *<CR>
 
 "set completefunc=LanguageClient#complete
 "let g:LanugageClient_trace = "verbose"

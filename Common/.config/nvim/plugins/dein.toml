@@ -54,6 +54,9 @@ repo = 'flazz/vim-colorschemes'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
+repo = 'cocopon/lightline-hybrid.vim'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
@@ -86,4 +89,7 @@ repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
 repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'zerowidth/vim-copy-as-rtf'
 

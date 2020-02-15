@@ -3,7 +3,7 @@ if !has('gui_runnig')
 	set t_Co=256
 endif
 let g:lightline = {
-\   'colorscheme': 'wombat',
+\   'colorscheme': 'hybrid',
 \   'separator': {'left': "\ue0b0", 'right': "\ue0b2"},
 \   'subseparator': {'left': "\ue0b1", 'right': "\ue0b3"}
 \}

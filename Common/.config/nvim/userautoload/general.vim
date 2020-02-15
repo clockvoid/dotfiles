@@ -1,5 +1,7 @@
 scriptencoding utf-8
 set encoding=utf-8
+lang ja_JP.UTF-8
+lang mes C
 
 " START: basic settings --------------------------------------------------
 " about edit files
@@ -25,8 +27,8 @@ set title
 " key stroke settings
 set ttimeoutlen=10
 
-let g:python3_host_prog='/usr/bin/python3'
-let g:python_host_prog='/usr/bin/python2'
+let g:python3_host_prog='/usr/local/bin/python3.7'
+let g:python_host_prog='/usr/local/bin/python2.7'
 " END: basic settings ----------------------------------------------------
 
 " START: command completion ----------------------------------------------
