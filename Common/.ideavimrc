@@ -68,3 +68,8 @@ nnoremap g; :action JumpToLastChange<CR>
 nnoremap <silent> L :action FindUsages<CR>
 nnoremap gs :action GotoSuperMethod<CR>
 nnoremap gi :action GotoImplementation<CR>
+
+" for backslash on jis keyboard
+" type option + \ to input yenmark
+inoremap ¥ \
+inoremap \ ¥
