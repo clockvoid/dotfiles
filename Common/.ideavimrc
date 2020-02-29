@@ -51,13 +51,20 @@ nnoremap K gt
 nnoremap J gT
 
 " For surrounding a word
-nnoremap <C-f>s" ciw""<Esc>P
-nnoremap <C-f>s' ciw''<Esc>P
-nnoremap <C-f>s` ciw``<Esc>P
-nnoremap <C-f>s( ciw()<Esc>P
-nnoremap <C-f>s{ ciw{}<Esc>P
-nnoremap <C-f>s[ ciw[]<Esc>P
+nnoremap <C-s>" ciw""<Esc>P
+nnoremap <C-s>' ciw''<Esc>P
+nnoremap <C-s>` ciw``<Esc>P
+nnoremap <C-s>( ciw()<Esc>P
+nnoremap <C-s>{ ciw{}<Esc>P
+nnoremap <C-s>[ ciw[]<Esc>P
 
 " For ESC without leaving home position
 " This function is exist in normal vim mapping by <C-c>
 inoremap <C-f> <Esc>
+
+" for back
+nnoremap g; :action JumpToLastChange<CR>
+
+nnoremap <silent> L :action FindUsages<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplementation<CR>
