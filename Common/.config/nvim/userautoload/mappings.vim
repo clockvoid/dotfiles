@@ -39,15 +39,15 @@ nnoremap K gt
 nnoremap J gT
 
 " For surrounding a word
-nnoremap <C-f>s" ciw""<Esc>P
-nnoremap <C-f>s' ciw''<Esc>P
-nnoremap <C-f>s` ciw``<Esc>P
-nnoremap <C-f>s( ciw()<Esc>P
-nnoremap <C-f>s{ ciw{}<Esc>P
-nnoremap <C-f>s[ ciw[]<Esc>P
+nnoremap <C-s>" ciw""<Esc>P
+nnoremap <C-s>' ciw''<Esc>P
+nnoremap <C-s>` ciw``<Esc>P
+nnoremap <C-s>( ciw()<Esc>P
+nnoremap <C-s>{ ciw{}<Esc>P
+nnoremap <C-s>[ ciw[]<Esc>P
 
 " For ESC without leaving home position
-" This function is exist in normal vim mapping by <C-c>
+" This function is exist in normal vim mapping by <C-c> or <C-[>
 inoremap <C-f> <Esc>
 
 " press gj anytime
@@ -55,5 +55,8 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+
+" for continuous paste on visual mode
+xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
 " END: settings for Custom key Bindings
