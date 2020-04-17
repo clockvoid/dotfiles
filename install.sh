@@ -118,6 +118,9 @@ tmux ()
     ln -s $(pwd)/Common/.tmux.conf $home_dir/
     ln -s $(pwd)/$environment/.config/tmux/env $(pwd)/Common/.config/tmux/
     ln -s $(pwd)/Common/.config/tmux $home_dir/.config/
+    if [ $environment == "Darwin" ]; then
+        brew install reattach-to-user-namespace
+    fi
     echo Tmux: Done
 }
 
