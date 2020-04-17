@@ -2,7 +2,7 @@
 bindkey -v
 
 # aliases
-alias ls='ls -G'
+alias ls='ls --color=auto'
 alias vim='nvim'
 alias vimf='nvim -c FZF'
 alias v='nvim'
