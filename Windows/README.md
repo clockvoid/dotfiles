@@ -1,0 +1,4 @@
+# dotfiles for Windows
+WindowsではAutoHotKeyを用いてキーバインドをMacに近しいものに変える必要がある．
+これを行うためのファイルがmac.ahkとなる．
+AutoHotKeyをChocolateyでインストールし，mac.ahkをコンパイルし，startupにショートカットを置くとよい．
