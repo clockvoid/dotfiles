@@ -223,7 +223,7 @@ neovim ()
     if ! echo "$(pyenv versions)" | grep -q "2.7.17"; then
         type make || {
             echo 'Please install make or update your path to include the make executable!'
-            echo 'Also, you should install gcc and zlib1g-dev on Ubuntu 18.04.'
+            echo 'Also, you should install gcc and zlib1g-dev and libssl-dev on Ubuntu 18.04.'
             exit 1
         }
         pyenv install 2.7.17
