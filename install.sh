@@ -212,6 +212,7 @@ neovim ()
     if ! echo "$(pyenv versions)" | grep -q "3.7.6"; then
         type make || {
             echo 'Please install make or update your path to include the make executable!'
+            echo 'Also, you should install gcc and zlib1g-dev on Ubuntu 18.04.'
             exit 1
         }
         pyenv install 3.7.6
@@ -222,6 +223,7 @@ neovim ()
     if ! echo "$(pyenv versions)" | grep -q "2.7.17"; then
         type make || {
             echo 'Please install make or update your path to include the make executable!'
+            echo 'Also, you should install gcc and zlib1g-dev and libssl-dev on Ubuntu 18.04.'
             exit 1
         }
         pyenv install 2.7.17
@@ -295,17 +297,17 @@ check_mode ()
 
 for i in $@
 do
-    if [[ $mode = "normal" ]]; then
+    if [ $mode = "normal" ]; then
         if expr $i : "^-.*$" > /dev/null; then
             mode=$(check_mode $i)
             continue
         else
             print_error $i
         fi
-    elif [[ $mode = "directory" ]]; then
+    elif [ $mode = "directory" ]; then
         mode="normal"
         home_dir=$i
-    elif [[ $mode = "config" ]]; then
+    elif [ $mode = "config" ]; then
         mode="normal"
         config=$i
     else
@@ -313,7 +315,7 @@ do
     fi
 done
 
-if [[ $mode = "help" ]]; then
+if [ $mode = "help" ]; then
     print_help
 fi
 
@@ -324,7 +326,7 @@ if [ ! -d $home_dir/.config ]; then
 fi
 
 echo Installing $config...
-if [[ $config = "all" ]]; then
+if [ $config = "all" ]; then
     tmux
     ideavim
     lightdm
