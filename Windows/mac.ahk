@@ -48,6 +48,10 @@ is_disable_window()
 	{
 		return 1
 	}
+    ifWinActive,ahk_exe OpenConsole.exe
+    {
+        return 1
+    }
 	
 	return 0
 }
