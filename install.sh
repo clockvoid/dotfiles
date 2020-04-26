@@ -71,6 +71,7 @@ install_systemd_mods()
         fi
         ln -s $(pwd)/Linux/.config/systemd/user/* $home_dir/.config/systemd/user/
     fi
+    echo SystemdMods: Done
 }
 
 fontconfig ()
