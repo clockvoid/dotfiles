@@ -1,5 +1,4 @@
 let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
 
 " <TAB>: completion.
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : deoplete#mappings#manual_complete()
@@ -25,4 +24,5 @@ let g:deoplete#enable_at_startup = 1
 call  deoplete#custom#option('sources', {
          \ 'typescript.tsx': [ 'LanguageClient', 'neosnippet' ],
          \ 'haskell': [ 'LanguageClient', 'neosnippet' ],
+         \ 'smart_case': v:true,
          \ })
