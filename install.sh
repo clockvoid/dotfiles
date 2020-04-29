@@ -216,8 +216,8 @@ neovim ()
             echo 'Also, you should install gcc and zlib1g-dev on Ubuntu 18.04.'
             exit 1
         }
-        pyenv install 3.7.6
-        pyenv local 3.7.6
+        pyenv install 3.8.1
+        pyenv local 3.8.1
         pip install pynvim
         pyenv local --unset
     fi
