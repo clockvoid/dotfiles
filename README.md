@@ -25,7 +25,6 @@ Now, it supports these applicatons:
 * xmonad
 * fontconfig
 
-
 For more ditailes, you can see help as follows:
 
 ```bash
@@ -64,7 +63,7 @@ These `dotfiles` contain LanguageServer settings in Neovim. There are some depen
 * `rls`（for rust）
 * `Haskell-ide-Engine`
 * `php-language-server`
-* `clangd`
+* `clangd` (see https://kurokoji.hatenablog.com/entry/2018/08/16/220524 )
 * `pyls`
 * `kotlin-language-server` (https://github.com/fwcd/kotlin-language-server/)
 

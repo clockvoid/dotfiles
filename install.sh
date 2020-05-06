@@ -238,15 +238,15 @@ neovim ()
             exit 1
         }
         rbenv install 2.4.0
-        rbenv local 2.4.0
+        rbenv rehash
+        rbenv global 2.4.0
         gem install neovim
-        rbenv local --unset
     fi
     if ! echo "$(nodenv versions)" | grep -q "13.5.0"; then
         nodenv install 13.5.0
-        nodenv local 13.5.0
+        nodenv global 13.5.0
+        nodenv rehash
         nodenv exec npm install -g neovim
-        nodenv local --unset
     fi
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
     echo Neovim: Done
