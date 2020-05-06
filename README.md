@@ -66,6 +66,7 @@ These `dotfiles` contain LanguageServer settings in Neovim. There are some depen
 * `php-language-server`
 * `clangd`
 * `pyls`
+* `kotlin-language-server` (https://github.com/fwcd/kotlin-language-server/)
 
 You can get almost all of these applicatons in AUR, but some one is not.
 Finally, you have to see GitHub README on each softwares.
