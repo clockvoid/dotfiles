@@ -16,7 +16,8 @@ let g:LanguageClient_serverCommands = {
             \ 'c': ['clangd'],
             \ 'cpp': ['clangd'],
             \ 'haskell': ['hie-wrapper', '--lsp'],
-            \ 'python': ['pyls']
+            \ 'python': ['pyls'],
+            \ 'kotlin': ['/Users/clock/git/kotlin-language-server/server/build/install/server/bin/kotlin-language-server']
             \}
 
 let g:LanguageClient_rootMarkers = {
