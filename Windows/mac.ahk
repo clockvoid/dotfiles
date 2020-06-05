@@ -139,6 +139,9 @@ send_key(original_key,replace_key)
 <!+::send_key("!{+}","^{+}")
 <!-::send_key("!{-}","^{-}")
 
+; AltキーによるIME制御
+; by https://github.com/karakaram/alt-ime-ahk
+
 ; 上部メニューがアクティブになるのを抑制
 *~LAlt::Send {Blind}{vk07}
 *~RAlt::Send {Blind}{vk07}
