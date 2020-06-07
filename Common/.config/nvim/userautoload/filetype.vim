@@ -1,4 +1,7 @@
 " START: define filetypes ------------------------------------------------
+
+filetype plugin indent on
+
 augroup DefineFileTypes
     autocmd!
     " if pattern include '/', search for full path
