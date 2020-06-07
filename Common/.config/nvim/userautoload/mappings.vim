@@ -55,8 +55,18 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+vnoremap j gj
+vnoremap k gk
+vnoremap gj j
+vnoremap gk k
 
 " for continuous paste on visual mode
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
+
+" for US keyboard
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " END: settings for Custom key Bindings

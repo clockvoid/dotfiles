@@ -73,3 +73,9 @@ nnoremap gi :action GotoImplementation<CR>
 " type option + \ to input yenmark
 inoremap ¥ \
 inoremap \ ¥
+
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
