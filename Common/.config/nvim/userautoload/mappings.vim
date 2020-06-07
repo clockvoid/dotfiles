@@ -63,10 +63,32 @@ vnoremap gk k
 " for continuous paste on visual mode
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
+let g:is_us = 1
+
 " for US keyboard
 nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+
+function! ToggleKeyset()
+    if g:is_us
+        nnoremap ; ;
+        nnoremap : :
+        vnoremap ; ;
+        vnoremap : :
+        let g:is_us = 0
+        echo "JIS keyboard mode"
+    else
+        nnoremap ; :
+        nnoremap : ;
+        vnoremap ; :
+        vnoremap : ;
+        let g:is_us = 1
+        echo "US keyboard mode"
+    endif
+endfunction
+
+noremap <silent> <C-k> :call ToggleKeyset()<CR>
 
 " END: settings for Custom key Bindings
