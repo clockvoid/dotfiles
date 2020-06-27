@@ -93,3 +93,6 @@ repo = 'simeji/winresizer'
 [[plugins]]
 repo = 'zerowidth/vim-copy-as-rtf'
 
+[[plugins]]
+repo = 'yuratomo/w3m.vim'
+
