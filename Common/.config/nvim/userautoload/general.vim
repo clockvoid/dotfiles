@@ -1,5 +1,7 @@
 scriptencoding utf-8
 set encoding=utf-8
+set fileencodings=utf-8,sjis,euc-jp,iso-2022-jp
+set fileformats=unix,dos,mac
 lang ja_JP.UTF-8
 lang mes C
 
