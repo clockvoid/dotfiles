@@ -1,15 +1,13 @@
-let g:w3m#command = '/usr/local/bin/w3m'
 
 let g:w3m#external_browser = 'chrome'
-let g:w3m#homepage = "http://www.google.co.jp/"
+let g:w3m#homepage = "https://www.google.co.jp"
+let g:w3m#search_engine = 'https://www.google.co.jp/search?ie=' . &encoding . '&q=%s'
+let g:w3m#search_engine_list = [
+            \{'name': 'android', 'url': 'https://developer.android.com/s/results?q=%s'},
+            \{'name': 'hoogle', 'url': 'https://hoogle.haskell.org/?hoogle=%s&scope=set:stackage'},
+            \]
 let g:w3m#hit_a_hint_key = 'f'
 let g:w3m#lang = 'en_US'
-"let g:w3m#set_hover_on
-"let g:w3m#hover_set_on = -1 
-" a value less than or equal to 0 will turn it off
-
-" set delay time until highlighting
-"let g:w3m#hover_delay_time = 100
 
 function! s:custom_keymap()
     nmap <buffer>H <Plug>(w3m-back)
