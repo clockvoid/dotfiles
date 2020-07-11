@@ -3,6 +3,7 @@ bindkey -v
 
 # aliases
 alias ls='ls --color=auto'
+alias ovim='/usr/bin/vim'
 alias vim='nvim'
 alias vimf='nvim -c FZF'
 alias v='nvim'
