@@ -35,6 +35,10 @@ install_anyenv()
         anyenv install nodenv
         eval "$(anyenv init -)" 
     fi
+    if [ ! -d $home_dir/.anyenv/envs/jenv ]; then
+        anyenv install jenv
+        eval "$(anyenv init -)"
+    fi
 }
 
 install_dein()
