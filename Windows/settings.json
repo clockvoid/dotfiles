@@ -75,17 +75,17 @@
       "green"             :"#8c9440",
       "yellow"            :"#de935f",
       "blue"              :"#5f819d",
-      "magenta"           :"#85678f",
       "cyan"              :"#5e8d87",
       "white"             :"#707880",
+      "purple": "#85678f", // known as magenta
       "brightBlack"             :"#373b41",
       "brightRed"               :"#cc6666",
       "brightGreen"             :"#b5bd68",
       "brightYellow"            :"#f0c674",
       "brightBlue"              :"#81a2be",
-      "brightMagenta"           :"#b294bb",
       "brightCyan"              :"#8abeb7",
       "brightWhite"             :"#c5c8c6",
+      "brightPurple": "#b294bb",
       "background"        :"#1d1f21",
       "foreground"        :"#c5c8c6"
     }
