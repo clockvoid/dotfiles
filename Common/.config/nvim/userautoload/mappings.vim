@@ -46,10 +46,6 @@ nnoremap <C-s>( ciw()<Esc>P
 nnoremap <C-s>{ ciw{}<Esc>P
 nnoremap <C-s>[ ciw[]<Esc>P
 
-" For ESC without leaving home position
-" This function is exist in normal vim mapping by <C-c> or <C-[>
-inoremap <C-f> <Esc>
-
 " press gj anytime
 nnoremap j gj
 nnoremap k gk
