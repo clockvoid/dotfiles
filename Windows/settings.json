@@ -6,42 +6,41 @@
   "$schema": "https://aka.ms/terminal-profiles-schema",
 
   "defaultProfile": "{56cea499-78a2-4a15-b0f2-8a667d744c16}",
+  "copyOnSelect": true,
+  "theme": "dark",
 
   "profiles":
   {
     "defaults":
     {
-      // Put settings here that you want to apply to all profiles
+      "acrylicOpacity" : 1,
+      "closeOnExit" : "always",
+      "colorScheme" : "Hybrid",
+      "cursorColor" : "#FFFFFF",
+      "cursorShape" : "filledBox",
+      "fontFace" : "Cica",
+      "fontSize" : 14,
+      "historySize" : 9001,
+      "padding" : "5, 5, 5, 5",
+      "snapOnInput" : true,
+      "useAcrylic" : true
     },
     "list":
     [
       {
         "guid": "{56cea499-78a2-4a15-b0f2-8a667d744c16}",
-        "acrylicOpacity" : 1,
-        "closeOnExit" : true,
-        "colorScheme" : "Hybrid",
         "commandline" : "cmd.exe /c \"set MSYSTEM=MINGW64&& set MSYS=winsymlinks:nativestrict&& \"C:/Program Files/Git/bin/bash.exe\" --login\"",
-        "cursorColor" : "#FFFFFF",
-        "cursorShape" : "filledBox",
-        "fontFace" : "Cica",
-        "fontSize" : 14,
-        "historySize" : 9001,
-        "icon" : "C:\\git-sdk-64\\mingw64\\share\\git\\git-for-windows.ico",
+        "icon" : "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
         "name" : "Git Bash",
-        "padding" : "5, 5, 5, 5",
-        "snapOnInput" : true,
-        "startingDirectory" : "%USERPROFILE%",
-        "useAcrylic" : true
+        "startingDirectory" : "%USERPROFILE%"
       },
       {
-        // Make changes here to the powershell.exe profile
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "name": "Windows PowerShell",
         "commandline": "powershell.exe",
         "hidden": true
       },
       {
-        // Make changes here to the cmd.exe profile
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
         "name": "cmd",
         "commandline": "cmd.exe",
@@ -52,10 +51,7 @@
         "hidden": false,
         "name": "Ubuntu",
         "source": "Windows.Terminal.Wsl",
-        "closeOnExit" : true,
-        "cursorShape" : "filledBox",
-        "fontFace" : "Source Code Pro for Powerline",
-        "colorScheme" : "One Half Dark"
+        "cursorShape" : "filledBox"
       },
       {
         "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -66,32 +62,47 @@
     ]
   },
 
-  // Add custom color schemes to this array
   "schemes": [
     {
       "name": "Hybrid",
-      "black"             :"#282a2e",
-      "red"               :"#a54242",
-      "green"             :"#8c9440",
-      "yellow"            :"#de935f",
-      "blue"              :"#5f819d",
-      "cyan"              :"#5e8d87",
-      "white"             :"#707880",
-      "purple": "#85678f", // known as magenta
-      "brightBlack"             :"#373b41",
-      "brightRed"               :"#cc6666",
-      "brightGreen"             :"#b5bd68",
-      "brightYellow"            :"#f0c674",
-      "brightBlue"              :"#81a2be",
-      "brightCyan"              :"#8abeb7",
-      "brightWhite"             :"#c5c8c6",
+      "black" :"#282a2e",
+      "red" :"#a54242",
+      "green" :"#8c9440",
+      "yellow" :"#de935f",
+      "blue" :"#5f819d",
+      "cyan" :"#5e8d87",
+      "white" :"#707880",
+      "purple": "#85678f",
+      "brightBlack" :"#373b41",
+      "brightRed" :"#cc6666",
+      "brightGreen" :"#b5bd68",
+      "brightYellow" :"#f0c674",
+      "brightBlue" :"#81a2be",
+      "brightCyan" :"#8abeb7",
+      "brightWhite" :"#c5c8c6",
       "brightPurple": "#b294bb",
-      "background"        :"#1d1f21",
-      "foreground"        :"#c5c8c6"
+      "background" :"#1d1f21",
+      "foreground" :"#c5c8c6"
     }
   ],
 
-  // Add any keybinding overrides to this array.
-  // To unbind a default keybinding, set the command to "unbound"
-  "keybindings": []
+  "keybindings": [
+    { "command": {" action": "newTab", "index": 0 }, "keys": "alt+t" },
+    { "command": "closeTab", "keys": "ctrl+w" },
+    { "command": { "action": "switchToTab", "index": 0 }, "keys": "ctrl+1" },
+    { "command": { "action": "switchToTab", "index": 1 }, "keys": "ctrl+2" },
+    { "command": { "action": "switchToTab", "index": 2 }, "keys": "ctrl+3" },
+    { "command": { "action": "switchToTab", "index": 3 }, "keys": "ctrl+4" },
+    { "command": { "action": "switchToTab", "index": 4 }, "keys": "ctrl+5" },
+    { "command": { "action": "switchToTab", "index": 5 }, "keys": "ctrl+6" },
+    { "command": { "action": "switchToTab", "index": 6 }, "keys": "ctrl+7" },
+    { "command": { "action": "switchToTab", "index": 7 }, "keys": "ctrl+8" },
+    { "command": { "action": "switchToTab", "index": 8 }, "keys": "ctrl+9" },
+    { "command": { "action": "splitPane", "split": "horizontal"}, "keys": "alt+shift+-" },
+    { "command": { "action": "splitPane", "split": "vertical"}, "keys": "alt+shift+\\" },
+    { "command": { "action": "resizePane", "direction": "down" }, "keys": "alt+z" },
+    { "command": { "action": "resizePane", "direction": "left" }, "keys": "alt+shift+," },
+    { "command": { "action": "resizePane", "direction": "right" }, "keys": "alt+shift+." },
+    { "command": { "action": "resizePane", "direction": "up" }, "keys": "alt+a" }
+  ]
 }
