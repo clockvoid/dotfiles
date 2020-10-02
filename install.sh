@@ -360,6 +360,8 @@ elif [ $config = "alacritty" ]; then
     alacritty
 elif [ $config = "anyenv" ]; then
     install_anyenv
+elif [ $config = "git_template" ]; then
+    git_template
 else
     echo Config set $config not found.
 fi
