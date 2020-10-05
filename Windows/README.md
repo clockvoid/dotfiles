@@ -10,3 +10,4 @@ WindowsではSymbolic linkに直接アクセスできなさそうなので，コ
 Windows Terminal用の設定．
 `C:/Users/<user>/AppData/Local/Packages/Microsoft.WindowsTerminal_<randomString>/LocalState`
 にコピーして使用する．
+
