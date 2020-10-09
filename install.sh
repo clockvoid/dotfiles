@@ -125,6 +125,8 @@ tmux ()
     ln -s $(pwd)/$environment/.config/tmux/env $(pwd)/Common/.config/tmux/
     ln -s $(pwd)/Common/.config/tmux $home_dir/.config/
     if [ $environment == "Darwin" ]; then
+        ln -s $(pwd)/Darwin/Library/LaunchAgents/* $home_dir/Library/LaunchAgents/
+        launchctl load ~/Library/LaunchAgents/local.pbcopy.9988.plist
         brew install reattach-to-user-namespace coreutils
     fi
     echo Tmux: Done
