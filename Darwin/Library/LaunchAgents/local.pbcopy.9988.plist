@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>local.pbcopy.9988</string>
+    <key>UserName</key>
+    <string>clock</string>
+    <key>Program</key>
+    <string>/usr/bin/pbcopy</string>
+    <key>StandardOutPath</key>
+    <string>/tmp/pb9988.out</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/pb9988.err</string>
+    <key>Sockets</key>
+    <dict>
+        <key>Listeners</key>
+        <dict>
+            <key>SockNodeName</key>
+            <string>localhost</string>
+            <key>SockServiceName</key>
+            <string>9988</string>
+        </dict>
+    </dict>
+    <key>inetdCompatibility</key>
+    <dict>
+        <key>Wait</key>
+        <false/>
+    </dict>
+</dict>
+</plist>
