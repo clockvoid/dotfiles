@@ -118,6 +118,7 @@ tmux ()
         }
         git clone https://github.com/tmux-plugins/tpm $home_dir/.tmux/plugins/tpm
     fi
+    ln -s $(pwd)/Common/.tmux/* $home_dir/.tmux/
     ln -s $(pwd)/Common/tmux-poweline-themes/* $home_dir/.tmux/tmux-powerline/themes/
     ln -s $(pwd)/Common/.tmux-powerlinerc $home_dir/
     ln -s $(pwd)/Common/.tmux.conf $home_dir/
