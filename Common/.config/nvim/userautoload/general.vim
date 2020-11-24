@@ -24,6 +24,7 @@ set number
 set cmdheight=2
 set showcmd
 set title
+set statusline+=%F
 "set background=dark
 
 " key stroke settings
