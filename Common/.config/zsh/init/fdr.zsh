@@ -1,13 +1,12 @@
 # fd - cd to selected directory
 
-fd() {
+fdr() {
   local dir prevcmd
   if ! type tree > /dev/null; then
       prevcmd='echo "To see perfect preview, install tree" && ls {}'
   else
-      prevcmd='tree {}'
+      prevcmd='tree -C {} | head -200'
   fi
-  dir=$(find ${1:-.} -path '*/\.*' \
-          -type d -print 2> /dev/null | fzf +m --reverse --preview "$prevcmd") &&
+  dir=$(fd --hidden --follow --exclude ".git" --exclude "Library" --max-depth 5 | fzf +m --reverse --preview "$prevcmd") &&
   cd "$dir"
 }
