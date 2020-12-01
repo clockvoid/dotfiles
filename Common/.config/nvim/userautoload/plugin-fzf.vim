@@ -1,16 +1,10 @@
-" change find command
-" Vim script can use the '.' concatation operator for long string like this:
-let $FZF_DEFAULT_COMMAND="find . " .
-            \ "-path ./vendor -prune -o " .
-            \ "-path ./.stack-work -prune -o " .
-            \ "-path ./node_modules -prune -o " .
-            \ "-path ./bower_components -prune -o " .
-            \ "-path ./dist -prune -o " .
-            \ "-path ./.git -prune -o " .
-            \ "-path ./.python-version -prune -o " .
-            \ "-type f -print -o " .
-            \ "-type l -print 2> /dev/null" .
-            \ " | sed s/^..//"
+
+if has("unix")
+    let s:uname = system("uname -s")
+    if s:uname == "Darwin"
+        rtp+=/usr/local/opt/fzf
+    endif
+endif
 
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -20,7 +14,7 @@ let g:fzf_action = {
 
 " Default fzf layout
 " - down / up / left / right
-let g:fzf_layout = { 'left': '~20%' }
+let g:fzf_layout = { 'down': '~30%' }
 
 " In Neovim, you can set up fzf window using a Vim command
 "let g:fzf_layout = { 'window': 'enew' }
@@ -48,3 +42,5 @@ let g:fzf_colors =
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" let g:fzf_command_prefix = 'Fzf'
