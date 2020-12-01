@@ -80,6 +80,10 @@ repo = 'tpope/vim-obsession'
 
 [[plugins]]
 repo = 'junegunn/fzf'
+build = 'bash ./install --all'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
 
 #[[plugins]]
 #repo = 'roxma/nvim-completion-manager'
