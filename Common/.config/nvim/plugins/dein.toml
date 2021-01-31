@@ -8,7 +8,7 @@ repo = 'Shougo/dein.vim'
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
 build = 'bash install.sh'
-on_ft = ['haskell', 'javascript', 'typescript', 'rust', 'php', 'phpunit', 'python']
+#on_ft = ['haskell', 'javascript', 'typescript', 'rust', 'php', 'phpunit', 'python']
 #rev = 'binary-*-x86_64-unknown-linux-musl'
 
 [[plugins]]
