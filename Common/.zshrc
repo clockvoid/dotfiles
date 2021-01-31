@@ -22,3 +22,5 @@ for file in $HOME/.config/zsh/env/*.zsh; do
     source "$file"
 done
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
