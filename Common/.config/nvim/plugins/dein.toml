@@ -4,36 +4,48 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
+#[[plugins]]
+#repo = 'autozimu/LanguageClient-neovim'
+#rev = 'next'
+#build = 'bash install.sh'
 #on_ft = ['haskell', 'javascript', 'typescript', 'rust', 'php', 'phpunit', 'python']
 #rev = 'binary-*-x86_64-unknown-linux-musl'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'mattn/vim-goimports'
 
 #[[plugins]]
-#repo = 'roxma/nvim-yarp'
+#repo = 'Shougo/deoplete.nvim'
 #
 #[[plugins]]
-#repo = 'ncm2/ncm2'
-#depends = 'nvim-yarp'
-#
-#[[plugins]]
-#repo = 'ncm2/ncm2-snipmate'
-#depends = 'ncm2'
+#repo = 'lighttiger2505/deoplete-vim-lsp'
 
-#[[plugins]]
-#repo = 'Shougo/denite.nvim'
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
-#depends = ['neosnippet-snippets', 'vim-snippets']
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
+
+[[plugins]]
+repo = 'yami-beta/asyncomplete-omni.vim'
 
 [[plugins]]
 repo = 'honza/vim-snippets'
@@ -84,9 +96,6 @@ build = 'bash ./install --all'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-
-#[[plugins]]
-#repo = 'roxma/nvim-completion-manager'
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'

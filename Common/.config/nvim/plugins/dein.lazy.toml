@@ -54,9 +54,9 @@ on_ft = ['rust']
 repo = 'othree/csscomplete.vim'
 on_ft = ['css']
 
-[[plugins]]
-repo = 'nsf/gocode'
-on_ft = ['go']
+#[[plugins]]
+#repo = 'fatih/vim-go'
+#on_ft = ['go']
 
 [[plugins]]
 repo = 'Shougo/neco-vim'
