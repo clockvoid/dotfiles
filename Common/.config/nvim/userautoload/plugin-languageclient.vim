@@ -1,69 +1,50 @@
 
-set hidden
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> <f6> <plug>(lsp-rename)
+  nmap <buffer> gD <plug>(lsp-type-definition)
+  nmap <buffer> L <plug>(lsp-references)
+  nmap <buffer> <C-M-b> <plug>(lsp-implementation)
+  nmap <buffer> K <plug>(lsp-hover)
+  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+endfunction
 
-let g:LanguageClient_settingsPath = "~/.config/nvim/userautoload/settings.json"
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
 
-" language server settings
-let g:LanguageClient_serverCommands = {
-            \ 'typescript': ['javascript-typescript-stdio'],
-            \ 'javascript': ['typescript-language-server', '--stdio'],
-            \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
-            \ 'typescript.tsx': ['javascript-typescript-stdio'],
-            \ 'vue': ['vls'],
-            \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-            \ 'php': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
-            \ 'phpunit': ['php', '/home/clock/php/php-language-server/bin/php-language-server.php'],
-            \ 'c': ['clangd'],
-            \ 'cpp': ['clangd'],
-            \ 'haskell': ['hie-wrapper', '--lsp'],
-            \ 'python': ['pyls'],
-            \ 'kotlin': ['/Users/clock/git/kotlin-language-server/server/build/install/server/bin/kotlin-language-server']
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_text_edit_enabled = 1
+let g:lsp_preview_float = 1
+let g:lsp_settings_filetype_go = ['gopls', 'golangci-lint-langserver']
+let g:lsp_settings_filetype_typescript = ['typescript-language-server', 'eslint-language-server']
+
+let g:lsp_settings = {}
+let g:lsp_settings['gopls'] = {
+            \  'workspace_config': {
+            \    'usePlaceholders': v:true,
+            \    'analyses': {
+            \      'fillstruct': v:true,
+            \    },
+            \  },
+            \  'initialization_options': {
+            \    'usePlaceholders': v:true,
+            \    'analyses': {
+            \      'fillstruct': v:true,
+            \    },
+            \  },
             \}
 
-let g:LanguageClient_rootMarkers = {
-    \ 'javascript': ['jsconfig.json'],
-    \ 'typescript': ['tsconfig.json'],
-    \ 'haskell': ['*.cabal', 'stack.yaml']
-    \ }
+" For snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-"let g:LanugageClient_autoStart = 1
+"set completeopt+=menuone
 
-let g:LanguageClient_diagnosticsDisplay = {
-            \ 1: {
-            \     'name': 'Error',
-            \     'texthl': 'ALEError',
-            \     'signText': 'e',
-            \     'signTexthl': 'ALEErrorSign',
-            \ },
-            \ 2: {
-            \     'name': 'Warning',
-            \     'texthl': 'ALEWarning',
-            \     'signText': 'w',
-            \     'signTexthl': 'ALEWarningSign',
-            \ },
-            \ 3: {
-            \     'name': 'Information',
-            \     'texthl': 'ALEInfo',
-            \     'signText': 'i',
-            \     'signTexthl': 'ALEInfoSign',
-            \ },
-            \ 4: {
-            \     'name': 'Hint',
-            \     'texthl': 'ALEInfo',
-            \     'signText': 'h',
-            \     'signTexthl': 'ALEInfoSign',
-            \ },
-            \}
-
-" completion settings
-set completefunc=LanguageClient#complete
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> L :call LanguageClient_textDocument_references()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F6> :call LanguageClient_textDocument_rename()<CR>
-nnoremap <silent> cl :sign unplace *<CR>
-
-"set completefunc=LanguageClient#complete
-"let g:LanugageClient_trace = "verbose"
-"let g:LanugageClient_windowLogMessageLevel = "Warning"

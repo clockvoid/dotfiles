@@ -1,28 +1,31 @@
-let g:deoplete#enable_ignore_case = 1
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+inoremap <expr> <C-n> pumvisible() ? "<Down>" : "<C-n>"
+inoremap <expr> <C-p> pumvisible() ? "<Up>" : "<C-p>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
 
-" <TAB>: completion.
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : deoplete#mappings#manual_complete()
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+set completeopt=menuone,noinsert,noselect,preview
 
-" <S-TAB>: completion back.
-inoremap <expr> <S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 1
+let g:asyncomplete_popup_delay = 500
 
-" <TAB>: completion.
-"inoremap <expr> <tab> pumvisible() ? "\<C-n>" :
-"	\ neosnippet#expandable_or_jumpable() ?
-"    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+            \ 'name': 'neosnippet',
+            \ 'allowlist': ['c', 'cpp', 'tex'],
+            \ 'priority': 10,
+            \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+            \ }))
 
-"let g:deoplete#sources = {}
-"let g:deoplete#sources.python = ['LanguageClient']
-"let g:deoplete#sources.python3 = ['LanguageClient']
-"let g:deoplete#sources.hs = ['LanguageClient']
+call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+            \ 'name': 'omni',
+            \ 'allowlist': ['*'],
+            \ 'blocklist': ['c', 'cpp', 'html'],
+            \ 'priority': 0,
+            \ 'completor': function('asyncomplete#sources#omni#completor'),
+            \ 'config': {
+            \   'show_source_kind': 1
+            \ },
+            \ }))
 
-let g:deoplete#enable_at_startup = 1
-call  deoplete#custom#option('sources', {
-         \ 'typescript.tsx': [ 'LanguageClient', 'neosnippet' ],
-         \ 'haskell': [ 'LanguageClient', 'neosnippet' ],
-         \ 'smart_case': v:true,
-         \ })
