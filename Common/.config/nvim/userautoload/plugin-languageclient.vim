@@ -8,7 +8,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> L <plug>(lsp-references)
   nmap <buffer> <C-M-b> <plug>(lsp-implementation)
   nmap <buffer> K <plug>(lsp-hover)
-  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+  inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<cr>"
 endfunction
 
 augroup lsp_install
@@ -45,6 +45,4 @@ let g:lsp_settings['gopls'] = {
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-"set completeopt+=menuone
 
