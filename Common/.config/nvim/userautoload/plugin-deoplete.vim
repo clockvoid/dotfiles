@@ -1,11 +1,11 @@
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+inoremap <expr> <Tab>   pumvisible() ? "\<Down>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<Up>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-inoremap <expr> <C-n> pumvisible() ? "<Down>" : "<C-n>"
-inoremap <expr> <C-p> pumvisible() ? "<Up>" : "<C-p>"
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 set completeopt=menuone,noinsert,noselect,preview
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_auto_completeopt = 1
