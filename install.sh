@@ -263,6 +263,8 @@ neovim ()
     fi
     install_dein
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
+    ln -s $(pwd)/${environment}/.config/nvim/plugins/dein.toml $home_dir/.config/nvim/plugins/
+    ln -s ${pwd}/${environment}/.config/nvim/userautoload/general.vim $home_dir/.config/nvim/userautoload/
     echo Neovim: Done
 }
 
