@@ -215,7 +215,9 @@ git_template ()
 
 neovim ()
 {
-    install_anyenv
+    if [ "${DOCKER}" != "true" ]; then
+        install_anyenv
+    fi
     install_dein
     if ! echo "$(pyenv versions)" | grep -q "3.7.6"; then
         type make || {
