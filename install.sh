@@ -215,48 +215,53 @@ git_template ()
 
 neovim ()
 {
-    if [ "${DOCKER}" != "true" ]; then
+    if [ "${DOCKER}" == "archlinux" ]; then
+        pip install pynvim
+        pip2 install pynvim
+        gem install neovim
+        npm install neovim
+    else
         install_anyenv
+        if ! echo "$(pyenv versions)" | grep -q "3.7.6"; then
+            type make || {
+                echo 'Please install make or update your path to include the make executable!'
+                echo 'Also, you should install gcc and zlib1g-dev on Ubuntu 18.04.'
+                exit 1
+            }
+            pyenv install 3.8.1
+            pyenv local 3.8.1
+            pip install pynvim
+            pyenv local --unset
+        fi
+        if ! echo "$(pyenv versions)" | grep -q "2.7.17"; then
+            type make || {
+                echo 'Please install make or update your path to include the make executable!'
+                echo 'Also, you should install gcc and zlib1g-dev and libssl-dev on Ubuntu 18.04.'
+                exit 1
+            }
+            pyenv install 2.7.17
+            pyenv local 2.7.17
+            pip install pynvim
+            pyenv local --unset
+        fi
+        if ! echo "$(rbenv versions)" | grep -q "2.4.0"; then
+            type make || {
+                echo 'Please install make or update your path to include the make executable!'
+                exit 1
+            }
+            rbenv install 2.4.0
+            rbenv rehash
+            rbenv global 2.4.0
+            gem install neovim
+        fi
+        if ! echo "$(nodenv versions)" | grep -q "13.5.0"; then
+            nodenv install 13.5.0
+            nodenv global 13.5.0
+            nodenv rehash
+            nodenv exec npm install -g neovim
+        fi
     fi
     install_dein
-    if ! echo "$(pyenv versions)" | grep -q "3.7.6"; then
-        type make || {
-            echo 'Please install make or update your path to include the make executable!'
-            echo 'Also, you should install gcc and zlib1g-dev on Ubuntu 18.04.'
-            exit 1
-        }
-        pyenv install 3.8.1
-        pyenv local 3.8.1
-        pip install pynvim
-        pyenv local --unset
-    fi
-    if ! echo "$(pyenv versions)" | grep -q "2.7.17"; then
-        type make || {
-            echo 'Please install make or update your path to include the make executable!'
-            echo 'Also, you should install gcc and zlib1g-dev and libssl-dev on Ubuntu 18.04.'
-            exit 1
-        }
-        pyenv install 2.7.17
-        pyenv local 2.7.17
-        pip install pynvim
-        pyenv local --unset
-    fi
-    if ! echo "$(rbenv versions)" | grep -q "2.4.0"; then
-        type make || {
-            echo 'Please install make or update your path to include the make executable!'
-            exit 1
-        }
-        rbenv install 2.4.0
-        rbenv rehash
-        rbenv global 2.4.0
-        gem install neovim
-    fi
-    if ! echo "$(nodenv versions)" | grep -q "13.5.0"; then
-        nodenv install 13.5.0
-        nodenv global 13.5.0
-        nodenv rehash
-        nodenv exec npm install -g neovim
-    fi
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
     echo Neovim: Done
 }
