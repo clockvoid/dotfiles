@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker run -ti --rm -v arch:/home/clock "arch-$1"
