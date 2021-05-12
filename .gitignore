@@ -2,5 +2,5 @@ dist
 dein_installer.sh
 Common/**/env
 .python-version
-Common/.config/nvim/userautoload/general.vim
+Common/.config/nvim/userautoload/env.vim
 Common/.config/nvim/plugins/dein.toml
