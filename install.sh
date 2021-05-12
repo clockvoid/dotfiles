@@ -274,6 +274,15 @@ terminator ()
     echo Terminator: Done
 }
 
+mac_utils() {
+    type brew || {
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    }
+    brew update
+    brew install bat coreutils fd fzf git neovim tmux w3m zsh
+    brew cask install amethyst dozer
+}
+
 print_help ()
 {
 cat << EOS
@@ -374,6 +383,8 @@ elif [ $config = "anyenv" ]; then
     install_anyenv
 elif [ $config = "git_template" ]; then
     git_template
+elif [ $config = "mac-utils" ]; then
+    mac_utils
 else
     echo Config set $config not found.
 fi
