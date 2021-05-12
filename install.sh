@@ -20,6 +20,7 @@ install_anyenv()
     fi
     export PATH="$home_dir/.anyenv/bin:$PATH"
     eval "$(anyenv init -)" 
+    patch $home_dir/.anyenv/libexec/anyenv-init ./anyenv_patch
     if [ ! -d $home_dir/.config/anyenv/anyenv-install ]; then
         anyenv install --init
     fi
@@ -193,6 +194,7 @@ zsh ()
     fi
     ln -s $(pwd)/$environment/.config/zsh/env $(pwd)/Common/.config/zsh/
     ln -s $(pwd)/Common/.config/zsh $home_dir/.config/
+    ln -s $(pwd)/Common/.profile $home_dir/
     ln -s $(pwd)/Common/.zshrc $home_dir/
     echo Zsh: Done
 }
@@ -268,7 +270,11 @@ neovim ()
     install_dein
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
     ln -s $(pwd)/${environment}/.config/nvim/plugins/dein.toml $home_dir/.config/nvim/plugins/
-    ln -s $(pwd)/${environment}/.config/nvim/userautoload/env.vim $home_dir/.config/nvim/userautoload/
+    if [ "${DOCKER}" == "archlinux" ]; then
+        ln -s $(pwd)/${environment}/.config/nvim/userautoload/env-docker.vim $home_dir/.config/nvim/userautoload/
+    else
+        ln -s $(pwd)/${environment}/.config/nvim/userautoload/env.vim $home_dir/.config/nvim/userautoload/
+    fi
     echo Neovim: Done
 }
 
