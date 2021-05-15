@@ -20,6 +20,7 @@ install_anyenv()
     fi
     export PATH="$home_dir/.anyenv/bin:$PATH"
     eval "$(anyenv init -)" 
+    patch $home_dir/.anyenv/libexec/anyenv-init ./anyenv_patch
     if [ ! -d $home_dir/.config/anyenv/anyenv-install ]; then
         anyenv install --init
     fi
@@ -193,6 +194,7 @@ zsh ()
     fi
     ln -s $(pwd)/$environment/.config/zsh/env $(pwd)/Common/.config/zsh/
     ln -s $(pwd)/Common/.config/zsh $home_dir/.config/
+    ln -s $(pwd)/Common/.profile $home_dir/
     ln -s $(pwd)/Common/.zshrc $home_dir/
     echo Zsh: Done
 }
@@ -222,41 +224,45 @@ neovim ()
         npm install neovim
     else
         install_anyenv
-        if ! echo "$(pyenv versions)" | grep -q "3.7.6"; then
+        python_version="3.9.5"
+        python2_version="2.7.17"
+        ruby_version="2.7.0"
+        node_version="15.6.0"
+        if ! echo "$(pyenv versions)" | grep -q "$python_version"; then
             type make || {
                 echo 'Please install make or update your path to include the make executable!'
                 echo 'Also, you should install gcc and zlib1g-dev on Ubuntu 18.04.'
                 exit 1
             }
-            pyenv install 3.8.1
-            pyenv local 3.8.1
+            pyenv install $python_version
+            pyenv local $python_version
             pip install pynvim
             pyenv local --unset
         fi
-        if ! echo "$(pyenv versions)" | grep -q "2.7.17"; then
+        if ! echo "$(pyenv versions)" | grep -q "$python2_version"; then
             type make || {
                 echo 'Please install make or update your path to include the make executable!'
                 echo 'Also, you should install gcc and zlib1g-dev and libssl-dev on Ubuntu 18.04.'
                 exit 1
             }
-            pyenv install 2.7.17
-            pyenv local 2.7.17
+            pyenv install $python2_version
+            pyenv local $python2_version
             pip install pynvim
             pyenv local --unset
         fi
-        if ! echo "$(rbenv versions)" | grep -q "2.4.0"; then
+        if ! echo "$(rbenv versions)" | grep -q "$ruby_version"; then
             type make || {
                 echo 'Please install make or update your path to include the make executable!'
                 exit 1
             }
-            rbenv install 2.4.0
+            rbenv install $ruby_version
             rbenv rehash
-            rbenv global 2.4.0
+            rbenv global $ruby_version
             gem install neovim
         fi
-        if ! echo "$(nodenv versions)" | grep -q "13.5.0"; then
-            nodenv install 13.5.0
-            nodenv global 13.5.0
+        if ! echo "$(nodenv versions)" | grep -q "$node_version"; then
+            nodenv install $node_version
+            nodenv global $node_version
             nodenv rehash
             nodenv exec npm install -g neovim
         fi
@@ -264,7 +270,11 @@ neovim ()
     install_dein
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
     ln -s $(pwd)/${environment}/.config/nvim/plugins/dein.toml $home_dir/.config/nvim/plugins/
-    ln -s ${pwd}/${environment}/.config/nvim/userautoload/general.vim $home_dir/.config/nvim/userautoload/
+    if [ "${DOCKER}" == "archlinux" ]; then
+        ln -s $(pwd)/${environment}/.config/nvim/userautoload/env-docker.vim $home_dir/.config/nvim/userautoload/
+    else
+        ln -s $(pwd)/${environment}/.config/nvim/userautoload/env.vim $home_dir/.config/nvim/userautoload/
+    fi
     echo Neovim: Done
 }
 
@@ -272,6 +282,15 @@ terminator ()
 {
     ln -s $(pwd)/Common/.config/terminator/ $home_dir/.config/
     echo Terminator: Done
+}
+
+mac_utils() {
+    type brew || {
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    }
+    brew update
+    brew install bat coreutils fd fzf git neovim tmux w3m zsh
+    brew cask install amethyst dozer
 }
 
 print_help ()
@@ -374,6 +393,8 @@ elif [ $config = "anyenv" ]; then
     install_anyenv
 elif [ $config = "git_template" ]; then
     git_template
+elif [ $config = "mac-utils" ]; then
+    mac_utils
 else
     echo Config set $config not found.
 fi

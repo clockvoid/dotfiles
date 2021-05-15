@@ -2,7 +2,6 @@ scriptencoding utf-8
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc-jp,iso-2022-jp
 set fileformats=unix,dos,mac
-lang ja_JP.UTF-8
 lang mes C
 
 " START: basic settings --------------------------------------------------
@@ -29,11 +28,6 @@ set statusline+=%F
 
 " key stroke settings
 set ttimeoutlen=10
-
-let g:python3_host_prog=expand('~/.anyenv/envs/pyenv/versions/3.8.1/bin/python')
-let g:python_host_prog=expand('~/.anyenv/envs/pyenv/versions/2.7.17/bin/python')
-let g:ruby_host_prog=expand('~/.anyenv/envs/rbenv/versions/2.4.0/bin/neovim-ruby-host')
-let g:node_host_prog=expand('~/.anyenv/envs/nodenv/versions/13.5.0/bin/neovim-node-host')
 " END: basic settings ----------------------------------------------------
 
 " START: command completion ----------------------------------------------
