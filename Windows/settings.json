@@ -88,7 +88,7 @@
 
   "keybindings": [
     { "command": {" action": "newTab", "index": 0 }, "keys": "alt+t" },
-    { "command": "closeTab", "keys": "ctrl+w" },
+    { "command": "closeTab", "keys": "alt+w" },
     { "command": { "action": "switchToTab", "index": 0 }, "keys": "ctrl+1" },
     { "command": { "action": "switchToTab", "index": 1 }, "keys": "ctrl+2" },
     { "command": { "action": "switchToTab", "index": 2 }, "keys": "ctrl+3" },
@@ -97,12 +97,12 @@
     { "command": { "action": "switchToTab", "index": 5 }, "keys": "ctrl+6" },
     { "command": { "action": "switchToTab", "index": 6 }, "keys": "ctrl+7" },
     { "command": { "action": "switchToTab", "index": 7 }, "keys": "ctrl+8" },
-    { "command": { "action": "switchToTab", "index": 8 }, "keys": "ctrl+9" },
-    { "command": { "action": "splitPane", "split": "horizontal"}, "keys": "alt+shift+-" },
-    { "command": { "action": "splitPane", "split": "vertical"}, "keys": "alt+shift+\\" },
-    { "command": { "action": "resizePane", "direction": "down" }, "keys": "alt+z" },
-    { "command": { "action": "resizePane", "direction": "left" }, "keys": "alt+shift+," },
-    { "command": { "action": "resizePane", "direction": "right" }, "keys": "alt+shift+." },
-    { "command": { "action": "resizePane", "direction": "up" }, "keys": "alt+a" }
+    { "command": { "action": "switchToTab", "index": 8 }, "keys": "ctrl+9" }
+//    { "command": { "action": "splitPane", "split": "horizontal"}, "keys": "alt+shift+-" },
+//    { "command": { "action": "splitPane", "split": "vertical"}, "keys": "alt+shift+\\" },
+//    { "command": { "action": "resizePane", "direction": "down" }, "keys": "alt+z" },
+//    { "command": { "action": "resizePane", "direction": "left" }, "keys": "alt+shift+," },
+//    { "command": { "action": "resizePane", "direction": "right" }, "keys": "alt+shift+." },
+//    { "command": { "action": "resizePane", "direction": "up" }, "keys": "alt+a" }
   ]
 }

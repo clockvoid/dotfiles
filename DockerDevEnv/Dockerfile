@@ -2,6 +2,7 @@ FROM archlinux
 
 RUN pacman -Sy
 RUN yes | pacman -S neovim tmux zsh git python python2 python-pip python2-pip ruby nodejs npm clang make
+RUN yes | pacman -S openssh
 RUN mkdir /home/clock
 RUN useradd -d /home/clock -G wheel clock
 RUN echo "wheel ALL=(ALL) ALL" > /etc/sudoers
