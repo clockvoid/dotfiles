@@ -290,7 +290,7 @@ mac_utils() {
     }
     brew update
     brew install bat coreutils fd fzf git neovim tmux w3m zsh
-    brew cask install amethyst dozer
+    brew cask install amethyst dozer iterm2 hyperswitch
 }
 
 print_help ()
