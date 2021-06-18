@@ -29,9 +29,6 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
 
 [[plugins]]
-repo = 'yami-beta/asyncomplete-omni.vim'
-
-[[plugins]]
 repo = 'honza/vim-snippets'
 
 [[plugins]]
