@@ -1,6 +1,6 @@
 " START: settings for neosnippet -----------------------------------------
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snipets'
-let g:neosnippet#enable_completed_snippet = 1
+"let g:neosnippet#enable_completed_snippet = 1
 
 " neosnippet key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -19,7 +19,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
-"if has('conceal')
-"  set conceallevel=2 concealcursor=niv
-"endif
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 " END: settings for neosnippet -------------------------------------------
