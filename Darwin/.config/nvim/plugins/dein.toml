@@ -1,39 +1,5 @@
-#[[plugins]]
-#repo = 'Shougo/neocomplete.vim'
-
 [[plugins]]
 repo = 'Shougo/dein.vim'
-
-#[[plugins]]
-#repo = 'autozimu/LanguageClient-neovim'
-#rev = 'next'
-#build = 'bash install.sh'
-#on_ft = ['haskell', 'javascript', 'typescript', 'rust', 'php', 'phpunit', 'python']
-#rev = 'binary-*-x86_64-unknown-linux-musl'
-
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-
-[[plugins]]
-repo = 'mattn/vim-goimports'
-
-#[[plugins]]
-#repo = 'Shougo/deoplete.nvim'
-#
-#[[plugins]]
-#repo = 'lighttiger2505/deoplete-vim-lsp'
-
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
@@ -42,22 +8,31 @@ repo = 'Shougo/neosnippet.vim'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'vim-lsp-snippets'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
 repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
 
 [[plugins]]
-repo = 'yami-beta/asyncomplete-omni.vim'
-
-[[plugins]]
-repo = 'honza/vim-snippets'
+repo = 'mattn/vim-goimports'
 
 [[plugins]]
 repo = 'kannokanno/previm'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
 
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
@@ -105,7 +80,4 @@ repo = 'simeji/winresizer'
 
 [[plugins]]
 repo = 'zerowidth/vim-copy-as-rtf'
-
-[[plugins]]
-repo = 'yuratomo/w3m.vim'
 
