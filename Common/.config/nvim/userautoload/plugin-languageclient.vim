@@ -15,7 +15,6 @@ augroup lsp_install
   au!
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
-command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
 
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
@@ -25,7 +24,22 @@ let g:lsp_preview_float = 1
 let g:lsp_settings_filetype_go = ['gopls', 'golangci-lint-langserver']
 let g:lsp_settings_filetype_typescript = ['typescript-language-server', 'eslint-language-server']
 
-let g:lsp_settings = {}
+if executable('haskell-language-server-wrapper')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'haskell-language-server-wrapper',
+        \ 'cmd' : {server_info -> ['haskell-language-server-wrapper', '--lsp']},
+        \ 'allowlist' : ['haskell'],
+        \ })
+endif
+
+let g:lsp_settings = {
+            \  'hie': {
+            \    'disabled': 1,
+            \  },
+            \  'haskell-language-server': {
+            \    'disabled': 1,
+            \  },
+            \}
 let g:lsp_settings['gopls'] = {
             \  'workspace_config': {
             \    'usePlaceholders': v:true,
