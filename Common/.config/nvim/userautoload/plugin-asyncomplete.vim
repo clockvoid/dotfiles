@@ -1,4 +1,6 @@
 
+inoremap <expr> <Down>  pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>    pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
