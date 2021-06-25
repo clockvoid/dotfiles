@@ -48,7 +48,7 @@ is_disable_window()
 	{
 		return 1
 	}
-    ifWinActive,ahk_exe OpenConsole.exe
+    ifWinActive,ahk_exe WindowsTerminal.exe
     {
         return 1
     }
