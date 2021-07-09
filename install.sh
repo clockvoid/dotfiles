@@ -385,6 +385,8 @@ elif [ $config = "xresources" ]; then
     xresources
 elif [ $config = "xmonad" ]; then
     xmonad
+elif [ $config = "lightdm" ]; then
+    lightdm
 elif [ $config = "fontconfig" ]; then
     fontconfig
 elif [ $config = "alacritty" ]; then
