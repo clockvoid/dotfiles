@@ -1,76 +1,76 @@
-acpi 1.7-3
-adobe-source-code-pro-fonts 2.038ro+1.058it+1.018var-1
-adobe-source-han-sans-jp-fonts 2.004-1
-adwaita-icon-theme 40.1.1-1
-alacritty 0.8.0-1
-alsa-utils 1.2.5.1-1
-arandr 0.1.10-6
-asoundconf 1:1.2-6
-autoconf 2.71-1
-automake 1.16.3-1
-base 2-2
-bison 3.7.6-1
-blueman 2.1.4-1
-bluez-utils 5.59-2
-chromium 91.0.4472.114-1
-clang 12.0.0-1
-dmenu 5.0-1
-fakeroot 1.25.3-2
-feh 3.7-1
-flex 2.6.4-3
-gcc 11.1.0-1
-git 2.32.0-1
-gnome-system-monitor 40.1-1
-go 2:1.16.5-1
-groff 1.22.4-6
-grub 2:2.06-1
-gvfs-smb 1.48.1-1
-ibus 1.5.24-1
-ibus-mozc 2.23.2815.102-3
-iverilog 11.0-1
-keychain 2.8.5-2
-libvncserver 0.9.13-1
-lightdm 1:1.30.0-4
-lightdm-gtk-greeter 1:2.0.8-1
-m4 1.4.19-1
-maim 5.7.4-1
-make 4.3-3
-man-db 2.9.4-2
-neovim 0.5.0-1
-network-manager-applet 1.22.0-1
-networkmanager 1.32.2-1
-networkmanager-openconnect 1.2.7dev+65+gca4187c-1
-nm-connection-editor 1.22.0-1
-noto-fonts-cjk 20201206-2
-noto-fonts-emoji 20200916-1
-ntp 4.2.8.p15-1
-openssh 8.6p1-1
-os-prober 1.78-1
-pacman-contrib 1.4.0-4
-paman 0.9.4-6
-pasystray-git 0.7.1.r18.gc66130e-1
-patch 2.7.6-8
-pavucontrol 1:4.0-2
-pavumeter 0.9.3-7
-pkgconf 1.7.3-1
-powerline 2.8.2-2
-pulseaudio 14.2-3
-remmina 1:1.4.19-1
-samba 4.14.5-1
-sudo 1.9.7.p1-1
-thunar 4.16.8-1
-tmux 3.2_a-1
-trayer 1.1.8-2
-vim 8.2.2891-1
-vlc 3.0.16-2
-volumeicon 0.5.1-5
-which 2.21-5
-xdotool 3.20160805.1-3
-xf86-video-intel 1:2.99.917+916+g31486f40-1
-xorg-server 1.20.11-1
-xorg-xbacklight 1.2.3-2
-xorg-xev 1.2.4-1
-xorg-xrandr 1.5.1-2
-xorg-xrdb 1.2.0-2
-yay-bin 10.2.3-2
-zsh 5.8-1
+acpi
+adobe-source-code-pro-fonts
+adobe-source-han-sans-jp-fonts
+adwaita-icon-theme
+alacritty
+alsa-utils
+arandr
+asoundconf
+autoconf
+automake
+base
+bison
+blueman
+bluez-utils
+chromium
+clang
+dmenu
+fakeroot
+feh
+flex
+gcc
+git
+gnome-system-monitor
+go
+groff
+grub
+gvfs-smb
+ibus
+ibus-mozc
+iverilog
+keychain
+libvncserver
+lightdm
+lightdm-gtk-greeter
+m4
+maim
+make
+man-db
+neovim
+network-manager-applet
+networkmanager
+networkmanager-openconnect
+nm-connection-editor
+noto-fonts-cjk
+noto-fonts-emoji
+ntp
+openssh
+os-prober
+pacman-contrib
+paman
+pasystray-git
+patch
+pavucontrol
+pavumeter
+pkgconf
+powerline
+pulseaudio
+remmina
+samba
+sudo
+thunar
+tmux
+trayer
+vim
+vlc
+volumeicon
+which
+xdotool
+xf86-video-intel
+xorg-server
+xorg-xbacklight
+xorg-xev
+xorg-xrandr
+xorg-xrdb
+yay-bin
+zsh
