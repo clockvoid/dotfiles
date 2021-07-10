@@ -153,7 +153,9 @@ lightdm ()
     else
         echo This system do not need this configuration.
     fi
-    echo LightDM: Done: Please copy files in $home_dir/lightdm/ to /etc/lightdm/!
+
+    bold=$(tput bold)
+    echo "LightDM: ${bold}Almost done: Please copy files in ${home_dir}/lightdm/ to /etc/lightdm/!"
 }
 
 xmonad ()
@@ -181,6 +183,9 @@ xmonad ()
         cd $current_dir
 
         sudo ln -s $(pwd)/Linux/.xmonad/xmonad.desktop /usr/share/xsessions
+
+        bold=$(tput bold)
+        echo "Xmonad: ${bold}Almost done! Please install MigMix 1M font for xmobar: https://mix-mplus-ipa.osdn.jp/migmix/"
     else
         echo This system do not need this configuration.
     fi
