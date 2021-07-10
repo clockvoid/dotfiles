@@ -159,9 +159,28 @@ lightdm ()
 xmonad ()
 {
     if [ $environment == "Linux" ]; then
-        ln -s $(pwd)/Linux/.xmo* $home_dir/
+        ln -s $(pwd)/Linux/.xmonad $home_dir/
         ln -s $(pwd)/Linux/.xinitrc $home_dir/
         ln -s $(pwd)/Linux/.xprofile $home_dir/
+
+        type stack || {
+            curl -sSL https://get.haskellstack.org/ | sh
+        }
+
+        type git || {
+            echo 'Please install git or update your path to include the git executable!'
+            exit 1
+        }
+
+        git submodule update --init --recursive
+
+        current_dir="$(pwd)"
+
+        cd $(pwd)/Linux/.xmonad
+        stack install
+        cd $current_dir
+
+        sudo ln -s $(pwd)/Linux/.xmonad/xmonad.desktop /usr/share/xsessions
     else
         echo This system do not need this configuration.
     fi
