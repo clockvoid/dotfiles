@@ -4,3 +4,6 @@
 [submodule "Linux/.xmonad/xmobar-git"]
 	path = Linux/.xmonad/xmobar-git
 	url = https://github.com/jaor/xmobar
+[submodule "Linux/.xmonad/xmonad-contrib-git"]
+	path = Linux/.xmonad/xmonad-contrib-git
+	url = https://github.com/xmonad/xmonad-contrib
