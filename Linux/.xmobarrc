@@ -1,15 +1,14 @@
 Config {
-  font = "xft:xos4 Terminess Powerline:style=Bold:antialias=true"
-  , additionalFonts = [ "xft:xos4 Terminess Powerline:style=Bold:antialias=true, Hiragino Kaku Gothic ProN W6:antialias=true, Noto Emoji:antialias=true"
+  font = "xft:MigMix 1M:size=10:style=Bold:antialias=true"
+  , additionalFonts = [ "xft:MigMix 1M:style=Bold:antialias=true", "xft:Noto Sans:antialias=true, xft:Noto Emoji:antialias=true"
     , "xft:Sans:antialias=true"
   ]
   , bgColor = "black"
   , fgColor = "grey"
-  , position = TopSize L 95 20
-  , overrideRedirect = False
+  , position = TopSize L 95 22
   , allDesktops = True
   , persistent = False
-  , commands = [ Run Weather "RJTT" [ "-t", "<station>: <tempC>C"
+  , commands = [ Run Weather "RJTT" [ "-t", "<skyCondition>, <tempC>C"
   , "-L", "10"
   , "-H", "30"
   , "--normal" ,"green"
@@ -26,15 +25,19 @@ Config {
   , Run Memory         [ "-t" ,"Mem: <usedratio>%"
   ] 10
 
-  , Run Battery        [ "-t", "Bat: <left>%"
+  , Run Battery        [ "-t", "Bat: <acstatus>"
   , "-L", "20"
   , "-H", "70"
   , "-h", "green"
   , "-n", "yellow"
   , "-l", "red"
+  , "--"
+    , "-o", "<left>% (<timeleft>)"
+    , "-O", "AC <left>%"
+    , "-i", "FULL"
   ] 10
 
-  , Run Network "enp0s3" [ "-t", "enp0s3: <rx> / <tx>"
+  , Run Network "wlp2s0" [ "-t", "WiFi: <rx> / <tx>"
   , "-L", "40"
   , "-H", "200"
   , "-m", "3"
@@ -51,5 +54,5 @@ Config {
   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "<fn=1>%StdinReader%</fn> }{ %cpu% | %memory% | %battery% | %enp0s3% | <fc=#ee9a00>%date%</fc> | %MyIME% |" -- %RJTT% |"
+  , template = "<fn=0>%StdinReader%</fn> }{ | %cpu% | %memory% | %battery% | %wlp2s0% | <fc=#ee9a00>%date%</fc> | %RJTT% | %MyIME% |"
 }
