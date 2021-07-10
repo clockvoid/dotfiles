@@ -41,7 +41,7 @@ network-manager-applet 1.22.0-1
 networkmanager 1.32.2-1
 networkmanager-openconnect 1.2.7dev+65+gca4187c-1
 nm-connection-editor 1.22.0-1
-noto-fonts 20201226-2
+noto-fonts-cjk 20201206-2
 noto-fonts-emoji 20200916-1
 ntp 4.2.8.p15-1
 openssh 8.6p1-1
