@@ -1,10 +1,13 @@
-if executable('xvkbd')
+if executable('xdotool')
 
-    call system('xvkbd -text "\[Muhenkan]" > /dev/null 2>&1 & ')
+    function! Cap_Status()
+        let St = systemlist('xset -q | grep "Caps Lock" | awk ''{print $4}''')[0]
+        return St
+    endfunction
 
     " 「日本語入力固定モード」の動作モード
     let IM_CtrlMode = 1
-    let IMState = 2
+    let IMState = 1
     " 「日本語入力固定モード」切替キー
     inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
 
@@ -13,18 +16,16 @@ if executable('xvkbd')
         let cmd = a:cmd
         let type = &filetype
         if cmd == 'On' && (type == 'tex' || type == 'markdown')
-            call system('xvkbd -text "\[Henkan]" > /dev/null 2>&1 & ')
+            call system('xdotool key --clearmodifiers 0xff23')
         elseif cmd == 'Off'
-            call system('xvkbd -text "\[Muhenkan]" > /dev/null 2>&1 & ')
+            call system('xdotool key --clearmodifiers 0xff22')
+            call system('sleep 0.1')
+            if Cap_Status() == "on"
+                call system('xdotool key Caps_Lock')
+            endif
         endif
         return ''
     endfunction
-
-    augroup LeaveVim
-        autocmd!
-        autocmd VimLeave * call system('xvkbd -text "\[Muhenkan]" > /dev/null 2>&1 & ') 
-    augroup END
-
 endif
 
 if has('mac')
