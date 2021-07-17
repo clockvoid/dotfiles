@@ -1,32 +1,28 @@
 #!/bin/sh
 
-setxkbmap -layout jp
-
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 export DefaltIMModule=ibus
 ibus-daemon -drx &
 
-xvkbd -text "\[Henkan]" > /dev/null 2>&1
-
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 
-[[ -f ~/.fehbg ]] && sh ~/.fehbg &
-
-trayer --edge top --align right --widthtype percent --heighttype pixel --SetDockType true --SetPartialStrut false --expand false --width 5 --height 23 --transparent true --alpha 0 --tint 0x000000 &
-
-#vidalia &
-
-#google-chrome-stable --no-startup-window &
+trayer --edge top --align right --widthtype percent --heighttype pixel --SetDockType true --SetPartialStrut false --expand false --width 8 --height 23 --transparent true --alpha 0 --tint 0x000000 &
 
 VBoxClient-all &
 
 xcmpmgr -c &
 
+/usr/bin/lxqt-policykit-agent &
+
 nm-applet &
 
-xkbcomp ~/.Xkb $DISPLAY
-
+/usr/bin/start-pulseaudio-x11
 volumeicon &
-pulseaudio --start
+
+autokey-gtk &
+
+remmina -i &
+
+redshift -m randr -t 5700:3600 -b 1.0:1.0 -l 35.465:139.622 &
