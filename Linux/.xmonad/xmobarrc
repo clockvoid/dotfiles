@@ -1,11 +1,11 @@
 Config {
-  font = "xft:MigMix 1M:size=10:style=Bold:antialias=true"
+  font = "xft:xos4 Terminus:size=10:style=Bold:antialias=true, xft:Noto Sans:size=10:style=Bold:antialias=true"
   , additionalFonts = [ "xft:MigMix 1M:style=Bold:antialias=true", "xft:Noto Sans:antialias=true, xft:Noto Emoji:antialias=true"
     , "xft:Sans:antialias=true"
   ]
   , bgColor = "black"
   , fgColor = "grey"
-  , position = TopSize L 95 22
+  , position = TopSize L 92 22
   , allDesktops = True
   , persistent = False
   , commands = [ Run Weather "RJTT" [ "-t", "<skyCondition>, <tempC>C"
