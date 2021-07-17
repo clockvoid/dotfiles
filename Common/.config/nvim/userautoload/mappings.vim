@@ -85,6 +85,6 @@ function! ToggleKeyset()
     endif
 endfunction
 
-noremap <silent> <C-h> :call ToggleKeyset()<CR>
+noremap <silent> <C-q> :call ToggleKeyset()<CR>
 
 " END: settings for Custom key Bindings
