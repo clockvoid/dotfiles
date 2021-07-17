@@ -7,6 +7,7 @@ alsa-utils
 arandr
 asoundconf
 autoconf
+autokey-gtk
 automake
 base
 bison
@@ -41,6 +42,7 @@ network-manager-applet
 networkmanager
 networkmanager-openconnect
 nm-connection-editor
+noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 ntp
@@ -55,9 +57,11 @@ pavumeter
 pkgconf
 powerline
 pulseaudio
+redshift
 remmina
 samba
 sudo
+terminus-font
 thunar
 tmux
 trayer
@@ -66,10 +70,12 @@ vlc
 volumeicon
 which
 xdotool
+xclip
 xf86-video-intel
 xorg-server
 xorg-xbacklight
 xorg-xev
+xorg-xinput
 xorg-xrandr
 xorg-xrdb
 yay-bin
