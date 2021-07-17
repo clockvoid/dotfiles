@@ -2,6 +2,8 @@ import           System.IO
 import           XMonad
 import           XMonad.Config.Desktop
 import           XMonad.Hooks.DynamicLog
+import           XMonad.Layout.IndependentScreens
+import           XMonad.Actions.CycleWS
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
@@ -36,31 +38,32 @@ myManageHook = composeAll
   , className =? "Gnome-system-monitor" --> doCenterFloat
   , title =? "Nice Window" --> doCenterFloat
   , title =? "Cell Automaton" --> doCenterFloat
+  , title =? "Picture in picture" --> doFloat
   , className =? "feh" --> doCenterFloat
   , appName =? "Emoji Choice" --> doCenterFloat
   ]
 
 screenshotPath :: String
-screenshotPath = "/home/clock/Pictures/screenshot"
+screenshotPath = " ~/Pictures/screenshot"
 
 -- settings for new shortcut keys
 myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
          , ("<Print>", spawn ("~/.xmonad/screenshot.sh" ++ screenshotPath))
-         , ("M-<Print>", spawn ("~/.xmonad/screenshot_focused_window.sh" ++ screenshotPath))
+         , ("M1-<Print>", spawn ("~/.xmonad/screenshot_focused_window.sh" ++ screenshotPath))
          , ("C-<Print>", spawn ("~/.xmonad/screenshot_select.sh" ++ screenshotPath))
-         , ("M-e", spawn "thunar")
+         , ("M-C-k", nextScreen)
+         , ("M-C-j", prevScreen)
          , ("M-m", spawn "mikutter")
          , ("M-n", spawn "nvim-wrapper")
          , ("M-g", spawn "gvim")
          , ("C-S-<Esc>", spawn "gnome-system-monitor")
-         , ("M-x", spawn "alacritty -e zsh")
-         , ("M-/", sendMessage ToggleLayout)
-         , ("<XF86MonBrightnessDown>", spawn "xbacklight -10")
-         , ("<XF86MonBrightnessUp>", spawn "xbacklight +10")
+         , ("M-<Space>", sendMessage ToggleLayout)
+         , ("<XF86MonBrightnessDown>", spawn "xbacklight -5")
+         , ("<XF86MonBrightnessUp>", spawn "xbacklight +5")
          ]
 
 -- settings for key disablation
-disabledKeys = [ --"M-<Space>"
+disabledKeys = [ "C-,"
               ]
 
 -- settings for default terminal emulator
@@ -76,6 +79,10 @@ myBorderWidth = 3
 myForcusedBorderColor = "#ff5733"
 myNomalBorderColor = "#1C1C1C"
 
+myStartupHook = do
+  spawn "sh ~/.fehbg"
+  spawn "~/.xmonad/set_keyboard.sh"
+
 -- main function
 main = do
   {-
@@ -90,13 +97,17 @@ main = do
    - additionalKeysP takes XConfig and touple list and output edited XConfig.
    - additionalKeysP can add some key bindings.
    -}
-  xmproc <- spawnPipe "~/.local/bin/xmobar ~/.xmonad/xmobarrc"
+  n <- countScreens
+  hs <- mapM (\i ->
+    spawnPipe $
+      "~/.local/bin/xmobar -x " ++ show i ++ " ~/.xmonad/xmobarrc" ) [0 .. n - 1]
   xmonad $ docks $ ewmh baseConfig
     { terminal  = myTerminal
     , borderWidth = myBorderWidth
     , focusedBorderColor = myForcusedBorderColor
     , normalBorderColor = myNomalBorderColor
     , modMask = myModMask
+    , startupHook = myStartupHook
     , handleEventHook = handleEventHook def <+>
         fullscreenEventHook <+>
         docksEventHook
@@ -108,14 +119,16 @@ main = do
         toggleLayouts (noBorders Full) $
         smartBorders $
         layoutHook baseConfig
-    --, modMask = myModMask
-    , logHook = dynamicLogWithPP xmobarPP
-                    { ppOutput = hPutStrLn xmproc
-                    , ppTitle = xmobarColor "green" "" . shorten 50
-                    , ppLayout = \s -> "<" ++ s ++ ">"
-                    , ppSep = " | "
-                    }
+    , logHook = mapM_ (\xmproc ->
+        dynamicLogWithPP xmobarPP
+          { ppOutput = hPutStrLn xmproc
+          , ppTitle = xmobarColor "green" "" . shorten 40
+          , ppLayout = \s -> "<" ++ s ++ ">"
+          , ppSep = " | "
+          }
+        ) hs
     }
 
     `additionalKeysP` myKeys
     `removeKeysP` disabledKeys
+
