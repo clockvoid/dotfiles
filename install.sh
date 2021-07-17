@@ -149,7 +149,6 @@ lightdm ()
     if [ $environment == "Linux" ]; then
         gtk
         ln -s $(pwd)/Linux/lightdm $home_dir/
-        ln -s $(pwd)/Linux/.Xkb $home_dir/
     else
         echo This system do not need this configuration.
     fi
