@@ -1237,9 +1237,9 @@ xkb_compatibility "complete+japan" {
     };
 };
 
-xkb_symbols "pc+jp+inet(evdev)+ctrl(swapcaps)" {
+xkb_symbols "pc+jp+us+inet(evdev)" {
 
-    name[group1]="Japanese";
+    name[group1]="Japanese,English (US)";
 
     key  <ESC> {         [          Escape ] };
     key <AE01> {         [               1,          exclam ] };
@@ -1299,7 +1299,7 @@ xkb_symbols "pc+jp+inet(evdev)+ctrl(swapcaps)" {
     key <AD11> {         [              at,           grave ] };
     key <AD12> {         [     bracketleft,       braceleft ] };
     key <RTRN> {         [          Return ] };
-    key <LCTL> {         [       Caps_Lock ] };
+    key <LCTL> {         [       Control_L ] };
     key <AC01> {
         type= "ALPHABETIC",
         symbols[Group1]= [               a,               A ]
@@ -1321,8 +1321,8 @@ xkb_symbols "pc+jp+inet(evdev)+ctrl(swapcaps)" {
         symbols[Group1]= [               g,               G ]
     };
     key <AC06> {
-        type= "PC_CONTROL_LEVEL3",
-        symbols[Group1]= [               h,               H,               BackSpace ]
+        type= "ALPHABETIC",
+        symbols[Group1]= [               h,               H ]
     };
     key <AC07> {
         type= "ALPHABETIC",
@@ -1380,9 +1380,9 @@ xkb_symbols "pc+jp+inet(evdev)+ctrl(swapcaps)" {
         type= "CTRL+ALT",
         symbols[Group1]= [     KP_Multiply,     KP_Multiply,     KP_Multiply,     KP_Multiply,   XF86ClearGrab ]
     };
-    key <LALT> {         [           Alt_L,          Meta_L ] };
+    key <LALT> {         [           Super_L,          Meta_L ] };
     key <SPCE> {         [           space ] };
-    key <CAPS> {         [       Control_L,       Caps_Lock ] };
+    key <CAPS> {         [       Control_L ] };
     key <FK01> {
         type= "CTRL+ALT",
         symbols[Group1]= [              F1,              F1,              F1,              F1, XF86Switch_VT_1 ]
@@ -1478,7 +1478,7 @@ xkb_symbols "pc+jp+inet(evdev)+ctrl(swapcaps)" {
     };
     key <RALT> {
         type= "TWO_LEVEL",
-        symbols[Group1]= [           Alt_R,          Meta_R ]
+        symbols[Group1]= [           Super_R,          Meta_R ]
     };
     key <LNFD> {         [        Linefeed ] };
     key <HOME> {         [            Home ] };
@@ -1506,8 +1506,8 @@ xkb_symbols "pc+jp+inet(evdev)+ctrl(swapcaps)" {
     key <HNGL> {         [          Hangul ] };
     key <HJCV> {         [    Hangul_Hanja ] };
     key <AE13> {         [       backslash,             bar ] };
-    key <LWIN> {         [         Super_L ] };
-    key <RWIN> {         [         Super_R ] };
+    key <LWIN> {         [         Alt_L ] };
+    key <RWIN> {         [         Alt_R ] };
     key <COMP> {         [            Menu ] };
     key <STOP> {         [          Cancel ] };
     key <AGAI> {         [            Redo ] };
@@ -1631,17 +1631,17 @@ xkb_symbols "pc+jp+inet(evdev)+ctrl(swapcaps)" {
     key <I222> {         [        NoSymbol ] };
     key <I230> {         [        NoSymbol ] };
     key <I248> {         [        NoSymbol ] };
-    modifier_map Lock { <LCTL> };
     modifier_map Shift { <LFSH> };
     modifier_map Shift { <RTSH> };
-    modifier_map Mod1 { <LALT> };
-    modifier_map Control { <CAPS> };
+    modifier_map Mod1 { <RWIN> };
     modifier_map Mod2 { <NMLK> };
     modifier_map Mod5 { <LVL3> };
     modifier_map Control { <RCTL> };
-    modifier_map Mod1 { <RALT> };
-    modifier_map Mod4 { <LWIN> };
-    modifier_map Mod4 { <RWIN> };
+    modifier_map Control { <LCTL> };
+    modifier_map Control { <CAPS> };
+    modifier_map Mod1 { <LWIN> };
+    modifier_map Mod4 { <LALT> };
+    modifier_map Mod4 { <RALT> };
     modifier_map Mod5 { <MDSW> };
     modifier_map Mod1 { <META> };
     modifier_map Mod4 { <SUPR> };
@@ -1653,8 +1653,6 @@ xkb_geometry "pc(pc105)" {
     width=       470;
     height=      180;
 
-    alias <AC00> = <CAPS>;
-    alias <AA00> = <LCTL>;
 
     baseColor=   "white";
     labelColor=  "black";
