@@ -4,3 +4,5 @@ stack.yaml.lock
 *.errors
 *.o
 xmonad-x86_64-linux
+
+*.xkm
