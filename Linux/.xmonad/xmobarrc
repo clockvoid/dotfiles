@@ -1,5 +1,5 @@
 Config {
-  font = "xft:xos4 Terminus:size=10:style=Bold:antialias=true, xft:Noto Sans:size=10:style=Bold:antialias=true"
+  font = "xft:Terminus:size=10:style=Bold:antialias=true, xft:Source Han Sans JP:size=10:style=Bold:antialias=true"
   , additionalFonts = [ "xft:MigMix 1M:style=Bold:antialias=true", "xft:Noto Sans:antialias=true, xft:Noto Emoji:antialias=true"
     , "xft:Sans:antialias=true"
   ]
@@ -54,5 +54,5 @@ Config {
   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "<fn=0>%StdinReader%</fn> }{ | %cpu% | %memory% | %battery% | %wlp2s0% | <fc=#ee9a00>%date%</fc> | %RJTT% | %MyIME% |"
+  , template = "%StdinReader% }{ | %cpu% | %memory% | %battery% | %wlp2s0% | <fc=#ee9a00>%date%</fc> | %RJTT% | %MyIME% |"
 }
