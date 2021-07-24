@@ -78,7 +78,7 @@ myModMask = mod4Mask
 -- settings for border
 myBorderWidth = 3
 myForcusedBorderColor = "#ff5733"
-myNomalBorderColor = "#1C1C1C"
+myNomalBorderColor = "#1D1F21"
 
 myStartupHook = do
   spawn "sh ~/.fehbg"
