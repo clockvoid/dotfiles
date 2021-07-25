@@ -19,7 +19,7 @@ if executable('xdotool')
             call system('xdotool key --clearmodifiers 0xff23')
         elseif cmd == 'Off'
             call system('xdotool key --clearmodifiers 0xff22')
-            call system('sleep 0.1')
+            call system('sleep 0.07')
             if Cap_Status() == "on"
                 call system('xdotool key Caps_Lock')
             endif
