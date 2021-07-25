@@ -181,6 +181,9 @@ xmonad ()
         stack install
         cd $current_dir
 
+        if [ ! -d /usr/share/xsessions ]; then
+            sudo mkdir /usr/share/xsessions
+        fi
         sudo ln -s $(pwd)/Linux/.xmonad/xmonad.desktop /usr/share/xsessions
 
         bold=$(tput bold)
