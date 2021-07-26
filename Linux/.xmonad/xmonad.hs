@@ -4,6 +4,7 @@ import           XMonad.Config.Desktop
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Layout.IndependentScreens
 import           XMonad.Actions.CycleWS
+import           XMonad.Actions.UpdatePointer
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
@@ -39,7 +40,7 @@ myManageHook = composeAll
   , title =? "Nice Window" --> doCenterFloat
   , title =? "Cell Automaton" --> doCenterFloat
   , title =? "Picture in picture" --> doFloat
-  , className =? "feh" --> doCenterFloat
+  --, className =? "feh" --> doCenterFloat
   , appName =? "Emoji Choice" --> doCenterFloat
   ]
 
@@ -127,7 +128,8 @@ main = do
           , ppLayout = \s -> "<" ++ s ++ ">"
           , ppSep = " | "
           }
-        ) hs
+        ) hs <+>
+        updatePointer (0.5, 0.5) (0, 0)
     }
 
     `additionalKeysP` myKeys
