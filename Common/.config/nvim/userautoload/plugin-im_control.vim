@@ -1,8 +1,15 @@
 if executable('xdotool')
 
-    function! Cap_Status()
+    function! Clear_Caps()
         let St = systemlist('xset -q | grep "Caps Lock" | awk ''{print $4}''')[0]
-        return St
+        if St == "on"
+            call system('xdotool key --clearmodifiers Caps_Lock')
+        endif
+        call system('sleep 0.1')
+        let St = systemlist('xset -q | grep "Caps Lock" | awk ''{print $4}''')[0]
+        if St == "on"
+            call system('xdotool key Caps_Lock')
+        endif
     endfunction
 
     " 「日本語入力固定モード」の動作モード
@@ -17,12 +24,9 @@ if executable('xdotool')
         let type = &filetype
         if cmd == 'On' && (type == 'tex' || type == 'markdown')
             call system('xdotool key --clearmodifiers 0xff23')
-        elseif cmd == 'Off'
+        elseif cmd == 'Off' && (type == 'tex' || type == 'markdown')
             call system('xdotool key --clearmodifiers 0xff22')
-            call system('sleep 0.07')
-            if Cap_Status() == "on"
-                call system('xdotool key Caps_Lock')
-            endif
+            call Clear_Caps()
         endif
         return ''
     endfunction
