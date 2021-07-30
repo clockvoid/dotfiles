@@ -6,6 +6,8 @@ export QT_IM_MODULE=ibus
 export DefaltIMModule=ibus
 ibus-daemon -drx &
 
+xmodmap -e "remove lock = Caps_Lock"
+
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 
 trayer --edge top --align right --widthtype percent --heighttype pixel --SetDockType true --SetPartialStrut false --expand false --width 8 --height 23 --transparent true --alpha 0 --tint 0x000000 &
