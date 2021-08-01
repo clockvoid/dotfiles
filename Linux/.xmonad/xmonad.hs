@@ -61,7 +61,8 @@ myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
          , ("M-<Space>", sendMessage ToggleLayout)
          , ("<XF86MonBrightnessDown>", spawn "xbacklight -5")
          , ("<XF86MonBrightnessUp>", spawn "xbacklight +5")
-         , ("M-C-c", spawn "xdotool key Caps_Lock")
+         , ("M-i", spawn "sleep 0.1 && xdotool key Muhenkan")
+         , ("M-o", spawn "sleep 0.1 && xdotool key Henkan")
          ]
 
 -- settings for key disablation
