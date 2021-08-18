@@ -3,7 +3,7 @@ repo = 'jason0x43/vim-js-indent'
 on_ft = ['javascript', 'typescript', 'html']
 
 [[plugins]]
-repo = 'ianks/vim-tsx'
+repo = 'peitalin/vim-jsx-typescript'
 on_ft = ['typescriptreact']
 
 [[plugins]]
