@@ -46,4 +46,5 @@ function! plugin#fzf#hook_post_source() abort
     let g:fzf_history_dir = '~/.local/share/fzf-history'
 
     " let g:fzf_command_prefix = 'Fzf'
+    nnoremap <buffer> <C-f> :Files<cr>
 endfunction
