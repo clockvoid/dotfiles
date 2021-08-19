@@ -20,8 +20,11 @@ repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
-dependes = [
-    'asyncomplete-neosnippet'
+depends = [
+    'asyncomplete-lsp.vim',
+    'asyncomplete-neosnippet.vim',
+    'asyncomplete-file.vim',
+    'asyncomplete-look'
 ]
 hook_post_source = 'call plugin#asyncomplete#hook_post_source()'
 
@@ -30,6 +33,12 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-file.vim'
+
+[[plugins]]
+repo = 'htlsne/asyncomplete-look'
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
@@ -48,17 +57,16 @@ repo = 'tyru/open-browser.vim'
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
+repo = 'cocopon/lightline-hybrid.vim'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
+depends = [
+    'lightline-hybrid.vim'
+]
 
 [[plugins]]
 repo = 'kana/vim-tabpagecd'
-
-[[plugins]]
-repo = 'Shougo/vimproc'
-build = 'make'
-
-[[plugins]]
-repo = 'tpope/vim-obsession'
 
 [[plugins]]
 repo = 'junegunn/fzf'
