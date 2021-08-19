@@ -1,5 +1,5 @@
 
-function! plugin#vim_latex#hook_source() abort
+function! plugin#vim_latex#hook_add() abort
 
     ""
     "" Vim-LaTeX
@@ -32,7 +32,9 @@ function! plugin#vim_latex#hook_source() abort
     let g:Tex_MakeIndexFlavor = 'upmendex $*.idx'
     let g:Tex_UseEditorSettingInDVIViewer = 1
     "let g:Tex_ViewRule_pdf = 'xdg-open'
-    let g:Tex_ViewRule_pdf = 'open -a skim'
+    if has("mac")
+        let g:Tex_ViewRule_pdf = 'open -a skim'
+    endif
     "let g:Tex_ViewRule_pdf = 'okular --unique'
     "let g:Tex_ViewRule_pdf = 'zathura -x "vim --servername synctex -n --remote-silent +\%{line} \%{input}"'
     "let g:Tex_ViewRule_pdf = 'qpdfview --unique'
@@ -40,5 +42,7 @@ function! plugin#vim_latex#hook_source() abort
     "let g:Tex_ViewRule_pdf = 'mupdf'
     "let g:Tex_ViewRule_pdf = 'firefox -new-window'
     "let g:Tex_ViewRule_pdf = 'chromium --new-window'
-    "let g:Tex_ViewRule_pdf = 'open evince'
+    if executable("evince")
+        let g:Tex_ViewRule_pdf = 'evince'
+    endif
 endfunction
