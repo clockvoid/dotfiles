@@ -51,9 +51,6 @@ repo = 'w0ng/vim-hybrid'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'cocopon/lightline-hybrid.vim'
-
-[[plugins]]
 repo = 'kana/vim-tabpagecd'
 
 [[plugins]]
