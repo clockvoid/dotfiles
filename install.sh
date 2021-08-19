@@ -296,7 +296,6 @@ neovim ()
     fi
     install_dein
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
-    ln -s $(pwd)/${environment}/.config/nvim/plugins/dein.toml $home_dir/.config/nvim/plugins/
     if [ "${DOCKER}" == "archlinux" ]; then
         ln -s $(pwd)/${environment}/.config/nvim/userautoload/env-docker.vim $home_dir/.config/nvim/userautoload/
     else

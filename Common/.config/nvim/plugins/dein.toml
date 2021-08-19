@@ -3,12 +3,14 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
+hook_post_source = 'call plugin#neosnippet#hook_post_source()'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+hook_post_source = 'call plugin#lsp#hook_post_source()'
 
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
@@ -17,10 +19,11 @@ repo = 'prabirshrestha/async.vim'
 repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
-repo = 'vim-lsp-snippets'
-
-[[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
+dependes = [
+    'asyncomplete-neosnippet'
+]
+hook_post_source = 'call plugin#asyncomplete#hook_post_source()'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
@@ -32,19 +35,11 @@ repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
 repo = 'mattn/vim-goimports'
 
 [[plugins]]
-repo = 'kannokanno/previm'
-
-[[plugins]]
-repo = 'flazz/vim-colorschemes'
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-
-[[plugins]]
-repo = 'cocopon/lightline-hybrid.vim'
+repo = 'honza/vim-snippets'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+hook_source = 'call plugin#quickrun#hook_source()'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
@@ -53,14 +48,17 @@ repo = 'tyru/open-browser.vim'
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'cocopon/lightline-hybrid.vim'
+
+[[plugins]]
 repo = 'kana/vim-tabpagecd'
 
 [[plugins]]
 repo = 'Shougo/vimproc'
 build = 'make'
-
-[[plugins]]
-repo = 'fuenor/im_control.vim'
 
 [[plugins]]
 repo = 'tpope/vim-obsession'
@@ -71,13 +69,12 @@ build = 'bash ./install --all'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
+hook_post_source = 'call plugin#fzf#hook_post_source()'
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
 repo = 'simeji/winresizer'
-
-[[plugins]]
-repo = 'zerowidth/vim-copy-as-rtf'
+hook_source = 'call plugin#winresizer#hook_source()'
 

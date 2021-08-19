@@ -7,6 +7,10 @@ repo = 'peitalin/vim-jsx-typescript'
 on_ft = ['typescriptreact']
 
 [[plugins]]
+repo = 'mxw/vim-jsx'
+on_ft = ['javascript']
+
+[[plugins]]
 repo = 'artur-shaik/vim-javacomplete2'
 on_ft = ['java']
 
@@ -17,6 +21,7 @@ on_ft = 'haskell'
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = ['markdown']
+hook_source = 'call plugin#vim_markdown#hook_source()'
 
 [[plugins]]
 repo = 'udalov/kotlin-vim'
@@ -25,6 +30,7 @@ on_ft = ['kotlin']
 [[plugins]]
 repo = 'vim-latex/vim-latex'
 on_ft = ['tex']
+hook_source = 'call plugin#vim_latex#hook_source()'
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'
@@ -61,3 +67,9 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
 on_ft = ['dart']
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = ['markdown']
+hook_source = 'call plugin#previm#hook_source()'
+
