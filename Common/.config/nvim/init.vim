@@ -16,6 +16,9 @@ if dein#load_state(s:dein_dir)
 
     call dein#load_toml(s:plugins_dir . '/dein.toml', {'lazy': 0})
     call dein#load_toml(s:plugins_dir . '/dein.lazy.toml', {'lazy': 1})
+    if has('mac')
+        call dein#load_toml(s:plugins_dir . '/dein.mac.toml', {'lazy': 1})
+    endif
 
     if dein#check_install()
         call dein#install()
