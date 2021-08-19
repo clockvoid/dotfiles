@@ -1,5 +1,5 @@
 Config {
-  font = "xft:Terminus:size=10:style=Bold:antialias=true, xft:Source Han Sans JP:size=10:style=Bold:antialias=true"
+  font = "xft:Terminus:size=10:style=Bold:antialias=true, xft:Source Han Sans Mono JP:size=10:style=Bold:antialias=true"
   , additionalFonts = [ "xft:MigMix 1M:style=Bold:antialias=true", "xft:Noto Sans:antialias=true, xft:Noto Emoji:antialias=true"
     , "xft:Sans:antialias=true"
   ]
@@ -37,7 +37,7 @@ Config {
     , "-i", "FULL"
   ] 10
 
-  , Run Network "wlp2s0" [ "-t", "WiFi: <rx> / <tx>"
+  , Run Network "wlp5s0" [ "-t", "WiFi: <rx> / <tx>"
   , "-L", "40"
   , "-H", "200"
   , "-m", "3"
@@ -54,5 +54,5 @@ Config {
   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%StdinReader% }{ | %cpu% | %memory% | %battery% | %wlp2s0% | <fc=#ee9a00>%date%</fc> | %RJTT% | %MyIME% |"
+  , template = "%StdinReader% }{ | %cpu% | %memory% | %battery% | %wlp5s0% | <fc=#ee9a00>%date%</fc> | %RJTT% | %MyIME% |"
 }
