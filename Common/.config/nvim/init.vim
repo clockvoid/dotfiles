@@ -6,6 +6,8 @@ endif
 let s:dein_dir = expand('~/.cache/dein')
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
+autocmd VimEnter * call dein#call_hook('post_source')
+
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
 
@@ -21,8 +23,8 @@ if dein#load_state(s:dein_dir)
 
     call dein#end()
     call dein#save_state()
+    call dein#call_hook('hook_source')
 endif
 
 filetype plugin indent on
 runtime! userautoload/*.vim
-"runtime! userautoload/*.nvim
