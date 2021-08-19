@@ -78,6 +78,3 @@ repo = 'editorconfig/editorconfig-vim'
 repo = 'simeji/winresizer'
 hook_source = 'call plugin#winresizer#hook_source()'
 
-[[plugins]]
-repo = 'zerowidth/vim-copy-as-rtf'
-
