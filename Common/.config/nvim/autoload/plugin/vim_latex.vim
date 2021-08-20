@@ -46,6 +46,12 @@ function! plugin#vim_latex#hook_add() abort
     if executable("evince")
         let g:Tex_ViewRule_pdf = 'evince'
     endif
-    let g:Tex_IgnoredWarnings = 'LaTeX Font Warning:'."\n".'Underfull'."\n".'Package fontspec Warning'
+    let g:Tex_IgnoredWarnings = 
+                \'LaTeX Font Warning:'."\n".
+                \'Underfull'."\n".
+                \'Package fontspec Warning'."\n".
+                \'Overfull'."\n".
+                \'Label(s) may have changed.'
     let g:Tex_IgnoreLevel = 8
+    let g:Tex_FoldedEnvironments = ',frame'
 endfunction
