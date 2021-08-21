@@ -30,6 +30,7 @@ on_ft = ['kotlin']
 [[plugins]]
 repo = 'vim-latex/vim-latex'
 on_ft = ['tex']
+hook_source = 'call plugin#vim_latex#hook_source()'
 hook_add = 'call plugin#vim_latex#hook_add()'
 
 [[plugins]]
