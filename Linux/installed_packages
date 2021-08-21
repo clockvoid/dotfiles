@@ -62,6 +62,12 @@ remmina
 samba
 sudo
 terminus-font
+texlive-core
+texlive-fontsextra
+texlive-jlisting
+texlive-langchinese
+texlive-langjapanese
+texlive-latexextra
 thunar
 tmux
 trayer
