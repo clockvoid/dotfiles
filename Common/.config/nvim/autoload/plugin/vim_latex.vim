@@ -12,7 +12,7 @@ function! plugin#vim_latex#hook_source() abort
     let g:Imap_StickyPlaceHolders = 1
 
     let g:Tex_DefaultTargetFormat = 'pdf'
-    let g:Tex_BibtexFlavor = 'upbibtex'
+    let g:Tex_BibtexFlavor = 'biber'
     let g:Tex_MakeIndexFlavor = 'upmendex $*.idx'
 
     let g:Tex_UseEditorSettingInDVIViewer = 1
@@ -27,7 +27,8 @@ function! plugin#vim_latex#hook_source() abort
                 \'Underfull'."\n".
                 \'Package fontspec Warning'."\n".
                 \'Overfull'."\n".
-                \'Label(s) may have changed.'
+                \'Label(s) may have changed.'."\n".
+                \'Using fall-back BibTeX(8) backend'
     let g:Tex_IgnoreLevel = 8
     let g:Tex_FoldedEnvironments = ',frame'
 
@@ -37,9 +38,7 @@ endfunction
 function! s:set_tex_family() abort
 
     function! s:setLuaLaTex() abort
-        if exists('g:tex_multiplecompileformats')
-            unlet g:tex_multiplecompileformats
-        endif
+        let g:Tex_MultipleCompileFormats = 'pdf,bibtex,pdf'
         if exists('g:Tex_FormatDependency_pdf')
             unlet g:Tex_FormatDependency_pdf
         endif
@@ -52,7 +51,7 @@ function! s:set_tex_family() abort
     endfunction
 
     function! s:setPLaTex() abort
-        let g:tex_multiplecompileformats='dvi,pdf'
+        let g:Tex_MultipleCompileFormats='dvi,pdf,bibtex,pdf'
         let g:Tex_FormatDependency_pdf = 'dvi,pdf'
         let g:Tex_CompileRule_pdf = 'dvipdfmx $*.dvi'
         "let g:Tex_CompileRule_dvi = 'uplatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
