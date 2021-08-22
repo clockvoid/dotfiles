@@ -10,6 +10,7 @@ autoconf
 autokey-gtk
 automake
 base
+biber
 bison
 blueman
 bluez-utils
@@ -65,9 +66,7 @@ terminus-font
 texlive-core
 texlive-fontsextra
 texlive-jlisting
-texlive-langchinese
 texlive-langjapanese
-texlive-latexextra
 thunar
 tmux
 trayer
