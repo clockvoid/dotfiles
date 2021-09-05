@@ -102,13 +102,6 @@ tmux ()
     if [ ! -d $home_dir/.tmux ]; then
         mkdir $home_dir/.tmux
     fi
-    if [ ! -d $home_dir/.tmux/tmux-powerline ]; then
-        type git || {
-          echo 'Please install git or update your path to include the git executable!'
-          exit 1
-        }
-        git clone https://github.com/erikw/tmux-powerline $home_dir/.tmux/tmux-powerline
-    fi
     if [ ! -d $home_dir/.tmux/plugins ]; then
         mkdir $home_dir/.tmux/plugins
     fi
@@ -120,8 +113,6 @@ tmux ()
         git clone https://github.com/tmux-plugins/tpm $home_dir/.tmux/plugins/tpm
     fi
     ln -s $(pwd)/Common/.tmux/* $home_dir/.tmux/
-    ln -s $(pwd)/Common/tmux-poweline-themes/* $home_dir/.tmux/tmux-powerline/themes/
-    ln -s $(pwd)/Common/.tmux-powerlinerc $home_dir/
     ln -s $(pwd)/Common/.tmux.conf $home_dir/
     ln -s $(pwd)/$environment/.config/tmux/env $(pwd)/Common/.config/tmux/
     ln -s $(pwd)/Common/.config/tmux $home_dir/.config/
