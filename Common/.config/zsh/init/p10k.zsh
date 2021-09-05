@@ -363,6 +363,17 @@
   # Change the value of this parameter to show a different icon.
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
+  # git icons for powerlevel9k
+  #typeset -g POWERLEVEL9K_VCS_UNSTAGED_ICON='\u25CF'              # ●
+  #typeset -g POWERLEVEL9K_VCS_STAGED_ICON='\u271A'              # ✚
+  #typeset -g POWERLEVEL9K_VCS_STASH_ICON='\u235F'              # ⍟
+  #typeset -g POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'              # ↓
+  #typeset -g POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'              # ↑
+  #typeset -g POWERLEVEL9K_VCS_TAG_ICON=''
+  #typeset -g POWERLEVEL9K_VCS_BOOKMARK_ICON='\u263F'              # ☿
+  #typeset -g POWERLEVEL9K_VCS_COMMIT_ICON=''
+  #typeset -g POWERLEVEL9K_VCS_REMOTE_BRANCH_ICON='\u2192'              # →
+
   # Formatter for Git status.
   #
   # Example output: master wip ⇣42⇡42 *42 merge ~42 +42 !42 ?42.
@@ -438,15 +449,15 @@
     # ⇢42 if ahead of the push remote; no leading space if also behind: ⇠42⇢42.
     (( VCS_STATUS_PUSH_COMMITS_AHEAD  )) && res+="${clean}⇢${VCS_STATUS_PUSH_COMMITS_AHEAD}"
     # *42 if have stashes.
-    (( VCS_STATUS_STASHES        )) && res+=" ${clean}⍟${VCS_STATUS_STASHES}"
+    (( VCS_STATUS_STASHES        )) && res+=" ${clean}*${VCS_STATUS_STASHES}"
     # 'merge' if the repo is in an unusual state.
     [[ -n $VCS_STATUS_ACTION     ]] && res+=" ${conflicted}${VCS_STATUS_ACTION}"
     # ~42 if have merge conflicts.
     (( VCS_STATUS_NUM_CONFLICTED )) && res+=" ${conflicted}~${VCS_STATUS_NUM_CONFLICTED}"
     # +42 if have staged changes.
-    (( VCS_STATUS_NUM_STAGED     )) && res+=" ${modified}✚${VCS_STATUS_NUM_STAGED}"
+    (( VCS_STATUS_NUM_STAGED     )) && res+=" ${modified}+${VCS_STATUS_NUM_STAGED}"
     # !42 if have unstaged changes.
-    (( VCS_STATUS_NUM_UNSTAGED   )) && res+=" ${modified}●${VCS_STATUS_NUM_UNSTAGED}"
+    (( VCS_STATUS_NUM_UNSTAGED   )) && res+=" ${modified}!${VCS_STATUS_NUM_UNSTAGED}"
     # ?42 if have untracked files. It's really a question mark, your font isn't broken.
     # See POWERLEVEL9K_VCS_UNTRACKED_ICON above if you want to use a different icon.
     # Remove the next line if you don't want to see untracked files at all.
