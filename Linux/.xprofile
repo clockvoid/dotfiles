@@ -27,4 +27,6 @@ autokey-gtk &
 
 remmina -i &
 
+blueman-applet &
+
 redshift -m randr -t 5700:3600 -b 1.0:1.0 -l 35.465:139.622 &

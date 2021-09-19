@@ -1,6 +1,7 @@
 acpi
 adobe-source-code-pro-fonts
 adobe-source-han-sans-jp-fonts
+aerc
 adwaita-icon-theme
 alacritty
 alsa-utils
@@ -13,10 +14,13 @@ base
 biber
 bison
 blueman
+bluez-firmware
 bluez-utils
 chromium
 clang
 dmenu
+docker-compose
+evince
 fakeroot
 feh
 flex
@@ -34,6 +38,7 @@ keychain
 libvncserver
 lightdm
 lightdm-gtk-greeter
+lxqt-policykit
 m4
 maim
 make
@@ -55,6 +60,8 @@ pasystray-git
 patch
 pavucontrol
 pavumeter
+pass
+pasystray-git
 pkgconf
 powerline
 pulseaudio
@@ -64,9 +71,11 @@ samba
 sudo
 terminus-font
 texlive-core
+texlive-bibtexextra
 texlive-fontsextra
 texlive-jlisting
 texlive-langjapanese
+texlive-latexextra
 thunar
 tmux
 trayer
@@ -80,8 +89,8 @@ xf86-video-intel
 xorg-server
 xorg-xbacklight
 xorg-xev
-xorg-xmodmap
 xorg-xinput
+xorg-xmodmap
 xorg-xrandr
 xorg-xrdb
 yay-bin

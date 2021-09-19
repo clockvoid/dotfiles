@@ -36,6 +36,7 @@ myManageHook = composeAll
   , className =? "Mikutter.rb" <&&> title =? "Preferences" --> doCenterFloat
   , appName =? "crx_nckgahadagoaajjgafhacjanaoiihapd" --> doCenterFloat
   , appName =? "OpenGL Sample" --> doCenterFloat
+  , className =? "Google-chrome" --> doShift "9"
   , className =? "Gnome-system-monitor" --> doCenterFloat
   , title =? "Nice Window" --> doCenterFloat
   , title =? "Cell Automaton" --> doCenterFloat
