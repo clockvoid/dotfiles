@@ -414,6 +414,8 @@ elif [ $config = "git_template" ]; then
     git_template
 elif [ $config = "mac-utils" ]; then
     mac_utils
+elif [ $config = "local-bin" ]; then
+    install_local_bin
 else
     echo Config set $config not found.
 fi
