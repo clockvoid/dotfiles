@@ -1,13 +1,17 @@
 [[plugins]]
 repo = 'jason0x43/vim-js-indent'
-on_ft = ['javascript', 'typescript', 'html']
+on_ft = ['typescript', 'html']
 
 [[plugins]]
 repo = 'peitalin/vim-jsx-typescript'
 on_ft = ['typescriptreact']
 
 [[plugins]]
-repo = 'mxw/vim-jsx'
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript']
+
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
 on_ft = ['javascript']
 
 [[plugins]]
