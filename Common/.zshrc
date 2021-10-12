@@ -15,12 +15,12 @@ source $HOME/.config/zsh/zplug.zsh
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-for file in $HOME/.config/zsh/init/*.zsh; do
-    source "$file"
-done
 for file in $HOME/.config/zsh/env/*.zsh; do
     source "$file"
 done
 
+for file in $HOME/.config/zsh/init/*.zsh; do
+    source "$file"
+done
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
