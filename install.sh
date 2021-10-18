@@ -217,16 +217,6 @@ zsh ()
     echo Zsh: Done
 }
 
-feh ()
-{
-    if [ $environment == "Linux" ]; then
-        ln -s $(pwd)/Linux/.fehbg $home_dir/
-    else
-        echo This system do not need this configuration.
-    fi
-    echo Feh: Done
-}
-
 git_template ()
 {
     ln -s $(pwd)/Common/.git_template $home_dir/
@@ -386,7 +376,6 @@ if [ $config = "all" ]; then
     xmonad
     xresources
     zsh
-    feh
     git_template
     neovim
     alacritty
