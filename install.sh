@@ -20,7 +20,6 @@ install_anyenv()
     fi
     export PATH="$home_dir/.anyenv/bin:$PATH"
     eval "$(anyenv init -)" 
-    patch $home_dir/.anyenv/libexec/anyenv-init ./anyenv_patch
     if [ ! -d $home_dir/.config/anyenv/anyenv-install ]; then
         anyenv install --init
     fi
