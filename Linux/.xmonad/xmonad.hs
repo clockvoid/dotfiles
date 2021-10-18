@@ -84,7 +84,8 @@ myForcusedBorderColor = "#ff5733"
 myNomalBorderColor = "#1D1F21"
 
 myStartupHook = do
-  spawn "sh ~/.fehbg"
+  spawn "~/.xmonad/set_wallpaper.sh"
+  spawn "~/.xmonad/set_monitor.sh"
   spawn "~/.xmonad/set_keyboard.sh"
 
 -- main function
