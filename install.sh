@@ -215,7 +215,6 @@ zsh ()
     ln -s $(pwd)/$environment/.config/zsh/env $(pwd)/Common/.config/zsh/
     ln -s $(pwd)/Common/.config/zsh $home_dir/.config/
     ln -s $(pwd)/Common/.zprofile $home_dir/
-    ln -s $(pwd)/Common/.profile $home_dir/
     ln -s $(pwd)/Common/.zshrc $home_dir/
     echo Zsh: Done
 }
