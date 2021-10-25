@@ -138,7 +138,9 @@ lightdm ()
 {
     if [ $environment == "Linux" ]; then
         gtk
-        ln -s $(pwd)/Linux/lightdm $home_dir/
+        sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.tmp
+        sudo cp /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.tmp
+        sudo cp $(pwd)/Linux/lightdm/* /etc/lightdm
     else
         echo This system do not need this configuration.
     fi
@@ -174,7 +176,8 @@ xmonad ()
         if [ ! -d /usr/share/xsessions ]; then
             sudo mkdir /usr/share/xsessions
         fi
-        sudo ln -s $(pwd)/Linux/.xmonad/xmonad.desktop /usr/share/xsessions
+        sudo cp $(pwd)/Linux/.xmonad/xmonad.desktop /usr/share/xsessions
+        sudo ln -s ~/.local/bin/xmonad /usr/bin/
 
         bold=$(tput bold)
         echo "Xmonad: ${bold}Almost done! Please install MigMix 1M font for xmobar: https://mix-mplus-ipa.osdn.jp/migmix/"
@@ -379,6 +382,8 @@ if [ $config = "all" ]; then
     git_template
     neovim
     alacritty
+    fontconfig
+    install_local_bin
 elif [ $config = "ideavim" ]; then
     ideavim
 elif [ $config = "neovim" ]; then

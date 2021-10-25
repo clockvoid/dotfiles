@@ -38,7 +38,7 @@ keychain
 libvncserver
 lightdm
 lightdm-gtk-greeter
-lxqt-policykit
+lxqt-policykit-git
 m4
 maim
 make
