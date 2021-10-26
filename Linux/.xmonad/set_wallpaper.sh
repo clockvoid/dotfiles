@@ -1,3 +1,3 @@
 #!/bin/sh
 
-feh --no-fehbg --bg-scale '/etc/lightdm/wallpaper.jpg'
+feh --no-fehbg --bg-fill '/etc/lightdm/wallpaper.jpg'
