@@ -106,7 +106,7 @@ main = do
   n <- countScreens
   hs <- mapM (\i ->
     spawnPipe $
-      "~/.local/bin/xmobar -x " ++ show i ++ " ~/.xmonad/xmobarrc" ) [0 .. n - 1]
+      "~/.local/bin/xmobar -x " ++ show i ++ if i == 0 then " ~/.xmonad/xmobarrc" else " ~/.xmonad/xmobarrc_notrayer" ) [0 .. n - 1]
   xmonad $ docks $ ewmh baseConfig
     { terminal  = myTerminal
     , borderWidth = myBorderWidth
