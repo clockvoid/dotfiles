@@ -1,11 +1,11 @@
 {
     "type": "script",
-    "description": "up",
+    "description": "end",
     "store": {},
     "modes": [
         3
     ],
-    "usageCount": 125,
+    "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -21,10 +21,10 @@
         "modifiers": [
             "<ctrl>"
         ],
-        "hotKey": "p"
+        "hotKey": "e"
     },
     "filter": {
-        "regex": null,
+        "regex": "slack.Slack",
         "isRecursive": false
     }
 }

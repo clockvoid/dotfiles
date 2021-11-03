@@ -1,11 +1,11 @@
 {
     "type": "script",
-    "description": "right",
+    "description": "home",
     "store": {},
     "modes": [
         3
     ],
-    "usageCount": 158,
+    "usageCount": 9,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -21,10 +21,10 @@
         "modifiers": [
             "<ctrl>"
         ],
-        "hotKey": "f"
+        "hotKey": "a"
     },
     "filter": {
-        "regex": null,
+        "regex": "google-chrome.Google-chrome",
         "isRecursive": false
     }
 }

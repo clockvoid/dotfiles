@@ -1,13 +1,8 @@
 {
-    "type": "script",
-    "description": "home",
-    "store": {},
-    "modes": [
-        3
-    ],
-    "usageCount": 9,
-    "prompt": false,
-    "omitTrigger": false,
+    "type": "folder",
+    "title": "chrome",
+    "modes": [],
+    "usageCount": 0,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
@@ -18,10 +13,8 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [
-            "<ctrl>"
-        ],
-        "hotKey": "a"
+        "modifiers": [],
+        "hotKey": null
     },
     "filter": {
         "regex": null,
