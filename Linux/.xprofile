@@ -1,9 +1,12 @@
 #!/bin/sh
 
+export XDG_CURRENT_DESKTOP=GNOME
+
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 export DefaltIMModule=fcitx
+export SDL_IM_MODULE=fcitx
 fcitx5 &
 
 xmodmap -e "remove lock = Caps_Lock"
