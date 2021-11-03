@@ -45,14 +45,11 @@ Config {
   , "-h", "red"
   ] 10
 
-  , Run Com "/usr/bin/ibus" [ "engine"
-  ] "MyIME" 10
-
   , Run Date "%a %b %_d %l:%M" "date" 10
 
   , Run StdinReader
   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%StdinReader% }{ | %cpu% | %memory% | %battery% | %wlp5s0% | <fc=#ee9a00>%date%</fc> | %RJTT% | %MyIME% |"
+  , template = "%StdinReader% }{ | %cpu% | %memory% | %battery% | %wlp5s0% | <fc=#ee9a00>%date%</fc> | %RJTT% |"
 }
