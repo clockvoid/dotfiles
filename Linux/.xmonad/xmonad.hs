@@ -43,6 +43,8 @@ myManageHook = composeAll
   , title =? "Picture in picture" --> doFloat
   --, className =? "feh" --> doCenterFloat
   , appName =? "Emoji Choice" --> doCenterFloat
+  , title =? "Android Emulator - Pixel_5_API_30:5554" --> doFloat
+  , title =? "Emulator" --> doFloat
   ]
 
 screenshotPath :: String
