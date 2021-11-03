@@ -187,6 +187,22 @@ xmonad ()
     echo Xmonad: Done
 }
 
+autokey ()
+{
+    if [ $environment == "Linux" ]; then
+        if [ ! -d $home_dir/.config/autokey ]; then
+            mkdir $home_dir/.config/autokey
+            if [ ! -d $home_dir/.config/autokey/data ]; then
+                mkdir $home_dir/.config/autokey/data
+            fi
+        fi
+
+        ln -s $(pwd)/Linux/.config/autokey/data/emacs $home_dir/.config/autokey/data
+    else
+        echo This system do not need this config.
+    fi
+}
+
 xresources ()
 {
     if [ $environment == "Linux" ]; then
@@ -381,6 +397,7 @@ if [ $config = "all" ]; then
     git_template
     neovim
     alacritty
+    autokey
     fontconfig
     install_local_bin
 elif [ $config = "ideavim" ]; then
@@ -409,6 +426,8 @@ elif [ $config = "mac-utils" ]; then
     mac_utils
 elif [ $config = "local-bin" ]; then
     install_local_bin
+elif [ $config = "autokey" ]; then
+    autokey
 else
     echo Config set $config not found.
 fi
