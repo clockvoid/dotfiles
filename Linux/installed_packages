@@ -22,10 +22,11 @@ dmenu
 docker-compose
 evince
 fakeroot
-fcitx
-fcitx-configtool
-fcitx-mozc
-fcitx-qt5
+fcitx5
+fcitx5-configtool
+fcitx5-gtk
+fcitx5-mozc
+fcitx5-qt
 feh
 flex
 gcc
