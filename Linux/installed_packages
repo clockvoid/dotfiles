@@ -22,6 +22,10 @@ dmenu
 docker-compose
 evince
 fakeroot
+fcitx
+fcitx-configtool
+fcitx-mozc
+fcitx-qt5
 feh
 flex
 gcc
@@ -31,8 +35,6 @@ go
 groff
 grub
 gvfs-smb
-ibus
-ibus-mozc
 iverilog
 keychain
 libvncserver
