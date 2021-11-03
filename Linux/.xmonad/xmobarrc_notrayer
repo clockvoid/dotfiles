@@ -8,15 +8,9 @@ Config {
   , position = TopSize L 100 22
   , allDesktops = True
   , persistent = False
-  , commands = [ Run Weather "RJTT" [ "-t", "<skyCondition>, <tempC>C"
-  , "-L", "10"
-  , "-H", "30"
-  , "--normal" ,"green"
-  , "--high" ,"red"
-  , "--low" ,"lightblue"
-  ] 36000
+  , commands = [
 
-  , Run Cpu            [ "-L", "3"
+  Run Cpu              [ "-L", "3"
   , "-H", "50"
   , "--normal", "green"
   , "--high", "red"
@@ -37,19 +31,11 @@ Config {
     , "-i", "FULL"
   ] 10
 
-  , Run Network "wlp5s0" [ "-t", "WiFi: <rx> / <tx>"
-  , "-L", "40"
-  , "-H", "200"
-  , "-m", "3"
-  , "-n", "green"
-  , "-h", "red"
-  ] 10
-
   , Run Date "%a %b %_d %l:%M" "date" 10
 
   , Run StdinReader
   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%StdinReader% }{ | %cpu% | %memory% | %battery% | %wlp5s0% | <fc=#ee9a00>%date%</fc> | %RJTT%"
+  , template = "%StdinReader% }{ | %cpu% | %memory% | %battery% | <fc=#ee9a00>%date%</fc>"
 }
