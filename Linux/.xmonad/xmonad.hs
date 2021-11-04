@@ -8,12 +8,12 @@ import           XMonad.Actions.UpdatePointer
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
-import           XMonad.Layout.Maximize
+import           XMonad.Layout.Maximize()
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.ToggleLayouts
 import           XMonad.Util.EZConfig
 import           XMonad.Util.Run             (spawnPipe)
-import           XMonad.Util.Types
+import           XMonad.Util.Types()
 
 baseConfig = desktopConfig
 
