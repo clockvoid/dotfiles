@@ -108,16 +108,13 @@ main = do
   hs <- mapM (\i ->
     spawnPipe $
       "~/.local/bin/xmobar -x " ++ show i ++ if i == 0 then " ~/.xmonad/xmobarrc" else " ~/.xmonad/xmobarrc_notrayer" ) [0 .. n - 1]
-  xmonad $ docks $ ewmh baseConfig
-    { terminal  = myTerminal
+  xmonad $ docks $ (ewmhFullscreen . ewmh) $
+    def{ terminal  = myTerminal
     , borderWidth = myBorderWidth
     , focusedBorderColor = myForcusedBorderColor
     , normalBorderColor = myNomalBorderColor
     , modMask = myModMask
     , startupHook = myStartupHook
-    , handleEventHook = handleEventHook def <+>
-        fullscreenEventHook <+>
-        docksEventHook
     , manageHook = manageDocks <+>
         myManageShift <+>
         myManageHook <+>
