@@ -24,7 +24,7 @@ xcmpmgr -c &
 nm-applet &
 
 /usr/bin/start-pulseaudio-x11
-volumeicon &
+volctl &
 
 autokey-gtk &
 
