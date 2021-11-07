@@ -1,3 +1,3 @@
 #!/bin/bash
 
-modprobe -r iwlmvm && modprobe -r iwlwifi && modprobe iwlwifi
+sudo modprobe -r iwlmvm && sudo modprobe -r iwlwifi && sudo modprobe iwlwifi
