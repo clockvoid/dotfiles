@@ -177,6 +177,7 @@ xmonad ()
             sudo mkdir /usr/share/xsessions
         fi
         sudo cp $(pwd)/Linux/.xmonad/xmonad.desktop /usr/share/xsessions
+        sudo cp $(pwd)/Linux/libinput/30-touchpad.conf /etc/X11/xorg.conf.d/
         sudo ln -s ~/.local/bin/xmonad /usr/bin/
 
         bold=$(tput bold)
