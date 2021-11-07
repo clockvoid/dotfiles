@@ -1,4 +1,4 @@
 #!/bin/sh
 
 sink=`pactl get-default-sink`
-pactl set-sink-volume $sink +5%
+pactl set-sink-volume $sink +3%
