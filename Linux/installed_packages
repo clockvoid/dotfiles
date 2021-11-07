@@ -68,6 +68,7 @@ pasystray-git
 pkgconf
 powerline
 pulseaudio
+pulseaudio-bluetooth
 redshift
 remmina
 samba
