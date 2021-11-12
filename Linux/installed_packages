@@ -21,6 +21,7 @@ clang
 dmenu
 docker-compose
 evince
+evolution
 fakeroot
 fcitx5
 fcitx5-configtool
@@ -31,6 +32,7 @@ feh
 flex
 gcc
 git
+gnome-keyring
 gnome-system-monitor
 go
 groff
