@@ -1,6 +1,9 @@
 #!/usr/bin/zsh
 
-tmux split-window -d -p 17
-#tmux split-window -dh -p 85
+if [ $(tmux list-panes | wc -l) = 1 ]; then
+    tmux split-window -v \; select-pane -t :.- \; resize-pane -y 70%
+    nvim -c FZF
+else
+    echo "only 1 pane must be exist"
+fi
 
-nvim -c FZF
