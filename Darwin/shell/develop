@@ -1,7 +1,7 @@
 #!/usr/local/bin/zsh
 
 if [ $(tmux list-panes | wc -l) = 1 ]; then
-    tmux split-window -v \; select-pane -t :.- \; resize-pane -y 50
+    tmux split-window -v \; select-pane -t :.- \; resize-pane -y 70%
     nvim -c FZF
 else
     echo "only 1 pane must be exist"
