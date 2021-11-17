@@ -17,6 +17,8 @@ install_anyenv()
             exit 1
         }
         git clone https://github.com/anyenv/anyenv $home_dir/.anyenv
+        mkdir -p $home_dir/.anyenv/plugins
+        git clone https://github.com/znz/anyenv-update.git $home_dir/.anyenv/anyenv-update
     fi
     export PATH="$home_dir/.anyenv/bin:$PATH"
     eval "$(anyenv init -)" 
