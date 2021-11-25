@@ -16,6 +16,8 @@ bison
 blueman
 bluez-firmware
 bluez-utils
+browserpass
+browserpass-chromium
 chromium
 clang
 dmenu
