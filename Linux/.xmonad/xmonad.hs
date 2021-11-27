@@ -51,6 +51,7 @@ screenshotPath = " ~/Pictures/screenshot"
 
 -- settings for new shortcut keys
 myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
+         , ("M-S-p", spawn "passmenu -fn 'monospace-11'")
          , ("<Print>", spawn ("~/.xmonad/screenshot.sh" ++ screenshotPath))
          , ("M1-<Print>", spawn ("~/.xmonad/screenshot_focused_window.sh" ++ screenshotPath))
          , ("C-<Print>", spawn ("~/.xmonad/screenshot_select.sh" ++ screenshotPath))
