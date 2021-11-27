@@ -68,11 +68,13 @@ patch
 pavucontrol
 pavumeter
 pass
+pass-otp
 pasystray-git
 pkgconf
 powerline
 pulseaudio
 pulseaudio-bluetooth
+qtpass
 redshift
 remmina
 samba

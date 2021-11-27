@@ -82,7 +82,7 @@ install_systemd_mods()
 
 fontconfig ()
 {
-    if [ $environment == "Linux" ]; then
+    if [ "$environment" = "Linux" ]; then
         ln -s $(pwd)/Linux/.config/fontconfig $home_dir/.config/
     else
         echo This system do not need this configuration.
@@ -192,7 +192,7 @@ xmonad ()
 
 autokey ()
 {
-    if [ $environment == "Linux" ]; then
+    if [ "$environment" = "Linux" ]; then
         if [ ! -d $home_dir/.config/autokey ]; then
             mkdir $home_dir/.config/autokey
             if [ ! -d $home_dir/.config/autokey/data ]; then
@@ -208,7 +208,7 @@ autokey ()
 
 xresources ()
 {
-    if [ $environment == "Linux" ]; then
+    if [ $environment = "Linux" ]; then
         ln -s $(pwd)/Linux/.Xresources* $home_dir/
     else
         echo This system do not need this configuration.
