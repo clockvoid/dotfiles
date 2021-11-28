@@ -22,12 +22,13 @@ for out in `xrandr | grep connected | cut -d ' ' -f 1-2`; do
 done
 IFS="${old_IFS}"
 
-redshift -xP
-
-for pid in `pidof redshift`; do
-    kill $pid
-done
-
 if [ "$IS_CONNECT_EXTERNAL" = "false" ]; then
-    redshift -P -m randr -t 5700:3600 -b 1.0:1.0 -l 35.465:139.622 &
+    if [ `pidof redshift | wc -w` = 0 ]; then
+        redshift -P -m randr -t 5700:3600 -b 1.0:1.0 -l 35.465:139.622 &
+    fi
+else
+    for pid in `pidof redshift`; do
+        redshift -xP
+        kill $pid
+    done
 fi
