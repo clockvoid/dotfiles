@@ -403,6 +403,7 @@ if [ $config = "all" ]; then
     autokey
     fontconfig
     install_local_bin
+    install_systemd_mods
 elif [ $config = "ideavim" ]; then
     ideavim
 elif [ $config = "neovim" ]; then
@@ -429,6 +430,8 @@ elif [ $config = "mac-utils" ]; then
     mac_utils
 elif [ $config = "local-bin" ]; then
     install_local_bin
+elif [ $config = "systemd-mods" ]; then
+    install_systemd_mods
 elif [ $config = "autokey" ]; then
     autokey
 else
