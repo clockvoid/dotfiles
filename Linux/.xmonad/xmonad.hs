@@ -37,6 +37,7 @@ myManageHook = composeAll
   , appName =? "crx_nckgahadagoaajjgafhacjanaoiihapd" --> doCenterFloat
   , appName =? "OpenGL Sample" --> doCenterFloat
   , className =? "Gnome-system-monitor" --> doCenterFloat
+  , className =? "Evolution-alarm-notify" --> doCenterFloat
   , title =? "Nice Window" --> doCenterFloat
   , title =? "Cell Automaton" --> doCenterFloat
   , title =? "Picture in picture" --> doFloat
