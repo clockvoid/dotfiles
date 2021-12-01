@@ -24,6 +24,7 @@ dmenu
 docker-compose
 evince
 evolution
+evolution-ews
 fakeroot
 fcitx5
 fcitx5-configtool
