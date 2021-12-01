@@ -32,3 +32,5 @@ remmina -i &
 
 blueman-applet &
 
+light-locker &
+
