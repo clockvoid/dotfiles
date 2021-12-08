@@ -26,6 +26,7 @@ if [ "$IS_CONNECT_EXTERNAL" = "false" ]; then
     if [ `pidof redshift | wc -w` = 0 ]; then
         redshift -P -m randr -t 5700:3600 -b 1.0:1.0 -l 35.465:139.622 &
     fi
+    xrandr --output eDP1 --primary --auto
 else
     for pid in `pidof redshift`; do
         redshift -xP
