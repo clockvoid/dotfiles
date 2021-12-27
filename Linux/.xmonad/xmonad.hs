@@ -12,7 +12,7 @@ import           XMonad.Layout.Maximize()
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.ToggleLayouts
 import           XMonad.Util.EZConfig
-import           XMonad.Util.Run             (spawnPipe)
+import           XMonad.Util.Run(spawnPipe)
 import           XMonad.Util.Types()
 
 baseConfig = desktopConfig
@@ -37,6 +37,7 @@ myManageHook = composeAll
   , appName =? "crx_nckgahadagoaajjgafhacjanaoiihapd" --> doCenterFloat
   , appName =? "OpenGL Sample" --> doCenterFloat
   , className =? "Gnome-system-monitor" --> doCenterFloat
+  , className =? "Evolution-alarm-notify" --> doCenterFloat
   , title =? "Nice Window" --> doCenterFloat
   , title =? "Cell Automaton" --> doCenterFloat
   , title =? "Picture in picture" --> doFloat
@@ -74,11 +75,9 @@ myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
 
 -- settings for key disablation
 disabledKeys = [ "C-,"
-              ]
+               ]
 
 -- settings for default terminal emulator
--- myTerminal = "xterm -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\""
--- myTerminal = "terminator -x zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\""
 myTerminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\""
 
 -- settings for mod key
@@ -96,18 +95,6 @@ myStartupHook = do
 
 -- main function
 main = do
-  {-
-   - xmproc: constant that is xmobar spawnPipe
-   - xmonad function is a Monad takes Default as an argument.
-   - Ofcorse, fullscreenSupport is Default that takes Default and is enable fullscreen application like Google Chrome work well.
-   - baseConfig is XConfig and it defines as desktopConfig.
-   - desktopConfig is XConfig that configures xmonad to ignore and leave room for dock type windows like panels and trays, adds the default key binding to toggle panel visibility, and activates basic EWMH supprt.
-   - XConfig is constructor of data XConfig l.
-   - XConfig has some field value. there are details in http://xmonad.org/xmonad-docs/xmonad/XMonad-Core.html#t:XConfig.
-   - additionalKeysP :: XConfig l -> [(String, X ())] -> XConfig l
-   - additionalKeysP takes XConfig and touple list and output edited XConfig.
-   - additionalKeysP can add some key bindings.
-   -}
   n <- countScreens
   hs <- mapM (\i ->
     spawnPipe $
@@ -137,7 +124,6 @@ main = do
         ) hs <+>
         updatePointer (0.5, 0.5) (0, 0)
     }
-
     `additionalKeysP` myKeys
     `removeKeysP` disabledKeys
 
