@@ -8,6 +8,7 @@ import           XMonad.Actions.UpdatePointer
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
+import           XMonad.Hooks.SetWMName
 import           XMonad.Layout.Maximize()
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.ToggleLayouts
@@ -15,9 +16,6 @@ import           XMonad.Util.EZConfig
 import           XMonad.Util.Run(spawnPipe)
 import           XMonad.Util.Types()
 
-baseConfig = desktopConfig
-
--- settings of defalut workspace for some applications
 myManageShift = composeAll
   [ className =? "Mikutter.rb" --> doShift "9"
   ]
@@ -41,7 +39,6 @@ myManageHook = composeAll
   , title =? "Nice Window" --> doCenterFloat
   , title =? "Cell Automaton" --> doCenterFloat
   , title =? "Picture in picture" --> doFloat
-  --, className =? "feh" --> doCenterFloat
   , appName =? "Emoji Choice" --> doCenterFloat
   , title =? "Android Emulator - Pixel_5_API_30:5554" --> doFloat
   , title =? "Emulator" --> doFloat
@@ -51,6 +48,7 @@ screenshotPath :: String
 screenshotPath = " ~/Pictures/screenshot"
 
 -- settings for new shortcut keys
+myKeys :: [([Char], X ())]
 myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
          , ("M-S-p", spawn "passmenu -fn 'monospace-11'")
          , ("<Print>", spawn ("~/.xmonad/screenshot.sh" ++ screenshotPath))
@@ -74,38 +72,36 @@ myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
          ]
 
 -- settings for key disablation
+disabledKeys :: [[Char]]
 disabledKeys = [ "C-,"
                ]
 
--- settings for default terminal emulator
-myTerminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\""
-
--- settings for mod key
-myModMask = mod4Mask
-
--- settings for border
-myBorderWidth = 3
-myForcusedBorderColor = "#ff5733"
-myNomalBorderColor = "#1D1F21"
-
+myStartupHook :: X ()
 myStartupHook = do
+  setWMName "LG3D"
   spawn "~/.xmonad/set_wallpaper.sh"
   spawn "~/.xmonad/set_monitor.sh"
   spawn "~/.xmonad/set_keyboard.sh"
 
 -- main function
+main :: IO ()
 main = do
+  let baseConfig = desktopConfig
   n <- countScreens
   hs <- mapM (\i ->
     spawnPipe $
-      "~/.local/bin/xmobar -x " ++ show i ++ if i == 0 then " ~/.xmonad/xmobarrc" else " ~/.xmonad/xmobarrc_notrayer" ) [0 .. n - 1]
-  xmonad $ docks $ (ewmhFullscreen . ewmh) $
-    def{ terminal  = myTerminal
-    , borderWidth = myBorderWidth
-    , focusedBorderColor = myForcusedBorderColor
-    , normalBorderColor = myNomalBorderColor
-    , modMask = myModMask
-    , startupHook = myStartupHook
+      "~/.local/bin/xmobar -x "
+      ++ show i
+      ++ if i == 0
+            then " ~/.xmonad/xmobarrc"
+            else " ~/.xmonad/xmobarrc_notrayer"
+    ) [0 :: Int .. n - 1]
+  xmonad $ docks $ (ewmhFullscreen . ewmh) $ def
+    { terminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\""
+    , borderWidth = 3 
+    , focusedBorderColor = "#ff5733"
+    , normalBorderColor = "#1D1F21"
+    , modMask = mod4Mask
     , manageHook = manageDocks <+>
         myManageShift <+>
         myManageHook <+>
@@ -123,6 +119,7 @@ main = do
           }
         ) hs <+>
         updatePointer (0.5, 0.5) (0, 0)
+    , startupHook = myStartupHook
     }
     `additionalKeysP` myKeys
     `removeKeysP` disabledKeys
