@@ -2,7 +2,7 @@
 bindkey -v
 
 # aliases
-if [ ! -d /usr/local/opt/coreutils/libexec/gnubin ]; then
+if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
     alias ls='/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto'
 fi
 alias ovim='/usr/bin/vim'
