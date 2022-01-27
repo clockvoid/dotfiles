@@ -28,7 +28,8 @@ function! plugin#vim_latex#hook_source() abort
                 \'Package fontspec Warning'."\n".
                 \'Overfull'."\n".
                 \'Label(s) may have changed.'."\n".
-                \'Using fall-back BibTeX(8) backend'
+                \'Using fall-back BibTeX(8) backend'."\n".
+                \'Citation %.%# undefined'."\n"
     let g:Tex_IgnoreLevel = 8
     let g:Tex_FoldedEnvironments = ',frame'
 
