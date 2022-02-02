@@ -66,10 +66,6 @@ repo = 'keith/swift.vim'
 on_ft = ['swift']
 
 [[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = ['toml']
-
-[[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
 on_ft = ['dart']
 
