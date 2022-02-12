@@ -19,7 +19,7 @@ else
     if ! type fd > /dev/null; then
         echo "Plase install fd."
     else
-        export FZF_CTRL_T_COMMAND='fd --hidden --follow --exclude ".git" --exclude "Library" --max-depth 5'
+        export FZF_CTRL_T_COMMAND='fd --hidden --follow --exclude ".git" --exclude "Library"'
     fi
 
     # Use fd (https://github.com/sharkdp/fd) instead of the default find
