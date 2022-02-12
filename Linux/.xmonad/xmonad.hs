@@ -113,7 +113,7 @@ main = do
     , logHook = mapM_ (\xmproc ->
         dynamicLogWithPP xmobarPP
           { ppOutput = hPutStrLn xmproc
-          , ppTitle = xmobarColor "green" "" . shorten 40
+          , ppTitle = xmobarColor "green" "" . shorten 50
           , ppLayout = \s -> "<" ++ s ++ ">"
           , ppSep = " | "
           }

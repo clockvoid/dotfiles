@@ -29,7 +29,8 @@ function! plugin#vim_latex#hook_source() abort
                 \'Overfull'."\n".
                 \'Label(s) may have changed.'."\n".
                 \'Using fall-back BibTeX(8) backend'."\n".
-                \'Citation %.%# undefined'."\n"
+                \'Citation %.%# undefined'."\n".
+                \'LaTeX hooks Warning'."\n"
     let g:Tex_IgnoreLevel = 8
     let g:Tex_FoldedEnvironments = ',frame'
 
