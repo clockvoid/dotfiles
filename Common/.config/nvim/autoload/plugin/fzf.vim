@@ -4,7 +4,7 @@ function! plugin#fzf#hook_post_source() abort
     if has("unix")
         let s:uname = system("uname -s")
         if s:uname == "Darwin"
-            rtp+=/usr/local/opt/fzf
+            rtp += /usr/local/opt/fzf
         endif
     endif
 
@@ -24,8 +24,8 @@ function! plugin#fzf#hook_post_source() abort
     "let g:fzf_layout = { 'window': '10split enew' }
 
     " Customize fzf colors to match your color scheme
-    let g:fzf_colors =
-                \ { 'fg':      ['fg', 'Normal'],
+    let g:fzf_colors = {
+                \ 'fg':      ['fg', 'Normal'],
                 \ 'bg':      ['bg', 'Normal'],
                 \ 'hl':      ['fg', 'Comment'],
                 \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
