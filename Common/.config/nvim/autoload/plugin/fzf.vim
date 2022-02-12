@@ -47,4 +47,5 @@ function! plugin#fzf#hook_post_source() abort
 
     " let g:fzf_command_prefix = 'Fzf'
     nnoremap <C-f> :Files<cr>
+    nnoremap <C-b> :Buffers<cr>
 endfunction
