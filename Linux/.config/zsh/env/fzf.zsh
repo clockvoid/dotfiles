@@ -2,7 +2,10 @@ export FZF_DEFAULT_COMMAND='find \( -type d \( \
            -name .git \
         \) -prune \) -o -type f -printf "%P\n"'
 
-export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_CTRL_T_COMMAND='find \( \
+        -type d \( \
+            -name .git \
+        \) -prune \) -o \( ! -path ./. -type d \) -o -printf "%P\n"'
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
@@ -16,7 +19,9 @@ _fzf_compgen_path() {
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-    find "$1" \( -type d \( \
-           -name .git \
-        \) -prune \) -o -type d -printf "%P\n"
+        find "$1" \( \
+            -type d \( \
+                -name .git \
+            \) -prune \
+        \) -o \( ! -path . -type d \) -printf "%P\n"
 }
