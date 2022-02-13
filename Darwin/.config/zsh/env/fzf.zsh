@@ -13,29 +13,51 @@ else
     if ! type bat > /dev/null; then
         echo "Please install bat."
     else
-        export FZF_DEFAULT_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}" --height 40% --border'
+        export FZF_DEFAULT_OPTS='--preview "
+            if [ -d {} ]; then
+                tree -C {} | head -200
+            else
+                bat --color=always --style=header,grid --line-range :100 {}
+            fi
+        " --height 40% --border'
     fi
 
-    export FZF_DEFAULT_COMMAND='find \( -type d \( \
-        -name .git \
-        \) -prune \) -o -type f -printf "%P\n"'
-    export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+    export FZF_DEFAULT_COMMAND='find \( \
+        -type d \( \
+            -name .git \
+        \) -prune \) -o -type f \
+        ! \( \
+            -name .DS_Store \
+        \) -printf "%P\n"'
+    export FZF_CTRL_T_COMMAND='find \( \
+        -type d \( \
+            -name .git \
+        \) -prune \) -o \( ! -path ./. -type d \) -o \
+        ! \( \
+            -name .DS_Store \
+        \) -printf "%P\n"'
 
     # Use fd (https://github.com/sharkdp/fd) instead of the default find
     # command for listing path candidates.
     # - The first argument to the function ($1) is the base path to start traversal
     # - See the source code (completion.{bash,zsh}) for the details.
     _fzf_compgen_path() {
-        find "$1" \( -type d \( \
-               -name .git \
-            \) -prune \) -o -type f -printf "%P\n"
+        find "$1" \( \
+            -type d \( \
+                -name .git \
+            \) -prune \) -o -type f \
+            ! \( \
+                -name .DS_Store \
+        \) -printf "%P\n"
     }
     
     # Use fd to generate the list for directory completion
     _fzf_compgen_dir() {
-        find "$1" \( -type d \( \
-               -name .git \
-            \) -prune \) -o -type d -printf "%P\n"
+        find "$1" \( \
+            -type d \( \
+                -name .git \
+            \) -prune \
+        \) -o \( ! -path . -type d \) -printf "%P\n"
     }
     
     # (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
@@ -46,7 +68,6 @@ else
       shift
     
       case "$command" in
-        cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
         export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
         ssh)          fzf "$@" --preview 'dig {}' ;;
         *)            fzf "$@" ;;
