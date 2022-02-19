@@ -130,6 +130,8 @@ gtk ()
     if [ $environment == "Linux" ]; then
         ln -s $(pwd)/Linux/.gtkrc-2.0 $home_dir/
         ln -s $(pwd)/Linux/.config/gtk-* $home_dir/.config/
+
+        echo Please install Flat-Plat theme from https://github.com/NewCubLinux/Flat-Plat
     else
         echo This system do not need this configuration.
     fi
