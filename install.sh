@@ -312,6 +312,15 @@ terminator ()
     echo Terminator: Done
 }
 
+feh () {
+    if [ $environment == "Linux" ]; then
+        ln -s $(pwd)/Linux/.config/feh/ $home_dir/.config/
+        echo Feh: Done
+    else
+        echo Feh settings is not needed to your environment.
+    fi
+}
+
 mac_utils() {
     type brew || {
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -434,6 +443,8 @@ elif [ $config = "systemd-mods" ]; then
     install_systemd_mods
 elif [ $config = "autokey" ]; then
     autokey
+elif [ $config = "feh" ]; then
+    feh
 else
     echo Config set $config not found.
 fi
