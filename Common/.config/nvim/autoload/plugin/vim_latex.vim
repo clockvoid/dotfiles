@@ -23,14 +23,16 @@ function! plugin#vim_latex#hook_source() abort
         let g:Tex_ViewRule_pdf = 'evince'
     endif
     let g:Tex_IgnoredWarnings = 
-                \'LaTeX Font Warning:'."\n".
                 \'Underfull'."\n".
-                \'Package fontspec Warning'."\n".
                 \'Overfull'."\n".
-                \'Label(s) may have changed.'."\n".
                 \'Using fall-back BibTeX(8) backend'."\n".
-                \'Citation %.%# undefined'."\n".
-                \'LaTeX hooks Warning'."\n"
+                \'Package caption Warning'."\n".
+                \'LaTeX hooks Warning'."\n".
+                \'Package fontspec Warning'."\n".
+                \'Package pgf Warning'."\n".
+                \'LaTeX Font Warning:'."\n".
+                \'Label(s) may have changed.'."\n".
+                \'Citation %.%# undefined'."\n"
     let g:Tex_IgnoreLevel = 8
     let g:Tex_FoldedEnvironments = ',frame'
 
