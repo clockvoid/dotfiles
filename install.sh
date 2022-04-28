@@ -226,12 +226,13 @@ alacritty ()
 
 zsh ()
 {
-    if [ ! -d $home_dir/.zplug ]; then
+    if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         type git || {
             echo 'Please install git or update your path to include the git executable!'
             exit 1
         }
-        git clone https://github.com/zplug/zplug $home_dir/.zplug
+        command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+        command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
     fi
     ln -s $(pwd)/$environment/.config/zsh/env $(pwd)/Common/.config/zsh/
     ln -s $(pwd)/Common/.config/zsh $home_dir/.config/
