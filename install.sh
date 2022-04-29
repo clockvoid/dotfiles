@@ -232,7 +232,7 @@ zsh ()
             exit 1
         }
         command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-        command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git"
     fi
     ln -s $(pwd)/$environment/.config/zsh/env $(pwd)/Common/.config/zsh/
     ln -s $(pwd)/Common/.config/zsh $home_dir/.config/
@@ -329,8 +329,8 @@ mac_utils() {
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     }
     brew update
-    brew install bat coreutils fd fzf git neovim tmux w3m zsh
-    brew cask install amethyst dozer iterm2 hyperswitch
+    brew install bat coreutils findutils fd fzf git neovim tmux zsh
+    brew cask install amethyst dozer iterm2 hyperswitch karabiner-elements
 }
 
 print_help ()
@@ -342,6 +342,22 @@ Install dotfiles to your environment.
 With no OPTION, it will install all of the configs to ~/
 
   -c, --config [CONFIGURATION_NAME]  specify installing dotfiles
+                                     can be: ideavim
+                                             neovim
+                                             zsh
+                                             tmux
+                                             xresources
+                                             xmonad
+                                             lightdm
+                                             fontconfig
+                                             alacritty
+                                             anyenv
+                                             git_template
+                                             mac-utils
+                                             local-bin
+                                             systemd-mods
+                                             autokey
+                                             feh
   -d, --directory [DIRECTORY]        specify directory install to
   -h, --help                         print this help and exit
 
