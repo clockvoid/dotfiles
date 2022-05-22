@@ -25,6 +25,7 @@ hook_source = '''
 augroup autoformat_settings
     autocmd!
     autocmd FileType c,cpp AutoFormatBuffer clang-format
+    autocmd FileType typescriptreact AutoFormatBuffer prettier
 augroup END
 '''
 merged = 0
