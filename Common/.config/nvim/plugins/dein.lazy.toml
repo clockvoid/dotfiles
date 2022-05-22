@@ -72,4 +72,4 @@ on_ft = ['dart']
 [[plugins]]
 repo = 'kannokanno/previm'
 on_ft = ['markdown']
-hook_add = 'call plugin#previm#hook_add()'
+hook_source = 'call plugin#previm#hook_source()'

@@ -1,5 +1,5 @@
 
-function! plugin#previm#hook_add() abort
+function! plugin#previm#hook_source() abort
     if has("mac")
         let g:previm_open_cmd = 'open -a "Google Chrome"'
     elseif has("unix")
