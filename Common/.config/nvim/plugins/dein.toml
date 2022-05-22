@@ -2,11 +2,42 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'google/vim-maktaba'
+merged = 0
+
+[[plugins]]
+repo = 'google/vim-glaive'
+depends = [
+    'google/vim-maktaba'
+]
+hook_post_source = '''
+    call glaive#Install()
+'''
+merged = 0
+
+[[plugins]]
+repo = 'google/vim-codefmt'
+depends = [
+    'google/vim-glaive',
+    'google/vim-maktaba'
+]
+hook_source = '''
+augroup autoformat_settings
+    autocmd!
+    autocmd FileType c,cpp AutoFormatBuffer clang-format
+augroup END
+'''
+merged = 0
+
+[[plugins]]
 repo = 'Shougo/neosnippet.vim'
 hook_post_source = 'call plugin#neosnippet#hook_post_source()'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+dependes = [
+    'Shougo/neosnippet.vim'
+]
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
@@ -33,6 +64,9 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
+depends = [
+    'Shougo/neosnippet.vim'
+]
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-file.vim'
