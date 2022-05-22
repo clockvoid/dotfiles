@@ -21,11 +21,14 @@ depends = [
     'google/vim-glaive',
     'google/vim-maktaba'
 ]
-hook_source = '''
+hook_post_source = '''
 augroup autoformat_settings
     autocmd!
     autocmd FileType c,cpp AutoFormatBuffer clang-format
-    autocmd FileType typescriptreact AutoFormatBuffer prettier
+    autocmd FileType typescriptreact,javascriptreact,typescript,javascript AutoFormatBuffer prettier
+    autocmd FileType go AutoFormatBuffer gofmt
+    autocmd FileType dart AutoFormatBuffer dartfmt
+    autocmd FileType rust AutoFormatBuffer rustfmt
 augroup END
 '''
 merged = 0
