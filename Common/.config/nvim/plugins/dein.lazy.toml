@@ -73,10 +73,3 @@ on_ft = ['dart']
 repo = 'kannokanno/previm'
 on_ft = ['markdown']
 hook_add = 'call plugin#previm#hook_add()'
-
-[[plugins]]
-repo = 'rhysd/vim-clang-format'
-on_ft = ['c']
-hook_add = '''
-    autocmd FileType c ClangFormatAutoEnable
-'''
