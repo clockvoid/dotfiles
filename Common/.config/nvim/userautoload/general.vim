@@ -19,12 +19,10 @@ syntax on
 
 " about monitor settings
 set number
-"set laststatus=2
 set cmdheight=2
 set showcmd
 set title
 set statusline+=%F
-"set background=dark
 
 " key stroke settings
 set ttimeoutlen=10
@@ -33,6 +31,7 @@ set ttimeoutlen=10
 " START: command completion ----------------------------------------------
 set wildmenu
 set wildmode=full
+set wildignorecase
 " END: commnd completion -------------------------------------------------
 
 " START: settings for terminal -------------------------------------------
@@ -43,7 +42,7 @@ tnoremap <silent> <ESC> <C-\><C-n>
 " START: settings for conceal --------------------------------------------
 " For conceal markers.
 if has('conceal')
-    set conceallevel=2 concealcursor=niv
-    let g:tex_conceal='' " disable tex conceal
+    set conceallevel=0
+    set concealcursor=""
 endif
 " END: settings for conceal ----------------------------------------------
