@@ -58,6 +58,12 @@ function! plugin#lsp#hook_post_source() abort
                 \ 'hie': {
                 \   'disabled': 1,
                 \ },
+                \ 'analysis-server-dart-snapshot': {
+                \    'cmd': [
+                \       '/usr/local/bin/dart',
+                \       'language-server',
+                \    ],
+                \ },
             \}
 
     " For snippets
