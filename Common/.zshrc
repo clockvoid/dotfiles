@@ -26,3 +26,4 @@ for file in $HOME/.config/zsh/init/*.zsh; do
 done
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
