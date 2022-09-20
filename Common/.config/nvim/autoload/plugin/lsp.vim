@@ -24,19 +24,6 @@ function! plugin#lsp#hook_post_source() abort
     let g:lsp_text_edit_enabled = 1
     let g:lsp_preview_float = 1
 
-    if executable('haskell-language-server-wrapper')
-        au User lsp_setup call lsp#register_server({
-                    \ 'name': 'haskell-language-server-wrapper',
-                    \ 'cmd': {server_info->['haskell-language-server-wrapper', '--lsp']},
-                    \ 'root_uri':{server_info->lsp#utils#path_to_uri(
-                    \     lsp#utils#find_nearest_parent_file_directory(
-                    \         lsp#utils#get_buffer_path(),
-                    \         ['.cabal', 'stack.yaml', 'cabal.project', 'package.yaml', 'hie.yaml']
-                    \     ))},
-                    \ 'allowlist' : ['haskell'],
-                    \ })
-    endif
-
     let g:lsp_settings = {
                 \ 'gopls': {
                 \   'workspace_config': {
@@ -52,15 +39,9 @@ function! plugin#lsp#hook_post_source() abort
                 \     },
                 \   },
                 \ },
-                \ 'haskell-language-server': {
-                \   'disabled': 1,
-                \ },
-                \ 'hie': {
-                \   'disabled': 1,
-                \ },
                 \ 'analysis-server-dart-snapshot': {
                 \    'cmd': [
-                \       '/usr/local/bin/dart',
+                \       'dart',
                 \       'language-server',
                 \    ],
                 \ },

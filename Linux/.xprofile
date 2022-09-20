@@ -29,6 +29,7 @@ volctl &
 autokey-gtk &
 
 blueman-applet &
+xset b 0 &
 
 light-locker &
 

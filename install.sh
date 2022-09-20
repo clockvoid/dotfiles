@@ -150,7 +150,6 @@ lightdm ()
     fi
 
     bold=$(tput bold)
-    echo "LightDM: ${bold}Almost done: Please copy files in ${home_dir}/lightdm/ to /etc/lightdm/!"
 }
 
 xmonad ()
