@@ -56,6 +56,7 @@ keychain
 libffi7
 libvncserver
 libxpm
+light
 light-locker
 lightdm
 lightdm-gtk-greeter
