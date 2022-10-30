@@ -23,9 +23,16 @@ repo = 'neovimhaskell/haskell-vim'
 on_ft = ['haskell']
 
 [[plugins]]
-repo = 'plasticboy/vim-markdown'
+repo = 'godlygeek/tabular'
 on_ft = ['markdown']
-hook_source = 'call plugin#vim_markdown#hook_source()'
+
+[[plugins]]
+repo = 'preservim/vim-markdown'
+dependes = [
+    'godlygeek/tabular'
+]
+on_ft = ['markdown']
+hook_add = 'call plugin#vim_markdown#hook_add()'
 
 [[plugins]]
 repo = 'udalov/kotlin-vim'
