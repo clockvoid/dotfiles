@@ -56,14 +56,15 @@ myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
          , ("C-<Print>", spawn ("~/.xmonad/screenshot_select.sh" ++ screenshotPath))
          , ("M-C-k", nextScreen)
          , ("M-C-j", prevScreen)
-         , ("M-m", spawn "mikutter")
          , ("M-n", spawn "nvim-wrapper")
          , ("M-g", spawn "gvim")
          , ("M-s", spawn "systemctl suspend")
+         , ("M-l", spawn "XSECURELOCK_SAVER=/etc/lightdm/saver.sh XSECURELOCK_PASSWORD_PROMPT=asterisks xsecurelock")
+         , ("M-m", spawn "~/.xmonad/set_monitor.sh")
          , ("C-S-<Esc>", spawn "gnome-system-monitor")
          , ("M-<Space>", sendMessage ToggleLayout)
-         , ("<XF86MonBrightnessDown>", spawn "xbacklight -5")
-         , ("<XF86MonBrightnessUp>", spawn "xbacklight +5")
+         , ("<XF86MonBrightnessDown>", spawn "light -Us 'sysfs/backlight/intel_backlight' 5")
+         , ("<XF86MonBrightnessUp>", spawn "light -As 'sysfs/backlight/intel_backlight' 5")
          , ("<XF86AudioRaiseVolume>", spawn "~/.xmonad/volume_up.sh")
          , ("<XF86AudioLowerVolume>", spawn "~/.xmonad/volume_down.sh")
          , ("<XF86AudioMute>", spawn "~/.xmonad/toggle_mute.sh")
@@ -80,7 +81,6 @@ myStartupHook :: X ()
 myStartupHook = do
   setWMName "LG3D"
   spawn "~/.xmonad/set_wallpaper.sh"
-  spawn "~/.xmonad/set_monitor.sh"
   spawn "~/.xmonad/set_keyboard.sh"
 
 -- main function
