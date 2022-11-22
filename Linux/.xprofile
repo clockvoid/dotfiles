@@ -15,21 +15,18 @@ xmodmap -e "remove lock = Caps_Lock"
 
 trayer --edge top --align right --widthtype percent --heighttype pixel --SetDockType true --SetPartialStrut false --expand false --width 8 --height 23 --transparent true --alpha 0 --tint 0x000000 --monitor primary &
 
-VBoxClient-all &
-
-xcmpmgr -c &
-
-/usr/bin/lxqt-policykit-agent &
+lxqt-policykit-agent &
 
 nm-applet &
 
-/usr/bin/start-pulseaudio-x11
+start-pulseaudio-x11
+
 volctl &
 
 autokey-gtk &
 
 blueman-applet &
-xset b 0 &
 
-light-locker &
+picom --backend glx --vsync --fade-exclude 'class_g="xsecurelock"' --config /dev/null &
 
+xset s off -dpms -b &
