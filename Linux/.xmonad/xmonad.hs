@@ -40,8 +40,9 @@ myManageHook = composeAll
   , title =? "Cell Automaton" --> doCenterFloat
   , title =? "Picture in picture" --> doFloat
   , appName =? "Emoji Choice" --> doCenterFloat
-  , title =? "Android Emulator - Pixel_5_API_30:5554" --> doFloat
-  , title =? "Emulator" --> doFloat
+  , title =? "Welcome to Android Studio" --> doFloat
+  , title =? "win0" --> doFloat
+  , title =? "splash" --> doFloat
   ]
 
 screenshotPath :: String
@@ -68,6 +69,7 @@ myKeys = [ ("M-p", spawn "dmenu_run -fn 'monospace-11'")
          , ("<XF86AudioRaiseVolume>", spawn "~/.xmonad/volume_up.sh")
          , ("<XF86AudioLowerVolume>", spawn "~/.xmonad/volume_down.sh")
          , ("<XF86AudioMute>", spawn "~/.xmonad/toggle_mute.sh")
+         , ("<XF86AudioMicMute>", spawn "~/.xmonad/toggle_mic_mute.sh")
          , ("M-i", spawn "sleep 0.1 && xdotool key Muhenkan")
          , ("M-o", spawn "sleep 0.1 && xdotool key Henkan")
          ]
