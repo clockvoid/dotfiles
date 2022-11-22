@@ -332,6 +332,13 @@ mac_utils() {
     brew cask install amethyst dozer iterm2 hyperswitch karabiner-elements
 }
 
+redshift() {
+    if [ $environment == "Linux" ]; then
+        ln -s $(pwd)/Linux/.config/redshift/ $home_dir/.config/
+        echo redshift: Done
+    fi
+}
+
 print_help ()
 {
 cat << EOS
@@ -421,6 +428,7 @@ if [ $config = "all" ]; then
     tmux
     ideavim
     lightdm
+    redshift
     xmonad
     xresources
     zsh
@@ -463,6 +471,8 @@ elif [ $config = "autokey" ]; then
     autokey
 elif [ $config = "feh" ]; then
     feh
+elif [ $config = "redshift" ]; then
+    redshift
 else
     echo Config set $config not found.
 fi
