@@ -41,6 +41,7 @@ myManageHook = composeAll
   , title =? "Picture in picture" --> doFloat
   , appName =? "Emoji Choice" --> doCenterFloat
   , title =? "Welcome to Android Studio" --> doFloat
+  , title =? "Welcome to IntelliJ IDEA" --> doFloat
   , title =? "win0" --> doFloat
   , title =? "splash" --> doFloat
   ]
