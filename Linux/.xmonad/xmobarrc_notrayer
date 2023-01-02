@@ -10,8 +10,8 @@ Config {
   , persistent = False
   , commands = [
 
-  Run Cpu              [ "-L", "3"
-  , "-H", "50"
+  Run Cpu              [ "-L", "20"
+  , "-H", "70"
   , "--normal", "green"
   , "--high", "red"
   ] 10
@@ -21,7 +21,7 @@ Config {
 
   , Run Battery        [ "-t", "Bat: <acstatus>"
   , "-L", "20"
-  , "-H", "70"
+  , "-H", "40"
   , "-h", "green"
   , "-n", "yellow"
   , "-l", "red"

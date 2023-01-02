@@ -16,8 +16,8 @@ Config {
   , "--low" ,"lightblue"
   ] 36000
 
-  , Run Cpu            [ "-L", "3"
-  , "-H", "50"
+  , Run Cpu            [ "-L", "20"
+  , "-H", "70"
   , "--normal", "green"
   , "--high", "red"
   ] 10
@@ -27,7 +27,7 @@ Config {
 
   , Run Battery        [ "-t", "Bat: <acstatus>"
   , "-L", "20"
-  , "-H", "70"
+  , "-H", "40"
   , "-h", "green"
   , "-n", "yellow"
   , "-l", "red"
@@ -37,12 +37,10 @@ Config {
     , "-i", "FULL"
   ] 10
 
-  , Run Network "wlp5s0" [ "-t", "WiFi: <rx> / <tx>"
+  , Run Network "wlp0s20f3" [ "-t", "WiFi: <rx> / <tx>"
   , "-L", "40"
   , "-H", "200"
   , "-m", "3"
-  , "-n", "green"
-  , "-h", "red"
   ] 10
 
   , Run Date "%a %b %_d %l:%M" "date" 10
@@ -51,5 +49,5 @@ Config {
   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%StdinReader% }{ | %cpu% | %memory% | %battery% | %wlp5s0% | <fc=#ee9a00>%date%</fc> | %RJTT% |"
+  , template = "%StdinReader% }{ | %cpu% | %memory% | %battery% | %wlp0s20f3% | <fc=#ee9a00>%date%</fc> | %RJTT% |"
 }
