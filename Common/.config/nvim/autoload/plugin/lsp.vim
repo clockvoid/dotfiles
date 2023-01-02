@@ -10,6 +10,7 @@ function! plugin#lsp#hook_post_source() abort
         nmap <buffer> L <plug>(lsp-references)
         nmap <buffer> <C-M-b> <plug>(lsp-implementation)
         nmap <buffer> K <plug>(lsp-hover)
+        nmap <buffer> <C-M-l> <plug>(lsp-document-format)
         inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<cr>"
     endfunction
 
@@ -19,8 +20,8 @@ function! plugin#lsp#hook_post_source() abort
     augroup END
 
     let g:lsp_diagnostics_enabled = 1
-    let g:lsp_diagnostics_echo_cursor = 1
-    let g:lsp_diagnostics_float_cursor = 1
+    let g:lsp_diagnostics_echo_cursor = 0
+    let g:lsp_diagnostics_float_cursor = 0
     let g:lsp_text_edit_enabled = 1
     let g:lsp_preview_float = 1
 
