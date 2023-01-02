@@ -30,3 +30,5 @@ blueman-applet &
 picom --backend glx --vsync --fade-exclude 'class_g="xsecurelock"' --config /dev/null &
 
 xset s off -dpms -b &
+
+systemctl restart --user redshift
