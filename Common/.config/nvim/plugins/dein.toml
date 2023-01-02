@@ -11,7 +11,7 @@ depends = [
     'google/vim-maktaba'
 ]
 hook_post_source = '''
-    call glaive#Install()
+call glaive#Install()
 '''
 merged = 0
 
@@ -27,7 +27,7 @@ augroup autoformat_settings
     autocmd FileType c,cpp AutoFormatBuffer clang-format
     autocmd FileType typescriptreact,javascriptreact,typescript,javascript AutoFormatBuffer prettier
     autocmd FileType go AutoFormatBuffer gofmt
-    autocmd FileType dart AutoFormatBuffer dartfmt
+    autocmd FileType dart nnoremap <buffer> <C-A-l> <Cmd>! flutter format %<CR>
     autocmd FileType rust AutoFormatBuffer rustfmt
 augroup END
 '''
@@ -46,6 +46,24 @@ dependes = [
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_post_source = 'call plugin#lsp#hook_post_source()'
+
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_post_source = '''
+let g:ale_linters = {
+    \    'markdown': ['textlint'],
+    \    'tex': ['textlint'],
+    \    'javascript': ['eslint'],
+    \    'go': ['staticcheck']
+    \}
+'''
+
+[[plugins]]
+repo = 'rhysd/vim-lsp-ale'
+dependes = [
+    'dense-analysis/ale'
+    'prabirshrestha/vim-lsp'
+]
 
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
