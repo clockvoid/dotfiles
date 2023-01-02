@@ -44,6 +44,7 @@ myManageHook = composeAll
   , title =? "Welcome to IntelliJ IDEA" --> doFloat
   , title =? "win0" --> doFloat
   , title =? "splash" --> doFloat
+  , title =? "Gtk Sample" --> doFloat
   ]
 
 screenshotPath :: String
