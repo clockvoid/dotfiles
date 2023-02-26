@@ -1,12 +1,11 @@
-[submodule "Linux/.xmonad/xmonad-git"]
-	path = Linux/.xmonad/xmonad-git
-	url = https://github.com/xmonad/xmonad
+[submodule "Linux/.config/xmonad/xmobar-git"]
+	path = Linux/.config/xmonad/xmobar-git
+	url = https://codeberg.org/xmobar/xmobar.git
     ignore = dirty
-[submodule "Linux/.xmonad/xmobar-git"]
-	path = Linux/.xmonad/xmobar-git
-	url = https://github.com/jaor/xmobar
+[submodule "Linux/.config/xmonad/xmonad-contrib-git"]
+	path = Linux/.config/xmonad/xmonad-contrib-git
+	url = https://github.com/xmonad/xmonad-contrib.git
     ignore = dirty
-[submodule "Linux/.xmonad/xmonad-contrib-git"]
-	path = Linux/.xmonad/xmonad-contrib-git
-	url = https://github.com/xmonad/xmonad-contrib
-    ignore = dirty
+[submodule "Linux/.config/xmonad/xmonad-git"]
+	path = Linux/.config/xmonad/xmonad-git
+	url = https://github.com/xmonad/xmonad.git

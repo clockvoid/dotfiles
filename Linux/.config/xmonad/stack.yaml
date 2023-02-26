@@ -1,0 +1,10 @@
+resolver: lts-19.6
+packages:
+- xmobar-git
+- xmonad-git
+- xmonad-contrib-git
+
+extra-deps:
+  - cairo-0.13.8.2
+  - pango-0.13.8.2
+  - glib-0.13.8.2

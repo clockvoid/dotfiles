@@ -155,7 +155,7 @@ lightdm ()
 xmonad ()
 {
     if [ $environment == "Linux" ]; then
-        ln -s $(pwd)/Linux/.xmonad $home_dir/
+        ln -s $(pwd)/Linux/.config/xmonad $home_dir/.config
         ln -s $(pwd)/Linux/.xinitrc $home_dir/
         ln -s $(pwd)/Linux/.xprofile $home_dir/
 
@@ -172,19 +172,16 @@ xmonad ()
 
         current_dir="$(pwd)"
 
-        cd $(pwd)/Linux/.xmonad
+        cd $(pwd)/Linux/.config/xmonad
         stack install
         cd $current_dir
 
         if [ ! -d /usr/share/xsessions ]; then
             sudo mkdir /usr/share/xsessions
         fi
-        sudo cp $(pwd)/Linux/.xmonad/xmonad.desktop /usr/share/xsessions
+        sudo cp $(pwd)/Linux/.config/xmonad/xmonad.desktop /usr/share/xsessions
         sudo cp $(pwd)/Linux/libinput/30-touchpad.conf /etc/X11/xorg.conf.d/
-        sudo ln -s ~/.local/bin/xmonad /usr/bin/
-
-        bold=$(tput bold)
-        echo "Xmonad: ${bold}Almost done! Please install MigMix 1M font for xmobar: https://mix-mplus-ipa.osdn.jp/migmix/"
+        sudo ln -s ${HOME}/.local/bin/xmonad /usr/bin/
     else
         echo This system do not need this configuration.
     fi

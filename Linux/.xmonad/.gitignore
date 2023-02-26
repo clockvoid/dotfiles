@@ -1,8 +1,0 @@
-.stack-work/
-stack.yaml.lock
-*.hi
-*.errors
-*.o
-xmonad-x86_64-linux
-
-*.xkm
