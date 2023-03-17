@@ -326,7 +326,7 @@ mac_utils() {
     }
     brew update
     brew install bat coreutils findutils fd fzf git neovim tmux zsh
-    brew cask install amethyst dozer iterm2 hyperswitch karabiner-elements
+    brew install amethyst dozer alacritty hyperswitch karabiner-elements
 }
 
 redshift() {
