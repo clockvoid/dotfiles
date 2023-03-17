@@ -13,12 +13,6 @@ nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 " START: settings for Custom key Bindings
 " Custom Key Binding
 
-" make leader to be space
-"let mapleader = "\<C-f>"
-
-" Saving file without input enter
-nnoremap <C-f>w :w<CR>
-
 " Copy/pasting without input "
 vmap <C-f>y "+y
 vmap <C-f>d "+d
@@ -43,13 +37,6 @@ nnoremap <C-f>l <C-w>l
 nnoremap <C-f>v :vsplit<CR>
 nnoremap <C-f>s :split<CR>
 
-" run quickrun
-nnoremap <C-f>q :Q<CR>
-
-" For moving tabs
-nnoremap K gt
-nnoremap J gT
-
 " For surrounding a word
 nnoremap <C-s>" ciw""<Esc>P
 nnoremap <C-s>' ciw''<Esc>P
@@ -64,37 +51,4 @@ nnoremap g; :action JumpToLastChange<CR>
 nnoremap <silent> L :action FindUsages<CR>
 nnoremap gs :action GotoSuperMethod<CR>
 nnoremap gi :action GotoImplementation<CR>
-
-" for backslash on jis keyboard
-" type option + \ to input yenmark
-inoremap ¥ \
-inoremap \ ¥
-
-let g:is_us = 1
-
-" for US keyboard
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
-
-function! ToggleKeyset()
-    if g:is_us
-        nnoremap ; ;
-        nnoremap : :
-        vnoremap ; ;
-        vnoremap : :
-        let g:is_us = 0
-        echo "JIS keyboard mode"
-    else
-        nnoremap ; :
-        nnoremap : ;
-        vnoremap ; :
-        vnoremap : ;
-        let g:is_us = 1
-        echo "US keyboard mode"
-    endif
-endfunction
-
-noremap <silent> <C-k> :call ToggleKeyset()<CR>
 
