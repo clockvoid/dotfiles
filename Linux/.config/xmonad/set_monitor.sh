@@ -62,3 +62,5 @@ else
         xrandr --output "$INTERNAL" --primary --auto
     fi
 fi
+
+feh --no-fehbg --bg-fill '/etc/lightdm/wallpaper.png'
