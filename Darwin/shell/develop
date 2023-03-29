@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/bin/zsh
 
 if [ $(tmux list-panes | wc -l) = 1 ]; then
     tmux split-window -v \; select-pane -t :.- \; resize-pane -y 70%
