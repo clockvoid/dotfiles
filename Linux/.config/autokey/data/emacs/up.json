@@ -24,7 +24,7 @@
         "hotKey": "p"
     },
     "filter": {
-        "regex": "^((?!.*(Alacritty\\.Alacritty|TMUX.*|clock@nano:.*|jetbrains-.*\\.jetbrains-.*|.*\\s\u2013\\s.*\\s\\[.*\\])).)*$",
+        "regex": "^((?!.*(Alacritty\\.Alacritty|TMUX.*|clock@nano:.*)).)*$",
         "isRecursive": false
     }
 }

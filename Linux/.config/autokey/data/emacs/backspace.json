@@ -5,7 +5,7 @@
     "modes": [
         3
     ],
-    "usageCount": 603,
+    "usageCount": 755,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -24,7 +24,7 @@
         "hotKey": "h"
     },
     "filter": {
-        "regex": "^((?!.*(Alacritty\\.Alacritty|TMUX.*|clock@nano:.*|jetbrains-.*\\.jetbrains-.*|.*\\s\u2013\\s.*\\s\\[.*\\])).)*$",
+        "regex": "^((?!.*(Alacritty\\.Alacritty|TMUX.*|clock@nano:.*)).)*$",
         "isRecursive": false
     }
 }
