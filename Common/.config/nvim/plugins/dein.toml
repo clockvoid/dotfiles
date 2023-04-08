@@ -29,7 +29,7 @@ let g:ale_linters = {
 [[plugins]]
 repo = 'rhysd/vim-lsp-ale'
 dependes = [
-    'dense-analysis/ale'
+    'dense-analysis/ale',
     'prabirshrestha/vim-lsp'
 ]
 
