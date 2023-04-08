@@ -68,9 +68,6 @@ repo = 'htlsne/asyncomplete-look'
 repo = 'mattn/vim-goimports'
 
 [[plugins]]
-repo = 'honza/vim-snippets'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_source = 'call plugin#quickrun#hook_source()'
 
@@ -79,18 +76,13 @@ repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
+hook_add = 'call plugin#hybrid#hook_add()'
 
 [[plugins]]
 repo = 'cocopon/lightline-hybrid.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-depends = [
-    'lightline-hybrid.vim'
-]
-
-[[plugins]]
-repo = 'kana/vim-tabpagecd'
 
 [[plugins]]
 repo = 'junegunn/fzf'
