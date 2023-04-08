@@ -2,38 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'google/vim-maktaba'
-merged = 0
-
-[[plugins]]
-repo = 'google/vim-glaive'
-depends = [
-    'google/vim-maktaba'
-]
-hook_post_source = '''
-call glaive#Install()
-'''
-merged = 0
-
-[[plugins]]
-repo = 'google/vim-codefmt'
-depends = [
-    'google/vim-glaive',
-    'google/vim-maktaba'
-]
-hook_post_source = '''
-augroup autoformat_settings
-    autocmd!
-    autocmd FileType c,cpp AutoFormatBuffer clang-format
-    autocmd FileType typescriptreact,javascriptreact,typescript,javascript AutoFormatBuffer prettier
-    autocmd FileType go AutoFormatBuffer gofmt
-    autocmd FileType dart nnoremap <buffer> <C-A-l> <Cmd>! flutter format %<CR>
-    autocmd FileType rust AutoFormatBuffer rustfmt
-augroup END
-'''
-merged = 0
-
-[[plugins]]
 repo = 'Shougo/neosnippet.vim'
 hook_post_source = 'call plugin#neosnippet#hook_post_source()'
 
