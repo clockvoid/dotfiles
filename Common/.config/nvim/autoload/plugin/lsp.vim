@@ -46,7 +46,10 @@ function! plugin#lsp#hook_post_source() abort
                 \       'language-server',
                 \    ],
                 \ },
-            \}
+                \ 'typeprof': {
+                \   'disabled': 1,
+                \ },
+                \}
 
     " For snippets
     let g:UltiSnipsExpandTrigger="<tab>"
