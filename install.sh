@@ -199,6 +199,7 @@ autokey ()
         fi
 
         ln -s $(pwd)/Linux/.config/autokey/data/emacs $home_dir/.config/autokey/data
+        ln -s $(pwd)/Linux/.config/autokey/data/mac $home_dir/.config/autokey/data
     else
         echo This system do not need this config.
     fi
