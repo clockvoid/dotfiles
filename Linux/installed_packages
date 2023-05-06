@@ -2,6 +2,7 @@ acpi
 acpi_call
 adobe-source-code-pro-fonts
 adobe-source-han-sans-jp-fonts
+adwaita-icon-theme
 alacritty
 alsa-firmware
 alsa-utils
@@ -88,6 +89,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 ntp
 obs-studio
+obsidian-icon-theme
 openmp
 openssh
 pacman-contrib
@@ -104,10 +106,12 @@ pulseaudio-alsa
 pulseaudio-bluetooth
 python-pulsectl
 qrencode
+qt5-styleplugins
 rclone
 redshift
 remmina
 samba
+sassc
 sbsigntools
 scrcpy
 shim-signed
