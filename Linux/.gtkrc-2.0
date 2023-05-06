@@ -3,6 +3,6 @@ style "gvimfix" {
 }
 widget "vim-main-window.*GtkForm" style "gvimfix"
 
-gtk-icon-theme-name = "Faba"
-gtk-theme-name = "Flat-Plat"
-gtk-font-name="Sans 13"
+gtk-icon-theme-name = "Obsidian"
+gtk-theme-name = "Adwaita-dark"
+gtk-font-name="Sans 14"
