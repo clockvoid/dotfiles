@@ -254,10 +254,8 @@ neovim ()
         npm install neovim
     else
         install_anyenv
-        python_version="3.9.5"
-        python2_version="2.7.17"
-        ruby_version="2.7.0"
-        node_version="15.6.0"
+        python_version="3.11.4"
+        node_version="19.3.0"
         if ! echo "$(pyenv versions)" | grep -q "$python_version"; then
             type make || {
                 echo 'Please install make or update your path to include the make executable!'
@@ -266,29 +264,8 @@ neovim ()
             }
             pyenv install $python_version
             pyenv local $python_version
-            pip install pynvim
+            python -m pip install --user --upgrade pynvim
             pyenv local --unset
-        fi
-        if ! echo "$(pyenv versions)" | grep -q "$python2_version"; then
-            type make || {
-                echo 'Please install make or update your path to include the make executable!'
-                echo 'Also, you should install gcc and zlib1g-dev and libssl-dev on Ubuntu 18.04.'
-                exit 1
-            }
-            pyenv install $python2_version
-            pyenv local $python2_version
-            pip install pynvim
-            pyenv local --unset
-        fi
-        if ! echo "$(rbenv versions)" | grep -q "$ruby_version"; then
-            type make || {
-                echo 'Please install make or update your path to include the make executable!'
-                exit 1
-            }
-            rbenv install $ruby_version
-            rbenv rehash
-            rbenv global $ruby_version
-            gem install neovim
         fi
         if ! echo "$(nodenv versions)" | grep -q "$node_version"; then
             nodenv install $node_version
