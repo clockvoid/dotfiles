@@ -19,7 +19,6 @@ hook_post_source = 'call plugin#lsp#hook_post_source()'
 repo = 'dense-analysis/ale'
 hook_post_source = '''
 let g:ale_linters = {
-    \    'markdown': ['textlint'],
     \    'tex': ['textlint'],
     \    'javascript': ['eslint'],
     \    'go': ['staticcheck']
