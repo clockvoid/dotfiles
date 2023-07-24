@@ -314,7 +314,7 @@ mac_utils() {
     }
     brew update
     brew install bat coreutils findutils fd fzf git neovim tmux zsh
-    brew install yabai skhd dozer alacritty hyperswitch karabiner-elements
+    brew install koekeishiya/formulae/skhd koekeishiya/formulae/skhd dozer alacritty hyperswitch karabiner-elements
     yabai
 }
 
