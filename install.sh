@@ -128,8 +128,8 @@ tmux ()
 yabai ()
 {
     if [ $environment == "Darwin" ]; then
-        ln -s $(pwd)/Darwin/.config/yabai $home_dir/.config/yabai
-        ln -s $(pwd)/Darwin/.config/skhd $home_dir/.config/skhd
+        ln -s $(pwd)/Darwin/.config/yabai $home_dir/.config/
+        ln -s $(pwd)/Darwin/.config/skhd $home_dir/.config/
     fi
     echo yabai: Done
 }
