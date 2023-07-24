@@ -1,5 +1,6 @@
 yabai -m config layout bsp
-yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^(System Settings|zoom.us)$" manage=off
+yabai -m rule --add title="^(Welcome to Android Studio|About Android Studio)$" manage=off
 
 yabai -m config window_origin_display focused
 yabai -m config window_topmost on
