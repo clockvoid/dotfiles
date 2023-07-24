@@ -125,6 +125,15 @@ tmux ()
     echo Tmux: Done
 }
 
+yabai ()
+{
+    if [ $environment == "Darwin" ]; then
+        ln -s $(pwd)/Darwin/.config/yabai $home_dir/.config/yabai
+        ln -s $(pwd)/Darwin/.config/skhd $home_dir/.config/skhd
+    fi
+    echo yabai: Done
+}
+
 gtk ()
 {
     if [ $environment == "Linux" ]; then
@@ -305,7 +314,8 @@ mac_utils() {
     }
     brew update
     brew install bat coreutils findutils fd fzf git neovim tmux zsh
-    brew install amethyst dozer alacritty hyperswitch karabiner-elements
+    brew install yabai skhd dozer alacritty hyperswitch karabiner-elements
+    yabai
 }
 
 redshift() {
@@ -439,6 +449,8 @@ elif [ $config = "git_template" ]; then
     git_template
 elif [ $config = "mac-utils" ]; then
     mac_utils
+elif [ $config = "yabai" ]; then
+    yabai
 elif [ $config = "local-bin" ]; then
     install_local_bin
 elif [ $config = "systemd-mods" ]; then
