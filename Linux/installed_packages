@@ -24,6 +24,7 @@ browserpass-chromium
 ccache
 chromium
 clang
+cmake
 discord
 dmenu
 docker
@@ -124,10 +125,14 @@ swift-bin
 terminus-font
 texlive-bibtexextra
 texlive-core
+texlive-binextra
+texlive-doc
 texlive-fontsextra
+texlive-fontsrecommended
 texlive-jlisting
 texlive-langjapanese
 texlive-latexextra
+texlive-luatex
 texlive-pictures
 thunar
 thunar-volman
