@@ -1,8 +1,8 @@
 #!/bin/sh
 
 export QT_QPA_PLATFORMTHEME=gtk2
-
 export XDG_CURRENT_DESKTOP=GNOME
+export GTK_USE_PORTAL=0
 
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
