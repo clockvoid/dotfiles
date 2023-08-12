@@ -9,8 +9,6 @@ alsa-utils
 android-studio
 android-tools
 arandr
-arc-gtk-theme
-arc-icon-theme
 asp
 autoconf
 automake
@@ -90,6 +88,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 ntp
 obs-studio
+obsidian-icon-theme
 openmp
 openssh
 pacman-contrib
