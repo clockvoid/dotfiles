@@ -4,6 +4,10 @@ export QT_QPA_PLATFORMTHEME=gtk2
 export XDG_CURRENT_DESKTOP=GNOME
 export GTK_USE_PORTAL=0
 
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
+picom --backend glx --vsync --fade-exclude 'class_g="xsecurelock"' --config /dev/null &
+xset s off -dpms -b &
+
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
@@ -11,24 +15,14 @@ export DefaltIMModule=fcitx
 export SDL_IM_MODULE=fcitx
 fcitx5 &
 
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
-
 trayer --edge top --align right --widthtype percent --heighttype pixel --SetDockType true --SetPartialStrut false --expand false --width 8 --height 23 --transparent true --alpha 0 --tint 0x000000 --monitor primary &
+nm-applet &
+blueman-applet &
+volctl &
+start-pulseaudio-x11
 
 lxqt-policykit-agent &
 
-nm-applet &
-
-start-pulseaudio-x11
-
-volctl &
-
 xremap ~/.config/xremap/config.yml --watch &
-
-blueman-applet &
-
-picom --backend glx --vsync --fade-exclude 'class_g="xsecurelock"' --config /dev/null &
-
-xset s off -dpms -b &
 
 systemctl restart --user redshift
