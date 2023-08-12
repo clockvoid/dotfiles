@@ -210,23 +210,6 @@ xremap ()
     echo xremap: Done
 }
 
-autokey ()
-{
-    if [ "$environment" = "Linux" ]; then
-        if [ ! -d $home_dir/.config/autokey ]; then
-            mkdir $home_dir/.config/autokey
-            if [ ! -d $home_dir/.config/autokey/data ]; then
-                mkdir $home_dir/.config/autokey/data
-            fi
-        fi
-
-        ln -s $(pwd)/Linux/.config/autokey/data/emacs $home_dir/.config/autokey/data
-        ln -s $(pwd)/Linux/.config/autokey/data/mac $home_dir/.config/autokey/data
-    else
-        echo This system do not need this config.
-    fi
-}
-
 xresources ()
 {
     if [ $environment = "Linux" ]; then
@@ -362,7 +345,6 @@ With no OPTION, it will install all of the configs to ~/
                                              mac-utils
                                              local-bin
                                              systemd-mods
-                                             autokey
                                              feh
   -d, --directory [DIRECTORY]        specify directory install to
   -h, --help                         print this help and exit
@@ -436,7 +418,6 @@ if [ $config = "all" ]; then
     git_template
     neovim
     alacritty
-    autokey
     fontconfig
     install_local_bin
     install_systemd_mods
@@ -472,8 +453,6 @@ elif [ $config = "local-bin" ]; then
     install_local_bin
 elif [ $config = "systemd-mods" ]; then
     install_systemd_mods
-elif [ $config = "autokey" ]; then
-    autokey
 elif [ $config = "feh" ]; then
     feh
 elif [ $config = "redshift" ]; then
