@@ -6,10 +6,7 @@ Documentation=man:tmux(1)
 Type=forking
 Environment=DISPLAY=:0
 ExecStart=/usr/bin/tmux new-session -d
-
-ExecStop=/home/clock/.tmux/plugins/tmux-resurrect/scripts/save.sh
 ExecStop=/usr/bin/tmux kill-server
-KillMode=none
 
 RestartSec=2
 
