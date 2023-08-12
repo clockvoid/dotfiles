@@ -152,6 +152,7 @@ vulkan-intel
 which
 xclip
 xdotool
+xremap-x11-bin
 xorg-server
 xorg-xbacklight
 xorg-xdpyinfo

@@ -197,6 +197,19 @@ xmonad ()
     echo Xmonad: Done
 }
 
+xremap ()
+{
+    if [ "$environment" = "Linux" ]; then
+        ln -s $(pwd)/Linux/.config/xremap $home_dir/.config
+        echo 'uinput' | sudo tee /etc/modules-load.d/uinput.conf
+        echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/99-input.rules
+        sudo gpasswd -a `whoami` input
+    else
+        echo This system do not need this config.
+    fi
+    echo xremap: Done
+}
+
 autokey ()
 {
     if [ "$environment" = "Linux" ]; then
@@ -340,6 +353,7 @@ With no OPTION, it will install all of the configs to ~/
                                              tmux
                                              xresources
                                              xmonad
+                                             xremap
                                              lightdm
                                              fontconfig
                                              alacritty
@@ -416,6 +430,7 @@ if [ $config = "all" ]; then
     lightdm
     redshift
     xmonad
+    xremap
     xresources
     zsh
     git_template
@@ -437,6 +452,8 @@ elif [ $config = "xresources" ]; then
     xresources
 elif [ $config = "xmonad" ]; then
     xmonad
+elif [ $config = "xremap" ]; then
+    xremap
 elif [ $config = "lightdm" ]; then
     lightdm
 elif [ $config = "fontconfig" ]; then

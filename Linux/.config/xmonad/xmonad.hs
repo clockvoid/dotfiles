@@ -78,7 +78,6 @@ myStartupHook :: X ()
 myStartupHook = do
   setWMName "LG3D"
   spawn (configPath ++ "set_wallpaper.sh")
-  spawn (configPath ++ "set_keyboard.sh")
 
 -- main function
 main :: IO ()
