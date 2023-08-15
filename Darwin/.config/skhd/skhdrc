@@ -16,8 +16,11 @@ alt + shift - e : yabai -m window --display 2
 alt + shift - r : yabai -m window --display 3
 
 alt - space : yabai -m window --toggle zoom-fullscreen
+# alt - space : yabai -m space --layout stack
 alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
+
+alt + shift - c : skhd --key "cmd - q"
 
 alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
