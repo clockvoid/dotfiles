@@ -1,0 +1,6 @@
+templates:
+  params:
+    github-username: clockvoid
+
+install-ghc: false
+system-ghc: true

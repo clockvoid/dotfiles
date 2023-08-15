@@ -161,6 +161,21 @@ lightdm ()
     bold=$(tput bold)
 }
 
+install_stack ()
+{
+    type stack || {
+        curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+        source ~/.ghcup/env
+    }
+
+    if [ ! -d $home_dir/.stack ]; then
+        mkdir $home_dir/.stack
+    fi
+    ln -sf $(pwd)/Common/.stack/config.yaml $home_dir/.stack/
+
+    echo stack: Done
+}
+
 xmonad ()
 {
     if [ $environment == "Linux" ]; then
@@ -168,9 +183,7 @@ xmonad ()
         ln -s $(pwd)/Linux/.xinitrc $home_dir/
         ln -s $(pwd)/Linux/.xprofile $home_dir/
 
-        type stack || {
-            curl -sSL https://get.haskellstack.org/ | sh
-        }
+        install_stack
 
         type git || {
             echo 'Please install git or update your path to include the git executable!'
@@ -332,6 +345,7 @@ With no OPTION, it will install all of the configs to ~/
   -c, --config [CONFIGURATION_NAME]  specify installing dotfiles
                                      can be: ideavim
                                              neovim
+                                             stack
                                              zsh
                                              tmux
                                              xresources
@@ -421,6 +435,8 @@ if [ $config = "all" ]; then
     fontconfig
     install_local_bin
     install_systemd_mods
+elif [ $config = "stack" ]; then
+    install_stack
 elif [ $config = "ideavim" ]; then
     ideavim
 elif [ $config = "neovim" ]; then
