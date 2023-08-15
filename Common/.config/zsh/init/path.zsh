@@ -10,4 +10,3 @@ if type "direnv" > /dev/null 2>&1; then
 fi
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
-
