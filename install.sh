@@ -202,8 +202,8 @@ xmonad ()
             sudo mkdir /usr/share/xsessions
         fi
         sudo cp $(pwd)/Linux/.config/xmonad/xmonad.desktop /usr/share/xsessions
+        echo Exec=$HOME/.local/bin/xmonad | sudo tee -a /usr/share/xsessions/xmonad.desktop
         sudo cp $(pwd)/Linux/libinput/30-touchpad.conf /etc/X11/xorg.conf.d/
-        sudo ln -s ${HOME}/.local/bin/xmonad /usr/bin/
     else
         echo This system do not need this configuration.
     fi
