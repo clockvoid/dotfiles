@@ -1,6 +1,6 @@
 yabai -m config layout bsp
 yabai -m rule --add app="^(zoom.us|System Settings|Preview|Finder|QuickTime Player|Archive Utility|Activity Monitor)$" manage=off
-yabai -m rule --add app="Android Studio" title="^(Settings|Rename.*|.*Scope|New.*|Create.*|Move|.*Delete|Reformat.*|Tag|Reset Head|.*[Ss]tash.*|Git Remotes|Change.*|Extract.*|Pull.*|Push.*|.*Update.*|.*Installation|About Android Studio|Welcome to Android Studio)" manage=off
+yabai -m rule --add app="Android Studio" title="^(Settings|Rename.*|.*Scope|New.*|Create.*|Move|.*Delete|Reformat.*|Tag|Reset Head|.*[Ss]tash.*|Git Remotes|Change.*|Extract.*|Pull.*|Push.*|.*Update.*|.*Installation|.*Configuration.*|About Android Studio|Welcome to Android Studio)" manage=off
 
 yabai -m config window_origin_display focused
 yabai -m config window_topmost on
