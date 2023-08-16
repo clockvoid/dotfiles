@@ -72,15 +72,15 @@ hook_post_source = 'call plugin#quickrun#hook_source()'
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 
-[[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = 'call plugin#hybrid#hook_add()'
+# [[plugins]]
+# repo = 'w0ng/vim-hybrid'
+# hook_add = 'call plugin#hybrid#hook_add()'
 
-[[plugins]]
-repo = 'cocopon/lightline-hybrid.vim'
+# [[plugins]]
+# repo = 'cocopon/lightline-hybrid.vim'
 
-[[plugins]]
-repo = 'itchyny/lightline.vim'
+# [[plugins]]
+# repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -93,7 +93,7 @@ hook_post_source = 'call plugin#fzf#hook_post_source()'
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
-[[plugins]]
-repo = 'simeji/winresizer'
-hook_source = 'call plugin#winresizer#hook_source()'
+# [[plugins]]
+# repo = 'simeji/winresizer'
+# hook_source = 'call plugin#winresizer#hook_source()'
 

@@ -55,6 +55,14 @@ install_dein()
     fi
 }
 
+install_packer()
+{
+    if [ ! -d $home_dir/.local/share/nvim ]; then
+        git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+            ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    fi
+}
+
 install_local_bin()
 {
     if [ ! -d $home_dir/.local ]; then
@@ -292,7 +300,7 @@ neovim ()
             nodenv exec npm install -g neovim
         fi
     fi
-    install_dein
+    install_packer
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
     if [ "${DOCKER}" == "archlinux" ]; then
         ln -s $(pwd)/${environment}/.config/nvim/userautoload/env-docker.vim $home_dir/.config/nvim/userautoload/
