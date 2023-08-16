@@ -1,22 +1,13 @@
 
 function! plugin#neosnippet#hook_post_source() abort
 
-    " neosnippet key-mappings.
-    " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
     imap <C-k>     <Plug>(neosnippet_expand_or_jump)
     smap <C-k>     <Plug>(neosnippet_expand_or_jump)
     xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-    " SuperTab like snippets behavior.
-    " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-    "imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    "imap <expr><TAB>
-    " \ pumvisible() ? "\<C-n>" :
-    " \ neosnippet#expandable_or_jumpable() ?
-    " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    " pumvisibility checks are in the asyncomplete settings file
+    smap <expr> <Tab> neosnippet#expandable_or_jumpable() ?
                 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
     let g:neosnippet#enable_snipmate_compatibility = 1
-    set completeopt-=preview
 endfunction

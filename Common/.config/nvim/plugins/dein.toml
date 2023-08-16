@@ -18,7 +18,9 @@ hook_post_source = 'call plugin#lsp#hook_post_source()'
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_post_source = '''
+let g:ale_hover_to_floating_preview = 1
 let g:ale_linters = {
+    \    'markdown': [],
     \    'tex': ['textlint'],
     \    'javascript': ['eslint'],
     \    'go': ['staticcheck']
@@ -62,9 +64,6 @@ repo = 'prabirshrestha/asyncomplete-file.vim'
 
 [[plugins]]
 repo = 'htlsne/asyncomplete-look'
-
-[[plugins]]
-repo = 'mattn/vim-goimports'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
