@@ -65,10 +65,6 @@ repo = 'scrooloose/syntastic'
 on_ft = ['swift']
 
 [[plugins]]
-repo = 'kballard/vim-swift'
-on_ft = ['swift']
-
-[[plugins]]
 repo = 'keith/swift.vim'
 on_ft = ['swift']
 
