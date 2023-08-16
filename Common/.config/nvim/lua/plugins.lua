@@ -7,6 +7,8 @@ vim.cmd([[
   augroup end
 ]])
 
+vim.fn['plugin#vim_latex#hook_add']()
+
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
@@ -73,6 +75,14 @@ return require('packer').startup(function(use)
     use {
         'keith/swift.vim',
         ft = {'swift'}
+    }
+
+    use {
+        'vim-latex/vim-latex',
+        ft = {'tex'},
+        config = function()
+            vim.fn['plugin#vim_latex#hook_source']()
+        end
     }
 end)
 

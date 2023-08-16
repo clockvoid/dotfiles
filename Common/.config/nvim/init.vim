@@ -1,3 +1,7 @@
+if &compatible
+    set nocompatible
+endif
+
 lua require('plugins')
 lua require('setup-cmp')
 
