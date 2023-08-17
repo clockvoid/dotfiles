@@ -51,7 +51,7 @@ install_local_bin()
     if [ ! -d $home_dir/.local/bin ]; then
         mkdir $home_dir/.local/bin
     fi
-    ln -s $(pwd)/$environment/shell/* $home_dir/.local/bin/
+    ln -sf $(pwd)/$environment/shell/* $home_dir/.local/bin/
 }
 
 install_systemd_mods()
@@ -63,7 +63,7 @@ install_systemd_mods()
         if [ ! -d $home_dir/.config/systemd/user ]; then
             mkdir $home_dir/.config/systemd/user
         fi
-        ln -s $(pwd)/Linux/.config/systemd/user/* $home_dir/.config/systemd/user/
+        ln -sf $(pwd)/Linux/config/systemd/user/* $home_dir/.config/systemd/user/
     fi
     echo SystemdMods: Done
 }
@@ -71,7 +71,7 @@ install_systemd_mods()
 fontconfig ()
 {
     if [ "$environment" = "Linux" ]; then
-        ln -s $(pwd)/Linux/.config/fontconfig $home_dir/.config/
+        ln -sf $(pwd)/Linux/config/fontconfig $home_dir/.config/
     else
         echo This system do not need this configuration.
     fi
@@ -80,7 +80,7 @@ fontconfig ()
 
 ideavim ()
 {
-    ln -s $(pwd)/Common/.ideavimrc $home_dir/
+    ln -sf $(pwd)/Common/ideavimrc $home_dir/.ideavimrc
     echo IdeaVim: Done
 }
 
@@ -101,12 +101,11 @@ tmux ()
         }
         git clone https://github.com/tmux-plugins/tpm $home_dir/.tmux/plugins/tpm
     fi
-    ln -s $(pwd)/Common/.tmux/* $home_dir/.tmux/
-    ln -s $(pwd)/Common/.tmux.conf $home_dir/
-    ln -s $(pwd)/$environment/.config/tmux/env $(pwd)/Common/.config/tmux/
-    ln -s $(pwd)/Common/.config/tmux $home_dir/.config/
+    ln -sf $(pwd)/Common/tmux.conf $home_dir/.tmux.conf
+    ln -sf $(pwd)/$environment/config/tmux/env $(pwd)/Common/config/tmux/
+    ln -sf $(pwd)/Common/config/tmux $home_dir/.config/
     if [ $environment == "Darwin" ]; then
-        ln -s $(pwd)/Darwin/Library/LaunchAgents/* $home_dir/Library/LaunchAgents/
+        ln -sf $(pwd)/Darwin/Library/LaunchAgents/* $home_dir/Library/LaunchAgents/
         launchctl load ~/Library/LaunchAgents/local.pbcopy.9988.plist
         brew install reattach-to-user-namespace coreutils
     fi
@@ -116,8 +115,8 @@ tmux ()
 yabai ()
 {
     if [ $environment == "Darwin" ]; then
-        ln -s $(pwd)/Darwin/.config/yabai $home_dir/.config/
-        ln -s $(pwd)/Darwin/.config/skhd $home_dir/.config/
+        ln -sf $(pwd)/Darwin/config/yabai $home_dir/.config/
+        ln -sf $(pwd)/Darwin/config/skhd $home_dir/.config/
     fi
     echo yabai: Done
 }
@@ -125,10 +124,8 @@ yabai ()
 gtk ()
 {
     if [ $environment == "Linux" ]; then
-        ln -s $(pwd)/Linux/.gtkrc-2.0 $home_dir/
-        ln -s $(pwd)/Linux/.config/gtk-* $home_dir/.config/
-
-        echo Please install Flat-Plat theme from https://github.com/NewCubLinux/Flat-Plat
+        ln -sf $(pwd)/Linux/gtkrc-2.0 $home_dir/.gtkrc-2.0
+        ln -sf $(pwd)/Linux/config/gtk-* $home_dir/.config/
     else
         echo This system do not need this configuration.
     fi
@@ -159,7 +156,7 @@ install_ghcup ()
     if [ ! -d $home_dir/.stack ]; then
         mkdir $home_dir/.stack
     fi
-    ln -sf $(pwd)/Common/.stack/config.yaml $home_dir/.stack/
+    ln -sf $(pwd)/Common/stack/config.yaml $home_dir/.stack/
 
     echo ghcup: Done
 }
@@ -167,9 +164,9 @@ install_ghcup ()
 xmonad ()
 {
     if [ $environment == "Linux" ]; then
-        ln -s $(pwd)/Linux/.config/xmonad $home_dir/.config
-        ln -s $(pwd)/Linux/.xinitrc $home_dir/
-        ln -s $(pwd)/Linux/.xprofile $home_dir/
+        ln -sf $(pwd)/Linux/config/xmonad $home_dir/.config
+        ln -sf $(pwd)/Linux/xinitrc $home_dir/.xinitrc
+        ln -sf $(pwd)/Linux/xprofile $home_dir/.xprofile
 
         install_ghcup
 
@@ -187,14 +184,14 @@ xmonad ()
 
         current_dir="$(pwd)"
 
-        cd $(pwd)/Linux/.config/xmonad
+        cd $(pwd)/Linux/config/xmonad
         stack install
         cd $current_dir
 
         if [ ! -d /usr/share/xsessions ]; then
             sudo mkdir /usr/share/xsessions
         fi
-        sudo cp $(pwd)/Linux/.config/xmonad/xmonad.desktop /usr/share/xsessions
+        sudo cp $(pwd)/Linux/config/xmonad/xmonad.desktop /usr/share/xsessions
         echo Exec=$HOME/.local/bin/xmonad | sudo tee -a /usr/share/xsessions/xmonad.desktop
         sudo cp $(pwd)/Linux/libinput/30-touchpad.conf /etc/X11/xorg.conf.d/
     else
@@ -206,7 +203,7 @@ xmonad ()
 xremap ()
 {
     if [ "$environment" = "Linux" ]; then
-        ln -s $(pwd)/Linux/.config/xremap $home_dir/.config
+        ln -sf $(pwd)/Linux/config/xremap $home_dir/.config
         echo 'uinput' | sudo tee /etc/modules-load.d/uinput.conf
         echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/99-input.rules
         sudo gpasswd -a `whoami` input
@@ -219,7 +216,8 @@ xremap ()
 xresources ()
 {
     if [ $environment = "Linux" ]; then
-        ln -s $(pwd)/Linux/.Xresources* $home_dir/
+        ln -sf $(pwd)/Linux/Xresources $home_dir/.Xresources
+        ln -s $(pwd)/Linux/Xresources.d $home_dir/.Xresources.d
     else
         echo This system do not need this configuration.
     fi
@@ -228,8 +226,8 @@ xresources ()
 
 alacritty ()
 {
-    ln -s $(pwd)/$environment/.config/alacritty/env.yml $(pwd)/Common/.config/alacritty
-    ln -s $(pwd)/Common/.config/alacritty/ $home_dir/.config/
+    ln -sf $(pwd)/$environment/config/alacritty/env.yml $(pwd)/Common/config/alacritty
+    ln -sf $(pwd)/Common/config/alacritty/ $home_dir/.config/
     echo Alacritty: Done
 }
 
@@ -243,16 +241,16 @@ zsh ()
         command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
         command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git"
     fi
-    ln -s $(pwd)/$environment/.config/zsh/env $(pwd)/Common/.config/zsh/
-    ln -s $(pwd)/Common/.config/zsh $home_dir/.config/
-    ln -s $(pwd)/Common/.zprofile $home_dir/
-    ln -s $(pwd)/Common/.zshrc $home_dir/
+    ln -sf $(pwd)/$environment/config/zsh/env $(pwd)/Common/config/zsh/
+    ln -sf $(pwd)/Common/config/zsh $home_dir/.config/
+    ln -sf $(pwd)/Common/zprofile $home_dir/.zprofile
+    ln -sf $(pwd)/Common/zshrc $home_dir/.zshrc
     echo Zsh: Done
 }
 
 git_template ()
 {
-    ln -s $(pwd)/Common/.git_template $home_dir/
+    ln -s $(pwd)/Common/git_template $home_dir/.git_template
     echo Git: Done
 }
 
@@ -278,20 +276,14 @@ neovim ()
         nodenv rehash
         nodenv exec npm install -g neovim
     fi
-    ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
-    ln -s $(pwd)/${environment}/.config/nvim/lua/env $home_dir/.config/nvim/lua/
+    ln -sf $(pwd)/Common/config/nvim/ $home_dir/.config/
+    ln -sf $(pwd)/${environment}/config/nvim/lua/env $home_dir/.config/nvim/lua/
     echo Neovim: Done
-}
-
-terminator ()
-{
-    ln -s $(pwd)/Common/.config/terminator/ $home_dir/.config/
-    echo Terminator: Done
 }
 
 feh () {
     if [ $environment == "Linux" ]; then
-        ln -s $(pwd)/Linux/.config/feh/ $home_dir/.config/
+        ln -sf $(pwd)/Linux/config/feh/ $home_dir/.config/
         echo Feh: Done
     else
         echo Feh settings is not needed to your environment.
@@ -299,18 +291,20 @@ feh () {
 }
 
 mac_utils() {
-    type brew || {
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    }
-    brew update
-    brew install bat coreutils findutils fd fzf git neovim tmux zsh
-    brew install koekeishiya/formulae/skhd koekeishiya/formulae/skhd dozer alacritty hyperswitch karabiner-elements
-    yabai
+    if [ $environment == "Darwin" ]; then
+        type brew || {
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        }
+        brew update
+        brew install bat coreutils findutils fd fzf git neovim tmux zsh
+        brew install koekeishiya/formulae/skhd koekeishiya/formulae/skhd dozer alacritty hyperswitch karabiner-elements
+        yabai
+    fi
 }
 
 redshift() {
     if [ $environment == "Linux" ]; then
-        ln -s $(pwd)/Linux/.config/redshift/ $home_dir/.config/
+        ln -sf $(pwd)/Linux/config/redshift/ $home_dir/.config/
         echo redshift: Done
     fi
 }
@@ -324,23 +318,26 @@ Install dotfiles to your environment.
 With no OPTION, it will install all of the configs to ~/
 
   -c, --config [CONFIGURATION_NAME]  specify installing dotfiles
-                                     can be: ideavim
-                                             neovim
-                                             haskell
-                                             zsh
-                                             tmux
-                                             xresources
-                                             xmonad
-                                             xremap
-                                             lightdm
-                                             fontconfig
-                                             alacritty
-                                             anyenv
-                                             git_template
-                                             mac-utils
+                                     can be: anyenv
                                              local-bin
                                              systemd-mods
+                                             fontconfig
+                                             ideavim
+                                             tmux
+                                             yabai
+                                             gtk
+                                             lightdm
+                                             haskell
+                                             xmonad
+                                             xremap
+                                             xresources
+                                             alacritty
+                                             zsh
+                                             git_template
+                                             neovim
                                              feh
+                                             mac-utils
+                                             redshift
   -d, --directory [DIRECTORY]        specify directory install to
   -h, --help                         print this help and exit
 
@@ -402,20 +399,21 @@ fi
 
 echo Installing $config...
 if [ $config = "all" ]; then
-    tmux
+    fontconfig
     ideavim
+    tmux
+    yabai
     lightdm
-    redshift
     xmonad
     xremap
     xresources
+    alacritty
     zsh
     git_template
     neovim
-    alacritty
-    fontconfig
-    install_local_bin
-    install_systemd_mods
+    feh
+    mac_utils
+    redshift
 elif [ $config = "haskell" ]; then
     install_ghcup
 elif [ $config = "ideavim" ]; then
