@@ -18,7 +18,9 @@ hook_post_source = 'call plugin#lsp#hook_post_source()'
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_post_source = '''
+let g:ale_hover_to_floating_preview = 1
 let g:ale_linters = {
+    \    'markdown': [],
     \    'tex': ['textlint'],
     \    'javascript': ['eslint'],
     \    'go': ['staticcheck']
@@ -64,24 +66,21 @@ repo = 'prabirshrestha/asyncomplete-file.vim'
 repo = 'htlsne/asyncomplete-look'
 
 [[plugins]]
-repo = 'mattn/vim-goimports'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_post_source = 'call plugin#quickrun#hook_source()'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 
-[[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = 'call plugin#hybrid#hook_add()'
+# [[plugins]]
+# repo = 'w0ng/vim-hybrid'
+# hook_add = 'call plugin#hybrid#hook_add()'
 
-[[plugins]]
-repo = 'cocopon/lightline-hybrid.vim'
+# [[plugins]]
+# repo = 'cocopon/lightline-hybrid.vim'
 
-[[plugins]]
-repo = 'itchyny/lightline.vim'
+# [[plugins]]
+# repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -94,7 +93,7 @@ hook_post_source = 'call plugin#fzf#hook_post_source()'
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
-[[plugins]]
-repo = 'simeji/winresizer'
-hook_source = 'call plugin#winresizer#hook_source()'
+# [[plugins]]
+# repo = 'simeji/winresizer'
+# hook_source = 'call plugin#winresizer#hook_source()'
 

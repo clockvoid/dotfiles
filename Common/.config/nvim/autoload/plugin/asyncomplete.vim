@@ -8,14 +8,14 @@ function! plugin#asyncomplete#hook_post_source() abort
     inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
     imap <c-space> <Plug>(asyncomplete_force_refresh)
 
-    let g:asyncomplete_auto_completeopt = 0
-    set completeopt=menuone,noinsert,noselect,preview
+    let g:asyncomplete_auto_completeopt = 1
+    let g:asyncomplete_min_chars = 1
     autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
     let g:asyncomplete_auto_popup = 1
 
     call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-                \ 'name': 'neosnippet',
+                \ 'name': 'zneosnippet',
                 \ 'allowlist': ['*'],
                 \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
                 \ }))
@@ -23,7 +23,6 @@ function! plugin#asyncomplete#hook_post_source() abort
     call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
                 \ 'name': 'file',
                 \ 'allowlist': ['*'],
-                \ 'priority': 10,
                 \ 'completor': function('asyncomplete#sources#file#completor')
                 \ }))
 

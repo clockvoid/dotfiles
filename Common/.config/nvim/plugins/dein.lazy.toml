@@ -65,10 +65,6 @@ repo = 'scrooloose/syntastic'
 on_ft = ['swift']
 
 [[plugins]]
-repo = 'kballard/vim-swift'
-on_ft = ['swift']
-
-[[plugins]]
 repo = 'keith/swift.vim'
 on_ft = ['swift']
 
@@ -80,3 +76,7 @@ on_ft = ['dart']
 repo = 'kannokanno/previm'
 on_ft = ['markdown']
 hook_source = 'call plugin#previm#hook_source()'
+
+[[plugins]]
+repo = 'mattn/vim-goimports'
+on_ft = ['go']
