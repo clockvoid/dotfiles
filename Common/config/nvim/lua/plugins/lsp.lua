@@ -3,25 +3,24 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
         local opts = { buffer = ev.buf }
-        vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-        vim.keymap.set('n', '<C-M-l>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-        vim.keymap.set('n', 'L', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-        vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-        vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-        vim.keymap.set('n', '<C-M-b>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-        vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-        vim.keymap.set('n', '<F6>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-        vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-        vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-        vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-        vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', '<C-M-l>', vim.lsp.buf.format, opts)
+        vim.keymap.set('n', 'L', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', '<C-M-b>', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+        vim.keymap.set('n', '<F6>', vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', 'ge', vim.diagnostic.open_float, opts)
+        vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
+        vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
         vim.keymap.set('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist<CR>', opts)
         vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
             vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true }
         )
     end,
 })
-
 
 local function hook_lspconfig_loaded()
     require('mason').setup()
@@ -146,17 +145,23 @@ return {
     {
         'dense-analysis/ale',
         config = function()
-            vim.cmd([[
-            let g:ale_hover_to_floating_preview = 1
-            let g:ale_linters = {
-                \    'markdown': [],
-                \    'tex': ['textlint'],
-                \    'javascript': ['eslint'],
-                \    'go': ['staticcheck']
-                \}
-            ]])
+            vim.g.ale_disable_lsp = 1
+            vim.g.ale_comletion_enabled = 0
+            vim.g.ale_completion_autoimport = 0
+            vim.g.ale_echo_cursor = 0
+            vim.g.ale_use_neovim_diagnostics_api = 1
+            vim.g.ale_linters = {
+                markdown = {},
+                tex = { 'textlint' },
+                javascript = { 'eslint' },
+                go = { 'staticcheck' }
+            }
+
+            vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+                pattern = '*.hs',
+                command = 'ALEDisableBuffer'
+            })
         end,
-        lazy = true,
     },
 }
 
