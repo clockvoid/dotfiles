@@ -43,26 +43,6 @@ install_anyenv()
     fi
 }
 
-install_dein()
-{
-    if [ ! -d $home_dir/.cache ]; then
-        mkdir $home_dir/.cache
-    fi
-    if [ ! -d $home_dir/.cache/dein ]; then
-        mkdir $home_dir/.cache/dein
-        curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > dein_installer.sh
-        sh $(pwd)/dein_installer.sh $home_dir/.cache/dein/ >/dev/null
-    fi
-}
-
-install_packer()
-{
-    if [ ! -d $home_dir/.local/share/nvim/site ]; then
-        git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-            ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    fi
-}
-
 install_local_bin()
 {
     if [ ! -d $home_dir/.local ]; then
@@ -169,19 +149,19 @@ lightdm ()
     bold=$(tput bold)
 }
 
-install_stack ()
+install_ghcup ()
 {
-    type stack || {
+    if [ ! -d $home_dir/.ghcup ]; then
         curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
         source ~/.ghcup/env
-    }
+    fi
 
     if [ ! -d $home_dir/.stack ]; then
         mkdir $home_dir/.stack
     fi
     ln -sf $(pwd)/Common/.stack/config.yaml $home_dir/.stack/
 
-    echo stack: Done
+    echo ghcup: Done
 }
 
 xmonad ()
@@ -191,7 +171,12 @@ xmonad ()
         ln -s $(pwd)/Linux/.xinitrc $home_dir/
         ln -s $(pwd)/Linux/.xprofile $home_dir/
 
-        install_stack
+        install_ghcup
+
+        type stack || {
+            echo 'Please install stack via ghcup!'
+            exit 1
+        }
 
         type git || {
             echo 'Please install git or update your path to include the git executable!'
@@ -300,7 +285,6 @@ neovim ()
             nodenv exec npm install -g neovim
         fi
     fi
-    install_packer
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
     if [ "${DOCKER}" == "archlinux" ]; then
         ln -s $(pwd)/${environment}/.config/nvim/userautoload/env-docker.vim $home_dir/.config/nvim/userautoload/
@@ -353,7 +337,7 @@ With no OPTION, it will install all of the configs to ~/
   -c, --config [CONFIGURATION_NAME]  specify installing dotfiles
                                      can be: ideavim
                                              neovim
-                                             stack
+                                             haskell
                                              zsh
                                              tmux
                                              xresources
@@ -443,8 +427,8 @@ if [ $config = "all" ]; then
     fontconfig
     install_local_bin
     install_systemd_mods
-elif [ $config = "stack" ]; then
-    install_stack
+elif [ $config = "haskell" ]; then
+    install_ghcup
 elif [ $config = "ideavim" ]; then
     ideavim
 elif [ $config = "neovim" ]; then
