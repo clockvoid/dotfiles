@@ -46,21 +46,13 @@ if has('conceal')
 endif
 " END: settings for conceal ----------------------------------------------
 
-" START: settings for color ----------------------------------------------
 if !has('gui_runnig')
     set t_Co=256
 endif
 
 colorscheme hybrid
-highlight LineNr ctermfg=lightgray
 set cursorline
+highlight LineNr ctermfg=lightgray
 highlight CursorLine cterm=none ctermfg=none ctermbg=none guifg=none guibg=none
 highlight CursorLineNr ctermfg=white
 highlight MatchParen ctermbg=237 ctermfg=255 guibg=#3a3a3a guifg=#eeeeee
-
-let g:lightline = {
-            \ 'colorscheme': 'hybrid',
-            \ 'separator': {'left': "\ue0b0", 'right': "\ue0b2"},
-            \ 'subseparator': {'left': "\ue0b1", 'right': "\ue0b3"}
-            \}
-" END: settings for color ------------------------------------------------

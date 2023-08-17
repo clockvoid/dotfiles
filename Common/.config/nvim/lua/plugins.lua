@@ -1,32 +1,34 @@
-vim.cmd [[packadd packer.nvim]]
-
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 vim.fn['plugin#vim_latex#hook_add']()
 vim.fn['plugin#hybrid#hook_add']()
 
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
+return require('lazy').setup({
+    { 'neovim/nvim-lspconfig' },
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
+    { 'mason-org/mason-registry' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'hrsh7th/cmp-cmdline' },
+    { 'petertriho/cmp-git' },
+    { 'hrsh7th/nvim-cmp' },
+    { 'hrsh7th/cmp-vsnip' },
+    { 'hrsh7th/vim-vsnip' },
 
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
-    use 'mason-org/mason-registry'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'petertriho/cmp-git'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/vim-vsnip'
-
-    use {
+    {
         'dense-analysis/ale',
         config = function()
             vim.cmd([[
@@ -39,48 +41,60 @@ return require('packer').startup(function(use)
                 \}
             ]])
         end,
-        cmd = 'ALEEnabe'
-    }
+        lazy = true,
+    },
 
-    use {
+    {
         'junegunn/fzf',
-        run = 'bash ./install --all'
-    }
-    use {
+        build = 'bash ./install --all'
+    },
+    {
         'junegunn/fzf.vim',
         config = function() vim.fn['plugin#fzf#hook_post_source']() end,
-        requires = {'junegunn/fzf'}
-    }
+        dependencies = { 'junegunn/fzf' }
+    },
 
-    use 'w0ng/vim-hybrid'
-    use 'itchyny/lightline.vim'
-    use 'cocopon/lightline-hybrid.vim'
+    { 'w0ng/vim-hybrid' },
+    { 'cocopon/lightline-hybrid.vim' },
+    {
+        'itchyny/lightline.vim',
+        dependencies = { 'lightline-hybrid.vim' },
+        config = function()
+            vim.cmd([[
+                let g:lightline = {
+                    \ 'colorscheme': 'hybrid',
+                    \ 'separator': {'left': "\ue0b0", 'right': "\ue0b2"},
+                    \ 'subseparator': {'left': "\ue0b1", 'right': "\ue0b3"}
+                    \}
+            ]])
+        end
+    },
 
-    use {
+    {
         'simeji/winresizer',
         config = function() vim.fn['plugin#winresizer#hook_source']() end
-    }
+    },
 
-    use {
+    {
         'neovimhaskell/haskell-vim',
-        ft = {'haskell'}
-    }
+        ft = { 'haskell' }
+    },
 
-    use {
+    {
         'scrooloose/syntastic',
-        ft = {'swift'}
-    }
-    use {
+        ft = { 'swift' }
+    },
+    {
         'keith/swift.vim',
-        ft = {'swift'}
-    }
+        ft = { 'swift' }
+    },
 
-    use {
+    {
         'vim-latex/vim-latex',
-        ft = {'tex'},
+        ft = { 'tex' },
         config = function()
             vim.fn['plugin#vim_latex#hook_source']()
         end
-    }
-end)
+    },
+})
 
