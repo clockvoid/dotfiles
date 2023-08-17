@@ -1,6 +1,3 @@
-vim.cmd.filetype('plugin', 'indent', 'on')
-vim.cmd([[ runtime! userautoload/*.vim ]])
-
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencodings = 'utf-8,sjis,euc-jp,iso-2022-jp'
@@ -23,6 +20,7 @@ vim.opt.title = true
 vim.opt.statusline:append('%F')
 
 vim.cmd.syntax('on')
+vim.cmd.filetype('plugin', 'indent', 'on')
 
 vim.opt.ttimeoutlen = 10
 
@@ -32,3 +30,5 @@ vim.opt.wildignorecase = true
 
 vim.opt.conceallevel = 0
 vim.opt.concealcursor = ''
+
+vim.g.markdown_folding = 1
