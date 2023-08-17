@@ -1,3 +1,5 @@
+vim.cmd.runtime('ftplugin/man.vim')
+
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,12 +13,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.cmd.runtime('ftplugin/man.vim')
-
-return require('lazy').setup({
+require('lazy').setup({
     require('plugins/lsp'),
     require('plugins/fzf'),
-    require('plugins/hybrid'),
+    require('plugins/colorscheme'),
     require('plugins/vim-latex'),
     require('plugins/previm'),
     require('plugins/quickrun'),
