@@ -32,7 +32,3 @@ vim.opt.wildignorecase = true
 
 vim.opt.conceallevel = 0
 vim.opt.concealcursor = ''
-
-require('general/colorscheme')
-require('general/keymap')
-require('general/autocmds')

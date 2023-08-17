@@ -1,4 +1,8 @@
 require('plugins')
-require('setup-cmp')
+
 require('general')
+require('colorscheme')
+require('keymap')
+require('autocmds')
+
 require('env')
