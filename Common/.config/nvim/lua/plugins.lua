@@ -8,6 +8,7 @@ vim.cmd([[
 ]])
 
 vim.fn['plugin#vim_latex#hook_add']()
+vim.fn['plugin#hybrid#hook_add']()
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
@@ -50,11 +51,7 @@ return require('packer').startup(function(use)
         requires = {'junegunn/fzf'}
     }
 
-    use {
-        'w0ng/vim-hybrid',
-        config = function() vim.fn['plugin#hybrid#hook_add']() end
-    }
-
+    use 'w0ng/vim-hybrid'
     use 'itchyny/lightline.vim'
     use 'cocopon/lightline-hybrid.vim'
 
