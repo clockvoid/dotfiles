@@ -258,39 +258,28 @@ git_template ()
 
 neovim ()
 {
-    if [ "${DOCKER}" == "archlinux" ]; then
-        pip install pynvim
-        pip2 install pynvim
-        gem install neovim
-        npm install neovim
-    else
-        install_anyenv
-        python_version="3.11.4"
-        node_version="19.3.0"
-        if ! echo "$(pyenv versions)" | grep -q "$python_version"; then
-            type make || {
-                echo 'Please install make or update your path to include the make executable!'
-                echo 'Also, you should install gcc and zlib1g-dev on Ubuntu 18.04.'
-                exit 1
-            }
-            pyenv install $python_version
-            pyenv local $python_version
-            python -m pip install --user --upgrade pynvim
-            pyenv local --unset
-        fi
-        if ! echo "$(nodenv versions)" | grep -q "$node_version"; then
-            nodenv install $node_version
-            nodenv global $node_version
-            nodenv rehash
-            nodenv exec npm install -g neovim
-        fi
+    install_anyenv
+    python_version="3.11.4"
+    node_version="19.3.0"
+    if ! echo "$(pyenv versions)" | grep -q "$python_version"; then
+        type make || {
+            echo 'Please install make or update your path to include the make executable!'
+                    echo 'Also, you should install gcc and zlib1g-dev on Ubuntu 18.04.'
+                    exit 1
+                }
+                pyenv install $python_version
+                pyenv local $python_version
+                python -m pip install --user --upgrade pynvim
+                pyenv local --unset
+    fi
+    if ! echo "$(nodenv versions)" | grep -q "$node_version"; then
+        nodenv install $node_version
+        nodenv global $node_version
+        nodenv rehash
+        nodenv exec npm install -g neovim
     fi
     ln -s $(pwd)/Common/.config/nvim/ $home_dir/.config/
-    if [ "${DOCKER}" == "archlinux" ]; then
-        ln -s $(pwd)/${environment}/.config/nvim/userautoload/env-docker.vim $home_dir/.config/nvim/userautoload/
-    else
-        ln -s $(pwd)/${environment}/.config/nvim/userautoload/env.vim $home_dir/.config/nvim/userautoload/
-    fi
+    ln -s $(pwd)/${environment}/.config/nvim/lua/env $home_dir/.config/nvim/lua/
     echo Neovim: Done
 }
 

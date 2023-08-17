@@ -9,7 +9,7 @@
   "fzf": { "branch": "master", "commit": "9d5392fb02db33dbc9798f2472654426f79a33f2" },
   "fzf.vim": { "branch": "master", "commit": "811f34b70b60b4df2997e3ba8cd109e7d06d683b" },
   "haskell-vim": { "branch": "master", "commit": "f35d02204b4813d1dbe8b0e98cc39701a4b8e15e" },
-  "lazy.nvim": { "branch": "main", "commit": "dac844ed617dda4f9ec85eb88e9629ad2add5e05" },
+  "lazy.nvim": { "branch": "main", "commit": "3ad55ae678876516156cca2f361c51f7952a924b" },
   "lightline-hybrid.vim": { "branch": "master", "commit": "e8063ea228cd7dbdabb6adcac084e041801c9f5e" },
   "lightline.vim": { "branch": "master", "commit": "b1e91b41f5028d65fa3d31a425ff21591d5d957f" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "e86a4c84ff35240639643ffed56ee1c4d55f538e" },
