@@ -92,3 +92,7 @@ require('lspconfig').sourcekit.setup {
     Filetypes = { 'swift' },
     cmd = { 'sourcekit-lsp' }
 }
+require('lspconfig').dartls.setup {
+    Filetyles = { 'dart' },
+    cmd = { 'dart', 'language-server', '--client-id', 'neovim.lsp' }
+}
