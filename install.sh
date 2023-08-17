@@ -217,7 +217,10 @@ xresources ()
 {
     if [ $environment = "Linux" ]; then
         ln -sf $(pwd)/Linux/Xresources $home_dir/.Xresources
-        ln -s $(pwd)/Linux/Xresources.d $home_dir/.Xresources.d
+
+        if [ ! -L $home_dir/.Xresources.d ]; then
+            ln -s $(pwd)/Linux/Xresources.d $home_dir/.Xresources.d
+        fi
     else
         echo This system do not need this configuration.
     fi
@@ -250,7 +253,9 @@ zsh ()
 
 git_template ()
 {
-    ln -s $(pwd)/Common/git_template $home_dir/.git_template
+    if [ ! -L $home_dir/.git_template ]; then
+        ln -s $(pwd)/Common/git_template $home_dir/.git_template
+    fi
     echo Git: Done
 }
 
