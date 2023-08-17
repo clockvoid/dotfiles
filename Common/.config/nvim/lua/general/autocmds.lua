@@ -1,0 +1,24 @@
+--vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+--    pattern = '*.Xresources.d/*',
+--    command = 'setlocal filetype=xdefaults'
+--})
+--
+--vim.api.nvim_create_autocmd('filetype', {
+--    pattern = 'cpp',
+--    command = 'setlocal makeprg=g++ % -o %< -std=c++11'
+--})
+--
+--vim.api.nvim_create_autocmd('filetype', {
+--    pattern = 'c',
+--    command = 'setlocal makeprg=gcc % -o %<'
+--})
+--
+--vim.api.nvim_create_autocmd('filetype', {
+--    pattern = 'java',
+--    command = 'setlocal makeprg=javac %'
+--})
+--
+--vim.api.nvim_create_autocmd('filetype', {
+--    pattern = 'haskell',
+--    command = 'setlocal makeprg=ghc %'
+--})

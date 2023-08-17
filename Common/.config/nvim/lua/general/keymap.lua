@@ -1,0 +1,26 @@
+vim.api.nvim_set_keymap('v', '<C-s>y', '"+y', {})
+vim.api.nvim_set_keymap('v', '<C-s>d', '"+d', {})
+vim.api.nvim_set_keymap('n', '<C-s>p', '"+p', {})
+vim.api.nvim_set_keymap('n', '<C-s>P', '"+P', {})
+vim.api.nvim_set_keymap('v', '<C-s>p', '"+p', {})
+vim.api.nvim_set_keymap('v', '<C-s>P', '"+P', {})
+
+vim.api.nvim_set_keymap('n', '<C-s>"', 'ciw""<Esc>P', {noremap = true})
+vim.api.nvim_set_keymap('n', "<C-s>'", "ciw''<Esc>P", {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-s>`', 'ciw``<Esc>P', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-s>(', 'ciw()<Esc>P', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-s>{', 'ciw{}<Esc>P', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-s>[', 'ciw[]<Esc>P', {noremap = true})
+
+vim.api.nvim_set_keymap('n', 'j', 'gj', {noremap = true})
+vim.api.nvim_set_keymap('n', 'k', 'gk', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gj', 'j', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gk', 'k', {noremap = true})
+vim.api.nvim_set_keymap('v', 'j', 'gj', {noremap = true})
+vim.api.nvim_set_keymap('v', 'k', 'gk', {noremap = true})
+vim.api.nvim_set_keymap('v', 'gj', 'j', {noremap = true})
+vim.api.nvim_set_keymap('v', 'gk', 'k', {noremap = true})
+
+vim.api.nvim_set_keymap('x', 'p', "'pgv\"'.v:register.'y`>'", {noremap = true, expr = true})
+
+vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', {silent = true, noremap = true})

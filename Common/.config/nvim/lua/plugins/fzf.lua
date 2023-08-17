@@ -1,6 +1,5 @@
-
-function! plugin#fzf#hook_post_source() abort
-
+local function hook_post_source()
+vim.cmd([[
     if has("unix")
         let s:uname = system("uname -s")
         if s:uname == "Darwin"
@@ -8,22 +7,13 @@ function! plugin#fzf#hook_post_source() abort
         endif
     endif
 
-    " This is the default extra key bindings
     let g:fzf_action = {
                 \ 'ctrl-t': 'tab split',
                 \ 'ctrl-x': 'split',
                 \ 'ctrl-v': 'vsplit' }
 
-    " Default fzf layout
-    " - down / up / left / right
     let g:fzf_layout = { 'down': '~30%' }
 
-    " In Neovim, you can set up fzf window using a Vim command
-    "let g:fzf_layout = { 'window': 'enew' }
-    "let g:fzf_layout = { 'window': '-tabnew' }
-    "let g:fzf_layout = { 'window': '10split enew' }
-
-    " Customize fzf colors to match your color scheme
     let g:fzf_colors = {
                 \ 'fg':      ['fg', 'Normal'],
                 \ 'bg':      ['bg', 'Normal'],
@@ -39,13 +29,21 @@ function! plugin#fzf#hook_post_source() abort
                 \ 'spinner': ['fg', 'Label'],
                 \ 'header':  ['fg', 'Comment'] }
 
-    " Enable per-command history.
-    " CTRL-N and CTRL-P will be automatically bound to next-history and
-    " previous-history instead of down and up. If you don't like the change,
-    " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
     let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-    " let g:fzf_command_prefix = 'Fzf'
     nnoremap <C-f> :Files<cr>
     nnoremap <C-b> :Buffers<cr>
-endfunction
+]])
+end
+
+return {
+    {
+        'junegunn/fzf',
+        build = 'bash ./install --all'
+    },
+    {
+        'junegunn/fzf.vim',
+        config = hook_post_source(),
+        dependencies = { 'junegunn/fzf' }
+    },
+}
