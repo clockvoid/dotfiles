@@ -1,9 +1,3 @@
-vim.opt.background = 'dark'
-vim.cmd([[ 
-if !has('gui_runnig')
-    set t_Co=256
-endif
-]])
 vim.g.hybrid_custom_term_colors = 1
 
 local function hook_add_lightline()
@@ -21,6 +15,7 @@ local function hook_add_lightline()
 end
 
 local function hook_add_hybrid()
+    vim.opt.background = 'dark'
     vim.cmd.colorscheme('hybrid')
     vim.opt.cursorline = true
     vim.cmd.highlight('LineNr', 'ctermfg=lightgray')
