@@ -1,4 +1,13 @@
-export PYENV_ROOT=$HOME/.anyenv/envs/pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
+export ANYENV_ROOT=$HOME/.anyenv
 
-eval "$(pyenv init --path)"
+export PATH=$ANYENV_ROOT/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
+
+eval "$(anyenv init -)"
+
+if type "direnv" > /dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+fi
+
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+
+source $HOME/.config/zsh/path.zsh

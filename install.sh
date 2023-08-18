@@ -244,6 +244,7 @@ zsh ()
         command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
         command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git"
     fi
+    ln -sf $(pwd)/$environment/config/zsh/path.zsh $(pwd)/Common/config/zsh/
     ln -sf $(pwd)/$environment/config/zsh/env $(pwd)/Common/config/zsh/
     ln -sf $(pwd)/Common/config/zsh $home_dir/.config/
     ln -sf $(pwd)/Common/zprofile $home_dir/.zprofile
