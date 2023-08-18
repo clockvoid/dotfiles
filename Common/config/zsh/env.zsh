@@ -1,3 +1,5 @@
+export LC_ALL="en_US.UTF-8"
+
 export ANYENV_ROOT=$HOME/.anyenv
 export PATH=$ANYENV_ROOT/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 

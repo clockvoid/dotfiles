@@ -245,7 +245,7 @@ zsh ()
         command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git"
     fi
     ln -sf $(pwd)/$environment/config/zsh/path.zsh $(pwd)/Common/config/zsh/
-    ln -sf $(pwd)/$environment/config/zsh/env $(pwd)/Common/config/zsh/
+    ln -sf $(pwd)/$environment/config/zsh/init/env $(pwd)/Common/config/zsh/init/
     ln -sf $(pwd)/Common/config/zsh $home_dir/.config/
     ln -sf $(pwd)/Common/zshenv $home_dir/.zshenv
     ln -sf $(pwd)/Common/zshrc $home_dir/.zshrc
