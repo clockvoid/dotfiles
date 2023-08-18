@@ -1,22 +1,9 @@
 # make keybindings be like vim
 bindkey -v
 
-# aliases
 alias ls='ls --color=auto'
-alias vim='nvim'
-alias vimf='nvim -c FZF'
-alias v='nvim'
-alias vf='nvim -c FZF'
-alias g='git'
-alias t='tmux'
-alias y='yaourt'
-alias c='clear'
-alias e='exit'
-alias f='fzf'
-alias l='ls --color=auto'
 alias rm='rm -v'
 
-# for completion
 autoload -Uz compinit
 compinit
 # enable move directory by directory name
@@ -47,4 +34,3 @@ bindkey "^N" history-beginning-search-forward-end
 
 # Key stroke settings
 KEYTIMEOUT=1
-

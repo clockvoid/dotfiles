@@ -10,4 +10,10 @@ fi
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
+# added by travis gem
+if [ -f $HOME/.travis/travis.sh ]; then . $HOME/.travis/travis.sh; fi
+
+# alacritty DPI scaling setting
+export WINIT_HIDPI_FACTOR="1.0 alacritty"
+
 source $HOME/.config/zsh/path.zsh
