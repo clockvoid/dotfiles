@@ -76,16 +76,16 @@ local function hook_source()
     ]])
 
     vim.g.Tex_IgnoredWarnings = [[
-    Underfull'
-    Overfull'
-    Using fall-back BibTeX(8) backend'
-    Package caption Warning'
-    LaTeX hooks Warning'
-    Package fontspec Warning'
-    Package pgf Warning'
-    LaTeX Font Warning:'
-    Label(s) may have changed.'
-    Citation %.%# undefined'
+Underfull
+Overfull
+Using fall-back BibTeX(8) backend
+Package caption Warning
+LaTeX hooks Warning
+Package fontspec Warning
+Package pgf Warning
+LaTeX Font Warning:
+Label(s) may have changed.
+Citation %.%# undefined
     ]]
     vim.g.Tex_IgnoreLevel = 8
     vim.g.Tex_FoldedEnvironments = ',frame'
