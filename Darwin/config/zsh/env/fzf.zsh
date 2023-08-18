@@ -19,7 +19,7 @@ else
             else
                 bat --color=always --style=header,grid --line-range :100 {}
             fi
-        " --height 40% --border'
+        " --height 40% --border --bind ctrl-b:preview-down,ctrl-f:preview-up'
     fi
 
     export FZF_DEFAULT_COMMAND='find \( \
