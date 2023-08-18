@@ -2,7 +2,6 @@ export LC_ALL="en_US.UTF-8"
 
 # If not in the tmux session, don't do anything
 [[ $TMUX == "" ]] && return
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -17,5 +16,3 @@ done
 for file in $HOME/.config/zsh/init/*.zsh; do
     source "$file"
 done
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
