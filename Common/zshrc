@@ -24,3 +24,5 @@ done
 # editor to use in tmux
 export VISUAL="nvim"
 export EDITOR="nvim"
+# make keybindings be like vim in tmux
+bindkey -v

@@ -4,22 +4,25 @@
 if ! type fzf > /dev/null; then
     echo "Please install fzf!"
 else
-
     if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
       export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
     fi
 
-    if ! type bat > /dev/null; then
-        echo "Please install bat."
+    export FZF_DEFAULT_OPTS='--preview "
+    if [ -d {} ]; then
+        if ! type tree > /dev/null; then
+            echo \"To see perfect preview, install tree\" && ls --color -a {}
+        else
+            tree -C {} | head -200
+        fi
     else
-        export FZF_DEFAULT_OPTS='--preview "
-            if [ -d {} ]; then
-                tree -C {} | head -200
-            else
-                bat --color=always --style=header,grid --line-range :100 {}
-            fi
-        " --height 40% --border --bind ctrl-b:preview-down,ctrl-f:preview-up'
+        if ! type bat >/dev/null; then
+            echo \"To see perfect preview, install bat\" && cat
+        else
+            bat --color=always --style=header,grid --line-range :100 {}
+        fi
     fi
+    " --height 40% --border --bind ctrl-b:preview-down,ctrl-f:preview-up'
 
     export FZF_DEFAULT_COMMAND='find \( \
         -type d \( \
@@ -80,5 +83,17 @@ else
     # Key bindings
     # ------------
     source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+
+    # fd - cd to selected directory
+    fdr() {
+        local dir prevcmd
+        if ! type tree > /dev/null; then
+            prevcmd='echo "To see perfect preview, install tree" && ls --color -a {}'
+        else
+            prevcmd='tree -C {} | head -200'
+        fi
+        dir=$(fd --hidden --follow --exclude ".git" --exclude "Library" --max-depth 5 | fzf +m --reverse --preview "$prevcmd") &&
+            cd "$dir"
+    }
 fi
 

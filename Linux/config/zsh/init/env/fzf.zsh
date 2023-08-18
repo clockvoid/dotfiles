@@ -3,7 +3,11 @@ if [ -f $HOME/.fzf.zsh ]; then
 
     export FZF_DEFAULT_OPTS='--preview "
     if [ -d {} ]; then
-        ls --color -a {}
+        if ! type tree > /dev/null; then
+            ls --color -a {}
+        else
+            tree -C {} | head -200
+        fi
     else
         cat {}
     fi
@@ -19,17 +23,12 @@ if [ -f $HOME/.fzf.zsh ]; then
         -name .git \
         \) -prune \) -o \( ! -path ./. -type d \) -o -printf "%P\n"'
 
-    # Use fd (https://github.com/sharkdp/fd) instead of the default find
-    # command for listing path candidates.
-    # - The first argument to the function ($1) is the base path to start traversal
-    # - See the source code (completion.{bash,zsh}) for the details.
     _fzf_compgen_path() {
         find "$1" \( -type d \( \
             -name .git \
             \) -prune \) -o -type f -printf "%P\n"
         }
 
-    # Use fd to generate the list for directory completion
     _fzf_compgen_dir() {
         find "$1" \( \
             -type d \( \
@@ -37,4 +36,16 @@ if [ -f $HOME/.fzf.zsh ]; then
             \) -prune \
             \) -o \( ! -path . -type d \) -printf "%P\n"
         }
+
+    # fd - cd to selected directory
+    fdr() {
+        local dir prevcmd
+        if ! type tree > /dev/null; then
+            prevcmd='echo To see perfect preview, install tree && ls {}'
+        else
+            prevcmd='tree -C {} | head -200'
+        fi
+        dir=$(_fzf_compgen_dir . | fzf +m --reverse --preview "$prevcmd") &&
+            cd "$dir"
+    }
 fi

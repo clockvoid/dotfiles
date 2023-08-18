@@ -1,8 +1,9 @@
-# make keybindings be like vim
-bindkey -v
-
 alias ls='ls --color=auto'
 alias rm='rm -v'
+
+autoload -Uz promptinit
+promptinit
+prompt redhat
 
 autoload -Uz compinit
 compinit
