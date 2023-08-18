@@ -9,7 +9,11 @@ if [ -f $HOME/.fzf.zsh ]; then
             tree -C {} | head -200
         fi
     else
-        cat {}
+        if ! type bat >/dev/null; then
+            echo \"To see perfect preview, install bat\" && cat {}
+        else
+            bat --color=always --style=header,grid --line-range :100 {}
+        fi
     fi
     " --border --bind ctrl-b:preview-down,ctrl-f:preview-up'
 
