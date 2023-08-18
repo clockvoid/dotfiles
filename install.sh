@@ -247,7 +247,7 @@ zsh ()
     ln -sf $(pwd)/$environment/config/zsh/path.zsh $(pwd)/Common/config/zsh/
     ln -sf $(pwd)/$environment/config/zsh/env $(pwd)/Common/config/zsh/
     ln -sf $(pwd)/Common/config/zsh $home_dir/.config/
-    ln -sf $(pwd)/Common/zprofile $home_dir/.zprofile
+    ln -sf $(pwd)/Common/zshenv $home_dir/.zshenv
     ln -sf $(pwd)/Common/zshrc $home_dir/.zshrc
     echo Zsh: Done
 }

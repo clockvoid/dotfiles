@@ -2,7 +2,6 @@
 # ---------
 
 if ! type fzf > /dev/null; then
-
     echo "Please install fzf!"
 else
 

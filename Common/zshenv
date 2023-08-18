@@ -1,11 +1,8 @@
-# alacritty DPI scaling setting
-export WINIT_HIDPI_FACTOR="1.0 alacritty"
-
 export ANYENV_ROOT=$HOME/.anyenv
 export PATH=$ANYENV_ROOT/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 
-type anyenv > /dev/null && eval "$(anyenv init -)"
-type direnv > /dev/null && eval "$(direnv hook zsh)"
+command -v anyenv >/dev/null && eval "$(anyenv init -)"
+command -v direnv >/dev/null && eval "$(direnv hook zsh)"
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 [ -f $HOME/.travis/travis.sh ] && . $HOME/.travis/travis.sh # added by travis gem
 
