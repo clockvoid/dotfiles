@@ -1,19 +1,12 @@
-export ANYENV_ROOT=$HOME/.anyenv
-
-export PATH=$ANYENV_ROOT/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
-
-eval "$(anyenv init -)"
-
-if type "direnv" > /dev/null 2>&1; then
-    eval "$(direnv hook zsh)"
-fi
-
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
-
-# added by travis gem
-if [ -f $HOME/.travis/travis.sh ]; then . $HOME/.travis/travis.sh; fi
-
 # alacritty DPI scaling setting
 export WINIT_HIDPI_FACTOR="1.0 alacritty"
+
+export ANYENV_ROOT=$HOME/.anyenv
+export PATH=$ANYENV_ROOT/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
+
+type anyenv > /dev/null && eval "$(anyenv init -)"
+type direnv > /dev/null && eval "$(direnv hook zsh)"
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+[ -f $HOME/.travis/travis.sh ] && . $HOME/.travis/travis.sh # added by travis gem
 
 source $HOME/.config/zsh/path.zsh
