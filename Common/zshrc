@@ -3,12 +3,8 @@ source $HOME/.config/zsh/env.zsh
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-for file in $HOME/.config/zsh/init/*.zsh; do
-    source "$file"
-done
-for file in $HOME/.config/zsh/init/env/*.zsh; do
-    source "$file"
-done
+for f in $HOME/.config/zsh/init/*.zsh; do source $f; done
+for f in $HOME/.config/zsh/init/env/*.zsh; do source $f; done
 
 # If not in the tmux session, don't load plugins
 [[ $TMUX == "" ]] && return
