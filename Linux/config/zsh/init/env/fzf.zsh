@@ -1,7 +1,13 @@
 if [ -f $HOME/.fzf.zsh ]; then
     source $HOME/.fzf.zsh
 
-    export FZF_DEFAULT_OPTS='--border --bind ctrl-b:preview-down,ctrl-f:preview-up'
+    export FZF_DEFAULT_OPTS='--preview "
+    if [ -d {} ]; then
+        ls --color -a {}
+    else
+        cat {}
+    fi
+    " --border --bind ctrl-b:preview-down,ctrl-f:preview-up'
 
     export FZF_DEFAULT_COMMAND='find \( \
         -type d \( \
