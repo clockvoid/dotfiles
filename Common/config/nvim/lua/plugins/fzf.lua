@@ -37,7 +37,7 @@ end
 return {
     {
         'junegunn/fzf',
-        build = 'bash ./install --all'
+        build = 'bash ./install --all --xdg --no-update-rc --no-bash --no-fish'
     },
     {
         'junegunn/fzf.vim',

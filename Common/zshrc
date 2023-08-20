@@ -17,4 +17,3 @@ else
     export VISUAL="nvim"
     export EDITOR="nvim"
 fi
-
