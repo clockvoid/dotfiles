@@ -13,3 +13,5 @@ command -v direnv >/dev/null && eval "$(direnv hook zsh)"
 [ -f $HOME/.travis/travis.sh ] && . $HOME/.travis/travis.sh # added by travis gem
 
 source $HOME/.config/zsh/path.zsh
+
+typeset -U path
