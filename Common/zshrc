@@ -6,17 +6,15 @@ source $HOME/.config/zsh/env.zsh
 for f in $HOME/.config/zsh/init/*.zsh; do source $f; done
 for f in $HOME/.config/zsh/init/env/*.zsh; do source $f; done
 
-# If not in the tmux session, don't load plugins
-[[ $TMUX == "" ]] && return
+if [[ $TMUX == "" ]]; then
+    prompt redhat
+else
+    # Load plugins and its settings
+    source $HOME/.config/zsh/zinit.zsh
+    for f in $HOME/.config/zsh/plugins/*.zsh; do source $f; done
 
-# Set the zsh root directoy
-export ZSH_ROOT=$HOME/.zsh
-# Load plugins and its settings
-source $HOME/.config/zsh/zinit.zsh
-for file in $HOME/.config/zsh/plugins/*.zsh; do
-    source "$file"
-done
+    # editor to use in tmux
+    export VISUAL="nvim"
+    export EDITOR="nvim"
+fi
 
-# editor to use in tmux
-export VISUAL="nvim"
-export EDITOR="nvim"

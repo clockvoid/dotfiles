@@ -1,9 +1,8 @@
 export LC_ALL="en_US.UTF-8"
 
-autoload -Uz compinit
-compinit
-autoload -Uz promptinit
-promptinit
+autoload -Uz compinit && compinit
+autoload -Uz promptinit && promptinit
+autoload history-search-end
 
 export ANYENV_ROOT=$HOME/.anyenv
 export PATH=$ANYENV_ROOT/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
