@@ -1,18 +1,15 @@
+local function hook_source()
+    if vim.fn.has('mac') == 1 then
+        vim.g.previm_open_cmd = 'open -a "Google Chrome"'
+    elseif string.match(vim.fn.system('uname'), 'Linux') then
+        vim.g.previm_open_cmd = 'google-chrome-stable'
+    end
+end
+
 return {
     {
         'kannokanno/previm',
-        config = function ()
-            vim.cmd([[
-            if has("mac")
-                let g:previm_open_cmd = 'open -a "Google Chrome"'
-            elseif has("unix")
-                let uname = system("uname -s")
-                if uname == "Linux"
-                    let g:previm_open_cmd = 'google-chrome-stable'
-                endif
-            endif
-            ]])
-        end,
+        config = hook_source,
         ft = { 'markdown' },
     }
 }

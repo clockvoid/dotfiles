@@ -3,34 +3,23 @@ vim.g.tex_flavor = 'latex'
 local function set_tex_family()
     local function setLuaLaTex()
         vim.g.Tex_MultipleCompileFormats = 'pdf,bibtex,pdf'
-        vim.cmd([[ 
-        if exists('g:Tex_FormatDependency_pdf')
-            unlet g:Tex_FormatDependency_pdf
-        endif
-        ]])
+        vim.g.Tex_FormatDependency_pdf = nil
         vim.g.Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
-        vim.cmd([[
-        if exists('g:Tex_CompileRule_dvi')
-            unlet g:Tex_CompileRule_dvi
-        endif
-        ]])
+        vim.g.Tex_CompileRule_dvi = nil
         vim.b.is_lua_latex = 1
         print("lualatex mode")
     end
 
     local function setPLaTex()
-        vim.g.Tex_MultipleCompileFormats='dvi,pdf,bibtex,pdf'
+        vim.g.Tex_MultipleCompileFormats = 'dvi,pdf,bibtex,pdf'
         vim.g.Tex_FormatDependency_pdf = 'dvi,pdf'
         vim.g.Tex_CompileRule_pdf = 'dvipdfmx $*.dvi'
         vim.g.Tex_CompileRule_dvi = 'platex --shell-escape $*.tex'
-        --vimg.Tex_CompileRule_dvi = 'uplatex $*.tex'
-        --vim.g.Tex_CompileRule_dvi = 'uplatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
         vim.b.is_lua_latex = 0
         print("platex mode")
     end
 
     local function auto_set()
-        --vim.bo.shellslash = true
         vim.bo.grepprg = 'grep -nH $*'
 
         local function ToggleTexFlavor()
@@ -41,7 +30,7 @@ local function set_tex_family()
             end
         end
 
-        vim.keymap.set('n', '<C-l>', ToggleTexFlavor, {buffer = true, noremap = true})
+        vim.keymap.set('n', '<C-l>', ToggleTexFlavor, { buffer = true, noremap = true })
 
         vim.b.filename = vim.fn.fnamemodify(vim.fn.expand('%:r'), ':t:r')
         if vim.b.filename == 'slide' then
@@ -66,14 +55,13 @@ local function hook_source()
     vim.g.Tex_MakeIndexFlavor = 'upmendex $*.idx'
     vim.g.Tex_UseEditorSettingInDVIViewer = 1
 
-    vim.cmd([[
-        if has("mac")
-            let g:Tex_ViewRule_pdf = 'open -a skim'
-        endif
-        if executable("evince")
-            let g:Tex_ViewRule_pdf = 'evince'
-        endif
-    ]])
+    if vim.fn.has('mac') == 1 then
+        vim.g.Tex_ViewRule_pdf = 'opne -a skim'
+    end
+
+    if vim.fn.executable('evince') == 1 then
+        vim.g.Tex_ViewRule_pdf = 'evince'
+    end
 
     vim.g.Tex_IgnoredWarnings = [[
 Underfull
