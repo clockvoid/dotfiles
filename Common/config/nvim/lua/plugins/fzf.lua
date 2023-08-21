@@ -1,8 +1,4 @@
 local function hook_post_source()
-    if vim.fn.has('mac') == 1 then
-        vim.opt.rtp:append('/usr/local/opt/fzf')
-    end
-
     vim.g.fzf_action = {
         ['ctrl-t'] = 'tab split',
         ['ctrl-x'] = 'split',

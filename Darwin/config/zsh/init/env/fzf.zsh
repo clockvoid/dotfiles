@@ -1,22 +1,7 @@
 # Setup fzf
 # ---------
-
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-    export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
-fi
-
-if ! type fzf > /dev/null; then
-    echo "Please install fzf!"
-    return
-fi
-
-# Auto-completion
-# ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-
-# Key bindings
-# ------------
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+[ ! -f $HOME/.config/fzf/fzf.zsh ] && return
+source $HOME/.config/fzf/fzf.zsh
 
 export FZF_DEFAULT_OPTS='--preview "
 if [ -d {} ]; then
@@ -29,7 +14,7 @@ else
     if ! type bat >/dev/null; then
         echo \"To see perfect preview, install bat\" && cat {}
     else
-        bat --color=always --style=header,grid --line-range :100 {}
+        bat --theme=Nord --color=always --style=header,grid --line-range :100 {}
     fi
 fi
 " --height 40% --border --bind ctrl-b:preview-down,ctrl-f:preview-up'
@@ -62,7 +47,7 @@ _fzf_compgen_path() {
         ! \( \
         -name .DS_Store \
         \) -printf "%P\n"
-    }
+}
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
@@ -71,7 +56,7 @@ _fzf_compgen_dir() {
         -name .git \
         \) -prune \
         \) -o \( ! -path . -type d \) -printf "%P\n"
-    }
+}
 
 # (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
 # - The first argument to the function is the name of the command.
@@ -95,6 +80,5 @@ fdr() {
     else
         prevcmd='tree -C {} | head -200'
     fi
-    dir=$(fd --hidden --follow --exclude ".git" --exclude "Library" --max-depth 5 | fzf +m --reverse --preview "$prevcmd") &&
-        cd "$dir"
-    }
+    dir=$(fd --hidden --follow --exclude ".git" --exclude "Library" --max-depth 5 | fzf +m --reverse --preview "$prevcmd") && cd "$dir"
+}
