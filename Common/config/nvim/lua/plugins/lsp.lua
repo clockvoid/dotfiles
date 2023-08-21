@@ -35,18 +35,18 @@ local function hook_lspconfig_loaded()
                     }
                 }
             }
-        end,
+        end
     }
     require('lspconfig').hls.setup {
-        Filetypes = { 'haskell' },
+        filetypes = { 'haskell' },
         cmd = { 'haskell-language-server-wrapper', '--lsp' }
     }
     require('lspconfig').sourcekit.setup {
-        Filetypes = { 'swift' },
+        filetypes = { 'swift' },
         cmd = { 'sourcekit-lsp' }
     }
     require('lspconfig').dartls.setup {
-        Filetyles = { 'dart' },
+        filetyles = { 'dart' },
         cmd = { 'dart', 'language-server', '--client-id', 'neovim.lsp' }
     }
 end
