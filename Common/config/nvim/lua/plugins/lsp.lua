@@ -154,13 +154,10 @@ return {
                 markdown = {},
                 tex = { 'textlint' },
                 javascript = { 'eslint' },
-                go = { 'staticcheck' }
+                go = { 'staticcheck' },
+                haskell = {},
+                rust = {},
             }
-
-            vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-                pattern = '*.hs',
-                command = 'ALEDisableBuffer'
-            })
         end,
     },
 }
