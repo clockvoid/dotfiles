@@ -126,6 +126,7 @@ gtk ()
     if [ $environment == "Linux" ]; then
         ln -sf $(pwd)/Linux/gtkrc-2.0 $home_dir/.gtkrc-2.0
         ln -sf $(pwd)/Linux/config/gtk-* $home_dir/.config/
+        command -v dconf >/dev/null && dconf write /org/gnome/desktop/interface/color-scheme \'prefer-dark\'
     else
         echo This system do not need this configuration.
     fi
