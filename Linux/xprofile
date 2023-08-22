@@ -5,7 +5,8 @@ export WINIT_HIDPI_FACTOR="1.0 alacritty"
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 export PATH=$HOME/.local/bin:$PATH
 
-export QT_QPA_PLATFORMTHEME=gtk2
+export QT_QPA_PLATFORMTHEME=gtk
+export QT_STYLE_OVERRIDE=adwaita-dark
 export XDG_CURRENT_DESKTOP=GNOME
 export GTK_USE_PORTAL=0
 
