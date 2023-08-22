@@ -7,7 +7,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 export QT_QPA_PLATFORMTHEME=gtk2
 export XDG_CURRENT_DESKTOP=GNOME
-export GTK_USE_PORTAL=1
+export GTK_USE_PORTAL=0
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 picom --backend glx --vsync --fade-exclude 'class_g="xsecurelock"' --config /dev/null &
