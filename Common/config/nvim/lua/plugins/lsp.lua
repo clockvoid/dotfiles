@@ -81,7 +81,6 @@ local function hook_cmp_loaded()
             { name = 'vsnip' },
             { name = 'nvim_lsp_signature_help' },
             { name = 'path' },
-            { name = 'buffer' },
         }, {
             { name = 'buffer' },
         })
@@ -106,7 +105,6 @@ local function hook_cmp_loaded()
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
             { name = 'path' },
-            { name = 'cmdline' },
         }, {
             { name = 'cmdline' }
         })
