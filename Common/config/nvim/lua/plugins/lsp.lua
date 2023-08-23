@@ -64,8 +64,8 @@ local function hook_cmp_loaded()
             -- documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-            ['<ESC>'] = cmp.mapping.abort(),
             ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            ['<C-e>'] = cmp.mapping.abort(),
             ['<C-f>'] = cmp.mapping.scroll_docs(-4),
             ['<C-b>'] = cmp.mapping.scroll_docs(4),
             ['<Tab>'] = function(fallback)
