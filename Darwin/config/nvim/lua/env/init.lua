@@ -4,5 +4,5 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 
 if vim.fn.exists('$TMUX') == 1 then
-    vim.opt.clipboard:append{'unnamedplus'}
+  vim.opt.clipboard:append { 'unnamedplus' }
 end

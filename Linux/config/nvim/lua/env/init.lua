@@ -4,14 +4,14 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 
 vim.g.clipboard = {
-    name = 'xclip',
-    copy = {
-        ["+"] ='xclip -selection clipboard',
-        ["*"] = 'xclip -selection clipboard',
-    },
-    paste = {
-        ["+"] = 'xclip -selection clipboard -o',
-        ["*"] = 'xclip -selection clipboard -o',
-    },
-    cache_enabled = 1,
+  name = 'xclip',
+  copy = {
+    ["+"] = 'xclip -selection clipboard',
+    ["*"] = 'xclip -selection clipboard',
+  },
+  paste = {
+    ["+"] = 'xclip -selection clipboard -o',
+    ["*"] = 'xclip -selection clipboard -o',
+  },
+  cache_enabled = 1,
 }
