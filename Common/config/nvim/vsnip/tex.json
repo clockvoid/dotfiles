@@ -1,0 +1,987 @@
+{
+  "documentclass": {
+    "prefix": "documentclass",
+    "description": "\\documentclass",
+    "body": "\\documentclass[${1}]{${2:article}}${0}"
+  },
+
+  "mathexpression": {
+    "prefix": "$",
+    "description": "$ expression $",
+    "body": "\\$${1:#:expression}\\$${2}"
+  },
+
+  "mathenva": {
+    "prefix": "$$",
+    "description": "$$ expression $$",
+    "body": "\\$\\$${1:#:expression}\\$\\$${2}"
+  },
+
+  "mathenvb": {
+    "prfix": "\\[",
+      "description": "\\[ expression \\]",
+      "body": "\\[${1:#:expression}\\]${2}"
+  },
+
+  "begin": {
+    "prefix": "begin",
+    "description": "\\begin",
+    "body": [
+      "\\begin{${1:#:type}}",
+      "  ${2:TARGET}",
+      "\\end{$1}"
+    ]
+  },
+
+  "list": {
+    "prefix": "list",
+    "description": "\\begin{list} \\list",
+    "body": [
+      "\\begin{list}",
+      "  ${1:TARGET}",
+      "\\end{list}"
+    ]
+  },
+
+  "quotation": {
+    "prefix": "quotation",
+    "description": "\\begin{quotation} \\quotation",
+    "body": [
+      "\\begin{quotation}",
+      "  ${1:TARGET}",
+      "\\end{quotation}"
+    ]
+  },
+
+  "description": {
+    "prefix": "description",
+    "description": "\\begin{description} \\description desc",
+    "body": [
+      "\\begin{description}",
+      "  \\item[${1}] ${0}",
+      "\\end{description}"
+    ]
+  },
+
+  "itd": {
+    "prefix": "itd",
+    "description": "item[ \\item[",
+      "body": [
+        "\\item[${1}] ${0}"
+      ]
+  },
+
+  "it": {
+    "prefix": "it",
+    "description": "item \\item",
+    "body": [
+      "\\item ${0}"
+    ]
+  },
+
+  "sloppypar": {
+    "prefix": "sloppypar",
+    "description": "\\begin{sloppypar} \\sloppypar",
+    "body": [
+      "\\begin{sloppypar}",
+      "  ${1:TARGET}",
+      "\\end{sloppypar}"
+    ]
+  },
+
+  "enumerate": {
+    "prefix": "enumerate",
+    "description": "\\begin{enumerate} \\enumerate enum",
+    "body": [
+      "\\begin{enumerate}",
+      "  \\item ${1:TARGET}",
+      "\\end{enumerate}"
+    ]
+  },
+
+  "theindex": {
+    "prefix": "theindex",
+    "description": "\\begin{theindex} \\theindex",
+    "body": [
+      "\\begin{theindex}",
+      "  ${1:TARGET}",
+      "\\end{theindex}"
+    ]
+  },
+
+  "itemize": {
+    "prefix": "itemize",
+    "description": "\\begin{itemize} \\itemize",
+    "body": [
+      "\\begin{itemize}",
+      "  \\item ${1:TARGET}",
+      "\\end{itemize}"
+    ]
+  },
+
+  "titlepage": {
+    "prefix": "titlepage",
+    "description": "\\begin{titlepage} \\titlepage",
+    "body": [
+      "\\begin{titlepage}",
+      "  ${1:TARGET}",
+      "\\end{titlepage}"
+    ]
+  },
+
+  "verbatim": {
+    "prefix": "verbatim",
+    "description": "\\begin{verbatim} verb \\verbatim",
+    "body": [
+      "\\begin{verbatim}",
+      "  ${1:TARGET}",
+      "\\end{verbatim}"
+    ]
+  },
+
+  "verbatimtab": {
+    "prefix": "verbatimtab",
+    "description": "\\begin{verbatimtab} \\verbatimtab",
+    "body": [
+      "\\begin{verbatimtab}[${1:8}]",
+      "  ${2:TARGET}",
+      "\\end{verbatim}"
+    ]
+  },
+
+  "trivlist": {
+    "prefix": "trivlist",
+    "description": "\\begin{trivlist} \\trivlist",
+    "body": [
+      "\\begin{trivlist}",
+      "  ${1:TARGET}",
+      "\\end{trivlist}"
+    ]
+  },
+
+  "verse": {
+    "prefix": "verse",
+    "description": "\\begin{verse} \\verse",
+    "body": [
+      "\\begin{verse}",
+      "  ${1:TARGET}",
+      "\\end{verse}"
+    ]
+  },
+
+  "table": {
+    "prefix": "table",
+    "description": "\\begin{table} \\table",
+    "body": [
+      "\\begin{table}[${1}]",
+      "  \\centering",
+      "  \\caption{${2}}",
+      "  \\label{tab:${3}}",
+      "  \\begin{tabular}{${4}}",
+      "    ${5}",
+      "  \\end{tabular}",
+      "\\end{table}"
+    ]
+  },
+
+  "thebibliography": {
+    "prefix": "thebibliography",
+    "description": "\\begin{thebibliography} \\thebibliography",
+    "body": [
+      "\\begin{thebibliography}",
+      "  ${1:TARGET}",
+      "\\end{thebibliography}"
+    ]
+  },
+
+  "tabbing": {
+    "prefix": "tabbing",
+    "description": "\\begin{tabbing} \\tabbing",
+    "body": [
+      "\\begin{tabbing}",
+      "  ${1:TARGET}",
+      "\\end{tabbing}"
+    ]
+  },
+
+  "note": {
+    "prefix": "note",
+    "description": "\\begin{note} \\note",
+    "body": [
+      "\\begin{note}",
+      "  ${1:TARGET}",
+      "\\end{note}"
+    ]
+  },
+
+  "tabular": {
+    "prefix": "tabular",
+    "description": "\\begin{tabular} \\tabular",
+    "body": [
+      "\\begin{tabular}{${1}}",
+      "  ${2:TARGET}",
+      "\\end{tabular}"
+    ]
+  },
+
+  "overlay": {
+    "prefix": "overlay",
+    "description": "\\begin{overlay} \\overlay",
+    "body": [
+      "\\begin{overlay}",
+      "  ${1:TARGET}",
+      "\\end{overlay}"
+    ]
+  },
+
+  "array": {
+    "prefix": "array",
+    "description": "\\begin{array} \\array",
+    "body": [
+      "\\begin{array}{${1}}",
+      "  ${2:TARGET}",
+      "\\end{array}"
+    ]
+  },
+
+  "cases": {
+    "prefix": "cases",
+    "description": "\\begin{cases} \\cases",
+    "body": [
+      "\\begin{cases}{${1}}",
+      "  ${2:TARGET}",
+      "\\end{cases}"
+    ]
+  },
+
+  "slide": {
+    "prefix": "slide",
+    "description": "\\begin{slide} \\slide",
+    "body": [
+      "\\begin{slide}",
+      "  ${1:TARGET}",
+      "\\end{slide}"
+    ]
+  },
+
+  "displaymath": {
+    "prefix": "displaymath",
+    "description": "\\begin{displaymath} \\displaymath",
+    "body": [
+      "\\begin{displaymath}",
+      "  ${1:TARGET}",
+      "\\end{displaymath}"
+    ]
+  },
+
+  "abstract": {
+    "prefix": "abstract",
+    "description": "\\begin{abstract} \\abstract",
+    "body": [
+      "\\begin{abstract}",
+      "  ${1:TARGET}",
+      "\\end{abstract}"
+    ]
+  },
+
+  "align": {
+    "prefix": "align",
+    "description": "\\begin{align} \\align",
+    "body": [
+      "\\begin{align}",
+      "  ${1:TARGET}",
+      "\\end{align}"
+    ]
+  },
+
+  "align*": {
+    "prefix": "align*",
+    "description": "\\begin{align*} \\align*",
+    "body": [
+      "\\begin{align*}",
+      "  ${1:TARGET}",
+      "\\end{align*}"
+    ]
+  },
+
+  "aligned": {
+    "prefix": "aligned",
+    "description": "\\begin{aligned} \\aligned",
+    "body": [
+      "\\begin{aligned}",
+      "  ${1:TARGET}",
+      "\\end{aligned}"
+    ]
+  },
+
+  "eqnarray": {
+    "prefix": "eqnarray",
+    "description": "\\begin{eqnarray} \\eqnarray",
+    "body": [
+      "\\begin{eqnarray}",
+      "  ${1:TARGET}",
+      "\\end{eqnarray}"
+    ]
+  },
+
+  "eqnarray*": {
+    "prefix": "eqnarray*",
+    "description": "\\begin{eqnarray*} \\eqnarray*",
+    "body": [
+      "\\begin{eqnarray*}",
+      "  ${1:TARGET}",
+      "\\end{eqnarray*}"
+    ]
+  },
+
+  "equation": {
+    "prefix": "equation",
+    "description": "\\begin{equation} \\equation",
+    "body": [
+      "\\begin{equation}",
+      "  ${1:TARGET}",
+      "\\end{equation}"
+    ]
+  },
+
+  "equation*": {
+    "prefix": "equation*",
+    "description": "\\begin{equation*} \\equation*",
+    "body": [
+      "\\begin{equation*}",
+      "  ${1:TARGET}",
+      "\\end{equation*}"
+    ]
+  },
+
+  "center": {
+    "prefix": "center",
+    "description": "\\begin{center} \\center",
+    "body": [
+      "\\begin{center}",
+      "  ${1:TARGET}",
+      "\\end{center}"
+    ]
+  },
+
+  "document": {
+    "prefix": "document",
+    "description": "\\begin{document} \\document",
+    "body": [
+      "\\begin{document}",
+      "  ${1:TARGET}",
+      "\\end{document}"
+    ]
+  },
+
+  "figure": {
+    "prefix": "figure",
+    "description": "\\begin{figure} \\figure",
+    "body": [
+      "\\begin{figure}[${1}]",
+      "  \\centering",
+      "  \\includegraphics[${2:width=${3}}]{${4}}",
+      "  \\caption{${5}}",
+      "  \\label{fig:${6}}",
+      "\\end{figure}"
+    ]
+  },
+
+  "filecontents": {
+    "prefix": "filecontents",
+    "description": "\\begin{filecontents} \\filecontents",
+    "body": [
+      "\\begin{filecontents}",
+      "  ${1:TARGET}",
+      "\\end{filecontents}"
+    ]
+  },
+
+  "lrbox": {
+    "prefix": "lrbox",
+    "description": "\\begin{lrbox} \\lrbox",
+    "body": [
+      "\\begin{lrbox}",
+      "  ${1:TARGET}",
+      "\\end{lrbox}"
+    ]
+  },
+
+  "flushleft": {
+    "prefix": "flushleft",
+    "description": "\\begin{flushleft} \\flushleft",
+    "body": [
+      "\\begin{flushleft}",
+      "  ${1:TARGET}",
+      "\\end{flushleft}"
+    ]
+  },
+
+  "flushright": {
+    "prefix": "flushright",
+    "description": "\\begin{flushright} \\flushright",
+    "body": [
+      "\\begin{flushright}",
+      "  ${1:TARGET}",
+      "\\end{flushright}"
+    ]
+  },
+
+  "minipage": {
+    "prefix": "minipage",
+    "description": "\\begin{minipage} \\minipage",
+    "body": [
+      "\\begin{minipage}{${1:0.45}\\linewidth}",
+      "  ${2:TARGET}",
+      "\\end{minipage}"
+    ]
+  },
+
+  "picture": {
+    "prefix": "picture",
+    "description": "\\begin{picture} \\picture",
+    "body": [
+      "\\begin{picture}",
+      "  ${1:TARGET}",
+      "\\end{picture}"
+    ]
+  },
+
+  "math": {
+    "prefix": "math",
+    "description": "\\begin{math} \\math",
+    "body": [
+      "\\begin{math}",
+      "  ${1:TARGET}",
+      "\\end{math}"
+    ]
+  },
+
+  "quote": {
+    "prefix": "quote",
+    "description": "\\begin{quote} \\quote",
+    "body": [
+      "\\begin{quote}",
+      "  ${1:TARGET}",
+      "\\end{quote}"
+    ]
+  },
+
+  "matrix": {
+    "prefix": "matrix",
+    "description": "\\begin{matrix} \\matrix",
+    "body": [
+      "\\begin{matrix}",
+      "  ${1:TARGET}",
+      "\\end{matrix}"
+    ]
+  },
+
+  "bmatrix": {
+    "prefix": "bmatrix",
+    "description": "\\begin{bmatrix} \\bmatrix",
+    "body": [
+      "\\begin{bmatrix}",
+      "  ${1:TARGET}",
+      "\\end{bmatrix}"
+    ]
+  },
+
+  "pmatrix": {
+    "prefix": "pmatrix",
+    "description": "\\pegin{bmatrix} \\pmatrix",
+    "body": [
+      "\\begin{pmatrix}",
+      "  ${1:TARGET}",
+      "\\end{pmatrix}"
+    ]
+  },
+
+  "vmatrix": {
+    "prefix": "vmatrix",
+    "description": "\\begin{vmatrix} \\vmatrix",
+    "body": [
+      "\\begin{vmatrix}",
+      "  ${1:TARGET}",
+      "\\end{vmatrix}"
+    ]
+  },
+
+  "Bmatrix": {
+    "prefix": "Bmatrix",
+    "description": "\\begin{Bmatrix} \\Bmatrix",
+    "body": [
+      "\\begin{Bmatrix}",
+      "  ${1:TARGET}",
+      "\\end{Bmatrix}"
+    ]
+  },
+
+  "Vmatrix": {
+    "prefix": "Vmatrix",
+    "description": "\\begin{Vmatrix} \\Vmatrix",
+    "body": [
+      "\\begin{Vmatrix}",
+      "  ${1:TARGET}",
+      "\\end{Vmatrix}"
+    ]
+  },
+
+  "part": {
+    "prefix": "part",
+    "description": "part \\part",
+    "body": [
+      "\\part{${1}}",
+      "${0:TARGET}"
+    ]
+  },
+
+  "chapter": {
+    "prefix": "chapter",
+    "description": "chapter \\chapter",
+    "body": [
+      "\\chapter{${1}}",
+      "${0:TARGET}"
+    ]
+  },
+
+  "section": {
+    "prefix": "section",
+    "description": "section \\section",
+    "body": [
+      "\\section{${1}}",
+      "${0:TARGET}"
+    ]
+  },
+
+  "subsection": {
+    "prefix": "subsection",
+    "description": "subsection \\subsection",
+    "body": [
+      "\\subsection{${1}}",
+      "${0:TARGET}"
+    ]
+  },
+
+  "subsubsection": {
+    "prefix": "subsubsection",
+    "description": "subsubsection \\subsubsection",
+    "body": [
+      "\\subsubsection{${1}}",
+      "${0:TARGET}"
+    ]
+  },
+
+  "paragraph": {
+    "prefix": "paragraph",
+    "description": "paragraph \\paragraph",
+    "body": [
+      "\\paragraph{${1}}",
+      "${0:TARGET}"
+    ]
+  },
+
+  "subparagraph": {
+    "prefix": "subparagraph",
+    "description": "subparagraph \\subparagraph",
+    "body": [
+      "\\subparagraph{${1}}",
+      "${0:TARGET}"
+    ]
+  },
+
+  "\\frac": {
+    "prefix": "\\frac",
+    "description": "frac \\frac",
+    "body": [
+      "\\frac{${1}}{${2}}${0}"
+    ]
+  },
+
+  "\\left": {
+    "prefix": "\\left",
+    "description": "\\left \\right",
+    "body": [
+      "\\left${1:(} ${3:#:body} \\right${2:)}${0}"
+    ]
+  },
+
+  "bfseries": {
+    "prefix": "bfseries",
+    "description": "\\begin{bfseries} \\bfseries",
+    "body": [
+      "\\begin{bfseries}",
+      "  ${1:TARGET}",
+      "\\end{bfseries}"
+    ]
+  },
+
+  "mdseries": {
+    "prefix": "mdseries",
+    "description": "\\begin{mdseries} \\mdseries",
+    "body": [
+      "\\begin{mdseries}",
+      "  ${1:TARGET}",
+      "\\end{mdseries}"
+    ]
+  },
+
+  "ttfamily": {
+    "prefix": "ttfamily",
+    "description": "\\begin{ttfamily} \\ttfamily",
+    "body": [
+      "\\begin{ttfamily}",
+      "  ${1:TARGET}",
+      "\\end{ttfamily}"
+    ]
+  },
+
+  "sffamily": {
+    "prefix": "sffamily",
+    "description": "\\begin{sffamily} \\sffamily",
+    "body": [
+      "\\begin{sffamily}",
+      "  ${1:TARGET}",
+      "\\end{sffamily}"
+    ]
+  },
+
+  "rmfamily": {
+    "prefix": "rmfamily",
+    "description": "\\begin{rmfamily} \\rmfamily",
+    "body": [
+      "\\begin{rmfamily}",
+      "  ${1:TARGET}",
+      "\\end{rmfamily}"
+    ]
+  },
+
+  "upshape": {
+    "prefix": "upshape",
+    "description": "\\begin{upshape} \\upshape",
+    "body": [
+      "\\begin{upshape}",
+      "  ${1:TARGET}",
+      "\\end{upshape}"
+    ]
+  },
+
+  "slshape": {
+    "prefix": "slshape",
+    "description": "\\begin{slshape} \\slshape",
+    "body": [
+      "\\begin{slshape}",
+      "  ${1:TARGET}",
+      "\\end{slshape}"
+    ]
+  },
+
+  "scshape": {
+    "prefix": "scshape",
+    "description": "\\begin{scshape} \\scshape",
+    "body": [
+      "\\begin{scshape}",
+      "  ${1:TARGET}",
+      "\\end{scshape}"
+    ]
+  },
+
+  "itshape": {
+    "prefix": "itshape",
+    "description": "\\begin{itshape} \\itshape",
+    "body": [
+      "\\begin{itshape}",
+      "  ${1:TARGET}",
+      "\\end{itshape}"
+    ]
+  },
+
+  "\\textbf": {
+    "prefix": "\\textbf",
+    "description": "textbf \\textbf",
+    "body": [
+      "\\textbf{${1:TARGET}}${0}"
+    ]
+  },
+
+  "\\textmd": {
+    "prefix": "\\textmd",
+    "description": "textmd \\textmd",
+    "body": [
+      "\\textmd{${1:TARGET}}${0}"
+    ]
+  },
+
+  "\\texttt": {
+    "prefix": "\\texttt",
+    "description": "texttt \\texttt",
+    "body": [
+      "\\texttt{${1:TARGET}}${0}"
+    ]
+  },
+
+  "\\textsf": {
+    "prefix": "\\textsf",
+    "description": "textsf \\textsf",
+    "body": [
+      "\\textsf{${1:TARGET}}${0}"
+    ]
+  },
+
+  "\\textrm": {
+    "prefix": "\\textrm",
+    "description": "textrm \\textrm",
+    "body": [
+      "\\textrm{${1:TARGET}}${0}"
+    ]
+  },
+
+  "\\textup": {
+    "prefix": "\\textup",
+    "description": "textup \\textup",
+    "body": [
+      "\\textup{${1:TARGET}}${0}"
+    ]
+  },
+
+  "\\textsl": {
+    "prefix": "\\textsl",
+    "description": "textsl \\textsl",
+    "body": [
+      "\\textsl{${1:TARGET}}${0}"
+    ]
+  },
+
+  "\\textsc": {
+    "prefix": "\\textsc",
+    "description": "textsc \\textsc",
+    "body": [
+      "\\textsc{${1:TARGET}}${0}"
+    ]
+  },
+
+  "\\textit": {
+    "prefix": "\\textit",
+    "description": "textit \\textit",
+    "body": [
+      "\\textit{${1:TARGET}}${0}"
+    ]
+  },
+
+  "frame": {
+    "prefix": "frame",
+    "description": "\\begin{frame} \\frame",
+    "body": [
+      "\\begin{frame}{${1:#:frametitle}}",
+      "  ${2:TARGET}",
+      "\\end{frame}"
+    ]
+  },
+
+  "block": {
+    "prefix": "block",
+    "description": "\\begin{block}",
+    "body": [
+      "\\begin{block}{${1:#:title}}",
+      "  ${2:TARGET}",
+      "\\end{block}"
+    ]
+  },
+
+  "exampleblock": {
+    "prefix": "exampleblock",
+    "description": "\\begin{exampleblock}",
+    "body": [
+      "\\begin{exampleblock}{${1:#:title}}",
+      "  ${2:TARGET}",
+      "\\end{exampleblock}"
+    ]
+  },
+
+  "alertblock": {
+    "prefix": "alertblock",
+    "description": "\\begin{alertblock}",
+    "body": [
+      "\\begin{alertblock}{${1:#:title}}",
+      "  ${2:TARGET}",
+      "\\end{alertblock}"
+    ]
+  },
+
+  "columns": {
+    "prefix": "columns",
+    "description": "\\begin{columns} \\columns",
+    "body": [
+      "\\begin{columns}",
+      "  \\begin{column}{${1:#:width}${2:\\\\\\textwidth}}",
+      "    ${0:#:body}",
+      "  \\end{column}",
+      "\\end{columns}"
+    ]
+  },
+
+  "column": {
+    "prefix": "column",
+    "description": "\\begin{column} \\column",
+    "body": [
+      "\\begin{column}{${1:#:width}${2:\\\\\\textwidth}}",
+      "  ${0:#:body}",
+      "\\end{column}"
+    ]
+  },
+
+  "tikzfig": {
+    "prefix": "tikzfig",
+    "description": "figuretikz",
+    "body": [
+      "\\begin{figure}[${1}]",
+      "  \\centering",
+      "  \\begin{tikzpicture}[${2}]",
+      "    ${3:TARGET}",
+      "  \\end{tikzpicture}",
+      "  \\caption{${4}}",
+      "  \\label{fig:${5}}",
+      "\\end{figure}"
+    ]
+  },
+
+  "tikzpicture": {
+    "prefix": "tikzpicture",
+    "description": "\\begin{tikzpicture}",
+    "body": [
+      "\\begin{tikzpicture}[${1}]",
+      "  ${2:TARGET}",
+      "\\end{tikzpicture}"
+    ]
+  },
+
+  "scope": {
+    "prefix": "scope",
+    "description": "\\begin{scope}",
+    "body": [
+      "\\begin{scope}[${1}]",
+      "  ${2:TARGET}",
+      "\\end{scope}"
+    ]
+  },
+
+  "path": {
+    "prefix": "path",
+    "description": "\\path",
+    "body": [
+      "\\path[${1}] ${2};${0}"
+    ]
+  },
+
+  "draw": {
+    "prefix": "draw",
+    "description": "\\draw",
+    "body": [
+      "\\draw[${1}] ${2};${0}"
+    ]
+  },
+
+  "fill": {
+    "prefix": "fill",
+    "description": "\\fill",
+    "body": [
+      "\\fill[${1}] ${2};${0}"
+    ]
+  },
+
+  "filldraw": {
+    "prefix": "filldraw",
+    "description": "\\filldraw",
+    "body": [
+      "\\filldraw[${1}] ${2};${0}"
+    ]
+  },
+
+  "shade": {
+    "prefix": "shade",
+    "description": "\\shade",
+    "body": [
+      "\\shade[${1}] ${2};${0}"
+    ]
+  },
+
+  "coordinate": {
+    "prefix": "coordinate",
+    "description": "\\coordinate",
+    "body": [
+      "\\coordinate[${1}](${2:name}) ${3};${0}"
+    ]
+  },
+
+  "node": {
+    "prefix": "node",
+    "description": "\\node",
+    "body": [
+      "\\node[${1}](${2:name}) ${3};${0}"
+    ]
+  },
+
+  "addbibresource": {
+    "prefix": "addbibresource",
+    "description": "\\addbibresource",
+    "body":[
+      "\\addbibresource{${1:resource}}${0}"
+    ]
+  },
+
+  "cite": {
+    "prefix": "cite",
+    "description": "\\cite",
+    "body": [
+      "\\cite{${1}}${0}"
+    ]
+  },
+
+  "nocite": {
+    "prefix": "nocite",
+    "description": "\\nocite",
+    "body": [
+      "\\nocite{${1}}${0}"
+    ]
+  },
+
+  "supercite": {
+    "prefix": "supercite",
+    "description": "\\supercite",
+    "body": [
+      "\\supercite{${1}}${0}"
+    ]
+  },
+
+  "autocite": {
+    "prefix": "autocite",
+    "description": "\\autocite",
+    "body": [
+      "\\autocite{${1}}${0}"
+    ]
+  },
+
+  "fullcite": {
+    "prefix": "fullcite",
+    "description": "\\fullcite",
+    "body": [
+      "\\fullcite{${1}}${0}"
+    ]
+  },
+
+  "usepackage": {
+    "prefix": "usepackage",
+    "description": "\\usepackage",
+    "body": [
+      "\\usepackage${1:[${2}]}{${3}}"
+    ]
+  },
+
+  "label": {
+    "prefix": "label",
+    "description": "\\label",
+    "body": [
+      "\\label{${1}}${0}"
+    ]
+  }
+}
