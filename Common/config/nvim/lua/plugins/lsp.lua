@@ -128,14 +128,14 @@ return {
   { 'hrsh7th/cmp-vsnip',           dependencies = { 'hrsh7th/vim-vsnip', 'hrsh7th/nvim-cmp', } },
   { 'petertriho/cmp-git',          dependencies = { 'hrsh7th/nvim-cmp', } },
   { 'hrsh7th/nvim-cmp',            config = hook_cmp_loaded, },
-  { 'rafamadriz/friendly-snippets' },
   {
     'hrsh7th/vim-vsnip',
-    dependencies = { 'rafamadriz/friendly-snippets' },
     config = function()
       vim.cmd([[
-imap <expr> <C-k> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-k>'
-smap <expr> <C-k> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-k>'
+imap <expr> <C-k> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-k>'
+smap <expr> <C-k> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-k>'
+imap <expr> <C-S-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-S-k>'
+smap <expr> <C-S-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-[rev)' : '<C-S-k>'
     ]])
     end
   },
