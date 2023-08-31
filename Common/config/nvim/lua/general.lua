@@ -14,6 +14,8 @@ vim.opt.smartindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.g.markdown_recommended_style = 0
+
 vim.opt.number = true
 vim.opt.cmdheight = 2
 vim.opt.showcmd = true
