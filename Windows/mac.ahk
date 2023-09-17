@@ -1,8 +1,8 @@
 ;================================================================
 ;auto hot key script for windows
-;mac風キーバインド
+;macOS like keymaps
 ;================================================================
-#InstallKeybdHook
+InstallKeybdHook
 #UseHook
 
 ;================================================================
@@ -18,40 +18,16 @@
 ;----------------------------------------------------------------
 is_disable_window()
 {
-	;gvim
-	IfWinActive,ahk_class Vim
-	{
-		return 1
-	}
 	;tera term
-	IfWinActive,ahk_class VTWin32
+	if WinActive("ahk_class VTWin32")
 	{
 		return 1
 	}
 	;vmware player 
-	IfWinActive,ahk_class VMPlayerFrame
+	if WinActive("ahk_class VMPlayerFrame")
 	{
 		return 1
 	}
-	;hyper
-	IfWinActive,ahk_exe Hyper.exe
-	{
-		return 1
-	}
-	;Android Studio
-	IfWinActive,ahk_exe studio64.exe
-	{
-		return 1
-	}
-	;Intellij
-	IfWinActive,ahk_exe idea64.exe
-	{
-		return 1
-	}
-    ifWinActive,ahk_exe WindowsTerminal.exe
-    {
-        return 1
-    }
 	
 	return 0
 }
@@ -69,42 +45,35 @@ send_key(original_key,replace_key)
 {
 	if (is_disable_window())
 	{
-		Send,%original_key%
+		Send(original_key)
 		return
 	}
-	Send,%replace_key%
+	Send(replace_key)
 	return
 }
 
 ;================================================================
-;ctrlキーバインド
+;ctrl keymaps
 ;================================================================
 
-;----------------------------------------------------------------
-;移動系（shiftキーとの同時押し対応）
-;ctrl + n : Down
-;ctrl + p : Up
-;ctrl + f : Right
-;ctrl + b : Left
-;----------------------------------------------------------------
-
 <^n::send_key("^n","{Down}")
-<^+n::send_key("^+n","+{Down}")
 <^p::send_key("^p","{Up}")
-<^+p::send_key("^+p","+{Up}")
 <^f::send_key("^f","{Right}")
-<^+f::send_key("^+f","+{Right}")
 <^b::send_key("^b","{Left}")
-<^+b::send_key("^+b","+{Left}")
+<^a::send_key("^a","{Home}")
+<^e::send_key("^e","{End}")
 
-;----------------------------------------------------------------
-;編集系
-;ctrl + h : BackSpace
-;ctrl + d : Delete
-;ctrl + k : Delete from cursor to the end of line
-;----------------------------------------------------------------
- 
 <^h::send_key("^h","{BS}")
 <^d::send_key("^d","{Del}")
 <^k::send_key("^k","+{End}{Del}")
 
+;================================================================
+;alt keymaps
+;================================================================
+
+<!a::send_key("!a", "^a")
+<!z::send_key("!z", "^z")
+<!x::send_key("!x", "^x")
+<!c::send_key("!c", "^c")
+<!v::send_key("!v", "^v")
+<!f::send_key("!f", "^f")
