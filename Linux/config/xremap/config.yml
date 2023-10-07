@@ -4,7 +4,7 @@ modmap:
       CapsLock: Ctrl_L
 
 keymap:
-  - name: Mac
+  - name: Emacs
     application:
       not: [Alacritty]
     remap:
@@ -16,6 +16,8 @@ keymap:
       C-e: { with_mark: end }
       C-h: backspace
       C-m: enter
+  - name: Mac
+    remap:
       M-a: [C-a, { set_mark: false }]
       M-z: [C-z, { set_mark: false }]
       M-x: [C-x, { set_mark: false }]
