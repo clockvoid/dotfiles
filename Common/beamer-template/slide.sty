@@ -1,4 +1,4 @@
-\usepackage{amsmath, latexsym, amssymb, mathtools, bm, ascmac, multicol, multirow, tcolorbox, subfig, url, tikz, graphicx, wrapfig, lipsum}
+\usepackage{amsmath, latexsym, amssymb, mathtools, bm, ascmac, multicol, multirow, tcolorbox, subfig, url, tikz, graphicx, wrapfig, lipsum, pgfpages, csquotes}
 \usepackage[style=numeric,backend=biber,sorting=none]{biblatex}
 \usepackage[absolute,overlay]{textpos}
 \usetikzlibrary{positioning}
@@ -10,6 +10,8 @@
 \newcommand{\green}[1]{\textcolor{green!80!black}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue!80!black}{#1}}
 
+\definecolor{gray}{HTML}{373b41}
+\definecolor{black}{HTML}{282a2e}
 \definecolor{red}{HTML}{a54242}
 \definecolor{yello}{HTML}{8c9440}
 \definecolor{blue}{HTML}{5f819d}
@@ -46,9 +48,25 @@
     {9}{{{\color{red!20!violet}9}}}1
 }
 
-\usetheme[numbering=fullbar,nofirafonts]{focus}
-\setbeamertemplate{itemize subsubitem}[circle]
-\setbeamercolor{itemize subsubitem}{fg=main}
+\usetheme{metropolis}
+\metroset{numbering=counter,sectionpage=none,subsectionpage=none}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{frametitle}{bg=gray}
+\setbeamercolor{title separator}{fg=gray}
+\setbeamercolor{footnote}{use=palette primary}
+\setbeamertemplate{itemize items}[square]
+\setbeamertemplate{itemize subitem}[triangle]
+
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[wd=\textwidth,sep=1ex]{footline}%
+        \usebeamerfont{page number in head/foot}%
+        \usebeamertemplate*{frame footer}
+        \hfill%
+        \usebeamertemplate*{frame numbering}
+    \end{beamercolorbox}%
+}
+
+%\setbeameroption{show notes on second screen}
 
 %ハイパーリンク
 \usepackage{bxdpx-beamer}
@@ -69,7 +87,8 @@
     YokoFeatures={JFM=prop} %JFMを指定する
 ]{Source Han Sans JP}
 %\emojiで絵文字も扱えるように
-\font\emoji={name:Apple Color Emoji:mode=harf;+ccmp;+dist}
+\font\emoji={name:Noto Color Emoji:mode=harf;+ccmp;+dist}
+%\font\emoji={name:Apple Color Emoji:mode=harf;+ccmp;+dist}
 %数式フォントなどを上書き
 \usefonttheme{professionalfonts}
 
@@ -77,9 +96,6 @@
 \renewcommand{\figurename}{図}
 \renewcommand{\tablename}{表}
 \setbeamertemplate{caption}[numbered]
-
-%フッターの存在感を薄く
-\setbeamercolor{footline}{fg=main, bg=background}
 
 %番号なしのfootnote
 \newcommand\blfootnote[1]{
@@ -92,3 +108,12 @@
 \newcommand{\highlight}[2][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!30](x){#2};}}
 \newcommand{\highlightcap}[3][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!30](x){#2} node[below of=x, color=#1]{#3};}}
 
+%著者付きのquote
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip1em
+  \hbox{}\nobreak\hfill #1%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}\openautoquote}
+  {\unskip\closeautoquote\\\vspace*{1mm}\signed{\usebox\mybox}\end{quote}}
