@@ -1,6 +1,6 @@
 yabai -m config layout bsp
 yabai -m rule --add app="^(zoom.us|System Settings|Preview|Finder|QuickTime Player|Archive Utility|Activity Monitor|Simulator|System Information)$" manage=off
-yabai -m rule --add app="Android Studio" title="^(Settings|Rename.*|.*Scope|New.*|Create.*|Move|.*Delete|Reformat.*|Tag|Reset Head|.*[Ss]tash.*|Git Remotes|Change.*|Extract.*|Pull.*|Push.*|.*Update.*|.*Installation|.*Configuration.*|.*Gradle.*|Choose Process|Invalidate Caches|Implement Members|About Android Studio|Take Screenshot|.*Options|.*Git.*|Import.*|Asset Studio|Drawable Resource File|Welcome to Android Studio)" manage=off
+yabai -m rule --add app="Android Studio" title="^(Settings|Rename.*|.*Scope|New.*|Create.*|Move|.*Delete|Reformat.*|Tag|Reset Head|.*[Ss]tash.*|Git Remotes|Change.*|Extract.*|Pull.*|Push.*|.*Update.*|.*Installation|.*Configuration.*|.*Gradle.*|Choose Process|Invalidate Caches|Implement Members|About Android Studio|Take Screenshot|.*Options|.*Git.*|Import.*|Asset Studio|Drawable Resource File|Project Structure|Welcome to Android Studio)" manage=off
 yabai -m rule --add app="IntelliJ IDEA" title="^(Settings|Rename.*|.*Scope|New.*|Create.*|Move|.*Delete|Reformat.*|Tag|Reset Head|.*[Ss]tash.*|Git Remotes|Change.*|Extract.*|Pull.*|Push.*|.*Update.*|.*Installation|.*Configuration.*|.*Gradle.*|Choose Process|Invalidate Caches|Implement Members|About IntelliJ IDEA|.*Git.*|Welcome to IntelliJ IDEA)" manage=off
 yabai -m rule --add app="Mail" title!="^.*— Google –.*$" manage=off
 yabai -m rule --add app="Safari" title="^(General)$" manage=off
