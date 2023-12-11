@@ -76,7 +76,6 @@ disabledKeys =
 
 startup :: X ()
 startup = do
-  setWMName "LG3D"
   spawn (configPath ++ "set_wallpaper.sh")
 
 main :: IO ()
@@ -114,7 +113,8 @@ main = do
                 toggleLayouts (noBorders Full) $
                   smartBorders $
                     layoutHook baseConfig,
-            logHook =
+            logHook = do
+              setWMName "LG3D"
               mapM_
                 ( \xmproc ->
                     dynamicLogWithPP
