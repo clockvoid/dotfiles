@@ -2,19 +2,31 @@ modmap:
   - name: Global
     remap:
       CapsLock: Ctrl_L
+      Alt_L:
+        held: Alt_L
+        alone: Muhenkan
+        alone_timeout_millis: 200
+      Alt_R:
+        held: Alt_R
+        alone: Henkan
+        alone_timeout_millis: 200
 
 keymap:
-  - name: Emacs
+  - name: EmacsBase
     application:
       not: [Alacritty]
     remap:
-      C-b: { with_mark: left }
-      C-f: { with_mark: right }
       C-p: { with_mark: up }
       C-n: { with_mark: down }
+      C-h: backspace
+  - name: EmacsAdvanced
+    application:
+      not: [jetbrains-studio, Alacritty]
+    remap:
+      C-b: { with_mark: left }
+      C-f: { with_mark: right }
       C-a: { with_mark: home }
       C-e: { with_mark: end }
-      C-h: backspace
       C-m: enter
   - name: Mac
     remap:
