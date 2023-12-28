@@ -230,7 +230,7 @@ xresources ()
 
 alacritty ()
 {
-    ln -sf $(pwd)/$environment/config/alacritty/env.yml $(pwd)/Common/config/alacritty
+    ln -sf $(pwd)/$environment/config/alacritty/env.toml $(pwd)/Common/config/alacritty
     ln -sf $(pwd)/Common/config/alacritty/ $home_dir/.config/
     echo Alacritty: Done
 }
