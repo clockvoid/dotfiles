@@ -3,7 +3,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
     local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'K', function () vim.lsp.buf.hover() vim.lsp.buf.hover() end , opts)
     vim.keymap.set('n', '<C-M-l>', vim.lsp.buf.format, opts)
     vim.keymap.set('n', 'L', vim.lsp.buf.references, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -12,9 +12,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<F6>', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'ge', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', 'ge', function () vim.diagnostic.open_float({ focusable = false }) end, opts)
+    vim.keymap.set('n', 'g]', function () vim.diagnostic.goto_next({ float = { focusable = false } }) end, opts)
+    vim.keymap.set('n', 'g[', function () vim.diagnostic.goto_prev({ float = { focusable = false } }) end, opts)
     vim.keymap.set('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist<CR>', opts)
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true }
