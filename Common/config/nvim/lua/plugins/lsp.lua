@@ -1,4 +1,5 @@
 vim.lsp.set_log_level('ERROR')
+-- keymaps; see also: keymap.lua
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
@@ -11,11 +12,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<C-M-b>', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<F6>', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'ge', function () vim.diagnostic.open_float({ focusable = false }) end, opts)
-    vim.keymap.set('n', 'g]', function () vim.diagnostic.goto_next({ float = { focusable = false } }) end, opts)
-    vim.keymap.set('n', 'g[', function () vim.diagnostic.goto_prev({ float = { focusable = false } }) end, opts)
-    vim.keymap.set('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist<CR>', opts)
+    vim.keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, opts)
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true }
     )

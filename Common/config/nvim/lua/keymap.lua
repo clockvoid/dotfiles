@@ -22,5 +22,9 @@ vim.api.nvim_set_keymap('v', 'gj', 'j', { noremap = true })
 vim.api.nvim_set_keymap('v', 'gk', 'k', { noremap = true })
 
 vim.api.nvim_set_keymap('x', 'p', "'pgv\"'.v:register.'y`>'", { noremap = true, expr = true })
-
 vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', { silent = true, noremap = true })
+
+vim.keymap.set('n', '<C-F1>', function () vim.diagnostic.open_float({ focusable = false }) end)
+vim.keymap.set('n', '<F2>', function () vim.diagnostic.goto_next({ float = { focusable = false } }) end)
+vim.keymap.set('n', '<S-F2>', function () vim.diagnostic.goto_prev({ float = { focusable = false } }) end)
+vim.keymap.set('n', '<M-6>', vim.diagnostic.setloclist)
