@@ -119,6 +119,14 @@
     ]
   },
 
+  "item": {
+    "prefix": "item",
+    "description": "\\item",
+    "body": [
+      "\\item ${0}"
+    ]
+  },
+
   "titlepage": {
     "prefix": "titlepage",
     "description": "\\begin{titlepage} \\titlepage",
