@@ -1,4 +1,4 @@
-\usepackage{amsmath, latexsym, amssymb, mathtools, bm, ascmac, multicol, multirow, tcolorbox, subfig, url, tikz, graphicx, wrapfig, lipsum, pgfpages, csquotes}
+\usepackage{amsmath, latexsym, amssymb, mathtools, bm, ascmac, multicol, multirow, tcolorbox, subfig, url, tikz, graphicx, wrapfig, lipsum, pgfpages, csquotes, ifplatform}
 \usepackage[style=numeric,backend=biber,sorting=none]{biblatex}
 \usepackage[absolute,overlay]{textpos}
 \usetikzlibrary{positioning}
@@ -19,21 +19,32 @@
 \definecolor{green}{HTML}{8c9440}
 
 \usepackage{listings}
+\lstdefinelanguage{Kotlin}{
+  comment=[l]{//},
+  commentstyle={\color{gray}\ttfamily},
+  emph={filter, first, firstOrNull, forEach, lazy, map, mapNotNull, println},
+  emphstyle={\color{red}},
+  identifierstyle=\color{black},
+  keywords={!in, !is, abstract, actual, annotation, as, as?, break, by, catch, class, companion, const, constructor, continue, crossinline, data, delegate, do, dynamic, else, enum, expect, external, false, field, file, final, finally, for, fun, get, if, import, in, infix, init, inline, inner, interface, internal, is, lateinit, noinline, null, object, open, operator, out, override, package, param, private, property, protected, public, receiveris, reified, return, return@, sealed, set, setparam, super, suspend, tailrec, this, throw, true, try, typealias, typeof, val, var, vararg, when, where, while},
+  keywordstyle={\color{blue}\bfseries},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[s]{"""*}{*"""},
+  ndkeywords={@Deprecated, @JvmField, @JvmName, @JvmOverloads, @JvmStatic, @JvmSynthetic, Array, Byte, Double, Float, Int, Integer, Iterable, Long, Runnable, Short, String, Any, Unit, Nothing},
+  ndkeywordstyle={\color{orange}\bfseries},
+  sensitive=true,
+  stringstyle={\color{green}\ttfamily},
+}
 \lstset{
-    language={C},
-    basicstyle=\ttfamily\footnotesize,
-    commentstyle=\itshape\color{yello},
-    keywordstyle=\bfseries\color{red},
-    identifierstyle=\color{blue},
-    stringstyle=\color{orange},
-    frame=tRBl,
-    framesep=5pt,
-    numbers=left,
-    stepnumber=1,
-    numberstyle=\footnotesize,
-    tabsize=2,
-    classoffset=1,
-    breaklines=true
+  basicstyle=\ttfamily\footnotesize,
+  frame=tRBl,
+  framesep=5pt,
+  numbers=left,
+  stepnumber=1,
+  numberstyle=\footnotesize,
+  tabsize=2,
+  classoffset=1,
+  breaklines=true
 }
 \lstset{literate=%
    *{0}{{{\color{red!20!violet}0}}}1
@@ -49,21 +60,22 @@
 }
 
 \usetheme{metropolis}
-\metroset{numbering=counter,sectionpage=none,subsectionpage=none}
+\metroset{numbering=counter,sectionpage=simple,subsectionpage=none}
 \setbeamercolor{normal text}{fg=black}
-\setbeamercolor{frametitle}{bg=gray}
+\setbeamercolor{frametitle}{bg=normal text.bg,fg=normal text.fg}
 \setbeamercolor{title separator}{fg=gray}
 \setbeamercolor{footnote}{use=palette primary}
+\setbeamercolor{progress bar in section page}{use=progress bar,parent=progress bar,fg=gray}
 \setbeamertemplate{itemize items}[square]
 \setbeamertemplate{itemize subitem}[triangle]
 
-\setbeamertemplate{footline}{%
-    \begin{beamercolorbox}[wd=\textwidth,sep=1ex]{footline}%
-        \usebeamerfont{page number in head/foot}%
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\textwidth,sep=1.5ex]{footline}
+        \usebeamerfont{page number in head/foot}
         \usebeamertemplate*{frame footer}
-        \hfill%
+        \hfill
         \usebeamertemplate*{frame numbering}
-    \end{beamercolorbox}%
+    \end{beamercolorbox}
 }
 
 %\setbeameroption{show notes on second screen}
@@ -76,8 +88,9 @@
 %ラテン文字のフォントをIBM plexに
 \usepackage[T1]{fontenc}
 \usepackage[usefilenames,DefaultFeatures={Ligatures=Common}]{plex-otf}
-%日本語フォントをSource Han Sans JPに
+%日本語フォント
 \usepackage[UTF-8]{luatexja-fontspec}
+\iflinux
 \setmainjfont[
     FontFace = {l}{\updefault}{* Medium},
     UprightFont = {* Regular}, % for \mdseries
@@ -88,7 +101,19 @@
 ]{Source Han Sans JP}
 %\emojiで絵文字も扱えるように
 \font\emoji={name:Noto Color Emoji:mode=harf;+ccmp;+dist}
-%\font\emoji={name:Apple Color Emoji:mode=harf;+ccmp;+dist}
+\fi
+\ifmacosx
+\setmainjfont[
+    FontFace = {l}{\updefault}{* W3},
+    UprightFont = {* W3}, % for \mdseries
+    BoldFont = {* W6},       % for \bfseries
+    FontFace = {eb}{\updefault}{* W6},
+    AutoFakeSlant = 0.25,
+    YokoFeatures={JFM=prop} %JFMを指定する
+]{Hiragino Kaku Gothic ProN}
+%\emojiで絵文字も扱えるように
+\font\emoji={name:Apple Color Emoji:mode=harf;+ccmp;+dist}
+\fi
 %数式フォントなどを上書き
 \usefonttheme{professionalfonts}
 

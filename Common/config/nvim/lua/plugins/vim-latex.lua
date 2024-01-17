@@ -4,7 +4,7 @@ local function set_tex_family()
   local function setLuaLaTex()
     vim.g.Tex_MultipleCompileFormats = 'pdf,bibtex,pdf'
     vim.g.Tex_FormatDependency_pdf = nil
-    vim.g.Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+    vim.g.Tex_CompileRule_pdf = 'lualatex --shell-escape -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
     vim.g.Tex_CompileRule_dvi = nil
     vim.b.is_lua_latex = 1
     print("lualatex mode")
