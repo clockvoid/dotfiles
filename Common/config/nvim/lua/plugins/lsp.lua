@@ -165,6 +165,7 @@ smap <expr> <C-S-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-[rev)' : '<C-S-k>'
         replace_keycodes = false
       })
       vim.g.copilot_no_tab_map = true
+      vim.g.copilot_filetypes = { markdown = true }
     end,
   }
 }
