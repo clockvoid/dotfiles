@@ -101,7 +101,6 @@ tmux ()
         }
         git clone https://github.com/tmux-plugins/tpm $home_dir/.tmux/plugins/tpm
     fi
-    ln -sf $(pwd)/Common/tmux.conf $home_dir/.tmux.conf
     ln -sf $(pwd)/$environment/config/tmux/env $(pwd)/Common/config/tmux/
     ln -sf $(pwd)/Common/config/tmux $home_dir/.config/
     if [ $environment == "Darwin" ]; then
