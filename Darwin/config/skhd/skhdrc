@@ -46,3 +46,5 @@ shift + alt - 9 : yabai -m window --space  9
 shift + alt - 0 : yabai -m window --space 10
 
 alt - q : yabai --restart-service || skhd --restart-service
+
+shift + alt - return : alacritty -e zsh -c "tmux -q has-session && exec tmux attach-session -d || exec tmux"
