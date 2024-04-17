@@ -46,6 +46,8 @@ install_anyenv()
 install_sdkman() {
   if [ ! -d $home_dir/.sdkman ]; then
     curl -s "https://get.sdkman.io" | bash
+    git restore .
+    source ~/.zshrc
   fi
 }
 
