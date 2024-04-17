@@ -11,6 +11,10 @@ command -v anyenv >/dev/null && eval "$(anyenv init -)"
 command -v direnv >/dev/null && eval "$(direnv hook zsh)"
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 [ -f $HOME/.travis/travis.sh ] && . $HOME/.travis/travis.sh # added by travis gem
+if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
+  export SDKMAN_DIR="$HOME/.sdkman"
+  source "$HOME/.sdkman/bin/sdkman-init.sh" # sdkman
+fi
 
 source $HOME/.config/zsh/path.zsh
 
