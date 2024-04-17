@@ -43,6 +43,12 @@ install_anyenv()
     fi
 }
 
+install_sdkman() {
+  if [ ! -d $home_dir/.sdkman ]; then
+    curl -s "https://get.sdkman.io" | bash
+  fi
+}
+
 install_local_bin()
 {
     if [ ! -d $home_dir/.local ]; then
@@ -421,6 +427,8 @@ if [ $config = "all" ]; then
     redshift
 elif [ $config = "haskell" ]; then
     install_ghcup
+elif [ $config = "sdkman" ]; then
+    install_sdkman
 elif [ $config = "ideavim" ]; then
     ideavim
 elif [ $config = "neovim" ]; then
