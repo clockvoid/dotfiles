@@ -29,7 +29,6 @@ manageWindowSize =
     [ isFullscreen --> doFullFloat,
       isDialog --> doCenterFloat,
       className =? "Gimp" --> doFloat,
-      className =? "Gnome-system-monitor" --> doCenterFloat,
       className =? "Evolution-alarm-notify" --> doCenterFloat,
       title =? "Picture in picture" --> doFloat,
       title =? "Welcome to Android Studio" --> doFloat,
