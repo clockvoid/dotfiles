@@ -27,4 +27,22 @@ require('lazy').setup({
   { 'scrooloose/syntastic',      ft = { 'swift' } },
   { 'keith/swift.vim',           ft = { 'swift' } },
   { 'udalov/kotlin-vim',         ft = { 'kotlin' } },
+}, {
+  ui = {
+    icons = {
+      cmd = "💾",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
+      runtime = "💻",
+      require = "🌙",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+      lazy = "💤 ",
+    }
+  }
 })
