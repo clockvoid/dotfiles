@@ -153,6 +153,7 @@ smap <expr> <C-S-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-[rev)' : '<C-S-k>'
         go = { 'staticcheck' },
         haskell = {},
         rust = {},
+        ruby = {},
       }
     end,
   },
