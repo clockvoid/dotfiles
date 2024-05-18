@@ -2,7 +2,7 @@
 
 if [ $(tmux list-panes | wc -l) = 1 ]; then
     tmux split-window -v \; select-pane -t :.- \; select-layout main-horizontal
-    nvim -c FZF
+    nvim
 else
     echo "only 1 pane must be exist"
 fi
