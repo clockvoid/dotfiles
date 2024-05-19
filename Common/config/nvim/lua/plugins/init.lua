@@ -21,7 +21,6 @@ require('lazy').setup({
   require('plugins/previm'),
   require('plugins/quickrun'),
 
-  { 'simeji/winresizer' },
   { 'maxmellon/vim-jsx-pretty',  ft = { 'javascript', 'typescript' } },
   { 'neovimhaskell/haskell-vim', ft = { 'haskell' } },
   { 'scrooloose/syntastic',      ft = { 'swift' } },
