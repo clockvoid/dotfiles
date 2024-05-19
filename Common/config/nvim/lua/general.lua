@@ -14,8 +14,6 @@ vim.opt.smartindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.g.markdown_recommended_style = 0
-
 vim.opt.number = true
 vim.opt.cmdheight = 1
 vim.opt.showcmd = true
@@ -35,3 +33,4 @@ vim.opt.conceallevel = 0
 vim.opt.concealcursor = ''
 
 vim.g.markdown_folding = 1
+vim.g.markdown_recommended_style = 0
