@@ -17,7 +17,7 @@ vim.opt.smartcase = true
 vim.g.markdown_recommended_style = 0
 
 vim.opt.number = true
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 vim.opt.showcmd = true
 vim.opt.title = true
 vim.opt.statusline:append('%F')
