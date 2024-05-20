@@ -68,6 +68,12 @@ local function hook_lspconfig_loaded()
     filetyles = { 'dart' },
     cmd = { 'dart', 'language-server', '--client-id', 'neovim.lsp' }
   }
+  require('lspconfig').clangd.setup {
+    cmd = {
+      "clangd",
+      "--offset-encoding=utf-16",
+    },
+  }
   require('lspconfig.ui.windows').default_options.border = 'single'
 end
 
