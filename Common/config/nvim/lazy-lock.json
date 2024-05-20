@@ -15,7 +15,7 @@
   "lightline-hybrid.vim": { "branch": "master", "commit": "e8063ea228cd7dbdabb6adcac084e041801c9f5e" },
   "lightline.vim": { "branch": "master", "commit": "58c97bc21c6f657d3babdd4eefce7593e30e75ce" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "a4caa0d083aab56f6cd5acf2d42331b74614a585" },
-  "mason-registry": { "branch": "main", "commit": "7b37087da2d7655434f8ba5750f100149f76e93d" },
+  "mason-registry": { "branch": "main", "commit": "e89a97a7b4bf175439fc1e9aca01468d91052d3c" },
   "mason.nvim": { "branch": "main", "commit": "49ff59aded1047a773670651cfa40e76e63c6377" },
   "nvim-cmp": { "branch": "main", "commit": "5260e5e8ecadaf13e6b82cf867a909f54e15fd07" },
   "nvim-lspconfig": { "branch": "master", "commit": "6d2ae9fdc3111a6e8fd5db2467aca11737195a30" },
