@@ -1,7 +1,6 @@
 vim.lsp.set_log_level('ERROR')
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover,
-  {
+  vim.lsp.handlers.hover, {
     border = "single"
   }
 )
