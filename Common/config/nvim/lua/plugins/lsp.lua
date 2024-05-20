@@ -39,7 +39,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local function hook_lspconfig_loaded()
-  require('mason').setup()
+  require('mason').setup({
+    ui = {
+      border = 'single'
+    }
+  })
   require('mason-lspconfig').setup_handlers {
     function(server_name)
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
