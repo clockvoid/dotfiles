@@ -20,7 +20,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
     local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'K', function () vim.lsp.buf.hover() vim.lsp.buf.hover() end , opts)
+    vim.keymap.set('n', 'K', function()
+      vim.lsp.buf.hover()
+      vim.lsp.buf.hover()
+    end, opts)
     vim.keymap.set('n', '<C-M-l>', vim.lsp.buf.format, opts)
     vim.keymap.set('n', 'L', vim.lsp.buf.references, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -62,6 +65,7 @@ local function hook_lspconfig_loaded()
     filetyles = { 'dart' },
     cmd = { 'dart', 'language-server', '--client-id', 'neovim.lsp' }
   }
+  require('lspconfig.ui.windows').default_options.border = 'single'
 end
 
 local function hook_cmp_loaded()
