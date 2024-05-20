@@ -1,5 +1,3 @@
-vim.g.hybrid_custom_term_colors = 1
-
 local function hook_add_lightline()
   vim.g.lightline = {
     colorscheme = 'hybrid',
@@ -15,12 +13,14 @@ local function hook_add_lightline()
 end
 
 local function hook_add_hybrid()
+  vim.g.hybrid_custom_term_colors = 1
+  vim.opt.termguicolors = false
   vim.opt.background = 'dark'
   vim.cmd.colorscheme('hybrid')
   vim.opt.cursorline = true
-  vim.cmd.highlight('LineNr', 'ctermfg=lightgray')
+  vim.cmd.highlight('LineNr', 'ctermfg=lightgray', 'guifg=lightgray')
   vim.cmd.highlight('CursorLine', 'cterm=none', 'ctermfg=none', 'ctermbg=none', 'guifg=none', 'guibg=none')
-  vim.cmd.highlight('CursorLineNr', 'ctermfg=white')
+  vim.cmd.highlight('CursorLineNr', 'ctermfg=white', 'guifg=white')
   vim.cmd.highlight('MatchParen', 'ctermbg=237', 'ctermfg=255', 'guibg=#3a3a3a', 'guifg=#eeeeee')
 end
 
