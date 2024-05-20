@@ -22,6 +22,7 @@ local function hook_add_hybrid()
   vim.cmd.highlight('CursorLine', 'cterm=none', 'ctermfg=none', 'ctermbg=none', 'guifg=none', 'guibg=none')
   vim.cmd.highlight('CursorLineNr', 'ctermfg=white', 'guifg=white')
   vim.cmd.highlight('MatchParen', 'ctermbg=237', 'ctermfg=255', 'guibg=#3a3a3a', 'guifg=#eeeeee')
+  vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'Pmenu' })
 end
 
 return {
