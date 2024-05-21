@@ -14,13 +14,13 @@ end
 
 local function hook_add_hybrid()
   vim.g.hybrid_custom_term_colors = 1
-  vim.opt.termguicolors = false
+  vim.opt.termguicolors = true
   vim.opt.background = 'dark'
   vim.cmd.colorscheme('hybrid')
   vim.opt.cursorline = true
-  vim.cmd.highlight('LineNr', 'ctermfg=lightgray', 'guifg=lightgray')
+  vim.cmd.highlight('LineNr', 'ctermfg=lightgray', 'guifg=#707880')
   vim.cmd.highlight('CursorLine', 'cterm=none', 'ctermfg=none', 'ctermbg=none', 'guifg=none', 'guibg=none')
-  vim.cmd.highlight('CursorLineNr', 'ctermfg=white', 'guifg=white')
+  vim.cmd.highlight('CursorLineNr', 'ctermfg=white', 'guifg=#c5c8c6')
   vim.cmd.highlight('MatchParen', 'ctermbg=237', 'ctermfg=255', 'guibg=#3a3a3a', 'guifg=#eeeeee')
   vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'Pmenu' })
 end
