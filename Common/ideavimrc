@@ -7,7 +7,6 @@ set smartcase
 set incsearch
 set hlsearch
 set laststatus=2
-set clipboard+=unnamed
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 " START: settings for Custom key Bindings

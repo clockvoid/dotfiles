@@ -23,14 +23,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.buf.hover()
       vim.lsp.buf.hover()
     end, opts)
-    vim.keymap.set('n', '<C-M-l>', vim.lsp.buf.format, opts)
-    vim.keymap.set('n', 'L', vim.lsp.buf.references, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', '<C-M-b>', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<F6>', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', '<C-M-l>', vim.lsp.buf.format, opts)
+    vim.keymap.set('n', 'L', vim.lsp.buf.references, opts)
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true }
     )
