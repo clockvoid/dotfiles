@@ -106,6 +106,15 @@ local function hook_cmp_loaded()
     }, {
       { name = 'buffer' },
     }),
+    window = {
+      documentation = cmp.config.window.bordered(),
+    },
+    formatting = {
+      format = function(_, vim_item)
+        vim_item.menu = ""
+        return vim_item
+      end
+    }
   })
 
   cmp.setup.filetype('gitcommit', {
@@ -131,12 +140,6 @@ local function hook_cmp_loaded()
       { name = 'cmdline' }
     })
   })
-
-  cmp.setup {
-    window = {
-      documentation = cmp.config.window.bordered(),
-    }
-  }
 end
 
 return {
