@@ -28,6 +28,7 @@ require('lazy').setup({
   { 'udalov/kotlin-vim',         ft = { 'kotlin' } },
 }, {
   ui = {
+    border = 'single',
     icons = {
       cmd = "💾",
       config = "🛠",

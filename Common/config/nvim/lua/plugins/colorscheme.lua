@@ -22,6 +22,8 @@ local function hook_add_hybrid()
   vim.cmd.highlight('CursorLine', 'cterm=none', 'ctermfg=none', 'ctermbg=none', 'guifg=none', 'guibg=none')
   vim.cmd.highlight('CursorLineNr', 'ctermfg=white', 'guifg=#c5c8c6')
   vim.cmd.highlight('MatchParen', 'ctermbg=237', 'ctermfg=255', 'guibg=#3a3a3a', 'guifg=#eeeeee')
+  vim.cmd.highlight('NormalFloat', 'guibg=#1d1f21')
+  vim.cmd.highlight('FloatBorder', 'guibg=#1d1f21')
 end
 
 return {

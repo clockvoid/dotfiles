@@ -131,6 +131,12 @@ local function hook_cmp_loaded()
       { name = 'cmdline' }
     })
   })
+
+  cmp.setup {
+    window = {
+      documentation = cmp.config.window.bordered(),
+    }
+  }
 end
 
 return {
