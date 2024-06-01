@@ -1,10 +1,21 @@
-# fbr - checkout git branch
-fbr() {
-    local branches branch
-    branches=$(git branch --all | grep -v HEAD) &&
-    branch=$(echo "$branches" | fzf --reverse --no-preview -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-    git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remote/[^/]*/##")
+# git branch finder
+select-git-branch() {
+  target_br=$(
+    git branch -a | fzf --exit-0 --height=~100% --reverse --no-multi --preview-window="right,65%" --preview="echo {} | tr -d ' *' | xargs git log --color=always" |
+    head -n 1 |
+    perl -pe "s/\s//g; s/\*//g; s/remotes\/origin\///g"
+  )
+  if [ -n "$target_br" ]; then
+    LBUFFER="${LBUFFER}$target_br"
+    local ret=$?
+    zle reset-prompt
+    return $ret
+  else
+    zle redisplay
+  fi
 }
+zle -N select-git-branch
+bindkey "^b" select-git-branch
 
 # fshow - git commit browser
 fshow() {
@@ -18,7 +29,7 @@ fshow() {
 FZF-EOF"
 }
 
-# jump to git repository root directory
+# jump to root directory of git repository
 # from https://bezhermoso.github.io/2018/07/28/jump-back-up-to-git-repo-root-directory/
 gr() {
     local _root_dir="$(git rev-parse --show-toplevel 2>/dev/null)"
