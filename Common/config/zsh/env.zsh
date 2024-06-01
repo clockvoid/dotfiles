@@ -1,1 +1,0 @@
-/home/clock/git/dotfiles/Linux/config/zsh/env.zsh
