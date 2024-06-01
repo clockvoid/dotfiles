@@ -1,3 +1,6 @@
+zinit ice depth"1"
+zinit light romkatv/powerlevel10k
+
 # Config for Powerlevel10k with powerline prompt style with colorful background.
 # Type `p10k configure` to generate your own config based on it.
 #

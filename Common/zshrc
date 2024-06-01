@@ -1,19 +1,13 @@
+source $HOME/.config/zsh/zinit.zsh
+source $HOME/.config/zsh/general.zsh
 source $HOME/.config/zsh/env.zsh
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+typeset -U path
 
 for f in $HOME/.config/zsh/init/*.zsh; do source $f; done
 for f in $HOME/.config/zsh/init/env/*.zsh; do source $f; done
 
-if [[ $TMUX == "" ]]; then
-    prompt redhat
+if [ -n "$TMUX" ]; then
+    for f in $HOME/.config/zsh/tmux/*.zsh; do source $f; done
 else
-    # Load plugins and its settings
-    source $HOME/.config/zsh/zinit.zsh
-    for f in $HOME/.config/zsh/plugins/*.zsh; do source $f; done
-
-    # editor to use in tmux
-    export VISUAL="nvim"
-    export EDITOR="nvim"
+    prompt redhat
 fi

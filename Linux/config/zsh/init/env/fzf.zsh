@@ -30,6 +30,8 @@ export FZF_CTRL_T_COMMAND='find \( \
     -name .git \
     \) -prune \) -o \( ! -path ./. -type d \) -o -printf "%P\n"'
 
+export FZF_CTRL_R_OPTS='--reverse'
+
 _fzf_compgen_path() {
     find "$1" \( -type d \( \
         -name .git \

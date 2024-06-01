@@ -11,9 +11,6 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit ice depth"1"
-zinit light romkatv/powerlevel10k
-
 zinit ice wait lucid
 zinit light wfxr/forgit
 
