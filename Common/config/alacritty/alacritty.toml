@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/env.toml"]
+import = ["~/.config/alacritty/env.toml", "~\\AppData\\Roaming\\alacritty\\env.toml"]
 live_config_reload = true
 
 [colors]
