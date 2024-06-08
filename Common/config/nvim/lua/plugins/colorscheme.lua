@@ -13,7 +13,7 @@ local function hook_add_lightline()
 end
 
 local function hook_add_hybrid()
-  vim.g.hybrid_custom_term_colors = 1
+  vim.g.hybrid_custom_term_colors = 0
   vim.opt.termguicolors = true
   vim.opt.background = 'dark'
   vim.cmd.colorscheme('hybrid')
