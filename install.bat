@@ -4,6 +4,8 @@ xcopy .\Windows\settings.json %UserProfile%\AppData\Local\Packages\Microsoft.Win
 
 xcopy .\Common\ideavimrc %UserProfile%\.ideavimrc
 
+xcopy .\Windows\.inputrc %UserProfile%\.inputrc
+
 rmdir /S %UserProfile%\AppData\Local\nvim
 if not exist "%UserProfile%\AppData\Local\nvim" (
   mkdir %UserProfile%\AppData\Local\nvim
