@@ -3,6 +3,7 @@
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 export PATH=$HOME/.local/bin:$PATH
 
+export ADW_DISABLE_PORTAL=1
 export QT_QPA_PLATFORMTHEME=gtk
 export QT_STYLE_OVERRIDE=Adwaita-Dark
 
