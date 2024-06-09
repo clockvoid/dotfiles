@@ -439,6 +439,8 @@ elif [ $config = "zsh" ]; then
     zsh
 elif [ $config = "tmux" ]; then
     tmux
+elif [ $config = "gtk" ]; then
+    gtk
 elif [ $config = "xresources" ]; then
     xresources
 elif [ $config = "xmonad" ]; then
