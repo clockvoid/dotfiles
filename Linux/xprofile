@@ -1,15 +1,18 @@
 #!/bin/sh
 
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+xset s off -dpms -b
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 export PATH=$HOME/.local/bin:$PATH
-
 export ADW_DISABLE_PORTAL=1
 export QT_QPA_PLATFORMTHEME=gtk
 export QT_STYLE_OVERRIDE=Adwaita-Dark
 
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
+systemctl restart --user redshift
+start-pulseaudio-x11
 picom --backend glx --vsync --fade-exclude 'class_g="xsecurelock"' --config /dev/null &
-xset s off -dpms -b &
+xremap ~/.config/xremap/config.yml --watch &
+lxqt-policykit-agent &
 
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
@@ -17,15 +20,13 @@ export QT_IM_MODULE=fcitx
 export DefaltIMModule=fcitx
 export SDL_IM_MODULE=fcitx
 fcitx5 &
-
-trayer --edge top --align right --widthtype percent --heighttype pixel --SetDockType true --SetPartialStrut false --expand false --width 8 --height 23 --transparent true --alpha 0 --tint 0x000000 --monitor primary &
 nm-applet &
 blueman-applet &
 volctl &
-start-pulseaudio-x11
-
-lxqt-policykit-agent &
-
-xremap ~/.config/xremap/config.yml --watch &
-
-systemctl restart --user redshift
+trayer --edge top --align right \
+  --widthtype percent --heighttype pixel \
+  --SetDockType true --SetPartialStrut false \
+  --expand false \
+  --width 8 --height 23 \
+  --transparent true --alpha 0 --tint 0x000000 \
+  --monitor primary &
