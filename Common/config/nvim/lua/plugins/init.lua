@@ -36,13 +36,13 @@ require('lazy').setup({
       ft = "📂",
       init = "⚙",
       keys = "🗝",
+      lazy = "💤 ",
       plugin = "🔌",
       runtime = "💻",
       require = "🌙",
       source = "📄",
       start = "🚀",
       task = "📌",
-      lazy = "💤 ",
     }
   }
 })
