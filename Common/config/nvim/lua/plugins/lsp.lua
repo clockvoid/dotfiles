@@ -65,7 +65,7 @@ local function hook_lspconfig_loaded()
   }
   require('lspconfig').dartls.setup {
     filetyles = { 'dart' },
-    cmd = { 'dart', 'language-server', '--client-id', 'neovim.lsp' }
+    cmd = { 'fvm', 'dart', 'language-server', '--client-id', 'neovim.lsp' }
   }
   require('lspconfig').clangd.setup {
     cmd = {
