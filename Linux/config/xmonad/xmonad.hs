@@ -58,7 +58,7 @@ keyMaps =
     ("C-S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png"),
     ("M-S-<Print>", spawn (configPath ++ "screenshot_focused_window_clipboard.sh")),
     ("M-s", spawn "systemctl suspend"),
-    ("M-S-l", spawn "XSECURELOCK_SAVER=/etc/lightdm/saver.sh XSECURELOCK_PASSWORD_PROMPT=asterisks xsecurelock"),
+    ("M-S-l", spawn "XSECURELOCK_SAVER=saver_blank XSECURELOCK_PASSWORD_PROMPT=asterisks xsecurelock"),
     ("M-m", spawn (configPath ++ "set_monitor.sh")),
     ("C-S-<Esc>", spawn "gnome-system-monitor"),
     ("M-<Space>", sendMessage ToggleLayout),
