@@ -184,7 +184,7 @@ smap <expr> <C-S-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-[rev)' : '<C-S-k>'
       vim.g.ale_echo_cursor = 0
       vim.g.ale_use_neovim_diagnostics_api = 1
       vim.g.ale_linters = {
-        markdown = {},
+        markdown = { 'textlint' },
         tex = { 'textlint' },
         javascript = { 'eslint' },
         go = { 'staticcheck' },
