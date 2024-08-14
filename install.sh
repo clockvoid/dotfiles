@@ -154,6 +154,15 @@ lightdm ()
     bold=$(tput bold)
 }
 
+picom ()
+{
+    if [ $environment == "Linux" ]; then
+        ln -sf $(pwd)/Linux/config/picom $home_dir/.config/
+    else
+        echo This system do not need this configuration.
+    fi
+}
+
 install_ghcup ()
 {
     if [ ! -d $home_dir/.ghcup ]; then
@@ -417,6 +426,7 @@ if [ $config = "all" ]; then
     tmux
     yabai
     lightdm
+    picom
     xmonad
     xremap
     xresources
@@ -469,6 +479,8 @@ elif [ $config = "feh" ]; then
     feh
 elif [ $config = "redshift" ]; then
     redshift
+elif [ $config = "picom" ]; then
+    picom
 else
     echo Config set $config not found.
 fi
