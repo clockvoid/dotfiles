@@ -198,7 +198,7 @@ smap <expr> <C-S-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-[rev)' : '<C-S-k>'
   {
     'github/copilot.vim',
     config = function()
-      vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+      vim.keymap.set('i', '<Tab>', 'copilot#Accept("\\<CR>")', {
         expr = true,
         replace_keycodes = false
       })
