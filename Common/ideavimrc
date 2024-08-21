@@ -27,3 +27,5 @@ nnoremap <C-s>[ ciw[]<Esc>P
 
 nnoremap <silent> L :action FindUsages<CR>
 
+Plug 'preservim/nerdtree'
+
