@@ -79,6 +79,7 @@ startup :: X ()
 startup = do
   setWMName "LG3D"
   spawn (configPath ++ "set_wallpaper.sh")
+  spawn "pkill -x -USR1 picom"
 
 main :: IO ()
 main = do
