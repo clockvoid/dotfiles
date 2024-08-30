@@ -10,7 +10,7 @@ export QT_STYLE_OVERRIDE=Adwaita-Dark
 
 systemctl restart --user redshift
 start-pulseaudio-x11
-picom --vsync &
+picom &
 xremap ~/.config/xremap/config.yml --watch &
 lxqt-policykit-agent &
 
