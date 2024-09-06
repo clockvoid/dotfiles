@@ -79,6 +79,7 @@ startup :: X ()
 startup = do
   setWMName "LG3D"
   spawn (configPath ++ "set_wallpaper.sh")
+  spawn "pkill -x -USR1 picom"
 
 main :: IO ()
 main = do
@@ -100,7 +101,7 @@ main = do
       (ewmhFullscreen . ewmh) $
         def
           { terminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\"",
-            borderWidth = 3,
+            borderWidth = 2,
             focusedBorderColor = "#ff5733",
             normalBorderColor = "#1D1F21",
             modMask = mod4Mask,
