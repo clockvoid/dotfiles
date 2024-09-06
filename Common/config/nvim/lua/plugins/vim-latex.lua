@@ -76,7 +76,10 @@ Label(s) may have changed.
 Citation %.%# undefined
     ]]
   vim.g.Tex_IgnoreLevel = 8
-  vim.g.Tex_FoldedEnvironments = ',frame'
+  vim.g.Tex_FoldedEnvironments = ''
+  vim.g.Tex_FoldedSection = ''
+  vim.g.Tex_FoldedCommands = ''
+  vim.g.Tex_FoldedMisc = ''
 
   set_tex_family()
 end
@@ -87,4 +90,8 @@ return {
     ft = { 'tex' },
     config = hook_source()
   },
+  {
+    'matze/vim-tex-fold',
+    ft = { 'tex' }
+  }
 }

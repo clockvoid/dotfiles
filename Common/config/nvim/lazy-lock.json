@@ -26,5 +26,6 @@
   "vim-jsx-pretty": { "branch": "master", "commit": "6989f1663cc03d7da72b5ef1c03f87e6ddb70b41" },
   "vim-latex": { "branch": "master", "commit": "f108868ae9a85bf33f5ead06fd0b89d27d951165" },
   "vim-quickrun": { "branch": "master", "commit": "77b4d6ea9972a206f02c736882c2398c36d2983c" },
+  "vim-tex-fold": { "branch": "master", "commit": "5ad3e2cd396eb876ae48ee1ebaba956b21fe1642" },
   "vim-vsnip": { "branch": "master", "commit": "02a8e79295c9733434aab4e0e2b8c4b7cea9f3a9" }
 }
