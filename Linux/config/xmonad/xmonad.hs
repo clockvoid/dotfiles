@@ -44,19 +44,16 @@ manageWindowWorkspacePosition =
 configPath :: [Char]
 configPath = "~/.config/xmonad/"
 
-screenshotPath :: String
-screenshotPath = " ~/Pictures/screenshot"
-
 keyMaps :: [([Char], X ())]
 keyMaps =
   [ ("M-p", spawn "dmenu_run -fn 'monospace-11'"),
     ("M-S-p", spawn "passmenu -fn 'monospace-11'"),
-    ("<Print>", spawn (configPath ++ "screenshot.sh" ++ screenshotPath)),
-    ("M1-<Print>", spawn (configPath ++ "screenshot_focused_window.sh" ++ screenshotPath)),
-    ("C-<Print>", spawn (configPath ++ "screenshot_select.sh" ++ screenshotPath)),
-    ("S-<Print>", spawn "maim | xclip -selection clipboard -t image/png"),
-    ("C-S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png"),
-    ("M-S-<Print>", spawn (configPath ++ "screenshot_focused_window_clipboard.sh")),
+    ("<Print>", spawn (configPath ++ "screenshot.sh")),
+    ("C-<Print>", spawn (configPath ++ "screenshot.sh selectedarea")),
+    ("M-<Print>", spawn (configPath ++ "screenshot.sh focusedwindow")),
+    ("S-<Print>", spawn (configPath ++ "screenshot.sh clipboard")),
+    ("C-S-<Print>", spawn (configPath ++ "screenshot.sh selectedareaclipboard")),
+    ("M-S-<Print>", spawn (configPath ++ "screenshot.sh focusedwindowclipboard")),
     ("M-s", spawn "systemctl suspend"),
     ("M-S-l", spawn "XSECURELOCK_SAVER=saver_blank XSECURELOCK_PASSWORD_PROMPT=asterisks xsecurelock"),
     ("M-m", spawn (configPath ++ "set_monitor.sh")),
