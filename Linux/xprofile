@@ -1,27 +1,21 @@
 #!/bin/sh
 
-xset s off -dpms -b
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 export PATH=$HOME/.local/bin:$PATH
 export ADW_DISABLE_PORTAL=1
 export QT_QPA_PLATFORMTHEME=gtk
 export QT_STYLE_OVERRIDE=Adwaita-Dark
-
-systemctl restart --user redshift
-start-pulseaudio-x11
-picom &
-xremap ~/.config/xremap/config.yml --watch &
-lxqt-policykit-agent &
-
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 export DefaltIMModule=fcitx
 export SDL_IM_MODULE=fcitx
-fcitx5 &
-nm-applet &
-blueman-applet &
+
+systemctl restart --user redshift
+picom &
+lxqt-policykit-agent &
+xremap ~/.config/xremap/config.yml --watch &
 volctl &
 trayer --edge top --align right \
   --widthtype percent --heighttype pixel \

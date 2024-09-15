@@ -57,8 +57,6 @@ keyMaps =
     ("M-s", spawn "systemctl suspend"),
     ("M-S-l", spawn "XSECURELOCK_SAVER=saver_blank XSECURELOCK_PASSWORD_PROMPT=asterisks xsecurelock"),
     ("M-m", spawn (configPath ++ "set_monitor.sh")),
-    ("C-S-<Esc>", spawn "gnome-system-monitor"),
-    ("M-<Space>", sendMessage ToggleLayout),
     ("<XF86MonBrightnessDown>", spawn "light -Us 'sysfs/backlight/intel_backlight' 5"),
     ("<XF86MonBrightnessUp>", spawn "light -As 'sysfs/backlight/intel_backlight' 5"),
     ("<XF86AudioRaiseVolume>", spawn (configPath ++ "volume_up.sh")),
@@ -77,6 +75,10 @@ startup = do
   setWMName "LG3D"
   spawn (configPath ++ "set_wallpaper.sh")
   spawn "pkill -x -USR1 picom"
+  spawn "nm-applet"
+  spawn "blueman-applet"
+  spawn "start-pulseaudio-x11"
+  spawn "fcitx5"
 
 main :: IO ()
 main = do
