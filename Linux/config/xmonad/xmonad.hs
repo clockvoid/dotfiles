@@ -55,7 +55,7 @@ keyMaps =
     ("C-S-<Print>", spawn (configPath ++ "screenshot.sh selectedareaclipboard")),
     ("M-S-<Print>", spawn (configPath ++ "screenshot.sh focusedwindowclipboard")),
     ("M-s", spawn "systemctl suspend"),
-    ("M-S-l", spawn "XSECURELOCK_SAVER=saver_blank XSECURELOCK_PASSWORD_PROMPT=asterisks xsecurelock"),
+    ("M-S-l", spawn "XSECURELOCK_SAVER=saver_blank XSECURELOCK_PASSWORD_PROMPT=asterisks XSECURELOCK_PAM_SERVICE='lightdm' xsecurelock"),
     ("M-m", spawn (configPath ++ "set_monitor.sh")),
     ("<XF86MonBrightnessDown>", spawn "light -Us 'sysfs/backlight/intel_backlight' 5"),
     ("<XF86MonBrightnessUp>", spawn "light -As 'sysfs/backlight/intel_backlight' 5"),
@@ -95,40 +95,38 @@ main = do
               ++ if i == 0 then "xmobar.config" else "xmobar_notrayer.config"
       )
       [0 :: Int .. screens - 1]
-  xmonad $
-    docks $
-      (ewmhFullscreen . ewmh) $
-        def
-          { terminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\"",
-            borderWidth = 2,
-            focusedBorderColor = "#ff5733",
-            normalBorderColor = "#1D1F21",
-            modMask = mod4Mask,
-            manageHook =
-              manageDocks
-                <+> manageWindowSizeForDev
-                <+> manageWindowSize
-                <+> manageWindowWorkspacePosition
-                <+> manageHook baseConfig,
-            layoutHook =
-              avoidStruts $
-                toggleLayouts (noBorders Full) $
-                  smartBorders $
-                    layoutHook baseConfig,
-            logHook = do
-              mapM_
-                ( \xmproc ->
-                    dynamicLogWithPP
-                      xmobarPP
-                        { ppOutput = hPutStrLn xmproc,
-                          ppTitle = xmobarColor "orange" "" . shorten 100,
-                          ppLayout = \s -> "<" ++ s ++ ">",
-                          ppSep = " | "
-                        }
-                )
-                statusBars
-                <+> updatePointer (0.5, 0.5) (0, 0),
-            startupHook = startup
-          }
-          `additionalKeysP` keyMaps
-          `removeKeysP` disabledKeys
+  xmonad . docks . ewmhFullscreen . ewmh $
+    def
+      { terminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\"",
+        borderWidth = 2,
+        focusedBorderColor = "#ff5733",
+        normalBorderColor = "#1D1F21",
+        modMask = mod4Mask,
+        manageHook =
+          manageDocks
+            <+> manageWindowSizeForDev
+            <+> manageWindowSize
+            <+> manageWindowWorkspacePosition
+            <+> manageHook baseConfig,
+        layoutHook =
+          avoidStruts $
+            toggleLayouts (noBorders Full) $
+              smartBorders $
+                layoutHook baseConfig,
+        logHook = do
+          mapM_
+            ( \xmproc ->
+                dynamicLogWithPP
+                  xmobarPP
+                    { ppOutput = hPutStrLn xmproc,
+                      ppTitle = xmobarColor "orange" "" . shorten 100,
+                      ppLayout = \s -> "<" ++ s ++ ">",
+                      ppSep = " | "
+                    }
+            )
+            statusBars
+            <+> updatePointer (0.5, 0.5) (0, 0),
+        startupHook = startup
+      }
+      `additionalKeysP` keyMaps
+      `removeKeysP` disabledKeys
