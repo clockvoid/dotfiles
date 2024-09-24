@@ -1,5 +1,7 @@
+import Data.Map.Internal (fromList, union)
 import System.IO
 import XMonad
+import XMonad.Actions.Search
 import XMonad.Actions.UpdatePointer
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
@@ -11,6 +13,7 @@ import XMonad.Layout.IndependentScreens
 import XMonad.Layout.Maximize ()
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ToggleLayouts
+import XMonad.Prompt
 import XMonad.Util.EZConfig
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.Types ()
@@ -63,6 +66,33 @@ keyMaps =
     ("<XF86AudioLowerVolume>", spawn (configPath ++ "volume_down.sh")),
     ("<XF86AudioMute>", spawn (configPath ++ "toggle_mute.sh")),
     ("<XF86AudioMicMute>", spawn (configPath ++ "toggle_mic_mute.sh"))
+  ]
+    ++ [("M-f " ++ k, promptSearchBrowser searchConfig "google-chrome-stable" f) | (k, f) <- searchList]
+
+searchConfig :: XPConfig
+searchConfig =
+  def
+    { promptBorderWidth = 0,
+      promptKeymap =
+        fromList
+          [ (,) (controlMask, xK_h) (deleteString Prev),
+            (,) (controlMask, xK_c) quit
+          ]
+          `union` emacsLikeXPKeymap
+    }
+
+myAmazon :: SearchEngine
+myAmazon = searchEngine "amazon" "https://www.amazon.co.jp/s?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&ref=nb_sb_noss_1&k="
+
+searchList :: [(String, SearchEngine)]
+searchList =
+  [ ("a", myAmazon),
+    ("g", google),
+    ("y", youtube),
+    ("h", hoogle),
+    ("s", stackage),
+    ("w", wikipedia),
+    ("p", arXiv)
   ]
 
 disabledKeys :: [[Char]]
