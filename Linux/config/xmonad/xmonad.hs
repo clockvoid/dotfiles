@@ -16,6 +16,7 @@ import XMonad.Layout.ToggleLayouts
 import XMonad.Prompt
 import XMonad.Util.EZConfig
 import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.SpawnOnce (spawnOnce)
 import XMonad.Util.Types ()
 
 manageWindowSizeForDev :: ManageHook
@@ -94,12 +95,24 @@ searchList =
 startup :: X ()
 startup = do
   setWMName "LG3D"
-  spawn (configPath ++ "set_wallpaper.sh")
+  spawnOnce "picom"
   spawn "pkill -x -USR1 picom"
+  spawn (configPath ++ "set_wallpaper.sh")
   spawn "nm-applet"
   spawn "blueman-applet"
   spawn "start-pulseaudio-x11"
   spawn "fcitx5"
+  spawnOnce "lxqt-policykit-agent"
+  spawnOnce "xremap ~/.config/xremap/config.yml --watch"
+  spawnOnce "volctl"
+  spawnOnce
+    "trayer --edge top --align right \
+    \--widthtype percent --heighttype pixel \
+    \--SetDockType true --SetPartialStrut false \
+    \--expand false \
+    \--width 8 --height 23 \
+    \--transparent true --alpha 0 --tint 0x000000 \
+    \--monitor primary"
 
 launchXmobarOn :: (MonadIO m) => Int -> m Handle
 launchXmobarOn monitor =
@@ -110,7 +123,7 @@ launchXmobarOn monitor =
       ++ configPath
       ++ if monitor == 0 then "xmobar.config" else "xmobar_notrayer.config"
 
-xmobarHook :: Foldable t => t Handle -> X ()
+xmobarHook :: (Foldable t) => t Handle -> X ()
 xmobarHook statusBars = do
   mapM_
     ( \xmproc ->
