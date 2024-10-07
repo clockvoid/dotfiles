@@ -110,10 +110,8 @@ launchXmobarOn monitor =
       ++ configPath
       ++ if monitor == 0 then "xmobar.config" else "xmobar_notrayer.config"
 
-xmobarHook :: X ()
-xmobarHook = do
-  nScreens <- countScreens
-  statusBars <- mapM launchXmobarOn [0 .. nScreens - 1]
+xmobarHook :: Foldable t => t Handle -> X ()
+xmobarHook statusBars = do
   mapM_
     ( \xmproc ->
         dynamicLogWithPP
@@ -130,6 +128,8 @@ xmobarHook = do
 main :: IO ()
 main = do
   let baseConfig = desktopConfig
+  nScreens <- countScreens
+  statusBars <- mapM launchXmobarOn [0 .. nScreens - 1]
   xmonad . docks . ewmhFullscreen . ewmh $
     def
       { terminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\"",
@@ -143,7 +143,7 @@ main = do
             <+> manageWindowSize
             <+> manageHook baseConfig,
         layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ layoutHook baseConfig,
-        logHook = xmobarHook,
+        logHook = xmobarHook statusBars,
         startupHook = startup
       }
       `additionalKeysP` keyMaps
