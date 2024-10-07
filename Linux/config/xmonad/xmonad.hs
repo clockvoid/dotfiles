@@ -39,11 +39,6 @@ manageWindowSize =
       title =? "splash" --> doFloat
     ]
 
-manageWindowWorkspacePosition :: ManageHook
-manageWindowWorkspacePosition =
-  composeAll
-    []
-
 configPath :: [Char]
 configPath = "~/.config/xmonad/"
 
@@ -60,6 +55,7 @@ keyMaps =
     ("M-s", spawn "systemctl suspend"),
     ("M-S-l", spawn "XSECURELOCK_SAVER=saver_blank XSECURELOCK_PASSWORD_PROMPT=asterisks XSECURELOCK_PAM_SERVICE='lightdm' xsecurelock"),
     ("M-m", spawn (configPath ++ "set_monitor.sh")),
+    ("<XF86Display>", spawn (configPath ++ "set_monitor.sh")),
     ("<XF86MonBrightnessDown>", spawn "light -Us 'sysfs/backlight/intel_backlight' 5"),
     ("<XF86MonBrightnessUp>", spawn "light -As 'sysfs/backlight/intel_backlight' 5"),
     ("<XF86AudioRaiseVolume>", spawn (configPath ++ "volume_up.sh")),
@@ -95,11 +91,6 @@ searchList =
     ("p", arXiv)
   ]
 
-disabledKeys :: [[Char]]
-disabledKeys =
-  [ "C-,"
-  ]
-
 startup :: X ()
 startup = do
   setWMName "LG3D"
@@ -110,21 +101,35 @@ startup = do
   spawn "start-pulseaudio-x11"
   spawn "fcitx5"
 
+launchXmobarOn :: (MonadIO m) => Int -> m Handle
+launchXmobarOn monitor =
+  spawnPipe $
+    "~/.local/bin/xmobar -x "
+      ++ show monitor
+      ++ " "
+      ++ configPath
+      ++ if monitor == 0 then "xmobar.config" else "xmobar_notrayer.config"
+
+xmobarHook :: X ()
+xmobarHook = do
+  nScreens <- countScreens
+  statusBars <- mapM launchXmobarOn [0 .. nScreens - 1]
+  mapM_
+    ( \xmproc ->
+        dynamicLogWithPP
+          xmobarPP
+            { ppOutput = hPutStrLn xmproc,
+              ppTitle = xmobarColor "orange" "" . shorten 100,
+              ppLayout = \s -> "<" ++ s ++ ">",
+              ppSep = " | "
+            }
+    )
+    statusBars
+    <+> updatePointer (0.5, 0.5) (0, 0)
+
 main :: IO ()
 main = do
   let baseConfig = desktopConfig
-  screens <- countScreens
-  statusBars <-
-    mapM
-      ( \i ->
-          spawnPipe $
-            "~/.local/bin/xmobar -x "
-              ++ show i
-              ++ " "
-              ++ configPath
-              ++ if i == 0 then "xmobar.config" else "xmobar_notrayer.config"
-      )
-      [0 :: Int .. screens - 1]
   xmonad . docks . ewmhFullscreen . ewmh $
     def
       { terminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\"",
@@ -136,27 +141,10 @@ main = do
           manageDocks
             <+> manageWindowSizeForDev
             <+> manageWindowSize
-            <+> manageWindowWorkspacePosition
             <+> manageHook baseConfig,
-        layoutHook =
-          avoidStruts $
-            toggleLayouts (noBorders Full) $
-              smartBorders $
-                layoutHook baseConfig,
-        logHook = do
-          mapM_
-            ( \xmproc ->
-                dynamicLogWithPP
-                  xmobarPP
-                    { ppOutput = hPutStrLn xmproc,
-                      ppTitle = xmobarColor "orange" "" . shorten 100,
-                      ppLayout = \s -> "<" ++ s ++ ">",
-                      ppSep = " | "
-                    }
-            )
-            statusBars
-            <+> updatePointer (0.5, 0.5) (0, 0),
+        layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ layoutHook baseConfig,
+        logHook = xmobarHook,
         startupHook = startup
       }
       `additionalKeysP` keyMaps
-      `removeKeysP` disabledKeys
+      `removeKeysP` []
