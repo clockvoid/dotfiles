@@ -13,6 +13,7 @@ import XMonad.Layout.IndependentScreens
 import XMonad.Layout.Maximize ()
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ToggleLayouts
+import XMonad.Layout.Grid
 import XMonad.Prompt
 import XMonad.Util.EZConfig
 import XMonad.Util.Run (spawnPipe)
@@ -62,9 +63,13 @@ keyMaps =
     ("<XF86AudioRaiseVolume>", spawn (configPath ++ "volume_up.sh")),
     ("<XF86AudioLowerVolume>", spawn (configPath ++ "volume_down.sh")),
     ("<XF86AudioMute>", spawn (configPath ++ "toggle_mute.sh")),
-    ("<XF86AudioMicMute>", spawn (configPath ++ "toggle_mic_mute.sh"))
+    ("<XF86AudioMicMute>", spawn (configPath ++ "toggle_mic_mute.sh")),
+    ("M-g", sendMessage $ JumpToLayout "Grid"),
+    ("M-t", sendMessage $ JumpToLayout "Tall"),
+    ("M-d", sendMessage $ JumpToLayout "Mirror Tall"),
+    ("M-f", sendMessage $ JumpToLayout "Full")
   ]
-    ++ [("M-f " ++ k, promptSearchBrowser searchConfig "google-chrome-stable" f) | (k, f) <- searchList]
+    ++ [("M-h " ++ k, promptSearchBrowser searchConfig "google-chrome-stable" f) | (k, f) <- searchList]
 
 searchConfig :: XPConfig
 searchConfig =
@@ -155,7 +160,7 @@ main = do
             <+> manageWindowSizeForDev
             <+> manageWindowSize
             <+> manageHook baseConfig,
-        layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ layoutHook baseConfig,
+        layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ Tall 1 (3/100) (1/2) ||| Grid ||| Mirror (Tall 1 (3/100) (3/5)) ||| Full,
         logHook = xmobarHook statusBars,
         startupHook = startup
       }
