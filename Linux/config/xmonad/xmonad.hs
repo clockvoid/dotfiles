@@ -64,12 +64,12 @@ keyMaps =
     ("<XF86AudioLowerVolume>", spawn (configPath ++ "volume_down.sh")),
     ("<XF86AudioMute>", spawn (configPath ++ "toggle_mute.sh")),
     ("<XF86AudioMicMute>", spawn (configPath ++ "toggle_mic_mute.sh")),
-    ("M-g", sendMessage $ JumpToLayout "Grid"),
-    ("M-t", sendMessage $ JumpToLayout "Tall"),
-    ("M-d", sendMessage $ JumpToLayout "Mirror Tall"),
-    ("M-f", sendMessage $ JumpToLayout "Full")
+    ("M-z", sendMessage $ JumpToLayout "Tall"),
+    ("M-x", sendMessage $ JumpToLayout "Grid"),
+    ("M-c", sendMessage $ JumpToLayout "Mirror Tall"),
+    ("M-v", sendMessage $ JumpToLayout "Full")
   ]
-    ++ [("M-h " ++ k, promptSearchBrowser searchConfig "google-chrome-stable" f) | (k, f) <- searchList]
+    ++ [("M-f M-" ++ k, promptSearchBrowser searchConfig "google-chrome-stable" f) | (k, f) <- searchList]
 
 searchConfig :: XPConfig
 searchConfig =
