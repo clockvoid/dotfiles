@@ -85,37 +85,11 @@ local function hook_cmp_loaded()
       end
     },
     mapping = cmp.mapping.preset.insert({
-      ['<CR>'] =cmp.mapping.confirm({ select = false }),
-      ['<C-[>'] = function(fallback)
-        if cmp.visible() then
-          cmp.abort()
-        else
-          fallback()
-        end
-      end,
-      ['<ESC>'] = function(fallback)
-        if cmp.visible() then
-          cmp.abort()
-        else
-          fallback()
-        end
-      end,
+      ['<CR>'] = cmp.mapping.confirm({ select = false }),
       ['<C-f>'] = cmp.mapping.scroll_docs(-4),
       ['<C-b>'] = cmp.mapping.scroll_docs(4),
-      ['<Tab>'] = function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-        end
-      end,
-      ['<S-Tab>'] = function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        else
-          fallback()
-        end
-      end,
+      ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+      ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
