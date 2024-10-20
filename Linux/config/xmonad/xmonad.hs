@@ -160,7 +160,7 @@ main = do
             <+> manageWindowSizeForDev
             <+> manageWindowSize
             <+> manageHook baseConfig,
-        layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ Tall 1 (3/100) (1/2) ||| Grid ||| Mirror (Tall 1 (3/100) (3/5)) ||| Full,
+        layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ Tall 1 (3/100) (1/2) ||| Grid ||| Mirror (Tall 1 (3/100) (13/20)) ||| Full,
         logHook = xmobarHook statusBars,
         startupHook = startup
       }
