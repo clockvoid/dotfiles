@@ -1,3 +1,4 @@
+[general]
 import = ["~/.config/alacritty/env.toml", "~\\AppData\\Roaming\\alacritty\\env.toml"]
 live_config_reload = true
 
