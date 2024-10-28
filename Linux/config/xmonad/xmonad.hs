@@ -100,13 +100,13 @@ searchList =
 startup :: X ()
 startup = do
   setWMName "LG3D"
-  spawnOnce "picom"
   spawn "pkill -x -USR1 picom"
   spawn (configPath ++ "set_wallpaper.sh")
-  spawn "nm-applet"
-  spawn "blueman-applet"
-  spawn "start-pulseaudio-x11"
-  spawn "fcitx5"
+  spawnOnce "nm-applet"
+  spawnOnce "blueman-applet"
+  spawnOnce "start-pulseaudio-x11"
+  spawnOnce "fcitx5"
+  spawnOnce "picom"
   spawnOnce "lxqt-policykit-agent"
   spawnOnce "xremap ~/.config/xremap/config.yml --watch"
   spawnOnce "volctl"
