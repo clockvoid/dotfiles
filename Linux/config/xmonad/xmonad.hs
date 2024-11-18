@@ -83,18 +83,26 @@ searchConfig =
           `union` emacsLikeXPKeymap
     }
 
-myAmazon :: SearchEngine
-myAmazon = searchEngine "amazon" "https://www.amazon.co.jp/s?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&ref=nb_sb_noss_1&k="
+appleDeveloper :: SearchEngine
+appleDeveloper = searchEngine "apple" "https://developer.apple.com/search/?q="
+
+androidDeveloper :: SearchEngine
+androidDeveloper = searchEngine "android" "https://developer.android.com/s/results?q="
+
+kotlinDocs :: SearchEngine
+kotlinDocs = searchEngine "kotlin" "https://kotlinlang.org/docs/home.html?s=full&q="
 
 searchList :: [(String, SearchEngine)]
 searchList =
-  [ ("a", myAmazon),
+  [ ("a", androidDeveloper),
     ("g", google),
     ("y", youtube),
     ("h", hoogle),
     ("s", stackage),
     ("w", wikipedia),
-    ("p", arXiv)
+    ("p", arXiv),
+    ("k", kotlinDocs),
+    ("r", appleDeveloper)
   ]
 
 startup :: X ()
