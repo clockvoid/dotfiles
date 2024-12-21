@@ -35,6 +35,7 @@ manageWindowSize =
       isDialog --> doCenterFloat,
       className =? "Evolution-alarm-notify" --> doCenterFloat,
       title =? "Picture in picture" --> doFloat,
+      title =? "Picture-in-Picture" --> doFloat,
       title =? "Welcome to Android Studio" --> doFloat,
       title =? "Welcome to IntelliJ IDEA" --> doFloat,
       title =? "win0" --> doFloat,
@@ -69,7 +70,7 @@ keyMaps =
     ("M-c", sendMessage $ JumpToLayout "Mirror Tall"),
     ("M-v", sendMessage $ JumpToLayout "Full")
   ]
-    ++ [("M-f M-" ++ k, promptSearchBrowser searchConfig "google-chrome-stable" f) | (k, f) <- searchList]
+    ++ [("M-f M-" ++ k, promptSearchBrowser searchConfig "firefox" f) | (k, f) <- searchList]
 
 searchConfig :: XPConfig
 searchConfig =
