@@ -111,7 +111,7 @@ startup = do
   setWMName "LG3D"
   spawn "pkill -x -USR1 picom"
   spawn (configPath ++ "set_wallpaper.sh")
-  spawnOnce "xset dpms 600 0 0"
+  spawnOnce "xset dpms 600 1200 0"
   spawnOnce "nm-applet"
   spawnOnce "blueman-applet"
   spawnOnce "start-pulseaudio-x11"
