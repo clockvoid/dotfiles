@@ -3,7 +3,7 @@
 if [ $# -ge 1 ]; then
     OUTPUT="$1"
 else
-    OUTPUT="${HOME}/.xmonad/xmonad-x86_64-linux"
+    OUTPUT="${HOME}/.config/xmonad/xmonad-x86_64-linux"
 fi
 
 exec stack ghc -- \
