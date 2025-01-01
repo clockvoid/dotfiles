@@ -8,6 +8,6 @@ do
           xset -dpms
         else
           echo "dpms on"
-          xset dpms 600 1200 0
+          xset dpms 600 900 0
         fi
 done < <(xprop -spy -root _NET_ACTIVE_WINDOW)
