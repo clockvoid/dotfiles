@@ -185,6 +185,7 @@ xmonad ()
         ln -sf $(pwd)/Linux/xinitrc $home_dir/.xinitrc
         ln -sf $(pwd)/Linux/xprofile $home_dir/.xprofile
 
+        install_local_bin
         install_ghcup
 
         type stack || {
