@@ -36,10 +36,10 @@ manageWindowSize =
       className =? "Evolution-alarm-notify" --> doCenterFloat,
       title =? "Picture in picture" --> doFloat,
       title =? "Picture-in-Picture" --> doFloat,
-      title =? "Welcome to Android Studio" --> doFloat,
-      title =? "Welcome to IntelliJ IDEA" --> doFloat,
-      title =? "win0" --> doFloat,
-      title =? "splash" --> doFloat
+      (className =? "jetbrains-studio" <&&> title =? "Device Manager") --> doFloat,
+      (className =? "jetbrains-studio" <&&> title =? "Welcome to Android Studio") --> doFloat,
+      (className =? "jetbrains-idea-ce" <&&> title =? "Welcome to IntelliJ IDEA") --> doFloat,
+      (className =? "jatbrains-studio" <||> className =? "jetbrains-idea-ce") <&&> title =? "splash" --> doFloat
     ]
 
 configPath :: [Char]
