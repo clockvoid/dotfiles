@@ -1,4 +1,7 @@
 #!/usr/bin/bash
+xset s off
+xset s noblank
+
 while read -r line 
 do
         WINDOW_ID="$(echo  $line | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')"
