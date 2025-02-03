@@ -266,6 +266,10 @@ zsh ()
     ln -sf $(pwd)/$environment/config/zsh/init/env $(pwd)/Common/config/zsh/init/
     ln -sf $(pwd)/Common/config/zsh $home_dir/.config/
     ln -sf $(pwd)/Common/zshrc $home_dir/.zshrc
+
+    if [ $environment == "Darwin" ]; then
+        ln -sf $(pwd)/Darwin/zprofile $home_dir/.zprofile
+    fi
     echo Zsh: Done
 }
 
