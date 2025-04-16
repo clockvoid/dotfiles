@@ -1,19 +1,5 @@
 vim.lsp.set_log_level('ERROR')
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = "single"
-  }
-)
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, {
-    border = "single"
-  }
-)
-vim.diagnostic.config {
-  float = {
-    border = "single"
-  }
-}
+vim.opt.winborder = "single"
 -- keymaps; see also: keymap.lua
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -73,7 +59,6 @@ local function hook_lspconfig_loaded()
       "--offset-encoding=utf-16",
     },
   }
-  require('lspconfig.ui.windows').default_options.border = 'single'
 end
 
 local function hook_cmp_loaded()
@@ -168,12 +153,10 @@ return {
     'hrsh7th/vim-vsnip',
     config = function()
       vim.g.vsnip_snippet_dir = vim.fn.expand('~/.config/nvim/vsnip')
-      vim.cmd([[
-imap <expr> <C-k> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-k>'
-smap <expr> <C-k> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-k>'
-imap <expr> <C-S-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-S-k>'
-smap <expr> <C-S-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-[rev)' : '<C-S-k>'
-    ]])
+      vim.cmd('imap <expr> <C-k> vsnip#jumpable(1) ? "<Plug>(vsnip-jump-next)" : "<C-k>"')
+      vim.cmd('smap <expr> <C-k> vsnip#jumpable(1) ? "<Plug>(vsnip-jump-next)" : "<C-k>"')
+      vim.cmd('imap <expr> <C-S-k> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-S-k>"')
+      vim.cmd('smap <expr> <C-S-k> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-[rev)" : "<C-S-k>"')
     end
   },
 
