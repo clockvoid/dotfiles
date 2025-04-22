@@ -93,7 +93,9 @@ local function hook_cmp_loaded()
       { name = 'buffer' },
     }),
     window = {
-      documentation = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered {
+        border = 'single',
+      },
     },
     formatting = {
       format = function(_, vim_item)
