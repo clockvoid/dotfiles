@@ -23,6 +23,7 @@ blueman
 bluez-utils
 browserpass
 browserpass-chromium
+calibre
 ccache
 chromium
 clang
@@ -48,7 +49,11 @@ fcitx5-gtk
 fcitx5-mozc
 fcitx5-qt
 feh
+figma-linux-bin
+firefox
 flex
+fprintd
+fvm
 garcon
 gcc
 gdb
@@ -61,11 +66,15 @@ google-chrome
 gradle
 groff
 grub
+gvfs-mtp
 gvfs-smb
 imhex-bin
+inkscape
 intel-media-driver
 intellij-idea-community-edition
 iverilog
+jdk21-openjdk
+jetbrains-fleet
 john
 jre-openjdk
 kdenlive
@@ -84,12 +93,15 @@ lightdm-gtk-greeter
 linux
 linux-firmware
 linux-headers
+lld
 lxqt-policykit
 m4
 maim
 make
 man-db
 man-pages
+mtpfs
+nasm
 neovim
 network-manager-applet
 networkmanager
@@ -109,6 +121,7 @@ pass
 pass-otp
 patch
 pavucontrol
+pdfpc
 php
 picom
 pkgconf
@@ -117,6 +130,8 @@ pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
 python-pulsectl
+qemu-desktop
+qemu-system-riscv
 qrencode
 qt5-styleplugins
 rclone
@@ -150,8 +165,6 @@ tlp
 tmux
 tp-battery-mode
 trayer
-ttf-droid
-ttf-jetbrains-mono
 ttf-roboto
 ttf-symbola
 tumbler
@@ -160,8 +173,10 @@ usbutils
 vim
 vlc
 volctl
+volumeicon
 vulkan-intel
 which
+wine
 xclip
 xdotool
 xfce4-dev-tools
@@ -176,7 +191,7 @@ xorg-xrandr
 xorg-xrdb
 xremap-x11-bin
 xsecurelock
-yay-bin
+yay
 zip
 zoom
 zsh
