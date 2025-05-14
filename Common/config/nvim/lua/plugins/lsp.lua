@@ -23,24 +23,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local function hook_lspconfig_loaded()
+  vim.lsp.config('*', {
+    capabilities = require('cmp_nvim_lsp').default_capabilities()
+  })
+  vim.lsp.config('lua_ls', {
+    settings = {
+      Lua = {
+        diagnostics = { globals = { 'vim' } }
+      }
+    }
+  })
   require('mason').setup({
     ui = {
       border = 'single'
     }
   })
-  require('mason-lspconfig').setup_handlers {
-    function(server_name)
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      require('lspconfig')[server_name].setup {
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = { globals = { 'vim' } }
-          }
-        }
-      }
-    end
-  }
   require('lspconfig').hls.setup {
     filetypes = { 'haskell' },
     cmd = { 'haskell-language-server-wrapper', '--lsp' }
