@@ -119,15 +119,6 @@ tmux ()
     echo Tmux: Done
 }
 
-yabai ()
-{
-    if [ $environment == "Darwin" ]; then
-        ln -sf $(pwd)/Darwin/config/yabai $home_dir/.config/
-        ln -sf $(pwd)/Darwin/config/skhd $home_dir/.config/
-    fi
-    echo yabai: Done
-}
-
 gtk ()
 {
     if [ $environment == "Linux" ]; then
@@ -324,8 +315,7 @@ mac_utils() {
         }
         brew update
         brew install bat coreutils findutils fd fzf git neovim tmux zsh
-        brew install koekeishiya/formulae/skhd koekeishiya/formulae/skhd dozer alacritty hyperswitch karabiner-elements
-        yabai
+        brew install dozer alacritty hyperswitch karabiner-elements
     fi
 }
 
@@ -351,7 +341,6 @@ With no OPTION, it will install all of the configs to ~/
                                              fontconfig
                                              ideavim
                                              tmux
-                                             yabai
                                              gtk
                                              lightdm
                                              haskell
@@ -429,7 +418,6 @@ if [ $config = "all" ]; then
     fontconfig
     ideavim
     tmux
-    yabai
     lightdm
     picom
     xmonad
@@ -474,8 +462,6 @@ elif [ $config = "git_template" ]; then
     git_template
 elif [ $config = "mac-utils" ]; then
     mac_utils
-elif [ $config = "yabai" ]; then
-    yabai
 elif [ $config = "local-bin" ]; then
     install_local_bin
 elif [ $config = "systemd-mods" ]; then
