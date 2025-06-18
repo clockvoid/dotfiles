@@ -308,6 +308,14 @@ feh () {
     fi
 }
 
+aerospace() {
+  if [ $environment == "Darwin" ]; then
+    if [ ! -d $home_dir/.config/aerospace ]; then
+      ln -sf $(pwd)/Darwin/config/aerospace $home_dir/.config/
+    fi
+  fi
+}
+
 mac_utils() {
     if [ $environment == "Darwin" ]; then
         type brew || {
@@ -316,6 +324,7 @@ mac_utils() {
         brew update
         brew install bat coreutils findutils fd fzf git neovim tmux zsh
         brew install dozer alacritty hyperswitch karabiner-elements
+        brew install --cask nikitabobko/tap/aerospace
     fi
 }
 
@@ -352,6 +361,7 @@ With no OPTION, it will install all of the configs to ~/
                                              git_template
                                              neovim
                                              feh
+                                             aerospace
                                              mac-utils
                                              redshift
   -d, --directory [DIRECTORY]        specify directory install to
@@ -428,6 +438,7 @@ if [ $config = "all" ]; then
     git_template
     neovim
     feh
+    aerospace
     mac_utils
     redshift
 elif [ $config = "haskell" ]; then
@@ -472,6 +483,8 @@ elif [ $config = "redshift" ]; then
     redshift
 elif [ $config = "picom" ]; then
     picom
+elif [ $config = "aerospace" ]; then
+    aerospace
 else
     echo Config set $config not found.
 fi
