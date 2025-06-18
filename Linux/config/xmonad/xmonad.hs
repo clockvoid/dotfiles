@@ -56,7 +56,6 @@ keyMaps =
     ("C-S-<Print>", spawn (configPath ++ "screenshot.sh selectedareaclipboard")),
     ("M-S-<Print>", spawn (configPath ++ "screenshot.sh focusedwindowclipboard")),
     ("M-s", spawn "systemctl suspend"),
-    ("M-S-l", spawn "XSECURELOCK_SAVER=saver_blank XSECURELOCK_PASSWORD_PROMPT=asterisks XSECURELOCK_PAM_SERVICE='lightdm' xsecurelock"),
     ("M-m", spawn (configPath ++ "set_monitor.sh")),
     ("<XF86Display>", spawn (configPath ++ "set_monitor.sh")),
     ("<XF86MonBrightnessDown>", spawn "light -Us 'sysfs/backlight/intel_backlight' 5"),
