@@ -26,8 +26,8 @@ cyan    = '#54ced6'
 white   = '#282a2e'
 
 [colors.primary]
-background = "0x1d1f21"
-foreground = "0xc5c8c6"
+background = '#1d1f21'
+foreground = '#c5c8c6'
 
 [colors.cursor]
 text = '#1d1f21'
