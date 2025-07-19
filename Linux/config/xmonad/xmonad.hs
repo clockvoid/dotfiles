@@ -66,8 +66,7 @@ keyMaps =
     ("<XF86AudioMicMute>", spawn (configPath ++ "toggle_mic_mute.sh")),
     ("M-z", sendMessage $ JumpToLayout "Tall"),
     ("M-x", sendMessage $ JumpToLayout "Grid"),
-    ("M-c", sendMessage $ JumpToLayout "Mirror Tall"),
-    ("M-v", sendMessage $ JumpToLayout "Full")
+    ("M-c", sendMessage $ JumpToLayout "Full")
   ]
     ++ [("M-f M-" ++ k, promptSearchBrowser searchConfig "firefox" f) | (k, f) <- searchList]
 
@@ -108,8 +107,6 @@ searchList =
 startup :: X ()
 startup = do
   setWMName "LG3D"
-  spawn "pkill -x -USR1 picom"
-  spawn (configPath ++ "set_wallpaper.sh")
   spawnOnce "hook_window_focus.sh"
   spawnOnce "nm-applet"
   spawnOnce "blueman-applet"
@@ -127,6 +124,8 @@ startup = do
     \--width 8 --height 23 \
     \--transparent true --alpha 0 --tint 0x000000 \
     \--monitor primary"
+  spawn "pkill -x -USR1 picom"
+  spawn (configPath ++ "set_wallpaper.sh")
 
 launchXmobarOn :: (MonadIO m) => Int -> m Handle
 launchXmobarOn monitor =
@@ -169,7 +168,7 @@ main = do
             <+> manageWindowSizeForDev
             <+> manageWindowSize
             <+> manageHook baseConfig,
-        layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ Tall 1 (3/100) (1/2) ||| Grid ||| Mirror (Tall 1 (3/100) (13/20)) ||| Full,
+        layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ Tall 1 (3/100) (1/2) ||| Grid ||| Full,
         logHook = xmobarHook statusBars,
         startupHook = startup
       }
