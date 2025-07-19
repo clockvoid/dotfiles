@@ -128,8 +128,15 @@ local function hook_cmp_loaded()
 end
 
 return {
-  { 'williamboman/mason.nvim' },
-  { 'williamboman/mason-lspconfig.nvim' },
+  { 'mason-org/mason.nvim' },
+  {
+    'mason-org/mason-lspconfig.nvim',
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+  },
   { 'mason-org/mason-registry' },
   {
     'neovim/nvim-lspconfig',
