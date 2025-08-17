@@ -169,20 +169,20 @@ return {
   {
     'dense-analysis/ale',
     config = function()
-      vim.g.ale_disable_lsp = 1
-      vim.g.ale_comletion_enabled = 0
-      vim.g.ale_completion_autoimport = 0
-      vim.g.ale_echo_cursor = 0
-      vim.g.ale_use_neovim_diagnostics_api = 1
-      vim.g.ale_linters = {
-        markdown = { 'textlint' },
-        tex = { 'textlint' },
-        javascript = { 'eslint' },
-        go = { 'staticcheck' },
-        haskell = {},
-        rust = {},
-        ruby = {},
-      }
+      require("ale").setup({
+        use_neovim_diagnostics_api = true,
+        linters = {
+          javascript = { 'eslint' },
+          go = { 'staticcheck' },
+          markdown = { 'textlint' },
+          tex = { 'textlint' }
+        },
+        linters_explicit = true,
+        disable_lsp = true,
+        completion_enabled = false,
+        completion_autoimport = false,
+        echo_cursor = false,
+      })
     end,
   },
 
