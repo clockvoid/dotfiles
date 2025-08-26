@@ -107,14 +107,14 @@ searchList =
 startup :: X ()
 startup = do
   setWMName "LG3D"
+  spawnOnce "picom"
+  spawnOnce "xremap ~/.config/xremap/config.yml --watch"
   spawnOnce "hook_window_focus.sh"
   spawnOnce "nm-applet"
   spawnOnce "blueman-applet"
   spawnOnce "start-pulseaudio-x11"
   spawnOnce "fcitx5"
-  spawnOnce "picom"
   spawnOnce "lxqt-policykit-agent"
-  spawnOnce "xremap ~/.config/xremap/config.yml --watch"
   spawnOnce "volctl"
   spawnOnce
     "trayer --edge top --align right \
