@@ -2,14 +2,16 @@ modmap:
   - name: Global
     remap:
       CapsLock: Ctrl_L
-      #Alt_L:
-      #  held: Alt_L
-      #  alone: Muhenkan
-      #  alone_timeout_millis: 500
-      #Alt_R:
-      #  held: Alt_R
-      #  alone: Henkan
-      #  alone_timeout_millis: 500
+  - name: Henkan-Muhenkan
+    remap:
+      Alt_L:
+        held: Alt_L
+        alone: Muhenkan
+        alone_timeout_millis: 200
+      Alt_R:
+        held: Alt_R
+        alone: Henkan
+        alone_timeout_millis: 200
 
 keymap:
   - name: EmacsBase
