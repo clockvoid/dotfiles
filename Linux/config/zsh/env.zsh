@@ -9,3 +9,8 @@ export ANDROID_PLATFORM_TOOLS=$HOME/Android/Sdk/platform-tools
 export FLUTTER_HOME=$HOME/.local/opt/flutter
 
 export PATH=$LLVM_ROOT/bin:$CUDA_ROOT/bin:$HOME/.gem/ruby/2.4.0/bin:$ANDROID_PLATFORM_TOOLS:$ANDROID_CMD_TOOLS:$FLUTTER_HOME/bin:$GOPATH/bin:$PATH
+
+if [ -d "$HOME/tools/Xilinx/2025.1/Vivado/" ] ; then
+  source $HOME/tools/Xilinx/2025.1/Vivado/settings64.sh
+fi
+
