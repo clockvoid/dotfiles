@@ -1,7 +1,7 @@
 #!/bin/sh
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
+[[ -f "$HOME/.ghcup/env" ]] && source "$HOME/.ghcup/env"
 export PATH=$HOME/.local/bin:$PATH
 export ADW_DISABLE_PORTAL=1
 export QT_QPA_PLATFORMTHEME=gtk
@@ -12,4 +12,7 @@ export QT_IM_MODULE=fcitx
 export DefaltIMModule=fcitx
 export SDL_IM_MODULE=fcitx
 
+systemctl restart --user picom
 systemctl restart --user redshift
+systemctl restart --user xremap
+

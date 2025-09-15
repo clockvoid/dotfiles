@@ -1,0 +1,13 @@
+[Unit]
+Description=Picom
+After=default.target
+
+[Service]
+ExecStart=/usr/bin/picom
+Restart=always
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
+
