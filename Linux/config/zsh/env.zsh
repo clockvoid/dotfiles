@@ -14,3 +14,7 @@ if [ -d "$HOME/tools/Xilinx/2025.1/Vivado/" ] ; then
   source $HOME/tools/Xilinx/2025.1/Vivado/settings64.sh
 fi
 
+if [ -d "$HOME/tools/Xilinx/2025.1/Vitis/" ] ; then
+  source $HOME/tools/Xilinx/2025.1/Vitis/settings64.sh
+fi
+
