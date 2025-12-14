@@ -38,24 +38,20 @@ local function hook_lspconfig_loaded()
       border = 'single'
     }
   })
-  require('lspconfig').hls.setup {
+
+  vim.lsp['hls'] = {
     filetypes = { 'haskell' },
     cmd = { 'haskell-language-server-wrapper', '--lsp' }
   }
-  require('lspconfig').sourcekit.setup {
+  vim.lsp['sourcekit'] = {
     filetypes = { 'swift' },
     cmd = { 'sourcekit-lsp' }
   }
-  require('lspconfig').dartls.setup {
+  vim.lsp['dartls'] = {
     filetyles = { 'dart' },
     cmd = { 'fvm', 'dart', 'language-server', '--client-id', 'neovim.lsp' }
   }
-  require('lspconfig').clangd.setup {
-    cmd = {
-      "clangd",
-      "--offset-encoding=utf-16",
-    },
-  }
+  vim.lsp.enable({'hls', 'sourcekit', 'dartls'})
 end
 
 local function hook_cmp_loaded()
