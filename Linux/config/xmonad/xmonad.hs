@@ -66,7 +66,11 @@ keyMaps =
     ("<XF86AudioMicMute>", spawn (configPath ++ "toggle_mic_mute.sh")),
     ("M-z", sendMessage $ JumpToLayout "Tall"),
     ("M-x", sendMessage $ JumpToLayout "Grid"),
-    ("M-c", sendMessage $ JumpToLayout "Full")
+    ("M-c", sendMessage $ JumpToLayout "Full"),
+    ("M-<Up>", spawn "xrandr --output eDP-1 --rotate inverted"),
+    ("M-<Down>", spawn "xrandr --output eDP-1 --rotate normal"),
+    ("M-<Left>", spawn "xrandr --output eDP-1 --rotate left"),
+    ("M-<Right>", spawn "xrandr --output eDP-1 --rotate right")
   ]
     ++ [("M-f M-" ++ k, promptSearchBrowser searchConfig "firefox" f) | (k, f) <- searchList]
 
