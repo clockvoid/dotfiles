@@ -169,9 +169,14 @@ return {
         use_neovim_diagnostics_api = true,
         linters = {
           javascript = { 'eslint' },
+          typescript = { 'eslint' },
           go = { 'staticcheck' },
           markdown = { 'textlint' },
           tex = { 'textlint' }
+        },
+        fixers = {
+          javascript = { 'prettier' },
+          typescript = { 'prettier' },
         },
         linters_explicit = true,
         disable_lsp = true,
