@@ -12,8 +12,8 @@ import XMonad.Hooks.SetWMName
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.Maximize ()
 import XMonad.Layout.NoBorders
+import XMonad.Layout.ThreeColumns (ThreeCol (ThreeColMid))
 import XMonad.Layout.ToggleLayouts
-import XMonad.Layout.Grid
 import XMonad.Prompt
 import XMonad.Util.EZConfig
 import XMonad.Util.Run (spawnPipe)
@@ -57,6 +57,8 @@ keyMaps =
     ("M-S-<Print>", spawn (configPath ++ "screenshot.sh focusedwindowclipboard")),
     ("M-s", spawn "systemctl suspend"),
     ("M-m", spawn (configPath ++ "set_monitor.sh")),
+    ("M-g", spawn (configPath ++ "change_glass_setup.sh")),
+    ("M-i", spawn (configPath ++ "change_internal_monitor_setup.sh")),
     ("<XF86Display>", spawn (configPath ++ "set_monitor.sh")),
     ("<XF86MonBrightnessDown>", spawn "light -Us 'sysfs/backlight/intel_backlight' 5"),
     ("<XF86MonBrightnessUp>", spawn "light -As 'sysfs/backlight/intel_backlight' 5"),
@@ -65,7 +67,7 @@ keyMaps =
     ("<XF86AudioMute>", spawn (configPath ++ "toggle_mute.sh")),
     ("<XF86AudioMicMute>", spawn (configPath ++ "toggle_mic_mute.sh")),
     ("M-z", sendMessage $ JumpToLayout "Tall"),
-    ("M-x", sendMessage $ JumpToLayout "Grid"),
+    ("M-x", sendMessage $ JumpToLayout "ThreeCol"),
     ("M-c", sendMessage $ JumpToLayout "Full"),
     ("M-<Up>", spawn "xrandr --output eDP-1 --rotate inverted"),
     ("M-<Down>", spawn "xrandr --output eDP-1 --rotate normal"),
@@ -170,10 +172,9 @@ main = do
             <+> manageWindowSizeForDev
             <+> manageWindowSize
             <+> manageHook baseConfig,
-        layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ Tall 1 (3/100) (1/2) ||| Grid ||| Full,
+        layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (3 / 100) (1 / 2) ||| Full,
         logHook = xmobarHook statusBars,
         startupHook = startup
       }
       `additionalKeysP` keyMaps
       `removeKeysP` []
-

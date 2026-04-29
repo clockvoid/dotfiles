@@ -16,3 +16,5 @@ systemctl restart --user picom
 systemctl restart --user redshift
 systemctl restart --user xremap
 
+type -p "add_resolution_for_xreal.sh" > /dev/null && add_resolution_for_xreal.sh
+
