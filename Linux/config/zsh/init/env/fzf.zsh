@@ -18,7 +18,7 @@ else
     fi
 fi
 "
---border --bind ctrl-b:preview-down,ctrl-f:preview-up'
+--border --bind ctrl-b:preview-page-up,ctrl-f:preview-page-down'
 
 export FZF_DEFAULT_COMMAND='find \( \
     -type d \( \
