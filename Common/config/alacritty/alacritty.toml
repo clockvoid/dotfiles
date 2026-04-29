@@ -84,9 +84,6 @@ action = "DecreaseFontSize"
 key = "Minus"
 mods = "Control"
 
-[mouse]
-hide_when_typing = true
-
 [scrolling]
 history = 10000
 multiplier = 3
@@ -97,3 +94,4 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
 dynamic_padding = true
+
