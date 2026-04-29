@@ -1,36 +1,59 @@
 [ ! -f $HOME/.config/fzf/fzf.zsh ] && return
-
 source $HOME/.config/fzf/fzf.zsh
 
-export FZF_DEFAULT_OPTS='--preview \
-"
+PREVCMD="
 if [ -d {} ]; then
-    if ! type tree > /dev/null; then
-        ls --color -a {}
-    else
-        tree -C {} | head -200
-    fi
+  if ! type tree > /dev/null; then
+    ls --color -a {}
+  else
+    tree -C {} | head -200
+  fi
 else
-    if ! type bat >/dev/null; then
-        echo \"To see perfect preview, install bat\" && cat {}
-    else
-        bat --color=always --style=header,grid --line-range :100 {}
-    fi
+  if ! type bat >/dev/null; then
+    echo \"To see perfect preview, install bat\" && cat {}
+  else
+    bat --color=always --style=header,grid --line-range :100 {}
+  fi
 fi
 "
---border --bind ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up'
+export FZF_DEFAULT_OPTS="--preview '${PREVCMD}' \
+  --border \
+  --bind ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up \
+  --height=~-1 \
+  --reverse \
+  "
 
-export FZF_DEFAULT_COMMAND='find \( \
-    -type d \( \
-    -name .git \
-    \) -prune \) -o -type f -printf "%P\n"'
+export FZF_DEFAULT_COMMAND='find \
+  \( \
+    -type d \
+    \( \
+      -name .git \
+    \) \
+    -prune \
+  \) \
+  -o \
+  -type f \
+  -printf "%P\n" \
+  '
 
-export FZF_CTRL_T_COMMAND='find \( \
-    -type d \( \
-    -name .git \
-    \) -prune \) -o \( ! -path ./. -type d \) -o -printf "%P\n"'
+export FZF_CTRL_T_COMMAND='find \
+  \( \
+    -type d \
+    \( \
+      -name .git \
+    \) \
+    -prune \
+  \) \
+  -o \
+  \( \
+    ! -path ./. \
+    -type d \
+  \) \
+  -o \
+  -printf "%P\n" \
+  '
 
-export FZF_CTRL_R_OPTS='--reverse'
+export FZF_CTRL_R_OPTS='--reverse --preview-window=":hidden"'
 
 _fzf_compgen_path() {
     find "$1" \( -type d \( \
@@ -52,5 +75,6 @@ fd() {
     else
         prevcmd='tree -C {} | head -200'
     fi
-    dir=$(_fzf_compgen_dir . | fzf +m --height=~-1 --reverse --preview "$prevcmd") && cd "$dir"
+    dir=$(_fzf_compgen_dir . | fzf +m --preview "$prevcmd") && cd "$dir"
 }
+

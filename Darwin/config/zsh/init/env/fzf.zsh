@@ -3,37 +3,64 @@
 [ ! -f $HOME/.config/fzf/fzf.zsh ] && return
 source $HOME/.config/fzf/fzf.zsh
 
-export FZF_DEFAULT_OPTS='--preview "
+PREVCMD="
 if [ -d {} ]; then
-    if ! type tree > /dev/null; then
-        echo \"To see perfect preview, install tree\" && ls --color -a {}
-    else
-        tree -C {} | head -200
-    fi
+  if ! type tree > /dev/null; then
+    echo \"To see perfect preview, install tree\" && ls --color -a {}
+  else
+    tree -C {} | head -200
+  fi
 else
-    if ! type bat >/dev/null; then
-        echo \"To see perfect preview, install bat\" && cat {}
-    else
-        bat --theme=Nord --color=always --style=header,grid --line-range :100 {}
-    fi
+  if ! type bat >/dev/null; then
+    echo \"To see perfect preview, install bat\" && cat {}
+  else
+    bat --theme=Nord --color=always --style=header,grid --line-range :100 {}
+  fi
 fi
-" --height 40% --border --bind ctrl-b:preview-down,ctrl-f:preview-up'
+"
 
-export FZF_DEFAULT_COMMAND='find \( \
-    -type d \( \
-    -name .git \
-    \) -prune \) -o -type f \
-    ! \( \
-    -name .DS_Store \
-    \) -printf "%P\n"'
+export FZF_DEFAULT_OPTS="--preview '${PREVCMD}' \
+  --border \
+  --bind ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up \
+  --height=~-1 \
+  --reverse \
+  "
 
-export FZF_CTRL_T_COMMAND='find \( \
-    -type d \( \
-    -name .git \
-    \) -prune \) -o \( ! -path ./. -type d \) -o \
-    ! \( \
+export FZF_DEFAULT_COMMAND='find \
+  \( \
+    -type d \
+    \( \
+      -name .git \
+    \) \
+    -prune \
+  \) \
+  -o \
+  -type f \
+  ! \( \
     -name .DS_Store \
-    \) -printf "%P\n"'
+  \) \
+  -printf "%P\n" \
+  '
+
+export FZF_CTRL_T_COMMAND='find \
+  \( \
+    -type d \
+    \( \
+      -name .git \
+    \) \
+    -prune \
+  \) \
+  -o \
+  \( \
+    ! -path ./. \
+    -type d \
+  \) \
+  -o \
+  ! \( \
+    -name .DS_Store \
+  \) \
+  -printf "%P\n" \
+  '
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
@@ -73,12 +100,13 @@ _fzf_comprun() {
 }
 
 # fd - cd to selected directory
-fdr() {
+fd() {
     local dir prevcmd
     if ! type tree > /dev/null; then
         prevcmd='echo "To see perfect preview, install tree" && ls --color -a {}'
     else
         prevcmd='tree -C {} | head -200'
     fi
-    dir=$(fd --hidden --follow --exclude ".git" --exclude "Library" --max-depth 5 | fzf +m --reverse --preview "$prevcmd") && cd "$dir"
+    dir=$(fd --hidden --follow --exclude ".git" --exclude "Library" --max-depth 5 | fzf +m "$prevcmd") && cd "$dir"
 }
+
