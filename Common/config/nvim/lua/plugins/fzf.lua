@@ -26,7 +26,6 @@ local function hook_post_source()
   }
 
   vim.g.fzf_history_dir = '~/.local/share/fzf-history'
-  vim.api.nvim_set_keymap('n', '<C-f>', ':Files<CR>', { noremap = true })
 end
 
 return {
