@@ -42,3 +42,4 @@ vim.keymap.set('n', '<S-F2>',
   end
 )
 vim.keymap.set('n', '<M-6>', vim.diagnostic.setloclist)
+
