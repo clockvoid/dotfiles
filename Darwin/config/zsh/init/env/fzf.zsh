@@ -102,7 +102,7 @@ _fzf_comprun() {
 }
 
 # fd - cd to selected directory
-fd() {
+fdr() {
     local dir prevcmd
     if ! type tree > /dev/null; then
         prevcmd='echo "To see perfect preview, install tree" && ls --color -a {}'
