@@ -6,7 +6,7 @@ local function hook_post_source()
   }
 
   vim.g.fzf_layout = {
-    down = '~30%'
+    down = '~80%'
   }
 
   vim.g.fzf_colors = {
