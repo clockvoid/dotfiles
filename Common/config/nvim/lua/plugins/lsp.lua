@@ -1,4 +1,4 @@
-vim.lsp.set_log_level('ERROR')
+vim.lsp.log.set_level('ERROR')
 vim.opt.winborder = "single"
 -- keymaps; see also: keymap.lua
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -16,9 +16,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<C-M-l>', vim.lsp.buf.format, opts)
     vim.keymap.set('n', 'L', vim.lsp.buf.references, opts)
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true }
-    )
   end,
 })
 
