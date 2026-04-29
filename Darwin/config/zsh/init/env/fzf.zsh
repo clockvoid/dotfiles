@@ -21,8 +21,8 @@ fi
 
 export FZF_DEFAULT_OPTS="--preview '${PREVCMD}' \
   --border \
-  --bind ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up \
-  --height=~-1 \
+  --bind ctrl-e:preview-down,ctrl-y:preview-up,ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up \
+  --height=-1 \
   --reverse \
   "
 
@@ -61,6 +61,8 @@ export FZF_CTRL_T_COMMAND='find \
   \) \
   -printf "%P\n" \
   '
+
+export FORGIT_FZF_DEFAULT_OPTS="--height=-1"
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
