@@ -8,8 +8,10 @@ fi
 INTERNAL="eDP-1"
 IS_CONNECT_EXTERNAL_PRIMARY="false"
 IS_CONNECT_EXTERNAL_SECONDARY="false"
+IS_CONNECT_EXTERNAL_SINGLE="false"
 EXTERNAL_PRIMARY="DP-3-8"
 EXTERNAL_SECONDARY="DP-3-1-8"
+EXTERNAL_SINGLE="DP-3"
 
 old_IFS="${IFS}"
 IFS=$'\n'
@@ -22,6 +24,8 @@ for out in `xrandr | grep connected | cut -d ' ' -f 1-2`; do
                 IS_CONNECT_EXTERNAL_PRIMARY="true"
             elif [ "$name" = "${EXTERNAL_SECONDARY}" ]; then
                 IS_CONNECT_EXTERNAL_SECONDARY="true"
+            elif [ "$name" = "$EXTERNAL_SINGLE" ]; then
+                IS_CONNECT_EXTERNAL_SINGLE="true"
             elif [ "$name" = "$INTERNAL" ]; then
                 # do nothing
                 echo ""
@@ -50,6 +54,10 @@ elif [ "$IS_CONNECT_EXTERNAL_PRIMARY" = "true" ]; then
     xrandr --output "$EXTERNAL_PRIMARY" --primary --auto
 fi
 
+if [ "$IS_CONNECT_EXTERNAL_SINGLE" = "true" ]; then
+  xrandr --output "$EXTERNAL_SINGLE" --primary --auto
+fi
+
 # output setting for internal monitor
 if [ `cat /proc/acpi/button/lid/LID/state | cut -d ' ' -f 7` == "closed" ]; then
     xrandr --output "$INTERNAL" --off
@@ -58,9 +66,13 @@ else
         xrandr --output "$INTERNAL" --primary --auto --below "$EXTERNAL_PRIMARY"
     elif [ "$IS_CONNECT_EXTERNAL_SECONDARY" = "true" ]; then
         xrandr --output "$INTERNAL" --primary --auto --below "$EXTERNAL_SECONDARY"
+    elif [ "$IS_CONNECT_EXTERNAL_SINGLE" = "true" ]; then
+        xrandr --output "$INTERNAL" --auto --below "$EXTERNAL_SINGLE"
     else
         xrandr --output "$INTERNAL" --primary --auto
     fi
 fi
 
 feh --no-fehbg --bg-fill '/etc/lightdm/wallpaper.png'
+xmonad --restart
+
