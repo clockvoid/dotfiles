@@ -6,8 +6,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'K', function()
-      vim.lsp.buf.hover()
-      vim.lsp.buf.hover()
+      local win_width = vim.fn['getwininfo'](vim.fn['win_getid']())[1].width
+      local win_height = vim.fn['getwininfo'](vim.fn['win_getid']())[1].height
+      vim.lsp.buf.hover({ max_width = win_width - 12, max_height = win_height - 4 })
     end, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
@@ -48,7 +49,7 @@ local function hook_lspconfig_loaded()
     filetyles = { 'dart' },
     cmd = { 'fvm', 'dart', 'language-server', '--client-id', 'neovim.lsp' }
   }
-  vim.lsp.enable({'hls', 'sourcekit', 'dartls'})
+  vim.lsp.enable({ 'hls', 'sourcekit', 'dartls' })
 end
 
 local function hook_cmp_loaded()
@@ -61,8 +62,8 @@ local function hook_cmp_loaded()
     },
     mapping = cmp.mapping.preset.insert({
       ['<CR>'] = cmp.mapping.confirm({ select = false }),
-      ['<C-f>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-b>'] = cmp.mapping.scroll_docs(4),
+      ['<C-y>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-e>'] = cmp.mapping.scroll_docs(4),
       ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
       ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
       ['<Tab>'] = function(fallback)
