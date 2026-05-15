@@ -34,3 +34,4 @@ vim.opt.concealcursor = ''
 
 vim.g.markdown_folding = 1
 vim.g.markdown_recommended_style = 0
+
