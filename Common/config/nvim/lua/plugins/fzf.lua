@@ -5,10 +5,6 @@ local function hook_post_source()
     ['ctrl-v'] = 'vsplit'
   }
 
-  vim.g.fzf_layout = {
-    down = '~80%'
-  }
-
   vim.g.fzf_colors = {
     fg      = { 'fg', 'Normal' },
     bg      = { 'bg', 'Normal' },
