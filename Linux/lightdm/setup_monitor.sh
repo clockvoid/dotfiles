@@ -55,9 +55,9 @@ if [ `cat /proc/acpi/button/lid/LID/state | cut -d ' ' -f 7` == "closed" ]; then
     xrandr --output "$INTERNAL" --off
 else
     if [ "$IS_CONNECT_EXTERNAL_PRIMARY" = "true" ]; then
-        xrandr --output "$INTERNAL" --primary --auto --below "$EXTERNAL_PRIMARY"
+        xrandr --output "$INTERNAL" --auto --below "$EXTERNAL_PRIMARY"
     elif [ "$IS_CONNECT_EXTERNAL_SECONDARY" = "true" ]; then
-        xrandr --output "$INTERNAL" --primary --auto --below "$EXTERNAL_SECONDARY"
+        xrandr --output "$INTERNAL" --auto --below "$EXTERNAL_SECONDARY"
     else
         xrandr --output "$INTERNAL" --primary --auto
     fi
