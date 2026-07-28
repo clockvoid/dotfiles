@@ -5,6 +5,12 @@ local function hook_post_source()
     ['ctrl-v'] = 'vsplit'
   }
 
+  if vim.fn.exists('$TMUX') == 1 then
+    vim.g.fzf_layout = { tmux = '90%,70%' }
+  else
+    vim.g.fzf_layout = { window = { width = 0.9, height = 0.7 } }
+  end
+
   vim.g.fzf_colors = {
     fg      = { 'fg', 'Normal' },
     bg      = { 'bg', 'Normal' },
