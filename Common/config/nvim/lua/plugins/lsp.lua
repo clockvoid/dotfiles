@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F6>', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<C-M-l>', vim.lsp.buf.format, opts)
-    vim.keymap.set('n', 'L', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<F7>', vim.lsp.buf.references, opts)
   end,
 })
 
