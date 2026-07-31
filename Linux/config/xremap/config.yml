@@ -31,6 +31,8 @@ keymap:
       C-e: { with_mark: end }
       C-m: enter
   - name: Mac
+    application:
+      not: [jetbrains-studio, Alacritty]
     remap:
       M-a: [C-a, { set_mark: false }]
       M-f: [C-f, { set_mark: false }]
