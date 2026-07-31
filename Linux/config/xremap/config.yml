@@ -33,8 +33,5 @@ keymap:
   - name: Mac
     remap:
       M-a: [C-a, { set_mark: false }]
-      M-z: [C-z, { set_mark: false }]
-      M-x: [C-x, { set_mark: false }]
-      M-c: [C-c, { set_mark: false }]
-      M-v: [C-v, { set_mark: false }]
       M-f: [C-f, { set_mark: false }]
+
