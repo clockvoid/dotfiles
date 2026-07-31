@@ -13,10 +13,11 @@ else
   if ! type bat >/dev/null; then
     echo \"To see perfect preview, install bat\" && cat {}
   else
-    bat --theme=ansi --color=always --style=header,grid --line-range :100 {}
+    bat --color=always --style=header,grid --line-range :100 {}
   fi
 fi
 "
+export BAT_THEME="ansi"
 
 export FZF_DEFAULT_OPTS="--preview '${PREVCMD}' \
   --border \
