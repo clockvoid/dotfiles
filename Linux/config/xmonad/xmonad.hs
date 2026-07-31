@@ -119,7 +119,7 @@ startup = do
   spawnOnce "start-pulseaudio-x11"
   spawnOnce "fcitx5"
   spawnOnce "lxqt-policykit-agent"
-  spawnOnce "volctl"
+  spawnOnce "osd"
   spawnOnce
     "trayer --edge top --align right \
     \--widthtype percent --heighttype pixel \
