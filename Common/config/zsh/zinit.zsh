@@ -16,3 +16,4 @@ zinit light wfxr/forgit
 
 zinit ice wait lucid use"_gradle"
 zinit light gradle/gradle-completion
+
