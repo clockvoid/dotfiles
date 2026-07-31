@@ -1,32 +1,3 @@
-# Setup fzf
-# ---------
-[ ! -f $HOME/.config/fzf/fzf.zsh ] && return
-source $HOME/.config/fzf/fzf.zsh
-
-PREVCMD="
-if [ -d {} ]; then
-  if ! type tree > /dev/null; then
-    echo \"To see perfect preview, install tree\" && ls --color -a {}
-  else
-    tree -C {} | head -200
-  fi
-else
-  if ! type bat >/dev/null; then
-    echo \"To see perfect preview, install bat\" && cat {}
-  else
-    bat --theme=Nord --color=always --style=header,grid --line-range :100 {}
-  fi
-fi
-"
-
-export FZF_DEFAULT_OPTS="--preview '${PREVCMD}' \
-  --border \
-  --bind ctrl-e:preview-down,ctrl-y:preview-up,ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up \
-  --height=-1 \
-  --reverse \
-  --tmux 90%,70% \
-  "
-
 export FZF_DEFAULT_COMMAND='find \
   \( \
     -type d \
@@ -63,14 +34,6 @@ export FZF_CTRL_T_COMMAND='find \
   -printf "%P\n" \
   '
 
-export FZF_CTRL_R_OPTS='--reverse --preview-window=":hidden"'
-
-export FORGIT_FZF_DEFAULT_OPTS="--height=-1"
-
-# Use fd (https://github.com/sharkdp/fd) instead of the default find
-# command for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
     find "$1" \( \
         -type d \( \
@@ -81,7 +44,6 @@ _fzf_compgen_path() {
         \) -printf "%P\n"
 }
 
-# Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
     find "$1" \( \
         -type d \( \
@@ -90,9 +52,6 @@ _fzf_compgen_dir() {
         \) -o \( ! -path . -type d \) -printf "%P\n"
 }
 
-# (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
-# - The first argument to the function is the name of the command.
-# - You should make sure to pass the rest of the arguments to fzf.
 _fzf_comprun() {
     local command=$1
     shift
@@ -105,7 +64,7 @@ _fzf_comprun() {
 }
 
 # fd - cd to selected directory
-fdr() {
+fd() {
     local dir prevcmd
     if ! type tree > /dev/null; then
         prevcmd='echo "To see perfect preview, install tree" && ls --color -a {}'
