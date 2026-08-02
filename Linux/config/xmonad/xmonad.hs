@@ -85,7 +85,10 @@ searchConfig =
           [ (,) (controlMask, xK_h) (deleteString Prev),
             (,) (controlMask, xK_c) quit
           ]
-          `union` emacsLikeXPKeymap
+          `union` emacsLikeXPKeymap,
+      historySize = 0,
+      maxComplRows = Just 0,
+      height = 26
     }
 
 appleDeveloper :: SearchEngine
@@ -97,17 +100,22 @@ androidDeveloper = searchEngine "android" "https://developer.android.com/s/resul
 kotlinDocs :: SearchEngine
 kotlinDocs = searchEngine "kotlin" "https://kotlinlang.org/docs/home.html?s=full&q="
 
+cambridgeEnglish :: SearchEngine
+cambridgeEnglish = searchEngine "english" "https://dictionary.cambridge.org/us/dictionary/english/"
+
+cambridgeEnglishJapanese :: SearchEngine
+cambridgeEnglishJapanese = searchEngine "english-japanese" "https://dictionary.cambridge.org/us/dictionary/english-japanese/"
+
 searchList :: [(String, SearchEngine)]
 searchList =
-  [ ("a", androidDeveloper),
-    ("g", google),
-    ("y", youtube),
-    ("h", hoogle),
-    ("s", stackage),
+  [ ("d", duckduckgo),
     ("w", wikipedia),
     ("p", arXiv),
+    ("a", androidDeveloper),
     ("k", kotlinDocs),
-    ("r", appleDeveloper)
+    ("r", appleDeveloper),
+    ("e", cambridgeEnglish),
+    ("j", cambridgeEnglishJapanese)
   ]
 
 startup :: X ()
