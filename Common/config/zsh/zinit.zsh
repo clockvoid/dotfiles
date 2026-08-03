@@ -11,7 +11,7 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit ice wait lucid
+zinit ice lucid use"_git-forgit"
 zinit light wfxr/forgit
 
 zinit ice wait lucid use"_gradle"
