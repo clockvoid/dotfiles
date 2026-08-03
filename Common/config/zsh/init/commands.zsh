@@ -1,7 +1,7 @@
 # git branch finder
 select-git-branch() {
   target_br=$(
-    git branch -a | fzf --exit-0 --height=~100% --reverse --no-multi --preview-window="right,65%" --preview="echo {} | tr -d ' *' | xargs git log --color=always" |
+    git branch -a | fzf --preview-window="right,65%" --preview="echo {} | tr -d ' *' | xargs git log --color=always" |
     head -n 1 |
     perl -pe "s/\s//g; s/\*//g; s/remotes\/origin\///g"
   )
