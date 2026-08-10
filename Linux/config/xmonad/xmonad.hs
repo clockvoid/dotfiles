@@ -121,7 +121,7 @@ searchList =
 startup :: X ()
 startup = do
   setWMName "LG3D"
-  spawnOnce "hook_window_focus.sh"
+  spawnOnce $ configPath ++ "set_x_preferences.sh"
   spawnOnce "nm-applet"
   spawnOnce "blueman-applet"
   spawnOnce "start-pulseaudio-x11"
