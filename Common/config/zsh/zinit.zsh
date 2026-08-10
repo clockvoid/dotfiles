@@ -11,9 +11,13 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit ice lucid use"_git-forgit"
+apply-forgit-subcommand-to-git() {
+  export PATH=$PATH:$FORGIT_INSTALL_DIR/bin
+}
+
+zinit ice wait lucid atload"apply-forgit-subcommand-to-git"
 zinit light wfxr/forgit
 
-zinit ice wait lucid use"_gradle"
+zinit ice wait lucid as"completion" pick"_gradle"
 zinit light gradle/gradle-completion
 

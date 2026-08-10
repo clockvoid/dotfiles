@@ -37,7 +37,7 @@ autoload -Uz promptinit && promptinit
 autoload history-search-end
 
 export ANYENV_ROOT=$HOME/.anyenv
-export PATH=$ANYENV_ROOT/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH:$FORGIT_INSTALL_DIR/bin
+export PATH=$ANYENV_ROOT/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 
 command -v anyenv >/dev/null && eval "$(anyenv init -)"
 command -v direnv >/dev/null && eval "$(direnv hook zsh)"
