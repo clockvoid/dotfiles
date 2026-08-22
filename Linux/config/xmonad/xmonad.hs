@@ -72,7 +72,8 @@ keyMaps =
     ("M-<Up>", spawn "xrandr --output eDP-1 --rotate inverted"),
     ("M-<Down>", spawn "xrandr --output eDP-1 --rotate normal"),
     ("M-<Left>", spawn "xrandr --output eDP-1 --rotate left"),
-    ("M-<Right>", spawn "xrandr --output eDP-1 --rotate right")
+    ("M-<Right>", spawn "xrandr --output eDP-1 --rotate right"),
+    ("M-S-f", spawn "firefox")
   ]
     ++ [("M-f M-" ++ k, promptSearchBrowser searchConfig "firefox" f) | (k, f) <- searchList]
 
