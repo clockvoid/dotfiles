@@ -131,6 +131,7 @@ startup = do
   spawnOnce "fcitx5"
   spawnOnce "lxqt-policykit-agent"
   spawnOnce "osd"
+  spawnOnce "protonmail-bridge"
   spawnOnce
     "trayer --edge top --align right \
     \--widthtype percent --heighttype pixel \
