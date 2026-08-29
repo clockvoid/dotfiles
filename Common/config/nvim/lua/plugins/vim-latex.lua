@@ -67,11 +67,12 @@ local function hook_source()
 Underfull
 Overfull
 Using fall-back BibTeX(8) backend
-Package caption Warning
 LaTeX hooks Warning
+LaTeX Font Warning
+Package caption Warning
 Package fontspec Warning
+Package unicode-math Warning
 Package pgf Warning
-LaTeX Font Warning:
 Label(s) may have changed.
 Citation %.%# undefined
     ]]
