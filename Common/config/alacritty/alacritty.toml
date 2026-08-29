@@ -49,16 +49,6 @@ x = 0
 y = 0
 
 [[keyboard.bindings]]
-action = "Quit"
-key = "Q"
-mods = "Command"
-
-[[keyboard.bindings]]
-action = "Quit"
-key = "W"
-mods = "Command"
-
-[[keyboard.bindings]]
 action = "ResetFontSize"
 key = "Key0"
 mods = "Control"
