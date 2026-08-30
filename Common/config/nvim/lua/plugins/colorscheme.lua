@@ -10,7 +10,7 @@ return {
       vim.cmd.highlight('CursorLineNr', 'ctermfg=white', 'guifg=#c5c8c6')
       vim.cmd.highlight('CursorLineSign', 'guibg=#282a2e')
       vim.cmd.highlight('MatchParen', 'ctermbg=237', 'ctermfg=255', 'guibg=#3a3a3a', 'guifg=#eeeeee')
-      vim.cmd.highlight('SpellBad', 'cterm=undercurl', 'ctermbg=009', 'ctermfg=000', 'gui=underline', 'guibg=#cc6666', 'guifg=#1d1f21')
+      vim.cmd.highlight('SpellBad', 'cterm=undercurl', 'ctermfg=009', 'gui=underline', 'guifg=#cc6666')
     end,
   },
   {
@@ -25,4 +25,3 @@ return {
     end,
   }
 }
-
