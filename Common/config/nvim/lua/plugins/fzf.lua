@@ -6,9 +6,9 @@ local function hook_post_source()
   }
 
   if vim.fn.exists('$TMUX') == 1 then
-    vim.g.fzf_layout = { tmux = '90%,70%' }
+    vim.g.fzf_layout = { tmux = '95%,90%' }
   else
-    vim.g.fzf_layout = { window = { width = 0.9, height = 0.7 } }
+    vim.g.fzf_layout = { window = { width = 0.95, height = 0.9 } }
   end
 
   vim.g.fzf_colors = {
