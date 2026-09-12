@@ -28,7 +28,7 @@ password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" "$@")
 
 [[ -n $password ]] || exit
 
-base_name=$(basename ${password})
+base_name=$(basename "${password}")
 
 echo ${base_name} | xclip -selection clipboard
 
