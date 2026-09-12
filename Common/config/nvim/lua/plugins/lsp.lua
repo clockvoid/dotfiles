@@ -37,15 +37,16 @@ local function hook_lspconfig_loaded()
     }
   })
 
-  vim.lsp['hls'] = {
+  vim.lsp.config['hls'] = {
     filetypes = { 'haskell' },
-    cmd = { 'haskell-language-server-wrapper', '--lsp' }
+    cmd = { 'haskell-language-server-wrapper', '--lsp' },
+    root_marks = { 'stack.yaml', 'cabal.project' },
   }
-  vim.lsp['sourcekit'] = {
+  vim.lsp.config['sourcekit'] = {
     filetypes = { 'swift' },
     cmd = { 'sourcekit-lsp' }
   }
-  vim.lsp['dartls'] = {
+  vim.lsp.config['dartls'] = {
     filetyles = { 'dart' },
     cmd = { 'fvm', 'dart', 'language-server', '--client-id', 'neovim.lsp' }
   }
