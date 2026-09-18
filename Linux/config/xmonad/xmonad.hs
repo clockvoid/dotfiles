@@ -132,14 +132,7 @@ startup = do
   spawnOnce "lxqt-policykit-agent"
   spawnOnce "osd"
   spawnOnce "protonmail-bridge"
-  spawnOnce
-    "trayer --edge top --align right \
-    \--widthtype percent --heighttype pixel \
-    \--SetDockType true --SetPartialStrut false \
-    \--expand false \
-    \--width 8 --height 23 \
-    \--transparent true --alpha 0 --tint 0x000000 \
-    \--monitor primary"
+  spawnOnce $ configPath ++ "launch_trayer.sh"
   spawn "pkill -x -USR1 picom"
   spawn (configPath ++ "set_wallpaper.sh")
 
@@ -159,8 +152,8 @@ xmobarHook statusBars = do
         dynamicLogWithPP
           xmobarPP
             { ppOutput = hPutStrLn xmproc,
-              ppTitle = xmobarColor "orange" "" . shorten 100,
-              ppLayout = \s -> "<" ++ s ++ ">",
+              ppTitle = \_ -> " ",
+              ppLayout = wrap "<" ">",
               ppSep = " | "
             }
     )
