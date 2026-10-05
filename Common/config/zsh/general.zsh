@@ -6,6 +6,7 @@ export EDITOR="nvim"
 
 alias ls='ls --color=auto'
 alias rm='rm -v'
+alias man='man --nj'
 
 # enable output last cd directory
 setopt auto_pushd
