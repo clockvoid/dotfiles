@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'K', function()
       local win_width = vim.fn['getwininfo'](vim.fn['win_getid']())[1].width
       local win_height = vim.fn['getwininfo'](vim.fn['win_getid']())[1].height
-      vim.lsp.buf.hover({ max_width = win_width - 12, max_height = win_height - 4 })
+      vim.lsp.buf.hover({ max_width = win_width - 12, max_height = win_height - 4, border = 'rounded' })
     end, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
@@ -85,8 +85,12 @@ local function hook_cmp_loaded()
       { name = 'buffer' },
     }),
     window = {
+      completion = cmp.config.window.bordered {
+        border = 'none',
+        winhighlight = "Normal:BlinkCmpMenu,CursorLine:BlinkCmpDocCursorLine",
+      },
       documentation = cmp.config.window.bordered {
-        border = 'single',
+        border = 'rounded',
       },
     },
     formatting = {
