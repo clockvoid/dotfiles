@@ -20,6 +20,7 @@ require('lazy').setup({
   require('plugins/vim-latex'),
   require('plugins/previm'),
   require('plugins/quickrun'),
+  require('plugins/markdown'),
 
   { 'maxmellon/vim-jsx-pretty',  ft = { 'javascript', 'typescript' } },
   { 'neovimhaskell/haskell-vim', ft = { 'haskell' } },
