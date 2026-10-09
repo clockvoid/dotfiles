@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 })
 
 vim.api.nvim_create_autocmd({ 'BufEnter', 'Filetype' }, {
-  pattern = { 'markdown', 'tex', 'gitcommit' },
+  pattern = { 'markdown', 'tex', 'gitcommit', 'c' },
   command = 'setlocal spell spelllang=en_us,cjk'
 })
 
