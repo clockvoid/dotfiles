@@ -82,7 +82,7 @@ local function hook_cmp_loaded()
       { name = 'vsnip' },
       { name = 'path' },
     }, {
-      { name = 'buffer' },
+      { name = 'buffer', max_item_count = 3, },
     }),
     window = {
       completion = cmp.config.window.bordered {
