@@ -21,6 +21,7 @@ local function enable_knap()
     mdtopdfviewerlaunch = launcher.." %outputfile%",
     mdtopdfviewerrefresh = "none",
     mdtopdfbufferasstdin = true,
+    delay = 500,
   }
 
   vim.keymap.set("n", "<leader>lv", function()
@@ -30,20 +31,17 @@ local function enable_knap()
   vim.keymap.set("n", "<leader>ll", function ()
     require("knap").process_once()
   end, { buffer = true, desc = "KNAP onetime execution" })
+
+  if not(vim.b.knap_autopreviewing) then
+    require("knap").toggle_autopreviewing()
+  end
 end
 
 local function config()
-  vim.g.knap_settings = {
-    delay = 5,
-  }
-
   vim.api.nvim_create_autocmd({ 'BufEnter', 'Filetype' }, {
     pattern = { 'markdown', 'pandoc' },
     callback = function ()
       enable_knap()
-      if not(vim.b.knap_autopreviewing) then
-        require("knap").toggle_autopreviewing()
-      end
     end
   })
 end
