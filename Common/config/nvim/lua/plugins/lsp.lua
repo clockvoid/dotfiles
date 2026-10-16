@@ -1,5 +1,4 @@
 vim.lsp.log.set_level('ERROR')
-vim.opt.winborder = "single"
 -- keymaps; see also: keymap.lua
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
