@@ -120,7 +120,7 @@ local function hook_cmp_loaded()
     sources = cmp.config.sources({
       { name = 'path' },
     }, {
-      { name = 'cmdline' }
+      { name = 'cmdline' },
     })
   })
 end
