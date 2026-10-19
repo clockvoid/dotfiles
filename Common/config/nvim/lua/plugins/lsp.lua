@@ -32,7 +32,8 @@ local function hook_lspconfig_loaded()
   })
   require('mason').setup({
     ui = {
-      border = 'single'
+      border = 'rounded',
+      backdrop = 100,
     }
   })
 
