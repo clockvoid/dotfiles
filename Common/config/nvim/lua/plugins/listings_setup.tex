@@ -9,7 +9,7 @@
     basicstyle=\ttfamily,
     numbers=left,
     numberstyle=\footnotesize,
-    frame=single,
+    frame=tbl,
     numbersep=5pt,
     showspaces=false,
     showstringspaces=false,
@@ -17,8 +17,15 @@
     tabsize=2,
     captionpos=b,
     breaklines=true,
-    breakatwhitespace=true,
     breakautoindent=true,
     linewidth=\textwidth
 }
+
+% Source - https://tex.stackexchange.com/a/65839
+% Posted by Marco Daniel, modified by community. See post 'Timeline' for change history
+% Retrieved 2026-10-22, License - CC BY-SA 3.0
+
+\makeatletter
+\def\lst@lettertrue{\let\lst@ifletter\iffalse}
+\makeatother
 
