@@ -30,6 +30,15 @@ local function enable_knap()
   vim.keymap.set("n", "<leader>ll", function()
     require("knap").process_once()
   end, { buffer = true, desc = "KNAP onetime execution" })
+
+  vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = { 'memo.md' },
+    callback = function()
+      if not (vim.b.knap_autopreviewing) then
+        require("knap").toggle_autopreviewing()
+      end
+    end
+  })
 end
 
 local function config()
@@ -37,14 +46,6 @@ local function config()
     pattern = { 'markdown', 'pandoc' },
     callback = function()
       enable_knap()
-    end
-  })
-  vim.api.nvim_create_autocmd('BufEnter', {
-    pattern = { 'memo.md' },
-    callback = function()
-      if not (vim.b.knap_autopreviewing) then
-        require("knap").toggle_autopreviewing()
-      end
     end
   })
 end
