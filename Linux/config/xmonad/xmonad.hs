@@ -170,7 +170,7 @@ main = do
       { terminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\"",
         borderWidth = 2,
         focusedBorderColor = "#ff5733",
-        normalBorderColor = "#1D1F21",
+        normalBorderColor = "#000000",
         modMask = mod4Mask,
         manageHook =
           manageDocks
