@@ -15,7 +15,7 @@ local function enable_knap()
   vim.b.knap_settings = {
     mdoutputext = "pdf",
     mdtopdf = string.format(
-      "pandoc -f markdown-smart+hard_line_breaks --listings -H %s -o %%outputfile%% --pdf-engine=lualatex -V documentclass=ltjsarticle -V 'mainfont: Noto serif' -V geometry:margin=1.5cm",
+      "pandoc -f markdown-smart+hard_line_breaks --listings -H %s -o %%outputfile%% --pdf-engine=lualatex -V documentclass=ltjsarticle -V indent=true -V 'mainfont: Noto serif' -V geometry:margin=1.5cm",
       listings_setup),
     mdtopdfviewerlaunch = launcher .. " %outputfile%",
     mdtopdfviewerrefresh = "none",
