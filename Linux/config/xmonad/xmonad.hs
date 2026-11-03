@@ -131,7 +131,6 @@ startup = do
   spawnOnce "fcitx5"
   spawnOnce "lxqt-policykit-agent"
   spawnOnce "osd"
-  spawnOnce "protonmail-bridge"
   spawnOnce $ configPath ++ "launch_trayer.sh"
   spawn "pkill -x -USR1 picom"
   spawn (configPath ++ "set_wallpaper.sh")
