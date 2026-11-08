@@ -22,7 +22,7 @@ export BAT_THEME="ansi"
 export FZF_DEFAULT_OPTS="--preview '${PREVCMD}' \
   --border \
   --bind ctrl-e:preview-down,ctrl-y:preview-up,ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up \
-  --preview-window 'wrap,<85(bottom)' \
+  --preview-window 'right,border-left,wrap,<85(bottom,30%,border-top)' \
   --height=-1 \
   --reverse \
   --tmux 95%,90% \
