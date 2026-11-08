@@ -19,7 +19,6 @@ local function hook_post_source()
     ['bg+'] = { 'bg', 'CursorLine', 'CursorColumn' },
     ['hl+'] = { 'fg', 'Statement' },
     info    = { 'fg', 'PreProc' },
-    border  = { 'fg', 'Ignore' },
     prompt  = { 'fg', 'Conditional' },
     pointer = { 'fg', 'Exception' },
     marker  = { 'fg', 'Keyword' },
