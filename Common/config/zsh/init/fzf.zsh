@@ -23,13 +23,13 @@ export FZF_DEFAULT_OPTS="--preview '${PREVCMD}' \
   --border \
   --bind ctrl-e:preview-down,ctrl-y:preview-up,ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up \
   --bind ?:toggle-preview \
-  --preview-window 'right,border-left,wrap,<85(bottom,30%,border-top)' \
+  --preview-window 'right,border-left,wrap,<50(bottom,border-top)' \
   --height=-1 \
   --reverse \
   --tmux 95%,90% \
   "
 
-export FZF_CTRL_R_OPTS='--reverse --preview-window=":hidden"'
+export FZF_CTRL_R_OPTS='--reverse --preview-window=":hidden,<50(bottom,border-top,hidden)"'
 
 export FORGIT_FZF_DEFAULT_OPTS="--height=-1 --tmux 95%,90%"
 
