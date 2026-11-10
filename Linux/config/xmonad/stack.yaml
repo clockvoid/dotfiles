@@ -4,4 +4,10 @@ packages:
 - xmonad-git
 - xmonad-contrib-git
 
+flags:
+  xmobar:
+    with_xpm: true
+    with_alsa: true
+
 extra-deps:
+
