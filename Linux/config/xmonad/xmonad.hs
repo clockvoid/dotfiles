@@ -148,7 +148,7 @@ xmobarHook statusBars = do
             { ppOutput = hPutStrLn xmproc,
               ppTitle = \_ -> " ",
               ppLayout = wrap "<" ">",
-              ppSep = " | "
+              ppSep = "  "
             }
     )
     statusBars

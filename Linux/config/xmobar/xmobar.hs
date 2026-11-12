@@ -7,7 +7,7 @@ myCommands =
     Run $
       Cpu
         [ "-t",
-          "<fn=1>\xf2db</fn><total>%",
+          "<fn=1>\xf2db</fn> <total>%",
           "-L",
           "20",
           "-H",
@@ -21,7 +21,7 @@ myCommands =
     Run $
       Memory
         [ "-t",
-          "<fn=1>\xf538</fn><usedratio>%"
+          "<fn=1>\xf538</fn> <usedratio>%"
         ]
         30,
     Run $
@@ -42,7 +42,7 @@ myCommands =
           "-o",
           "<left>%(<timeleft>)",
           "-O",
-          "<fn=1>\xf0e7</fn><fn=1>\xf240</fn><left>%",
+          "<fn=1>\xf0e7</fn><fn=1>\xf240</fn> <left>%",
           "-i",
           "<fn=1>\xf1e6</fn>",
           "--lowt",
@@ -50,17 +50,17 @@ myCommands =
           "--hight",
           "70",
           "--lows",
-          "<fn=1>\xf243</fn>",
+          "<fn=1>\xf243</fn> ",
           "--mediums",
-          "<fn=1>\xf242</fn>",
+          "<fn=1>\xf242</fn> ",
           "--highs",
-          "<fn=1>\xf240</fn>"
+          "<fn=1>\xf240</fn> "
         ]
         60,
-    Run $ Date "<fn=1>\xf073</fn>%F <fn=1>\xf017</fn>%I:%M" "date" 60,
+    Run $ Date "<fn=1>\xf073</fn> %F  <fn=1>\xf017</fn> %I:%M" "date" 60,
     Run $
       DiskU
-        [("/", "<fn=1>\xf0a0</fn><used>/<size>")]
+        [("/", "<fn=1>\xf0a0</fn> <used>/<size>")]
         [ "-L",
           "70",
           "-H",
@@ -71,14 +71,12 @@ myCommands =
           "red"
         ]
         30,
-    Run $ Com "cat" ["/sys/firmware/acpi/platform_profile"] "profile" 30,
-    Run $ Com "/home/clock/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 30,
     Run $
       Volume
         "default"
         "Master"
         [ "-t",
-          "<status><volume>%",
+          "<status> <volume>%",
           "--suffix",
           "False",
           "--",
@@ -99,7 +97,9 @@ myCommands =
           "--lows",
           "<fn=1>\xf026</fn>"
         ]
-        30
+        30,
+    Run $ Com "cat" ["/sys/firmware/acpi/platform_profile"] "profile" 30,
+    Run $ Com "/home/clock/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 30
   ]
 
 baseConfig :: Config
@@ -129,9 +129,9 @@ myConfig = do
     config
       { template =
           concat $
-            ["%StdinReader% }{ | %cpu% %memory% %battery%"]
+            ["%StdinReader% }{ %cpu%  %memory%  %battery%"]
               <> ["-%profile%" | canGetPowerProfile]
-              <> [" <action=`pavucontrol` button=1>%default:Master%</action> %disku% %date%"]
+              <> ["  <action=`pavucontrol` button=1>%default:Master%</action>  %disku%  %date%"]
               <> [" %trayerpad%" | isPrimaryScreen p]
       }
 
