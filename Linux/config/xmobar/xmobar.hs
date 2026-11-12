@@ -78,7 +78,7 @@ myCommands =
         "default"
         "Master"
         [ "-t",
-          "<status> <volume>%",
+          "<status><volume>%",
           "--suffix",
           "False",
           "--",
