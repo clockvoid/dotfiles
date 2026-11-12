@@ -1,0 +1,8 @@
+cradle:
+  stack:
+    - path: "xmobar-git/src"
+      component: "xmobar:lib"
+
+    - path: "xmobar.hs"
+      component: "xmobar:lib"
+
