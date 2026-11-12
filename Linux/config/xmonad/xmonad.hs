@@ -136,8 +136,7 @@ startup = do
   spawn (configPath ++ "set_wallpaper.sh")
 
 launchXmobarOn :: (MonadIO m) => Int -> m Handle
-launchXmobarOn monitor =
-  spawnPipe $ "~/.local/bin/xmobar -x " ++ show monitor
+launchXmobarOn monitor = spawnPipe $ "~/.local/bin/xmobar -x " ++ show monitor
 
 xmobarHook :: (Foldable t) => t Handle -> X ()
 xmobarHook statusBars = do
@@ -146,9 +145,9 @@ xmobarHook statusBars = do
         dynamicLogWithPP
           xmobarPP
             { ppOutput = hPutStrLn xmproc,
-              ppTitle = \_ -> " ",
+              ppTitle = \_ -> "",
               ppLayout = wrap "<" ">",
-              ppSep = "  "
+              ppSep = " "
             }
     )
     statusBars
