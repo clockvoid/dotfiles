@@ -82,6 +82,8 @@ myCommands =
           "--suffix",
           "False",
           "--",
+          "--onc",
+          "gray",
           "--on",
           "",
           "--off",
