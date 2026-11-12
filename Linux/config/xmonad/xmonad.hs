@@ -140,9 +140,7 @@ launchXmobarOn monitor =
   spawnPipe $
     "~/.local/bin/xmobar -x "
       ++ show monitor
-      ++ " "
-      ++ configPath
-      ++ if monitor == 0 then "xmobar.config" else "xmobar_notrayer.config"
+      ++ if monitor == 0 then "" else configPath ++ " xmobar_notrayer.config"
 
 xmobarHook :: (Foldable t) => t Handle -> X ()
 xmobarHook statusBars = do
