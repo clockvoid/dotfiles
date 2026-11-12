@@ -7,3 +7,6 @@
 [submodule "Linux/config/xmonad/xmonad-git"]
 	path = Linux/config/xmonad/xmonad-git
 	url = https://github.com/xmonad/xmonad.git
+[submodule "Linux/config/xmobar/xmobar-git"]
+	path = Linux/config/xmobar/xmobar-git
+	url = https://codeberg.org/xmobar/xmobar.git

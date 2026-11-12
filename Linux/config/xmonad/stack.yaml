@@ -1,13 +1,7 @@
 resolver: lts-24.45
 packages:
-- xmobar-git
 - xmonad-git
 - xmonad-contrib-git
-
-flags:
-  xmobar:
-    with_xpm: true
-    with_alsa: true
 
 extra-deps:
 
