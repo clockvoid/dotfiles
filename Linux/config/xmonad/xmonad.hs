@@ -137,10 +137,7 @@ startup = do
 
 launchXmobarOn :: (MonadIO m) => Int -> m Handle
 launchXmobarOn monitor =
-  spawnPipe $
-    "~/.local/bin/xmobar -x "
-      ++ show monitor
-      ++ if monitor == 0 then "" else configPath ++ " xmobar_notrayer.config"
+  spawnPipe $ "~/.local/bin/xmobar -x " ++ show monitor
 
 xmobarHook :: (Foldable t) => t Handle -> X ()
 xmobarHook statusBars = do

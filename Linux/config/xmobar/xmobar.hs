@@ -7,7 +7,7 @@ myCommands =
     Run $
       Cpu
         [ "-t",
-          "<fn=1>\xf2db</fn> <total>%",
+          "<fn=1>\xf2db</fn><total>%",
           "-L",
           "20",
           "-H",
@@ -21,7 +21,7 @@ myCommands =
     Run $
       Memory
         [ "-t",
-          "<fn=1>\xf538</fn> <usedratio>%"
+          "<fn=1>\xf538</fn><usedratio>%"
         ]
         30,
     Run $
@@ -40,9 +40,9 @@ myCommands =
           "red",
           "--",
           "-o",
-          "<left>% (<timeleft>)",
+          "<left>%(<timeleft>)",
           "-O",
-          "<fn=1>\xf0e7</fn> <fn=1>\xf240</fn> <left>%",
+          "<fn=1>\xf0e7</fn><fn=1>\xf240</fn><left>%",
           "-i",
           "<fn=1>\xf1e6</fn>",
           "--lowt",
@@ -50,17 +50,17 @@ myCommands =
           "--hight",
           "70",
           "--lows",
-          "<fn=1>\xf243</fn> ",
+          "<fn=1>\xf243</fn>",
           "--mediums",
-          "<fn=1>\xf242</fn> ",
+          "<fn=1>\xf242</fn>",
           "--highs",
-          "<fn=1>\xf240</fn> "
+          "<fn=1>\xf240</fn>"
         ]
         60,
-    Run $ Date "<fn=1>\xf073</fn> %a %b %_d %l:%M" "date" 60,
+    Run $ Date "<fn=1>\xf073</fn>%F <fn=1>\xf017</fn>%I:%M" "date" 60,
     Run $
       DiskU
-        [("/", "<fn=1>\xf0a0</fn> <used>/<size>")]
+        [("/", "<fn=1>\xf0a0</fn><used>/<size>")]
         [ "-L",
           "70",
           "-H",
@@ -100,27 +100,38 @@ myCommands =
         30
   ]
 
+baseConfig :: Config
+baseConfig =
+  defaultConfig
+    { font = "Terminus bold 10",
+      additionalFonts = ["Font Awesome 7 Free solid 10"],
+      bgColor = "black",
+      fgColor = "grey",
+      position = TopH 22,
+      allDesktops = True,
+      persistent = False,
+      commands = myCommands
+    }
+
+isPrimaryScreen :: XPosition -> Bool
+isPrimaryScreen xPosition = case xPosition of
+  OnScreen screen _ -> screen == 0
+  _ -> False
+
 myConfig :: IO Config
 myConfig = do
+  config <- configFromArgs baseConfig
+  let p = position config
   canGetPowerProfile <- doesPathExist "/sys/firmware/acpi/platform_profile"
   return
-    defaultConfig
-      { font = "Terminus bold 10",
-        additionalFonts = ["Font Awesome 7 Free solid 10"],
-        bgColor = "black",
-        fgColor = "grey",
-        position = TopH 22,
-        allDesktops = True,
-        persistent = False,
-        commands = myCommands,
-        sepChar = "%",
-        alignSep = "}{",
-        template =
+    config
+      { template =
           concat $
             ["%StdinReader% }{ | %cpu% %memory% %battery%"]
-              <> [" %profile%" | canGetPowerProfile]
-              <> [" <action=`pavucontrol` button=1>%default:Master%</action> %disku% %date% | %trayerpad%"]
+              <> ["-%profile%" | canGetPowerProfile]
+              <> [" <action=`pavucontrol` button=1>%default:Master%</action> %disku% %date%"]
+              <> [" %trayerpad%" | isPrimaryScreen p]
       }
 
 main :: IO ()
-main = xmobar =<< configFromArgs =<< myConfig
+main = xmobar =<< myConfig
