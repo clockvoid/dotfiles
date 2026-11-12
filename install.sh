@@ -173,6 +173,7 @@ xmonad ()
 {
   if [ $environment == "Linux" ]; then
     ln -sf $(pwd)/Linux/config/xmonad $home_dir/.config
+    ln -sf $(pwd)/Linux/config/xmobar $home_dir/.config
     ln -sf $(pwd)/Linux/xinitrc $home_dir/.xinitrc
     ln -sf $(pwd)/Linux/xprofile $home_dir/.xprofile
 
@@ -194,6 +195,10 @@ xmonad ()
           current_dir="$(pwd)"
 
           cd $(pwd)/Linux/config/xmonad
+          stack install
+          cd $current_dir
+
+          cd $(pwd)/Linux/config/xmobar
           stack install
           cd $current_dir
 
