@@ -110,6 +110,7 @@ neovim
 network-manager-applet
 networkmanager
 networkmanager-openconnect
+networkmanager-openvpn
 ninja
 notion-app-electron
 noto-fonts
@@ -121,6 +122,7 @@ obsidian-icon-theme
 openmp
 openssh
 openssl-1.1
+otf-font-awesome
 pacman-contrib
 pass
 pass-otp
@@ -131,6 +133,8 @@ php
 picom
 pkgconf
 poppler-data
+proton-drive-cli-bin
+proton-pass-cli-bin
 protonmail-bridge
 pulseaudio
 pulseaudio-alsa
@@ -155,6 +159,7 @@ sof-firmware
 sqlectron-gui
 sudo
 swift-bin
+tailscale
 terminus-font
 texlive-basic
 texlive-bibtexextra
@@ -179,8 +184,10 @@ unzip
 usbutils
 vim
 vlc
+vlc-plugin-ffmpeg
 volumeicon
 vulkan-intel
+web-ext
 webapp-manager
 which
 wine
