@@ -129,7 +129,7 @@ myConfig = do
     config
       { template =
           concat $
-            ["%StdinReader% }{ %cpu%  %memory%  %battery%"]
+            ["<action=`shutdown_menu`><fn=1>\xe867</fn></action> %StdinReader% }{ %cpu%  %memory%  %battery%"]
               <> ["-%profile%" | canGetPowerProfile]
               <> ["  <action=`pavucontrol` button=1>%default:Master%</action>  %disku%  %date%"]
               <> [" %trayerpad%" | isPrimaryScreen p]

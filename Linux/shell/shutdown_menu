@@ -1,0 +1,12 @@
+#!/bin/sh
+
+choice=$(printf "lock\nsuspend\nshutdown\nreboot\ncancel" | dmenu -p "Power")
+
+case "$choice" in
+  lock)     XSECURELOCK_SAVER=saver_blank XSECURELOCK_PASSWORD_PROMPT=asterisks XSECURELOCK_PAM_SERVICE=lightdm xsecurelock ;;
+  suspend)  systemctl suspend ;;
+  shutdown) systemctl poweroff ;;
+  reboot)   systemctl reboot ;;
+  *)        exit 0 ;;
+esac
+
