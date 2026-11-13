@@ -16,6 +16,7 @@ import XMonad.Layout.ThreeColumns (ThreeCol (ThreeColMid))
 import XMonad.Layout.ToggleLayouts
 import XMonad.Prompt
 import XMonad.Util.EZConfig
+import XMonad.Util.Loggers (Logger, logTitleOnScreen, logWhenActive)
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.SpawnOnce (spawnOnce)
 import XMonad.Util.Types ()
@@ -138,26 +139,39 @@ startup = do
 launchXmobarOn :: (MonadIO m) => Int -> m Handle
 launchXmobarOn monitor = spawnPipe $ "~/.local/bin/xmobar -x " ++ show monitor
 
-xmobarHook :: (Foldable t) => t Handle -> X ()
-xmobarHook statusBars = do
-  mapM_
-    ( \xmproc ->
-        dynamicLogWithPP
-          xmobarPP
-            { ppOutput = hPutStrLn xmproc,
-              ppTitle = \_ -> "",
-              ppLayout = wrap "<" ">",
-              ppSep = " "
-            }
-    )
-    statusBars
-    <+> updatePointer (0.5, 0.5) (0, 0)
+screenTitleL :: ScreenId -> Logger
+screenTitleL sid = logWhenActive sid $ do
+  mtitle <- logTitleOnScreen sid
+  pure $ case fmap (xmobarColor "#ffff00" "") mtitle of
+    Just t | not (null t) -> Just t
+    _ -> Nothing
+
+xmobarHook :: (Foldable t) => t (Int, Handle) -> X ()
+xmobarHook statusBars =
+  do
+    updatePointer (0.5, 0.5) (0, 0)
+    <+> mapM_
+      ( \(i, xmproc) ->
+          dynamicLogWithPP
+            xmobarPP
+              { ppOutput = hPutStrLn xmproc,
+                ppTitle = const "",
+                ppLayout = wrap "<" ">",
+                ppSep = " ",
+                ppExtras = [screenTitleL $ S $ fromIntegral i],
+                ppOrder = \o -> case o of
+                  (ws : l : _ : extras) -> [ws, l, unwords extras]
+                  _ -> o
+              }
+      )
+      statusBars
 
 main :: IO ()
 main = do
   let baseConfig = desktopConfig
   nScreens <- countScreens
   statusBars <- mapM launchXmobarOn [0 .. nScreens - 1]
+  let statusBarsWithIndex = zip [0 :: Int ..] statusBars
   xmonad . docks . ewmhFullscreen . ewmh $
     def
       { terminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\"",
@@ -171,7 +185,7 @@ main = do
             <+> manageWindowSize
             <+> manageHook baseConfig,
         layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (3 / 100) (1 / 2) ||| Full,
-        logHook = xmobarHook statusBars,
+        logHook = xmobarHook statusBarsWithIndex,
         startupHook = startup
       }
       `additionalKeysP` keyMaps
