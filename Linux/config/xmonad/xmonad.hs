@@ -1,5 +1,4 @@
 import Data.Map.Internal (fromList, union)
-import System.IO
 import XMonad
 import XMonad.Actions.Search
 import XMonad.Actions.UpdatePointer
@@ -9,6 +8,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.StatusBar (StatusBarConfig, statusBarPropTo, withSB)
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.Maximize ()
 import XMonad.Layout.NoBorders
@@ -17,7 +17,6 @@ import XMonad.Layout.ToggleLayouts
 import XMonad.Prompt
 import XMonad.Util.EZConfig
 import XMonad.Util.Loggers (Logger, logTitleOnScreen, logWhenActive)
-import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.SpawnOnce (spawnOnce)
 import XMonad.Util.Types ()
 
@@ -136,9 +135,6 @@ startup = do
   spawn "pkill -x -USR1 picom"
   spawn (configPath ++ "set_wallpaper.sh")
 
-launchXmobarOn :: (MonadIO m) => Int -> m Handle
-launchXmobarOn monitor = spawnPipe $ "~/.local/bin/xmobar -x " ++ show monitor
-
 screenTitleL :: ScreenId -> Logger
 screenTitleL sid = logWhenActive sid $ do
   mtitle <- logTitleOnScreen sid
@@ -146,33 +142,25 @@ screenTitleL sid = logWhenActive sid $ do
     Just t | not (null t) -> Just t
     _ -> Nothing
 
-xmobarHook :: (Foldable t) => t (Int, Handle) -> X ()
-xmobarHook statusBars =
-  do
-    updatePointer (0.5, 0.5) (0, 0)
-    <+> mapM_
-      ( \(i, xmproc) ->
-          dynamicLogWithPP
-            xmobarPP
-              { ppOutput = hPutStrLn xmproc,
-                ppTitle = const "",
-                ppLayout = wrap "<" ">",
-                ppSep = " ",
-                ppExtras = [screenTitleL $ S $ fromIntegral i],
-                ppOrder = \o -> case o of
-                  (ws : l : _ : extras) -> [ws, l, unwords extras]
-                  _ -> o
-              }
-      )
-      statusBars
+ppXmobar :: Int -> PP
+ppXmobar screenIndex =
+  xmobarPP
+    { ppTitle = const "",
+      ppLayout = wrap "<" ">",
+      ppSep = " ",
+      ppExtras = [screenTitleL $ S $ fromIntegral screenIndex],
+      ppOrder = \o -> case o of
+        (ws : l : _ : extras) -> [ws, l, unwords extras]
+        _ -> o
+    }
+
+xmobarBar :: Int -> StatusBarConfig
+xmobarBar screenIndex = statusBarPropTo ("_XMONAD_LOG_" <> show screenIndex) ("/home/clock/.config/xmobar/xmobar -x " <> show screenIndex) (pure $ ppXmobar screenIndex)
 
 main :: IO ()
 main = do
-  let baseConfig = desktopConfig
   nScreens <- countScreens
-  statusBars <- mapM launchXmobarOn [0 .. nScreens - 1]
-  let statusBarsWithIndex = zip [0 :: Int ..] statusBars
-  xmonad . docks . ewmhFullscreen . ewmh $
+  xmonad . withSB (foldMap xmobarBar [0 .. nScreens - 1]) . docks . ewmhFullscreen . ewmh $
     def
       { terminal = "alacritty -e zsh -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux\"",
         borderWidth = 2,
@@ -185,8 +173,10 @@ main = do
             <+> manageWindowSize
             <+> manageHook baseConfig,
         layoutHook = avoidStruts . toggleLayouts (noBorders Full) . smartBorders $ Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (3 / 100) (1 / 2) ||| Full,
-        logHook = xmobarHook statusBarsWithIndex,
+        logHook = updatePointer (0.5, 0.5) (0, 0),
         startupHook = startup
       }
       `additionalKeysP` keyMaps
       `removeKeysP` []
+  where
+    baseConfig = desktopConfig

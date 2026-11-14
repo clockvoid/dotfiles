@@ -1,9 +1,9 @@
 import System.Directory (doesPathExist)
 import Xmobar
 
-myCommands :: [Runnable]
-myCommands =
-  [ Run StdinReader,
+myCommands :: Int -> [Runnable]
+myCommands screenIdx =
+  [ Run $ XPropertyLog $ "_XMONAD_LOG_" <> show screenIdx,
     Run $
       Cpu
         [ "-t",
@@ -111,14 +111,18 @@ baseConfig =
       fgColor = "grey",
       position = TopH 22,
       allDesktops = True,
-      persistent = False,
-      commands = myCommands
+      persistent = False
     }
 
 isPrimaryScreen :: XPosition -> Bool
 isPrimaryScreen xPosition = case xPosition of
   OnScreen screen _ -> screen == 0
   _ -> False
+
+screenIndex :: XPosition -> Int
+screenIndex xPosition = case xPosition of
+  OnScreen screen _ -> screen
+  _ -> 0
 
 myConfig :: IO Config
 myConfig = do
@@ -127,9 +131,10 @@ myConfig = do
   canGetPowerProfile <- doesPathExist "/sys/firmware/acpi/platform_profile"
   return
     config
-      { template =
+      { commands = myCommands $ screenIndex p,
+        template =
           concat $
-            ["<action=`shutdown_menu`><fn=1>\xe867</fn></action> %StdinReader% }{ %cpu%  %memory%  %battery%"]
+            ["<action=`shutdown_menu`><fn=1>\xe867</fn></action> %_XMONAD_LOG_" <> (show $ screenIndex p) <> "% }{ %cpu%  %memory%  %battery%"]
               <> ["-%profile%" | canGetPowerProfile]
               <> ["  <action=`pavucontrol` button=1>%default:Master%</action>  %disku%  %date%"]
               <> [" %trayerpad%" | isPrimaryScreen p]
