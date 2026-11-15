@@ -23,6 +23,7 @@ local function enable_knap()
       "-V documentclass=ltjsarticle" .. " " ..
       "-V indent=true" .. " " ..
       "-V mainfont='Noto Serif'" .. " " ..
+      "-V sansfont='Noto Sans'" .. " " ..
       "-V mainfontfallback='Noto Color Emoji:mode=harf'" .. " " ..
       "-V geometry:margin=1.5cm",
       listings_setup),
