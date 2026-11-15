@@ -1,0 +1,19 @@
+cabal-version:      >=1.10
+name:               xmobarrc
+version:            0.1.0.0
+synopsis:           A clockvoid configured xmobar
+author:             clockvoid
+maintainer:         clockvoid <hidenari.tajima@clockvoid.com>
+build-type:         Simple
+
+executable xmobar
+  main-is: xmobar.hs
+  hs-source-dirs: .
+  default-language: Haskell2010
+  ghc-options: -O2 -funbox-strict-fields -fno-warn-unused-do-bind -Wall -threaded -rtsopts=all
+  build-depends:
+      base
+    , directory
+    , xmobar
+  cpp-options: -DTHREADED_RUNTIME
+

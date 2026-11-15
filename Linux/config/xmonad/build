@@ -7,7 +7,7 @@ else
 fi
 
 cd ${HOME}/.config/xmobar
-./build
+stack install
 cd ${HOME}/.config/xmonad
 
 exec stack ghc -- \

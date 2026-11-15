@@ -155,7 +155,7 @@ ppXmobar screenIndex =
     }
 
 xmobarBar :: Int -> StatusBarConfig
-xmobarBar screenIndex = statusBarPropTo ("_XMONAD_LOG_" <> show screenIndex) ("/home/clock/.config/xmobar/xmobar -x " <> show screenIndex) (pure $ ppXmobar screenIndex)
+xmobarBar screenIndex = statusBarPropTo ("_XMONAD_LOG_" <> show screenIndex) ("/home/clock/.local/bin/xmobar -x " <> show screenIndex) (pure $ ppXmobar screenIndex)
 
 main :: IO ()
 main = do
