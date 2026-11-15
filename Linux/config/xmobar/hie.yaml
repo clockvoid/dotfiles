@@ -1,8 +1,8 @@
 cradle:
-  stack:
-    - path: "xmobar-git/src"
-      component: "xmobar:lib"
+  cabal:
+    - path: "xmobar-git"
+      component: "lib:xmobar"
 
-    - path: "xmobar.hs"
-      component: "xmobar:lib"
+    - path: "."
+      component: "xmobarrc"
 

@@ -199,7 +199,7 @@ xmonad ()
           cd $current_dir
 
           cd $(pwd)/Linux/config/xmobar
-          stack install
+          cabal install --overwrite-policy=always
           cd $current_dir
 
           if [ ! -d /usr/share/xsessions ]; then

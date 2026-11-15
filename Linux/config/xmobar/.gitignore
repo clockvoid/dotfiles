@@ -1,7 +1,4 @@
 .stack-work/
 stack.yaml.lock
-*.hi
-*.errors
-*.o
-xmobar
+dist-newstyle/
 

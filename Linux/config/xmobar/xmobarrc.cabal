@@ -10,7 +10,7 @@ executable xmobar
   main-is: xmobar.hs
   hs-source-dirs: .
   default-language: Haskell2010
-  ghc-options: -O2 -funbox-strict-fields -fno-warn-unused-do-bind -Wall -threaded -rtsopts=all
+  ghc-options: -funbox-strict-fields -fno-warn-unused-do-bind -Wall -threaded -rtsopts=all
   build-depends:
       base
     , directory
