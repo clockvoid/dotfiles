@@ -1,20 +1,5 @@
 cradle:
   stack:
-    - path: "xmobar-git/src"
-      component: "xmobar:lib"
-
-    - path: "xmobar-git/app/Main.hs"
-      component: "xmobar:exe:xmobar"
-
-    - path: "xmobar-git/src"
-      component: "xmobar:test:XmobarTest"
-
-    - path: "xmobar-git/test"
-      component: "xmobar:test:XmobarTest"
-
-    - path: "xmobar-git/bench/main.hs"
-      component: "xmobar:bench:xmobarbench"
-
     - path: "xmonad-contrib-git/./"
       component: "xmonad-contrib:lib"
 
