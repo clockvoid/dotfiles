@@ -7,7 +7,7 @@ else
 fi
 
 cd ${HOME}/.config/xmobar
-cabal install --overwrite-policy=always
+stack install --fast
 cd ${HOME}/.config/xmonad
 
 exec stack ghc -- \

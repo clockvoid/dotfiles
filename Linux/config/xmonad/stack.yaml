@@ -3,5 +3,3 @@ packages:
 - xmonad-git
 - xmonad-contrib-git
 
-extra-deps:
-

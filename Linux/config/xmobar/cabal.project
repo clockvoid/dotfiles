@@ -1,9 +1,0 @@
-packages:
-    .
-    xmobar-git/
-
-package xmobar
-    flags: +with_xpm +with_alsa
-
-jobs: 4
-
