@@ -59,7 +59,7 @@ myCommands screenIdx =
           "<fn=1>\xf240</fn> "
         ]
         60,
-    Run $ Date "<fn=1>\xf073</fn> %F  <fn=1>\xf017</fn> %I:%M" "date" 60,
+    Run $ Date "<fn=1>\xf073</fn> %F  <fn=1>\xf017</fn> %R" "date" 60,
     Run $
       DiskU
         [("/", "<fn=1>\xf0a0</fn> <used>/<size>")]
