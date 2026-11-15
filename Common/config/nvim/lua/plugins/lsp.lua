@@ -9,8 +9,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       local win_height = vim.fn['getwininfo'](vim.fn['win_getid']())[1].height
       vim.lsp.buf.hover({ max_width = win_width - 12, max_height = win_height - 4, border = 'rounded' })
     end, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', '<C-M-b>', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', '<F6>', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, opts)
