@@ -1,11 +1,5 @@
 #!/bin/sh
 
-if [ $# -ge 1 ]; then
-    OUTPUT="$1"
-else
-    OUTPUT="${HOME}/.config/xmobar/xmobar-x86_64-linux"
-fi
-
 exec stack ghc -- \
   --make xmobar.hs \
   -i \
@@ -13,4 +7,4 @@ exec stack ghc -- \
   -fforce-recomp \
   -main-is main \
   -v0 \
-  -o "$OUTPUT"
+  -o ${HOME}/.config/xmobar/xmobar

@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ $# -ge 1 ]; then
+    OUTPUT="$1"
+else
+    OUTPUT="${HOME}/.config/xmonad/xmonad-x86_64-linux"
+fi
+
+cd ${HOME}/.config/xmobar
+./build
+cd ${HOME}/.config/xmonad
+
+exec stack ghc -- \
+  --make xmonad.hs \
+  -i \
+  -ilib \
+  -fforce-recomp \
+  -main-is main \
+  -v0 \
+  -o "$OUTPUT"
