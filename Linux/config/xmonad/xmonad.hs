@@ -8,7 +8,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
-import XMonad.Hooks.StatusBar (StatusBarConfig, statusBarPropTo, withSB)
+import XMonad.Hooks.StatusBar (StatusBarConfig, statusBarPropTo, withSB, killAllStatusBars)
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.Maximize ()
 import XMonad.Layout.NoBorders
@@ -123,6 +123,7 @@ searchList =
 
 startup :: X ()
 startup = do
+  killAllStatusBars
   setWMName "LG3D"
   spawnOnce $ configPath ++ "set_x_preferences.sh"
   spawnOnce "nm-applet"
@@ -155,7 +156,7 @@ ppXmobar screenIndex =
     }
 
 xmobarBar :: Int -> StatusBarConfig
-xmobarBar screenIndex = statusBarPropTo ("_XMONAD_LOG_" <> show screenIndex) ("/home/clock/.local/bin/xmobar -x " <> show screenIndex) (pure $ ppXmobar screenIndex)
+xmobarBar screenIndex = statusBarPropTo ("_XMONAD_LOG_" <> show screenIndex) ("xmobar -x " <> show screenIndex) (pure $ ppXmobar screenIndex)
 
 main :: IO ()
 main = do
