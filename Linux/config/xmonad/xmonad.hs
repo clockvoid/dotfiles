@@ -47,7 +47,7 @@ configPath = "~/.config/xmonad/"
 
 keyMaps :: [([Char], X ())]
 keyMaps =
-  [ ("M-p", spawn "dmenu_run -fn 'monospace-11'"),
+  [ ("M-p", spawn "dmenu_run -fn 'monospace-11' -p 'run'"),
     ("M-S-p", spawn "passmenu -fn 'monospace-11' -p 'pass'"),
     ("M-S-o", spawn (configPath ++ "passotpmenu -fn 'monospace-11' -p 'pass otp'")),
     ("M-S-i", spawn (configPath ++ "passidmenu -fn 'monospace-11' -p 'pass id'")),
