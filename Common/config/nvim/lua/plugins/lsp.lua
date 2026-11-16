@@ -11,10 +11,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
     vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', '<C-M-b>', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<F6>', vim.lsp.buf.rename, opts)
+    -- With xterm style sequence, S-F6 turned into F18
+    vim.keymap.set('n', '<F18>', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<S-F6>', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<C-M-l>', vim.lsp.buf.format, opts)
-    vim.keymap.set('n', '<F7>', vim.lsp.buf.references, opts)
+    -- With xterm style sequence, M-F7 turned into F55
+    vim.keymap.set('n', '<F55>', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<M-F7>', vim.lsp.buf.references, opts)
   end,
 })
 
