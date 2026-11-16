@@ -8,13 +8,14 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
-import XMonad.Hooks.StatusBar (StatusBarConfig, statusBarPropTo, withSB, killAllStatusBars)
+import XMonad.Hooks.StatusBar (StatusBarConfig, killAllStatusBars, statusBarPropTo, withSB)
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.Maximize ()
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ThreeColumns (ThreeCol (ThreeColMid))
 import XMonad.Layout.ToggleLayouts
 import XMonad.Prompt
+import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Util.Loggers (Logger, logTitleOnScreen, logWhenActive)
 import XMonad.Util.SpawnOnce (spawnOnce)
@@ -47,10 +48,11 @@ configPath = "~/.config/xmonad/"
 
 keyMaps :: [([Char], X ())]
 keyMaps =
-  [ ("M-p", spawn "dmenu_run -fn 'monospace-11' -p 'run'"),
-    ("M-S-p", spawn "passmenu -fn 'monospace-11' -p 'pass'"),
-    ("M-S-o", spawn (configPath ++ "passotpmenu -fn 'monospace-11' -p 'pass otp'")),
-    ("M-S-i", spawn (configPath ++ "passidmenu -fn 'monospace-11' -p 'pass id'")),
+  [ ("M-a", spawn "switch"),
+    ("M-p", spawn "dmenu_run -fn 'monospace-11' -p 'run'"),
+    ("M-S-p", spawn "passmenu -fn 'monospace-11' -i -p 'pass'"),
+    ("M-S-o", spawn (configPath ++ "passotpmenu -fn 'monospace-11' -i -p 'pass otp'")),
+    ("M-S-i", spawn (configPath ++ "passidmenu -fn 'monospace-11' -i -p 'pass id'")),
     ("<Print>", spawn (configPath ++ "screenshot.sh")),
     ("C-<Print>", spawn (configPath ++ "screenshot.sh selectedarea")),
     ("M-<Print>", spawn (configPath ++ "screenshot.sh focusedwindow")),
@@ -143,20 +145,30 @@ screenTitleL sid = logWhenActive sid $ do
     Just t | not (null t) -> Just t
     _ -> Nothing
 
-ppXmobar :: Int -> PP
-ppXmobar screenIndex =
-  xmobarPP
-    { ppTitle = const "",
-      ppLayout = wrap "<" ">",
-      ppSep = " ",
-      ppExtras = [screenTitleL $ S $ fromIntegral screenIndex],
-      ppOrder = \o -> case o of
-        (ws : l : _ : extras) -> [ws, l, unwords extras]
-        _ -> o
-    }
+isCurrentScreen :: ScreenId -> X Bool
+isCurrentScreen screenId = do
+  c <- withWindowSet $ return . W.screen . W.current
+  return $ screenId == c
+
+dynamicXmobarPP :: Int -> X PP
+dynamicXmobarPP screenIndex = do
+  isCurrentS <- isCurrentScreen screenId
+  pure $
+    xmobarPP
+      { ppCurrent = (if isCurrentS then (xmobarColor "yellow" "") else (\s -> s)) . wrap "[" "]",
+        ppTitle = const "",
+        ppLayout = wrap "<" ">",
+        ppSep = " ",
+        ppExtras = [screenTitleL screenId],
+        ppOrder = \o -> case o of
+          (ws : l : _ : extras) -> [ws, l, unwords extras]
+          _ -> o
+      }
+  where
+    screenId = S $ fromIntegral screenIndex
 
 xmobarBar :: Int -> StatusBarConfig
-xmobarBar screenIndex = statusBarPropTo ("_XMONAD_LOG_" <> show screenIndex) ("xmobar -x " <> show screenIndex) (pure $ ppXmobar screenIndex)
+xmobarBar screenIndex = statusBarPropTo ("_XMONAD_LOG_" <> show screenIndex) ("xmobar -x " <> show screenIndex) (dynamicXmobarPP screenIndex)
 
 main :: IO ()
 main = do

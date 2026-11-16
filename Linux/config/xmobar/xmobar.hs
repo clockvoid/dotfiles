@@ -136,7 +136,7 @@ myConfig = do
       { commands = myCommands $ screenIndex p,
         template =
           concat $
-            ["<action=`shutdown_menu`><fn=1>\xe867</fn></action> %_XMONAD_LOG_" <> (show $ screenIndex p) <> "% }{ %cpu%  %memory%  %battery%"]
+            ["<action=`switch`><fn=1>\xe867</fn></action> %_XMONAD_LOG_" <> (show $ screenIndex p) <> "% }{ %cpu%  %memory%  %battery%"]
               <> ["-%profile%" | canGetPowerProfile]
               <> ["  <action=`pavucontrol` button=1>%default:Master%</action>  %disku%  %date%"]
               <> [" %trayerpad%" | isPrimaryScreen p]
