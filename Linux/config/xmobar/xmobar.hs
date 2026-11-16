@@ -88,6 +88,8 @@ myCommands screenIdx =
           "",
           "--off",
           "<fn=1>\xf6a9</fn>",
+          "--offc",
+          "gray",
           "--highv",
           "60",
           "--lowv",
