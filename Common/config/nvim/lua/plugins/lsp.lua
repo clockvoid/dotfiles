@@ -5,9 +5,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'K', function()
-      local win_width = vim.fn['getwininfo'](vim.fn['win_getid']())[1].width
-      local win_height = vim.fn['getwininfo'](vim.fn['win_getid']())[1].height
-      vim.lsp.buf.hover({ max_width = win_width - 12, max_height = win_height - 4, border = 'rounded' })
+      local win_width = vim.api.nvim_win_get_width(0)
+      local win_height = vim.api.nvim_win_get_height(0)
+      vim.lsp.buf.hover({ max_width = win_width, max_height = win_height, border = 'rounded' })
     end, opts)
     vim.keymap.set('n', '<C-M-b>', vim.lsp.buf.implementation, opts)
     -- With xterm style sequence, S-F6 turned into F18
