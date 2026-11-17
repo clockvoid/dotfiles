@@ -10,6 +10,7 @@ return {
       vim.cmd.highlight('CursorLineNr', 'ctermfg=white', 'guifg=#c5c8c6')
       vim.cmd.highlight('CursorLineSign', 'guibg=#282a2e')
       vim.cmd.highlight('MatchParen', 'ctermbg=237', 'ctermfg=255', 'guibg=#3a3a3a', 'guifg=#eeeeee')
+      vim.cmd.highlight('WinSeparator', 'ctermfg=darkgray', 'guifg=NvimDarkGray4')
     end,
   },
   {
