@@ -25,5 +25,7 @@ nnoremap <C-s>( ciw()<Esc>P
 nnoremap <C-s>{ ciw{}<Esc>P
 nnoremap <C-s>[ ciw[]<Esc>P
 
+nnoremap gd "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>"
+
 Plug 'preservim/nerdtree'
 
