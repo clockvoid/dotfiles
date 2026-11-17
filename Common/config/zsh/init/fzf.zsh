@@ -33,12 +33,12 @@ export FZF_DEFAULT_OPTS="
 --bind='ctrl-u:preview-half-page-up'
 --bind='?:toggle-preview'
 --preview='${PREVCMD}'
---preview-window='right,50%,border-left,wrap,<55(bottom,border-top)'
+--preview-window='right,50%,border-left,wrap,<60(bottom,border-top)'
 "
 
 export FZF_CTRL_R_OPTS="
 $FZF_DEFAULT_OPTS
---preview-window=':hidden,<55(bottom,border-top,hidden)'
+--preview-window=':hidden,<60(bottom,border-top,hidden)'
 "
 
 # forgit overrides height, tmux and preview-window from FZF_DEFAULT_OPTS
@@ -46,14 +46,14 @@ $FZF_DEFAULT_OPTS
 export FORGIT_FZF_DEFAULT_OPTS="
 --height=-1
 --tmux='95%,90%'
---preview-window='right,50%,border-left,wrap,<55(bottom,border-top)'
+--preview-window='right,50%,border-left,wrap,<60(bottom,border-top)'
 "
 
 export FORGIT_ATTRIBUTES_FZF_OPTS="
---preview-window='right,50%,border-left,wrap,<55(bottom,border-top)'
+--preview-window='right,50%,border-left,wrap,<60(bottom,border-top)'
 "
 
 export FORGIT_IGNORE_FZF_OPTS="
---preview-window='right,50%,border-left,wrap,<55(bottom,border-top)'
+--preview-window='right,50%,border-left,wrap,<60(bottom,border-top)'
 "
 
