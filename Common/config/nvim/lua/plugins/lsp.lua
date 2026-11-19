@@ -70,10 +70,10 @@ local function hook_cmp_loaded()
       ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
       ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
       ['<Tab>'] = function(fallback)
-        if cmp.get_active_entry() == nil then
-          fallback()
-        else
+        if cmp.visible() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        else
+          fallback()
         end
       end,
       ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
@@ -107,7 +107,35 @@ local function hook_cmp_loaded()
     sources = cmp.config.sources({
       { name = 'git' },
     }, {
+      {
+        name = 'spell',
+        option = {
+          keep_all_entries = true,
+          preselect_correct_word = false,
+        },
+        max_item_count = 5,
+      },
       { name = 'buffer' },
+    })
+  })
+
+  cmp.setup.filetype({ 'markdown', 'tex' }, {
+    sources = cmp.config.sources({
+      { name = 'vsnip' },
+      { name = 'path' },
+    }, {
+      {
+        name = 'spell',
+        option = {
+          keep_all_entries = true,
+          preselect_correct_word = false,
+        },
+        max_item_count = 5,
+      },
+      {
+        name = 'buffer',
+        max_item_count = 5,
+      },
     })
   })
 
@@ -155,6 +183,7 @@ return {
   { 'hrsh7th/cmp-cmdline',  dependencies = { 'hrsh7th/nvim-cmp', } },
   { 'hrsh7th/cmp-vsnip',    dependencies = { 'hrsh7th/vim-vsnip', 'hrsh7th/nvim-cmp', } },
   { 'petertriho/cmp-git',   dependencies = { 'hrsh7th/nvim-cmp', } },
+  { 'f3fora/cmp-spell',     dependencies = { 'hrsh7th/nvim-cmp', } },
   { 'hrsh7th/nvim-cmp',     config = hook_cmp_loaded, },
   {
     'hrsh7th/vim-vsnip',
