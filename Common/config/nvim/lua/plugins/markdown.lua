@@ -16,7 +16,7 @@ local function enable_knap()
     mdoutputext = "pdf",
     mdtopdf = string.format(
       "pandoc" .. " " ..
-      "-f markdown-smart+hard_line_breaks" .. " " ..
+      "-f gfm" .. " " ..
       "--listings" .. " " ..
       "-H %s -o %%outputfile%%" .. " " ..
       "--pdf-engine=lualatex" .. " " ..
