@@ -34,6 +34,7 @@ manageWindowSize =
   composeAll
     [ isFullscreen --> doFullFloat,
       isDialog --> doCenterFloat,
+      className =? "Gcr-prompter" --> doCenterFloat,
       className =? "Evolution-alarm-notify" --> doCenterFloat,
       title =? "Picture in picture" --> doFloat,
       title =? "Picture-in-Picture" --> doFloat,
