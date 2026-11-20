@@ -148,7 +148,10 @@ local function hook_cmp_loaded()
       { name = 'path' },
     }, {
       { name = 'cmdline' },
-    })
+    }),
+    completion = {
+      completeopt = "menu,menuone,noselect",
+    },
   })
 end
 
