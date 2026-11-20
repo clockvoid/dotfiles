@@ -134,7 +134,7 @@ startup = do
   spawnOnce "start-pulseaudio-x11"
   spawnOnce "fcitx5"
   spawnOnce "lxqt-policykit-agent"
-  spawnOnce "osd"
+  spawnOnce "volume_osd"
   spawnOnce $ configPath ++ "launch_trayer.sh"
   spawn "pkill -x -USR1 picom"
   spawn (configPath ++ "set_wallpaper.sh")
