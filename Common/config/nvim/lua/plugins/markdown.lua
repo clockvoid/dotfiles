@@ -29,6 +29,7 @@ local function enable_knap()
       "--pdf-engine=lualatex" .. " " ..
       "-V documentclass=ltjsarticle" .. " " ..
       "-V indent=true" .. " " ..
+      "-V fontsize=12pt" .. " " ..
       "-V mainfont='Noto Serif'" .. " " ..
       "-V sansfont='Noto Sans'" .. " " ..
       "-V mainfontfallback='Noto Color Emoji:mode=harf'" .. " " ..
