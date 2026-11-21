@@ -110,11 +110,11 @@ androidDeveloper = searchEngine "android" "https://developer.android.com/s/resul
 kotlinDocs :: SearchEngine
 kotlinDocs = searchEngine "kotlin" "https://kotlinlang.org/docs/home.html?s=full&q="
 
-cambridgeEnglish :: SearchEngine
-cambridgeEnglish = searchEngine "english" "https://dictionary.cambridge.org/us/dictionary/english/"
+javaDocs :: SearchEngine
+javaDocs = searchEngine "java" "https://docs.oracle.com/search/?lang=en&category=java&product=en%2Fjava%2Fjavase%2F17&q="
 
-cambridgeEnglishJapanese :: SearchEngine
-cambridgeEnglishJapanese = searchEngine "english-japanese" "https://dictionary.cambridge.org/us/dictionary/english-japanese/"
+cambridgeEnglish :: SearchEngine
+cambridgeEnglish = searchEngine "english" "https://dictionary.cambridge.org/us/dictionary/english-japanese/"
 
 searchList :: [(String, SearchEngine)]
 searchList =
@@ -122,10 +122,10 @@ searchList =
     ("w", wikipedia),
     ("p", arXiv),
     ("a", androidDeveloper),
-    ("k", kotlinDocs),
     ("r", appleDeveloper),
-    ("e", cambridgeEnglish),
-    ("j", cambridgeEnglishJapanese)
+    ("k", kotlinDocs),
+    ("j", javaDocs),
+    ("e", cambridgeEnglish)
   ]
 
 startup :: X ()
