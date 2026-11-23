@@ -19,6 +19,7 @@ automake
 baobab
 base
 bat
+bear
 biber
 bison
 blueman
@@ -134,7 +135,7 @@ picom
 pkgconf
 poppler-data
 proton-drive-cli-bin
-proton-pass-cli-bin
+proton-pass-bin
 protonmail-bridge
 pulseaudio
 pulseaudio-alsa
