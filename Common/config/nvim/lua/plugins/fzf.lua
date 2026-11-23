@@ -27,6 +27,9 @@ local function hook_post_source()
   }
 
   vim.g.fzf_history_dir = '~/.local/share/fzf-history'
+
+  vim.g.fzf_preview_window = { 'right,50%,border-left,wrap,<70(bottom,50%,border-top)' }
+  vim.g.fzf_tags_options = "--preview=''"
 end
 
 return {
