@@ -98,7 +98,8 @@ searchConfig =
           `union` emacsLikeXPKeymap,
       historySize = 0,
       maxComplRows = Just 0,
-      height = 26
+      height = 22,
+      position = Top
     }
 
 appleDeveloper :: SearchEngine
