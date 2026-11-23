@@ -41,7 +41,7 @@ manageWindowSize =
       (className =? "jetbrains-studio" <&&> title =? "Device Manager") --> doFloat,
       (className =? "jetbrains-studio" <&&> title =? "Welcome to Android Studio") --> doFloat,
       (className =? "jetbrains-idea-ce" <&&> title =? "Welcome to IntelliJ IDEA") --> doFloat,
-      (className =? "jatbrains-studio" <||> className =? "jetbrains-idea-ce") <&&> title =? "splash" --> doFloat
+      (className =? "jatbrains-studio" <||> className =? "jetbrains-idea-ce" <||> className =? "jetbrains-idea") <&&> title =? "splash" --> doFloat
     ]
 
 configPath :: [Char]
