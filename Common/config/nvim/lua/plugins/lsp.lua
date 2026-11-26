@@ -139,7 +139,10 @@ local function hook_cmp_loaded()
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
       { name = 'buffer' }
-    }
+    },
+    completion = {
+      completeopt = "menu,menuone,noselect",
+    },
   })
 
   cmp.setup.cmdline(':', {
