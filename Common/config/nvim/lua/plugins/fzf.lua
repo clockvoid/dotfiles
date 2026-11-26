@@ -29,6 +29,7 @@ local function hook_post_source()
   vim.g.fzf_history_dir = '~/.local/share/fzf-history'
 
   vim.env.BAT_THEME = 'ansi'
+  -- See also: Common/config/zsh/init/fzf.zsh
   vim.g.fzf_options = {
     "--ansi",
     "--reverse",

@@ -19,6 +19,7 @@ fi
 "
 export BAT_THEME="ansi"
 
+# See also: Common/config/nvim/lua/plugins/fzf.lua
 export FZF_DEFAULT_OPTS="
 --ansi
 --reverse
