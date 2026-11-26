@@ -28,6 +28,22 @@ local function hook_post_source()
 
   vim.g.fzf_history_dir = '~/.local/share/fzf-history'
 
+  vim.env.BAT_THEME = 'ansi'
+  vim.g.fzf_options = {
+    "--ansi",
+    "--reverse",
+    "--border",
+    "--height", "-1",
+    "--wrap",
+    "--tmux", "95%,90%",
+    "--bind", "ctrl-e:preview-down",
+    "--bind", "ctrl-y:preview-up",
+    "--bind", "ctrl-b:preview-page-up",
+    "--bind", "ctrl-f:preview-page-down",
+    "--bind", "ctrl-d:preview-half-page-down",
+    "--bind", "ctrl-u:preview-half-page-up",
+    "--bind", "?:toggle-preview",
+  }
   vim.g.fzf_preview_window = { 'right,50%,border-left,wrap,<70(bottom,50%,border-top)' }
   vim.g.fzf_tags_options = "--preview=''"
 end
