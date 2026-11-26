@@ -14,8 +14,23 @@ windows=$(echo "$windows" | \
                     for(i=0; i < max - cur + 1; i++) printf " "; \
                     $1 = ""; printf "%s\n", $0}')
 
-target=$(echo "$windows" | dmenu -fn 'monospace-11' -l 10 -i | tr -s '[:blank:]' | cut -d ' ' -f 2-)
+commands=$'[sleep]\n[shutdown]\n[reboot]\n'
+
+target=$(echo "$commands$windows" | dmenu -p '' -fn 'monospace-11' -l 10 -i | tr -s '[:blank:]' | cut -d ' ' -f 2-)
 
 if [[ -n $target ]]; then
-    wmctrl -a "$target"
+  case $target in
+    "[sleep]")
+      systemctl suspend
+      ;;
+    "[shutdown]")
+      systemctl shutdown
+      ;;
+    "[reboot]")
+      systemctl reboot
+      ;;
+    *)
+      wmctrl -a "$target"
+      ;;
+  esac
 fi
