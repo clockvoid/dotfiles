@@ -26,7 +26,7 @@ local function enable_knap()
       "+east_asian_line_breaks" ..
       "+autolink_bare_uris" ..
       "+multiline_tables" .. " " ..
-      "--listings" .. " " ..
+      "--syntax-highlighting=idiomatic" .. " " ..
       "-H %s -o %%outputfile%%" .. " " ..
       "--pdf-engine=lualatex" .. " " ..
       "-V documentclass=ltjsarticle" .. " " ..
