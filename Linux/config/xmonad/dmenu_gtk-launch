@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+
+desktop_files=$(ls /usr/share/applications)
+
+target=$(echo "$desktop_files" | dmenu -fn 'monospace-11' -l 10 -i | tr -s '[:blank:]' | cut -d ' ' -f 2-)
+
+if [[ -n $target ]]; then
+  gtk-launch $target
+fi
+
